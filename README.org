@@ -7,3 +7,14 @@ Basically you have to:
  + check for runtime configurations (usually marked as TODO)
  + run it
  + Pray
+
+#+begin_src bash
+!#/bin/bash
+sudo apt-get install curl git
+curl -L https://nixos.org/nix/install | sh
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --update
+nix-shell '<home-manager>' -A install
+git clone https://github.com/benkio/nix-config.git ~/.config/nixpkgs/
+home-manager switch
+#+end_src
