@@ -19,16 +19,9 @@ in
   home.homeDirectory = "/home/nix";
   home.stateVersion = "21.03";    
 
-# TTY settings
-  i18n = {
-    # luckily this also changes the keyboard layout at boot (for e.g full disk encryption passwords)
-    consoleKeyMap = "dvorak-programmer";
-  };
-
   # GUI settings, this includes login screen
-  services.xserver.layout = "us";
-  services.xserver.xkbVariant = "dvp";
-  services.xserver.xkbOptions = "eurosign:e";
+  home.keyboard.layout = "us";
+  home.keyboard.variant = "dvp";
 
   home.sessionVariables = {
     LANG = "en_US.UTF-8";
@@ -88,6 +81,7 @@ in
     vlc
     wget
     youtube-dl
+    xorg.xinit
     ];
 
   programs.emacs.enable = true;
@@ -116,7 +110,7 @@ in
     enable = true;
     windowManager.i3.enable = true;
   };
-  home.file."xinitrc".text = ''
+  home.file.".xinitrc".text = ''
     if [ -d /etc/X11/xinit/xinitrc.d ]; then
       for f in /etc/X11/xinit/xinitrc.d/*; do
         [ -x "$f" ] && . "$f"
@@ -125,6 +119,11 @@ in
     fi
 
     exec i3
+  '';
+
+  home.file.".profile".text = ''
+  
+  
   '';
 
   # TODO: i3 & xserver
