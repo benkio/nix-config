@@ -19,7 +19,16 @@ in
   home.homeDirectory = "/home/nix";
   home.stateVersion = "21.03";    
 
-  
+# TTY settings
+  i18n = {
+    # luckily this also changes the keyboard layout at boot (for e.g full disk encryption passwords)
+    consoleKeyMap = "dvorak-programmer";
+  };
+
+  # GUI settings, this includes login screen
+  services.xserver.layout = "us";
+  services.xserver.xkbVariant = "dvp";
+  services.xserver.xkbOptions = "eurosign:e";
 
   home.sessionVariables = {
     LANG = "en_US.UTF-8";
