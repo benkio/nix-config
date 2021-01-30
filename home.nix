@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 
+let
+   packages = import <nixpkgs> {};
+   emacsConfig = packages.fetchgit {
+      url = "git://github.com/benkio/emacs-config.git";
+      rev = "053ad1ded292bfa049c231d680c1c9530571aa37";
+      sha256 = "0643pw2c0wsf45f8diw0yyfqz1vbdbixzjhkgqi4l3bak00zbvjy";
+      leaveDotGit = true;
+    };
+in 
 {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -21,7 +30,7 @@
 
   home.sessionVariables = {
     LANG = "en_US.UTF-8";
-    #EDITOR = "emacs";
+    EDITOR = "emacs";
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -59,6 +68,11 @@ youtube-dl
     enable = true;
   };
 
+  home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "emacs" ] ''
+    mkdir -p $HOME/.emacs.d
+    cp -r ${emacsConfig}/. $HOME/.emacs.d
+    chmod -R 777 $HOME/.emacs.d
+  '';
   programs.git = {
     enable = true;
     userName = "Enrico Benini";
