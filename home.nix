@@ -122,8 +122,9 @@ in
   '';
 
   home.file.".profile".text = ''
-  
-  
+  if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+    exec startx
+  fi
   '';
 
   # TODO: i3 & xserver
