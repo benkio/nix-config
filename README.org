@@ -1,0 +1,7 @@
+* Nix Configuration
+
+Basically you have to:
+ + Install Nix
+ + Clone this repo to: ~/.config/nixpkgs/
+ + Install Home-Manager & run it
+ + Pray
