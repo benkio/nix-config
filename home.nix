@@ -10,6 +10,7 @@ let
       sha256 = "0643pw2c0wsf45f8diw0yyfqz1vbdbixzjhkgqi4l3bak00zbvjy";
       leaveDotGit = true;
     };
+    
 in 
 {
   programs.home-manager.enable = true;
@@ -35,14 +36,17 @@ in
     chromium
     curl
     dejavu_fonts
+    discord
     docker
     ffmpeg
     filezilla
     firefox
     gimp
-    gnupg
+    ghc
+    ghcid
+    # haskellPackages.hindent marked as broken
     hexchat
-    htop
+    hlint
     imagemagick
     jack2
     lilypond
@@ -56,10 +60,13 @@ in
     obs-studio
     jdk8
     postgresql
-    pulseaudio #TODO: find out how to do .override { jackaudioSupport = true; }
+    pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
     qjackctl
     sbt
     scala
+    slack
+    stack
+    ghcid
     symbola
     tdesktop #telegra-desktop
     tldr
@@ -72,14 +79,14 @@ in
     youtube-dl
     ];
 
-  programs.emacs = {
-    enable = true;
-  };
+  programs.emacs.enable = true;
+  programs.htop.enable = true;
 
-  home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "emacs" ] ''
+  home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p $HOME/.emacs.d
-    cp -r ${emacsConfig}/. $HOME/.emacs.d
+    cp -r -n ${emacsConfig}/. $HOME/.emacs.d
     chmod -R 777 $HOME/.emacs.d
+    mkdir -p $HOME/workspace
   '';
   programs.git = {
     enable = true;
@@ -87,10 +94,23 @@ in
     userEmail = "benkio89@gmail.com";
   };
 
-  # TODO: Haskell. No haskell platform??
-  # TODO: Create workspace folder with all the projects
-  # TODO: fstab
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    enableSshSupport = true;
+  };
+
+  gtk.enable = true;
+  xsession = {
+    enable = true;
+    windowManager.i3.enable = true;
+  };
+  home.file.".xinitrc".source = ''
+  
+  '';
+
   # TODO: i3 & xserver
+  # TODO: fstab
   # TODO: emacs deamon ??
   # TODO: split/organize into separate files
   
