@@ -3,5 +3,7 @@
 Basically you have to:
  + Install Nix
  + Clone this repo to: ~/.config/nixpkgs/
- + Install Home-Manager & run it
+ + Install Home-Manager 
+ + check for runtime configurations (usually marked as TODO)
+ + run it
  + Pray
