@@ -92,6 +92,7 @@ in
 
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
     mkdir -p $HOME/.emacs.d
+    mkdir -p $HOME/.local/share/applications
     cp -r -n ${emacsConfig}/. $HOME/.emacs.d
     chmod -R 777 $HOME/.emacs.d
     mkdir -p $HOME/workspace
