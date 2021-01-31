@@ -52,6 +52,7 @@ in
     filezilla
     firefox
     gimp
+    gcc
     ghc
     ghcid
     # haskellPackages.hindent marked as broken
