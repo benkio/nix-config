@@ -19,7 +19,6 @@ in
   home.homeDirectory = "/home/nix";
   home.stateVersion = "21.03";    
 
-  # GUI settings, this includes login screen
   home.keyboard.layout = "us";
   home.keyboard.variant = "dvp";
 
@@ -56,9 +55,6 @@ in
     ghc
     ghcid
     # haskellPackages.hindent marked as broken
-    haskellPackages.xmonad-contrib
-    haskellPackages.xmonad-extras
-    haskellPackages.xmonad    
     hexchat
     hlint
     imagemagick
@@ -99,13 +95,18 @@ in
     cp -r -n ${emacsConfig}/. $HOME/.emacs.d
     chmod -R 777 $HOME/.emacs.d
     mkdir -p $HOME/workspace
+    systemctl --user start dropbox.service udiskie.service
   '';
   programs.git = {
     enable = true;
     userName = "Enrico Benini";
     userEmail = "benkio89@gmail.com";
   };
- 
+
+  home.file.".bashrc".text = ''
+    source /home/nix/.nix-profile/etc/profile.d/nix.sh
+  '';
+
   programs.obs-studio.enable = true;
   programs.texlive.enable = true;
   programs.zathura.enable = true;
@@ -117,27 +118,10 @@ in
     enableSshSupport = true;
   };
 
-  gtk.enable = true;
-  xsession = {
-    enable = true;
-    windowManager.xmonad = {
-      enable = true;
-      enableContribAndExtras = true;
-      config = pkgs.writeText "xmonad.hs" ''
-        import XMonad
-        main = xmonad defaultConfig
-      '';
-
-    };
-  };
-
   home.file.".ghci".text = ''
     :set prompt "λ> "
   '';
 
-  # TODO: xserver & tilling
-  # TODO: fstab
-  # TODO: emacs deamon ??
   # TODO: split/organize into separate files
   
 }
