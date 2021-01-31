@@ -131,6 +131,10 @@ in
     #TODO: xsession.windowManager.command - Window manager start command. 
   };
 
+  home.file.".ghci".text = ''
+    :set prompt "\> "
+  '';
+
   # TODO: xserver & tilling
   # TODO: fstab
   # TODO: emacs deamon ??
