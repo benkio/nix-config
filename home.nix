@@ -29,6 +29,14 @@ in
   };
 
   nixpkgs.config.allowUnfree = true;
+  fonts.fontconfig.enable = true;
+  programs.chromium = {
+    enable = true;
+    extensions = [
+      { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium  
+    ];
+  };
+  # TODO: programs.firefox.extensions
   home.packages = with pkgs; [  
     ag
     aspell
@@ -37,7 +45,6 @@ in
     awscli
     bleachbit
     calibre
-    chromium
     curl
     dejavu_fonts
     discord
@@ -61,7 +68,6 @@ in
     pandoc
     purescript
     ntfs3g
-    obs-studio
     jdk8
     postgresql
     pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
@@ -75,7 +81,6 @@ in
     tdesktop #telegra-desktop
     tldr
     transmission
-    texlive.combined.scheme-medium
     unrar
     unzip
     vlc
@@ -99,6 +104,16 @@ in
     userEmail = "benkio89@gmail.com";
   };
 
+  programs.i3status = {
+    enable = true;
+    enableDefault = true;
+  };
+ 
+  programs.obs-studio.enable = true;
+  programs.texlive.enable = true;
+  programs.zathura.enable = true;
+  services.dropbox.enable = true;
+  services.udiskie.enable = true;
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
@@ -109,6 +124,7 @@ in
   xsession = {
     enable = true;
     windowManager.i3.enable = true;
+    #TODO: xsession.windowManager.command - Window manager start command. 
   };
   home.file.".xinitrc".text = ''
     if [ -d /etc/X11/xinit/xinitrc.d ]; then
