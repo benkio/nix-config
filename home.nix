@@ -125,6 +125,14 @@ in
   home.file.".ghci".text = ''
     :set prompt "λ> "
   '';
+  
+# TODO: add the default applications
+#environment.etc."xdg/mimeapps.list" = {
+#  text = ''
+#    [Default Applications]
+#    mime/type=foo.desktop;
+#  '';
+#};
 
   # TODO: split/organize into separate files
   
