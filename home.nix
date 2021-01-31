@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
    packages = import <nixpkgs> {};
@@ -56,6 +56,9 @@ in
     ghc
     ghcid
     # haskellPackages.hindent marked as broken
+    haskellPackages.xmonad-contrib
+    haskellPackages.xmonad-extras
+    haskellPackages.xmonad    
     hexchat
     hlint
     imagemagick
@@ -86,7 +89,6 @@ in
     vlc
     wget
     youtube-dl
-    xorg.xinit
     ];
 
   programs.emacs.enable = true;
@@ -103,11 +105,6 @@ in
     userName = "Enrico Benini";
     userEmail = "benkio89@gmail.com";
   };
-
-  programs.i3status = {
-    enable = true;
-    enableDefault = true;
-  };
  
   programs.obs-studio.enable = true;
   programs.texlive.enable = true;
@@ -123,21 +120,18 @@ in
   gtk.enable = true;
   xsession = {
     enable = true;
-    windowManager.i3.enable = true;
+    windowManager.xmonad = {
+      enable = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+        haskellPackages.xmonad
+      ];
+    };
     #TODO: xsession.windowManager.command - Window manager start command. 
   };
-  home.file.".xinitrc".text = ''
-    if [ -d /etc/X11/xinit/xinitrc.d ]; then
-      for f in /etc/X11/xinit/xinitrc.d/*; do
-        [ -x "$f" ] && . "$f"
-      done
-      unset f
-    fi
 
-    exec i3
-  '';
-
-  # TODO: i3 & xserver
+  # TODO: xserver & tilling
   # TODO: fstab
   # TODO: emacs deamon ??
   # TODO: split/organize into separate files
