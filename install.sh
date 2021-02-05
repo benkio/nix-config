@@ -5,11 +5,14 @@ curl -L https://nixos.org/nix/install | sh
 echo "run nix script"
 . ~/.nix-profile/etc/profile.d/nix.sh
 echo "update nix channel"
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+sudo  nix-channel --update
 echo "install home-manager"
-nix-shell '<home-manager>' -A install
+sudo nix-shell '<home-manager>' -A install
+nix-env --set-flag priority 0 home-manager
 echo "copy nix config"
 cp ./home.nix ~/.config/nixpkgs/
+sudo cp ./configuration.nix /etc/nixos/configuration.nix
 echo "switch home manager"
-home-manager switch
+sudo nixos-rebuild switch
+sudo home-manager switch

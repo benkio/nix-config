@@ -7,7 +7,7 @@ let
    emacsConfig = packages.fetchgit { 
       url = "git://github.com/benkio/emacs-config.git";
       rev = "053ad1ded292bfa049c231d680c1c9530571aa37";
-      sha256 = "0643pw2c0wsf45f8diw0yyfqz1vbdbixzjhkgqi4l3bak00zbvjy";
+      sha256 = "1cnbkpyv3ihs7zjpivmi4v382k9pn3mbb1hlywmkpw0768ianbl6";
       leaveDotGit = true;
     };
     
@@ -15,8 +15,8 @@ in
 {
   programs.home-manager.enable = true;
   # TODO: change those
-  home.username = "nix";
-  home.homeDirectory = "/home/nix";
+  home.username = "benkio";
+  home.homeDirectory = "/home/benkio";
   home.stateVersion = "21.03";    
 
   home.keyboard.layout = "us";
@@ -31,9 +31,9 @@ in
   fonts.fontconfig.enable = true;
   programs.chromium = {
     enable = true;
-    extensions = [
-      { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium  
-    ];
+    #extensions = [
+    #  { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium  
+    #];
   };
   # TODO: programs.firefox.extensions
   home.packages = with pkgs; [  
@@ -114,8 +114,6 @@ in
   programs.obs-studio.enable = true;
   programs.texlive.enable = true;
   programs.zathura.enable = true;
-  services.dropbox.enable = true;
-  services.udiskie.enable = true;
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 1800;
