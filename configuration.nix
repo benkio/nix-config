@@ -59,11 +59,12 @@
         xfce.enable = true;
         defaultSession = "xfce";
         lightdm.enable = true;
-        autoLogin.enable = true;
-        autoLogin.user = "benkio";
+        auto = {
+          enable = true;
+          user = "benkio";
+        };
       };
     };
-
   };
 
   # Nix daemon config

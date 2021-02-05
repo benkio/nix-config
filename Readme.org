@@ -18,3 +18,6 @@ sudo cp configuration.nix /mnt/etc/nixos/
 sudo nixos-install
 reboot
 #+end_src
+
+remember the root password
+remove the nixos image from the drive
