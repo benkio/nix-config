@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-imports =
+  imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -51,13 +51,18 @@ imports =
     printing.enable = true;
     
     xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce.enable = true;
+      enable = true;
+      layout = "us";
+      xkbVariant = "dvp";      
+      desktopManager = {
+        xterm.enable = false;
+        xfce.enable = true;
+        defaultSession = "xfce";
+        lightdm.enable = true;
+        autoLogin.enable = true;
+        autoLogin.user = "benkio";
+      };
     };
-    displayManager.defaultSession = "xfce";
-  };
 
   };
 
