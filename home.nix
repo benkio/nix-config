@@ -14,10 +14,6 @@ let
 in 
 {
   programs.home-manager.enable = true;
-  # TODO: change those
-  home.username = "benkio";
-  home.homeDirectory = "/home/benkio";
-  home.stateVersion = "21.03";    
 
   home.keyboard.layout = "us";
   home.keyboard.variant = "dvp";
