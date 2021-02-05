@@ -1,54 +1,7 @@
 { config, pkgs, ... }:
 
-let
-  user = "benkio";
-  userHome = "/home/${user}";
-  hostName = "benkio-laptop";
-
-  home-manager = { home-manager-path, config-path }:
-    assert builtins.typeOf home-manager-path == "string";
-    assert builtins.typeOf config-path == "string";
-    (
-      pkgs.callPackage
-        (/. + home-manager-path + "/home-manager") { path = "${home-manager-path}"; }
-    ).overrideAttrs (old: {
-      nativeBuildInputs = [ pkgs.makeWrapper ];
-      buildCommand =
-        let
-          home-mananger-bootstrap = pkgs.writeTextFile {
-            name = "home-manager-bootstrap.nix";
-            text = ''
-              { config, pkgs, ... }:
-              {
-                # Home Manager needs a bit of information about you and the
-                # paths it should manage.
-                home.username = "${user}";
-                home.homeDirectory = "${userHome}";
-                home.sessionVariables.HOSTNAME = "${hostName}";
-                imports = [ ${config-path} ];
-              }
-            '';
-          }; in
-        ''
-          ${old.buildCommand}
-          wrapProgram $out/bin/home-manager --set HOME_MANAGER_CONFIG "${home-mananger-bootstrap}"
-        '';
-    });
-in
 {
-  users.users.${user} = {
-    home = userHome;
-    packages = [
-      (home-manager {
-        home-manager-path = "${userHome}/home-manager";
-        config-path = builtins.toString ../home-manager + "/${hostName}.nix";
-      })
-    ];
-    isNormalUser = true;
-    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
-  };
-
-  imports =
+imports =
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -82,6 +35,12 @@ in
     mediaKeys.enable = true;
   };
   hardware.pulseaudio.enable = true;
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.benkio = {
+    isNormalUser = true;
+    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+  };
 
   # Enable the X11 windowing system.
   services = {
