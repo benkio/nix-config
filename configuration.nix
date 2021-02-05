@@ -40,6 +40,7 @@
   users.users.benkio = {
     isNormalUser = true;
     extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+    initialHashedPassword = “benkio”;
   };
 
   # Enable the X11 windowing system.

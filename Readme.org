@@ -21,3 +21,20 @@ reboot
 
 remember the root password
 remove the nixos image from the drive
+
+* Home Manager Installation
+
+#+begin_src shell
+passwd benkio
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
+nix-channel --update
+#+end_src
+
+log off and in
+
+#+begin_src shell
+nix-shell '<home-manager>' -A install
+mkdir ~/.config/nixpkgs
+sudo cp home.nix ~/.config/nixpkgs
+home-manager switch
+#+end_src
