@@ -61,7 +61,7 @@
       displayManager = {
         defaultSession = "xfce";
         lightdm.enable = true;
-        auto = {
+        autoLogin = {
           enable = true;
           user = "benkio";
         };
