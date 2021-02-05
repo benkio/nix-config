@@ -1,11 +1,7 @@
 #!/bin/bash
 # sudo apt-get install curl git
-echo "install nix" 
-curl -L https://nixos.org/nix/install | sh
-echo "run nix script"
-. ~/.nix-profile/etc/profile.d/nix.sh
 echo "update nix channel"
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
 sudo  nix-channel --update
 echo "install home-manager"
 sudo nix-shell '<home-manager>' -A install
