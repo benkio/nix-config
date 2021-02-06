@@ -13,8 +13,6 @@ let
 
 in
 {
-
-  imports = [./home/i3.nix];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -58,56 +56,38 @@ in
 
     packages = with pkgs; [
             # haskellPackages.hindent marked as broken
-      amule
-      aspell
+      ag
+      amule      
       audacity
-      autoconf
       awscli
       bleachbit
       calibre
-      curl
-      dejavu_fonts
       discord
       docker
-      ffmpeg
       filezilla
-      firefox
       gcc
       ghc
-      ghcid
       ghcid
       gimp
       hexchat
       hlint
-      imagemagick
-      jack2
       jdk8
       kdeApplications.kdenlive
       lilypond
-      nettools
       nodePackages.npm
       nodePackages.typescript
       nodejs
-      ntfs3g
       pandoc
       postgresql
-      pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
       purescript
       qjackctl
       sbt
       scala
       slack
       stack
-      symbola
       tdesktop #telegra-desktop
-      tldr
       transmission
-      unrar
-      unzip
-      vlc
-      wget
       youtube-dl
-ag
     ];
   };
 
