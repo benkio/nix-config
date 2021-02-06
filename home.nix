@@ -101,11 +101,21 @@ in
     userEmail = "benkio89@gmail.com";
   };
 
-  home.file.".bashrc".text = ''
-    source /home/nix/.nix-profile/etc/profile.d/nix.sh
-    export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
-    cp -f ~/.nix-profile/share/applications/*.desktop ~/.local/share/applications/
-  '';
+  home.file = {
+    ".bashrc".text = ''
+      source /home/nix/.nix-profile/etc/profile.d/nix.sh
+      export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
+      cp -f ~/.nix-profile/share/applications/*.desktop ~/.local/share/applications/
+    '';
+
+    ".ghci".text = ''
+      :set prompt "λ> "
+    '';
+
+    ".xprofile".text = ''
+      xrandr --output Screen 0 --mode 1920x1440
+    '';
+  };
 
   programs.obs-studio.enable = true;
   programs.texlive.enable = true;
@@ -115,10 +125,6 @@ in
     defaultCacheTtl = 1800;
     enableSshSupport = true;
   };
-
-  home.file.".ghci".text = ''
-    :set prompt "λ> "
-  '';
   
 # TODO: add the default applications
 #environment.etc."xdg/mimeapps.list" = {
