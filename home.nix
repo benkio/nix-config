@@ -56,6 +56,7 @@ in
 
     packages = with pkgs; [
       ag
+      amule
       aspell
       audacity
       autoconf
