@@ -1,13 +1,7 @@
 { config, pkgs, ... }:
 
 
-let
-    regolithI3 = pkgs.fetchgit {
-      url = "git://github.com/regolith-linux/regolith-i3-gaps-config.git";
-      rev = "68a4074fdbc3042398250fc4d23cbd6c990f2ca7";
-      sha256 = "070gs8gcr43jpam6bsix5pq3iahzca9z47f0yn2jk7advh8di73k";
-    };   
-in {
+{
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
   programs.dconf.enable = true;
   
@@ -90,7 +84,7 @@ in {
           i3status # gives you the default i3 status bar
           i3lock   # default i3 screen locker
         ];
-        #configFile = "${regolithI3}/config";
+        configFile = "./i3Conf";
       };
     };
   };
@@ -117,6 +111,7 @@ in {
     curl
     dmenu   
     ffmpeg
+    flameshot
     firefox
     gcc
     gimp
