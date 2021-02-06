@@ -93,7 +93,7 @@ in
     cp -r -n ${emacsConfig}/. $HOME/.emacs.d
     chmod -R 777 $HOME/.emacs.d
     mkdir -p $HOME/workspace
-    systemctl --user start dropbox.service udiskie.service
+    # systemctl --user start dropbox.service udiskie.service
   '';
   programs.git = {
     enable = true;
