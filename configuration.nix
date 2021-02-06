@@ -56,14 +56,9 @@
     xserver = {
       enable = true;
       layout = "us";
-      xkbVariant = "dvp";      
-      desktopManager = {
-        xterm.enable = false;
-        # xfce.enable = true;
-      };
+      xkbVariant = "dvp";
       displayManager = {
         defaultSession = "none+i3";
-        lightdm.enable = true;
         autoLogin = {
           enable = true;
           user = "benkio";
