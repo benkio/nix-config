@@ -20,10 +20,7 @@ in {
   boot = {
     loader.grub.enable = true;
     loader.grub.version = 2;
-    loader.grub.device = "/dev/sda";
-    extraModulePackages = [
-      pkgs.linuxPackages.nvidia_x11
-    ]; 
+    loader.grub.device = "/dev/sda"; 
   };
 
   powerManagement.enable = true;
@@ -102,7 +99,6 @@ in {
      enableFontDir = true;
      enableGhostscriptFonts = true;
      fonts = with pkgs; [
-       vistafonts
        inconsolata
        terminus_font
        proggyfonts
