@@ -102,7 +102,6 @@ in {
      enableFontDir = true;
      enableGhostscriptFonts = true;
      fonts = with pkgs; [
-       corefonts
        vistafonts
        inconsolata
        terminus_font
