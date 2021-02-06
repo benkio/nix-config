@@ -120,7 +120,6 @@ in {
     aspell
     autoconf
     curl
-    dropbox
     ffmpeg
     firefox
     gimp
