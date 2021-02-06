@@ -13,6 +13,7 @@ let
 
 in
 {
+  nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
   home = {
@@ -84,8 +85,10 @@ in
       scala
       slack
       stack
-      tdesktop #telegra-desktop
+      tdesktop #telegram-desktop
       transmission
+      symbola
+      unrar
       youtube-dl
     ];
   };

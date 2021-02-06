@@ -5,10 +5,9 @@ let
     regolithI3 = pkgs.fetchgit {
       url = "git://github.com/regolith-linux/regolith-i3-gaps-config.git";
       rev = "68a4074fdbc3042398250fc4d23cbd6c990f2ca7";
-      sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
+      sha256 = "070gs8gcr43jpam6bsix5pq3iahzca9z47f0yn2jk7advh8di73k";
     };   
 in {
-  nixpkgs.config.allowUnfree = true;
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
   programs.dconf.enable = true;
   
@@ -87,7 +86,6 @@ in {
   };
 
    fonts.fonts = with pkgs; [
-      symbola
       dejavu_fonts
   ];
 
@@ -97,7 +95,6 @@ in {
     curl
     wget
     pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
-    unrar
     unzip
     vlc
     tldr
