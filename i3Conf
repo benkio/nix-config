@@ -7,19 +7,8 @@ font pango:Segoe UI 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-## Solarized colorshema
-# class                 border  backgr. text    indicator
-client.focused          #b58900 #b58900 #fdf6e3 #cb4b16
-client.focused_inactive #073642 #073642 #fdf6e3 #073642
-client.unfocused        #073642 #073642 #fdf6e3 #073642
-
 ##  Hide top bar of window
 new_window pixel 1
-
-## Set per-application border
-for_window [class="Chromium" title=" - Chromium$"] border pixel 0
-for_window [class="Firefox"] border pixel 0
-for_window [class="Spotify"] border pixel 0
 
 assign [class="Chromium"] 1
 assign [class="Firefox"] 1
@@ -38,11 +27,8 @@ focus_on_window_activation smart
 # disable focus follows mouse
 focus_follows_mouse no
 
-hide_edge_borders smart
-
 # start dmenu (a program launcher)
 bindsym $mod+space exec dmenu_run -i -p dAN0n -nb '#000000' -nf '#00FF00' -sb '#00FF00' -sf '#000000'
-
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -140,7 +126,6 @@ bar {
         modifier $mod
         position top
         status_command i3status -c ~/.config/i3/i3status.conf
-        #status_command i3blocks
         tray_output eDP-1
         tray_output DP-2-1
         tray_output DP-2-2
