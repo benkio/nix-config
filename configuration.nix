@@ -7,15 +7,16 @@
       ./hardware-configuration.nix
       ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
+  boot = {
+    loader.grub.enable = true;
+    loader.grub.version = 2;
+    loader.grub.device = "/dev/sda";
+  
+  };
 
-  # Set your time zone.
-  # time.timeZone = "Europe/Rome";
-    networking = {
-    # Enables wireless support and openvpn via network manager.
-    networkmanager = {
+  time.timeZone = "Europe/Rome";
+  networking = {
+    networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
       packages = [ pkgs.networkmanager_openvpn ];
     };
@@ -40,17 +41,15 @@
   users.users.benkio = {
     isNormalUser = true;
     extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
-    initialHashedPassword = “benkio”;
+    initialHashedPassword = "benkio";
   };
 
   # Enable the X11 windowing system.
   services = {
-    # Enable the OpenSSH daemon.
-    openssh.enable = true;
+    openssh.enable = true;      # Enable the OpenSSH daemon.
+    printing.enable = true;     # Enable CUPS to print documents.
+    emacs.enable = true;        # Emacs daemon
 
-    # Enable CUPS to print documents.
-    printing.enable = true;
-    
     xserver = {
       enable = true;
       layout = "us";
@@ -72,11 +71,9 @@
 
   # Nix daemon config
   nix = {
-    # Automate `nix-store --optimise`
-    autoOptimiseStore = true;
+    autoOptimiseStore = true; # Automate `nix-store --optimise`
 
-    # Automate garbage collection
-    gc = {
+    gc = {                    # Automate garbage collection
       automatic = true;
       dates     = "weekly";
       options   = "--delete-older-than 7d";
@@ -88,8 +85,6 @@
       keep-derivations = true
     '';
 
-    # Required by Cachix to be used as non-root user
-    trustedUsers = [ "root" "benkio" ];
+    trustedUsers = [ "root" "benkio" ]; # Required by Cachix to be used as non-root user
   };
-
 }
