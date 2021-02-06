@@ -102,7 +102,6 @@ in {
      enableFontDir = true;
      enableGhostscriptFonts = true;
      fonts = with pkgs; [
-       vistafonts
        inconsolata
        terminus_font
        proggyfonts
@@ -119,11 +118,16 @@ in {
     aspell
     autoconf
     curl
+    dmenu   
     ffmpeg
     firefox
+    gcc
     gimp
     gparted
     hexchat
+    i3
+    i3lock
+    i3status
     imagemagick
     jack2
     lsof
@@ -131,12 +135,11 @@ in {
     nmap
     ntfs3g
     parted
+    silver-searcher
     tldr
     unzip
     vlc
     wget
-    gcc
-    silver-searcher
     xorg.xrandr
     zip
   ];
