@@ -113,7 +113,8 @@ in
     '';
 
     ".xprofile".text = ''
-      xrandr --output Screen 0 --mode 1920x1440
+      # Add here different display resolutions using xrandr
+      xrandr --output "virtual1" --mode 1920x1200 #Virual Machine resolution
     '';
   };
 

@@ -22,7 +22,7 @@ reboot
 remember the root password
 remove the nixos image from the drive
 
-* Home Manager Installation
+* DONE Home Manager Installation
 
 #+begin_src shell
 # passwd benkio from root in case, default password in config
