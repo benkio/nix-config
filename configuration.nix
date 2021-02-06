@@ -8,6 +8,7 @@ let
       sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
     };   
 in {
+  nixpkgs.config.allowUnfree = true;
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
   programs.dconf.enable = true;
   
@@ -79,7 +80,7 @@ in {
           i3status # gives you the default i3 status bar
           i3lock   # default i3 screen locker
         ];
-        configFile = ${regolithI3/config}
+        configFile = "${regolithI3}/config";
       };
     };
   };
