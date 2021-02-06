@@ -59,10 +59,10 @@
       xkbVariant = "dvp";      
       desktopManager = {
         xterm.enable = false;
-        xfce.enable = true;
+        # xfce.enable = true;
       };
       displayManager = {
-        defaultSession = "xfce+i3";
+        defaultSession = "none+i3";
         lightdm.enable = true;
         autoLogin = {
           enable = true;
