@@ -56,7 +56,6 @@ in
 
     packages = with pkgs; [
             # haskellPackages.hindent marked as broken
-      ag
       amule      
       audacity
       awscli
@@ -65,11 +64,8 @@ in
       discord
       docker
       filezilla
-      gcc
       ghc
       ghcid
-      gimp
-      hexchat
       hlint
       jdk8
       kdeApplications.kdenlive

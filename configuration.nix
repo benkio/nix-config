@@ -21,9 +21,13 @@ in {
     loader.grub.enable = true;
     loader.grub.version = 2;
     loader.grub.device = "/dev/sda";
-  
+    extraModulePackages = [
+      pkgs.linuxPackages.nvidia_x11
+    ]; 
   };
 
+  powerManagement.enable = true;
+  hardware.opengl.driSupport32Bit = true;
   time.timeZone = "Europe/Rome";
   networking = {
     networkmanager = { # Enables wireless support and openvpn via network manager.
@@ -45,7 +49,10 @@ in {
     enable = true;
     mediaKeys.enable = true;
   };
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benkio = {
@@ -61,9 +68,15 @@ in {
     emacs.enable = true;        # Emacs daemon
 
     xserver = {
+      startDbusSession = true;
       enable = true;
+      autorun = true;
       layout = "us";
       xkbVariant = "dvp";
+      desktopManager = {
+        xterm.enable = false;
+	gnome3.enable = true;
+      };
       displayManager = {
         defaultSession = "none+i3";
         autoLogin = {
@@ -80,30 +93,54 @@ in {
           i3status # gives you the default i3 status bar
           i3lock   # default i3 screen locker
         ];
-        configFile = "${regolithI3}/config";
+        #configFile = "${regolithI3}/config";
       };
     };
   };
 
-   fonts.fonts = with pkgs; [
-      dejavu_fonts
-  ];
+   fonts = {
+     enableFontDir = true;
+     enableGhostscriptFonts = true;
+     fonts = with pkgs; [
+       corefonts
+       vistafonts
+       inconsolata
+       terminus_font
+       proggyfonts
+       dejavu_fonts
+       font-awesome-ttf
+       ubuntu_font_family
+       source-code-pro
+       source-sans-pro
+       source-serif-pro
+    ];
+  };
 
   environment.systemPackages = with pkgs; [
     aspell
     autoconf
     curl
-    wget
-    pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
-    unzip
-    vlc
-    tldr
-    ntfs3g
-    nettools
+    dropbox
+    ffmpeg
+    firefox
+    gimp
+    gparted
+    hexchat
     imagemagick
     jack2
-    firefox
-    ffmpeg
+    lsof
+    nettools
+    nmap
+    ntfs3g
+    parted
+    tldr
+    unzip
+    vlc
+    wget
+    gcc
+    silver-searcher
+    xorg.xrandr
+    zip
   ];
 
   # Nix daemon config
