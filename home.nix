@@ -55,7 +55,7 @@ in
     };
 
     packages = with pkgs; [
-      ag
+            # haskellPackages.hindent marked as broken
       amule
       aspell
       audacity
@@ -70,32 +70,32 @@ in
       ffmpeg
       filezilla
       firefox
-      gimp
       gcc
       ghc
       ghcid
-      # haskellPackages.hindent marked as broken
+      ghcid
+      gimp
       hexchat
       hlint
       imagemagick
       jack2
+      jdk8
+      kdeApplications.kdenlive
       lilypond
       nettools
-      nodejs
-      nodePackages.typescript
       nodePackages.npm
-      pandoc
-      purescript
+      nodePackages.typescript
+      nodejs
       ntfs3g
-      jdk8
+      pandoc
       postgresql
       pulseaudioFull #TODO: find out how to do .override { jackaudioSupport = true; }
+      purescript
       qjackctl
       sbt
       scala
       slack
       stack
-      ghcid
       symbola
       tdesktop #telegra-desktop
       tldr
@@ -105,6 +105,7 @@ in
       vlc
       wget
       youtube-dl
+ag
     ];
   };
 
