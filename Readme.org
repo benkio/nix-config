@@ -40,5 +40,6 @@ cd nix-config/
 ln -s ~/nix-config/home.nix ~/.config/nixpkgs/home.nix
 sudo rm /etc/nixos/configuration.nix
 sudo ln -s ~/nix-config/configuration.nix /etc/nixos/configuration.nix
+sudo ln -s ~/nix-config/i3Conf ~/.config/i3/conf
 home-manager switch
 #+end_src
