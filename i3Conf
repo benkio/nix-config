@@ -125,7 +125,7 @@ bar {
         hidden_state hide
         modifier $mod
         position top
-        status_command i3status -c ~/.config/i3/i3status.conf
+       #status_command i3status -c ~/.config/i3/i3status.conf
         tray_output eDP-1
         tray_output DP-2-1
         tray_output DP-2-2

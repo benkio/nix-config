@@ -20,7 +20,7 @@ in
     keyboard.layout = "us";
     keyboard.variant = "dvp";
     sessionVariables = {
-      LANG = "en_US.UTF-8";
+      LANG = "en_US.utf8";
       EDITOR = "emacsclient -t";          # emacs client terminal
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
     };
