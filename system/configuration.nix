@@ -27,6 +27,10 @@
   hardware.opengl.driSupport32Bit = true;
   time.timeZone = "Europe/Rome";
   networking = {
+    wireless = {
+      enable = true;
+      userControlled = true;
+    };
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
       packages = [ pkgs.networkmanager_openvpn ];
