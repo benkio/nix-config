@@ -106,6 +106,7 @@
 
   environment.systemPackages = with pkgs; [
     aspell
+    alacritty
     autoconf
     curl
     dmenu   
