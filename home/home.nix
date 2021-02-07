@@ -13,6 +13,7 @@ let
 
 in
 {
+  imports = [./i3.nix];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 

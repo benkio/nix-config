@@ -37,9 +37,8 @@ nix-shell '<home-manager>' -A install
 # mkdir ~/.config/nixpkgs
 git clone https://github.com/benkio/nix-config.git
 cd nix-config/
-ln -s ~/nix-config/home.nix ~/.config/nixpkgs/home.nix
+cp ~/nix-config/home/* ~/.config/nixpkgs/
 sudo rm /etc/nixos/configuration.nix
-sudo ln -s ~/nix-config/configuration.nix /etc/nixos/configuration.nix
-sudo ln -s ~/nix-config/i3Conf ~/.config/i3/conf
+sudo cp ~/nix-config/system/configuration.nix /etc/nixos/configuration.nix
 home-manager switch
 #+end_src
