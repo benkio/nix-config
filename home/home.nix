@@ -9,7 +9,11 @@ let
       sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
       leaveDotGit = true;
     };
-
+   bobPaitings = pkgs.fetchgit {
+      url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
+      rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
+      sha256 = "1j1r9digxaybv912s8mv8fx998j69vb63ap87w4gndfrj8f22bag";
+    };    
 in
 {
   imports = [./i3.nix ./firefox.nix];
@@ -50,6 +54,7 @@ in
         # Services
         systemctl --user start udiskie.service emacs.service
       '';
+      "wallpapers".source = "${bobPaitings}/data/paintings";
     };
 
     packages = with pkgs; [

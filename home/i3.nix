@@ -59,7 +59,7 @@ in {
       startup = [
         { command = "nm-applet"; always = true; notification = false; }
         { command = "volumeicon"; always = true; notification = false; }
-        { command = "watch -n 900 feh –randomize --bg-scale ~/nix-config/wallpapers/* "; always = true; notification = false; } 
+        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = true; notification = false; } 
       ];
     };
   };
