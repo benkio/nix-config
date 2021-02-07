@@ -33,7 +33,7 @@
   };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "en_US.utf8";
 
   # Enable sound.
   sound = {
@@ -113,6 +113,7 @@
     flameshot
     firefox
     gcc
+    glibcLocales
     gimp
     gparted
     hexchat
