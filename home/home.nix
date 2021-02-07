@@ -61,6 +61,7 @@ in
       calibre
       discord
       docker
+      feh
       filezilla
       ghc
       ghcid
