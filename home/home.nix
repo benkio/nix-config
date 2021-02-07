@@ -1,10 +1,9 @@
 { config, pkgs, lib, ... }:
 
 let
-   packages = import <nixpkgs> {};
    # TODO: upgrade to the latest in here or do it after
    #       from the emacs folder.
-   emacsConfig = packages.fetchgit {
+   emacsConfig = pkgs.fetchgit {
       url = "git://github.com/benkio/emacs-config.git";
       rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
       sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
@@ -13,7 +12,7 @@ let
 
 in
 {
-  imports = [./i3.nix];
+  imports = [./i3.nix ./firefox.nix];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
