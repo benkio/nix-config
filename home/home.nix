@@ -41,6 +41,7 @@ in
         shopt -s autocd #Automatically put `cd` before a path
         export HISTCONTROL=ignoreboth
         export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
+        export PATH=$PATH:~/.local/bin
       '';
 
       ".ghci".text = ''
@@ -84,6 +85,7 @@ in
       sbt
       scala
       slack
+      sound-juicer
       stack
       tdesktop #telegram-desktop
       transmission
