@@ -104,9 +104,11 @@ in
     home-manager.enable = true;
     chromium = {
       enable = true;
-      #extensions = [
-      #  { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium
-      #];
+      extensions = [
+        "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+        "hdokiejnpimakedhajhdlcegeplioahd" # LastPass
+        "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
+      ];
     };
     git = {
       enable = true;
