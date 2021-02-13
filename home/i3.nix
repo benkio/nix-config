@@ -40,6 +40,8 @@ in {
         "${mod}+8" = "workspace 8";
         "${mod}+9" = "workspace 9";
         "${mod}+0" = "workspace 10";
+        "${mod}+Mod1+Right" = "workspace next";
+        "${mod}+Mod1+Left" = "workspace prev";
         "${mod}+Shift+1" = "move container to workspace 1";
         "${mod}+Shift+2" = "move container to workspace 2";
         "${mod}+Shift+3" = "move container to workspace 3";
