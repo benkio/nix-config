@@ -6,10 +6,11 @@ in {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
+      terminal = "alacritty";
       modifier = mod;
 
       fonts = ["DejaVu Sans Mono, FontAwesome 6"];
-
+      workspaceLayout = "tabbed";
       keybindings = lib.mkOptionDefault {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 
@@ -27,7 +28,7 @@ in {
 
         "{$mod}+Shift+q" = "kill";
         "{$mod}+f" = "fullscreen";
-        "${mod}+t" = "layout toggle split stacking tabbed";
+        "${mod}+t" = "layout toggle tabbed splitv splith";
         "${mod}+Shift+f" = "floating toggle";
         "${mod}+1" = "workspace 1";
         "${mod}+2" = "workspace 2";
@@ -39,6 +40,8 @@ in {
         "${mod}+8" = "workspace 8";
         "${mod}+9" = "workspace 9";
         "${mod}+0" = "workspace 10";
+        "${mod}+Mod1+Right" = "workspace next";
+        "${mod}+Mod1+Left" = "workspace prev";
         "${mod}+Shift+1" = "move container to workspace 1";
         "${mod}+Shift+2" = "move container to workspace 2";
         "${mod}+Shift+3" = "move container to workspace 3";
@@ -51,9 +54,15 @@ in {
         "${mod}+Shift+0" = "move container to workspace 10";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
-        "${mod}+Enter" = "exec i3-sensible-terminal";
+        "${mod}+b" = "exec firefox";
+        "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         
       };
+      startup = [
+        { command = "nm-applet"; always = true; notification = false; }
+        { command = "volumeicon"; always = true; notification = false; }
+        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = true; notification = false; } 
+      ];
     };
   };
 }

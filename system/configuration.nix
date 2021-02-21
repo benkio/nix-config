@@ -2,6 +2,12 @@
 
 
 {
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
+
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
   programs.dconf.enable = true;
   
@@ -21,6 +27,10 @@
   hardware.opengl.driSupport32Bit = true;
   time.timeZone = "Europe/Rome";
   networking = {
+    wireless = {
+      enable = true;
+      userControlled = true;
+    };
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
       packages = [ pkgs.networkmanager_openvpn ];
@@ -106,6 +116,7 @@
 
   environment.systemPackages = with pkgs; [
     aspell
+    alacritty
     autoconf
     curl
     dmenu   

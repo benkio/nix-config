@@ -1,19 +1,22 @@
 { config, pkgs, lib, ... }:
 
 let
-   packages = import <nixpkgs> {};
    # TODO: upgrade to the latest in here or do it after
    #       from the emacs folder.
-   emacsConfig = packages.fetchgit {
+   emacsConfig = pkgs.fetchgit {
       url = "git://github.com/benkio/emacs-config.git";
       rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
       sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
       leaveDotGit = true;
     };
-
+   bobPaitings = pkgs.fetchgit {
+      url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
+      rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
+      sha256 = "1j1r9digxaybv912s8mv8fx998j69vb63ap87w4gndfrj8f22bag";
+    };    
 in
 {
-  imports = [./i3.nix];
+  imports = [./i3.nix ./firefox.nix];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -38,6 +41,7 @@ in
         shopt -s autocd #Automatically put `cd` before a path
         export HISTCONTROL=ignoreboth
         export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
+        export PATH=$PATH:~/.local/bin
       '';
 
       ".ghci".text = ''
@@ -51,6 +55,7 @@ in
         # Services
         systemctl --user start udiskie.service emacs.service
       '';
+      "wallpapers".source = "${bobPaitings}/data/paintings";
     };
 
     packages = with pkgs; [
@@ -62,6 +67,7 @@ in
       calibre
       discord
       docker
+      feh
       filezilla
       ghc
       ghcid
@@ -79,6 +85,7 @@ in
       sbt
       scala
       slack
+      sound-juicer
       stack
       tdesktop #telegram-desktop
       transmission
@@ -97,9 +104,11 @@ in
     home-manager.enable = true;
     chromium = {
       enable = true;
-      #extensions = [
-      #  { id = "hfjbmagddngcpeloejdejnfgbamkjaeg"; } # Vimium
-      #];
+      extensions = [
+        "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
+        "hdokiejnpimakedhajhdlcegeplioahd" # LastPass
+        "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
+      ];
     };
     git = {
       enable = true;
