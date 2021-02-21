@@ -64,6 +64,7 @@ in
       audacity
       awscli
       bleachbit
+      bitwarden
       calibre
       discord
       docker
@@ -106,7 +107,7 @@ in
       enable = true;
       extensions = [
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
-        "hdokiejnpimakedhajhdlcegeplioahd" # LastPass
+        "nngceckbapebfimnlniiiahkandclblb" # LastPass
         "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
       ];
     };

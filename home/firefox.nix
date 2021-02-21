@@ -12,7 +12,7 @@
     enable = true;
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         vimium
-        lastpass-password-manager
+        bitwarden
         cookie-autodelete
         i-dont-care-about-cookies
         ublock-origin

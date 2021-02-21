@@ -137,7 +137,6 @@
     nettools
     nmap
     ntfs3g
-    pass
     parted
     silver-searcher
     tldr
