@@ -59,7 +59,6 @@ in
     };
 
     packages = with pkgs; [
-            # haskellPackages.hindent marked as broken
       amule      
       audacity
       awscli
@@ -79,6 +78,7 @@ in
       nodePackages.npm
       nodePackages.typescript
       nodejs
+      ormolu
       pandoc
       postgresql
       purescript
