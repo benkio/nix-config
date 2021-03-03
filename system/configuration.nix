@@ -47,9 +47,19 @@
     enable = true;
     mediaKeys.enable = true;
   };
+  hardware.bluetooth = {
+    enable = true;
+    config = {
+      General = {
+        Enable = "Source,Sink,Media,Socket";
+      };
+    };
+  };
+  hardware.enableRedistributableFirmware = true;
   hardware.pulseaudio = {
     enable = true;
     package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
+    extraModules = [ pkgs.pulseaudio-modules-bt ];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -64,6 +74,7 @@
     openssh.enable = true;      # Enable the OpenSSH daemon.
     printing.enable = true;     # Enable CUPS to print documents.
     emacs.enable = true;        # Emacs daemon
+    blueman.enable = true;      # bluetooth service
 
     xserver = {
       startDbusSession = true;
@@ -115,6 +126,7 @@
     aspell
     alacritty
     autoconf
+    bluez
     curl
     dmenu   
     ffmpeg
@@ -123,6 +135,7 @@
     gcc
     glibcLocales
     gimp
+    gnome3.gnome-bluetooth
     gparted
     hexchat
     i3
@@ -135,6 +148,7 @@
     nmap
     ntfs3g
     parted
+    pavucontrol
     playerctl
     silver-searcher
     tldr
