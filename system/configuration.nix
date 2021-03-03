@@ -27,7 +27,6 @@
 
   powerManagement.enable = true;
   hardware.opengl.driSupport32Bit = true;
-  time.timeZone = "Europe/Rome";
   networking = {
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
