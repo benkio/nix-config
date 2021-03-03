@@ -17,20 +17,18 @@
       /etc/nixos/hardware-configuration.nix
       ];
 
-  boot = {
-    loader.grub.enable = true;
-    loader.grub.version = 2;
-    loader.grub.device = "/dev/sda"; 
-  };
+  boot.loader = {
+    systemd-boot.enable = true;
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot";
+    };
+  }; 
 
   powerManagement.enable = true;
   hardware.opengl.driSupport32Bit = true;
   time.timeZone = "Europe/Rome";
   networking = {
-    wireless = {
-      enable = true;
-      userControlled = true;
-    };
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
       packages = [ pkgs.networkmanager_openvpn ];

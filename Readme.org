@@ -38,8 +38,5 @@ nix-shell '<home-manager>' -A install
 git clone https://github.com/benkio/nix-config.git
 cd nix-config/
 cp ~/nix-config/home/* ~/.config/nixpkgs/
-sudo rm /etc/nixos/configuration.nix
-sudo cp ~/nix-config/system/configuration.nix /etc/nixos/configuration.nix
-cp ./.background-image ~/.background-image
 home-manager switch
 #+end_src

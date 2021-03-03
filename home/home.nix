@@ -6,13 +6,13 @@ let
    emacsConfig = pkgs.fetchgit {
       url = "git://github.com/benkio/emacs-config.git";
       rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
-      sha256 = "0wqp7y3mnwdw5dm17jha64cvsrrh1qsb702r6a917l573sph563b";
+      sha256 = "1sjky33xks94aw3zkbl82spn3jz8bjyj8fb6fsm6c8kncm7qgbd7";
       leaveDotGit = true;
     };
    bobPaitings = pkgs.fetchgit {
       url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
       rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
-      sha256 = "1j1r9digxaybv912s8mv8fx998j69vb63ap87w4gndfrj8f22bag";
+      sha256 = "0fs72f2a0q25cyvjjnx0wf1jrmmv7ai5j9389gdybalmwip7f5xk";
     };    
 in
 {
