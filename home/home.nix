@@ -79,6 +79,7 @@ in
       nodePackages.typescript
       nodejs
       ormolu
+      unetbootin
       pandoc
       postgresql
       purescript
