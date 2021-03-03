@@ -56,7 +56,7 @@ in {
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec firefox";
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
-        
+        "${mod}+w" = "exec gnome-control-center wifi";
       };
       startup = [
         { command = "nm-applet"; always = true; notification = false; }
