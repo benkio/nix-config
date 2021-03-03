@@ -57,11 +57,25 @@ in {
         "${mod}+b" = "exec firefox";
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
+        # Media volume controls
+        "XF86AudioMute" = "exec amixer sset 'Master' toggle";
+        "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
+        "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
+
+        # Sreen brightness controls
+        "XF86MonBrightnessUp" = "exec brightnessctl s +10% # increase screen brightness";
+        "XF86MonBrightnessDown" = "exec brightnessctl s 10%- # decrease screen brightness";
+
+        # Media player controls
+        "XF86AudioPlay" = "exec playerctl play-pause";
+        "XF86AudioPause" = "exec playerctl play-pause";
+        "XF86AudioNext" = "exec playerctl next";
+        "XF86AudioPrev" = "exec playerctl previous";
       };
       startup = [
         { command = "nm-applet"; always = true; notification = false; }
         { command = "volumeicon"; always = true; notification = false; }
-        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = true; notification = false; } 
+        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = true; notification = false; }
       ];
     };
   };

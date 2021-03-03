@@ -135,12 +135,14 @@
     nmap
     ntfs3g
     parted
+    playerctl
     silver-searcher
     tldr
     unzip
     vlc
     wget
     xorg.xrandr
+    brightnessctl
     zip
   ];
 
