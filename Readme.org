@@ -5,17 +5,30 @@ nix-env -i git
 git clone https://github.com/benkio/nix-config.git
 cd nix-config/
 
-# MBR
-sudo parted /dev/sda -- mklabel msdos
-sudo parted /dev/sda -- mkpart primary 1MiB -8GiB
-sudo parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+sudo su
 
-sudo mkfs.ext4 -L nixos /dev/sda1
-sudo mkswap -L swap /dev/sda2
-sudo mount /dev/disk/by-label/nixos /mnt
-sudo nixos-generate-config --root /mnt
-sudo cp configuration.nix /mnt/etc/nixos/
-sudo nixos-install
+# MBR
+parted /dev/sda -- mklabel msdos
+parted /dev/sda -- mkpart primary 1MiB -8GiB
+parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+
+# UEFI
+parted /dev/sda -- mklabel gpt
+parted /dev/sda -- mkpart primary 512MiB -8GiB
+parted /dev/sda -- mkpart primary linux-swap -8GiB 100%
+parted /dev/sda -- mkpart ESP fat32 1MiB 512MiB
+parted /dev/sda -- set 3 esp on
+
+mkfs.ext4 -L nixos /dev/sda1
+mkswap -L swap /dev/sda2
+swapon /dev/sda2
+mkfs.fat -F 32 -n boot /dev/sda3        # (for UEFI systems only)
+mount /dev/disk/by-label/nixos /mnt
+mkdir -p /mnt/boot                      # (for UEFI systems only)
+mount /dev/disk/by-label/boot /mnt/boot # (for UEFI systems only)
+nixos-generate-config --root /mnt
+cp configuration.nix /mnt/etc/nixos/
+nixos-install
 reboot
 #+end_src
 
