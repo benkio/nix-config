@@ -73,9 +73,9 @@ in {
         "XF86AudioPrev" = "exec playerctl previous";
       };
       startup = [
-        { command = "nm-applet"; always = true; notification = false; }
-        { command = "volumeicon"; always = true; notification = false; }
-        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = true; notification = false; }
+        { command = "nm-applet --sm-disable"; always = false; notification = false; }
+        { command = "volumeicon"; always = false; notification = false; }
+        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = false; notification = false; }
       ];
     };
   };
