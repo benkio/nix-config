@@ -90,6 +90,7 @@ in
       sound-juicer
       stack
       tdesktop #telegram-desktop
+      teamviewer
       transmission
       symbola
       unrar
