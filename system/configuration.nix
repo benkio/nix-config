@@ -49,6 +49,7 @@
   };
   hardware.bluetooth = {
     enable = true;
+    package = pkgs.bluezFull;
     config = {
       General = {
         Enable = "Source,Sink,Media,Socket";
@@ -126,7 +127,8 @@
     aspell
     alacritty
     autoconf
-    bluez
+    bluezFull
+    bluez-alsa
     curl
     dmenu   
     ffmpeg
@@ -135,7 +137,6 @@
     gcc
     glibcLocales
     gimp
-    gnome3.gnome-bluetooth
     gparted
     hexchat
     i3
@@ -150,9 +151,11 @@
     parted
     pavucontrol
     playerctl
+    psmisc
     silver-searcher
     tldr
     unzip
+    usbutils
     vlc
     wget
     xorg.xrandr
