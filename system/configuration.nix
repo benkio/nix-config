@@ -131,7 +131,7 @@
     bluez-alsa
     curl
     dmenu   
-    ffmpeg
+    ffmpeg-full
     flameshot
     firefox
     gcc
