@@ -59,12 +59,11 @@ in
     };
 
     packages = with pkgs; [
-      amule      
-      audacity
       awscli
-      bleachbit
       bitwarden
+      bleachbit
       calibre
+      deluge
       discord
       docker
       feh
@@ -79,22 +78,24 @@ in
       nodePackages.typescript
       nodejs
       ormolu
-      unetbootin
       pandoc
       postgresql
       purescript
       qjackctl
+      reaper
       sbt
       scala
       slack
       sound-juicer
+      soulseekqt
       stack
+      symbola
       tdesktop #telegram-desktop
       teamviewer
-      transmission
-      symbola
+      unetbootin
       unrar
       youtube-dl
+amule      
     ];
   };
 
