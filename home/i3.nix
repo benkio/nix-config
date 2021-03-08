@@ -55,6 +55,7 @@ in {
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec firefox";
+        "${mod}+e" = "exec nautilus";
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
@@ -75,7 +76,7 @@ in {
       startup = [
         { command = "nm-applet --sm-disable"; always = false; notification = false; }
         { command = "volumeicon"; always = false; notification = false; }
-        { command = "watch -n 900 feh –randomize --bg-scale ~/wallpapers/* "; always = false; notification = false; }
+        { command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & "; always = false; notification = false; }
       ];
     };
   };
