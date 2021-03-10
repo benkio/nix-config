@@ -77,6 +77,7 @@ in
       nodePackages.npm
       nodePackages.typescript
       nodejs
+      nix-index
       ormolu
       pandoc
       postgresql
