@@ -45,7 +45,11 @@ in
       '';
 
       ".ghci".text = ''
-        :set prompt "λ> "
+        :set prompt "\ESC[38;5;208m\STXλ>\ESC[m\STX "
+
+        :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
+        -- Better errors
+        :set -ferror-spans -freverse-errors -fprint-expanded-synonyms
       '';
 
       ".xprofile".text = ''
@@ -74,6 +78,7 @@ in
       jdk8
       kdeApplications.kdenlive
       lilypond
+      haskellPackages.hoogle
       nodePackages.npm
       nodePackages.typescript
       nodejs

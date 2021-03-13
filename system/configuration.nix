@@ -76,6 +76,7 @@
     printing.enable = true;     # Enable CUPS to print documents.
     emacs.enable = true;        # Emacs daemon
     blueman.enable = true;      # bluetooth service
+    teamviewer.enable = true;   # teamviewer service
 
     xserver = {
       startDbusSession = true;
@@ -128,7 +129,6 @@
     alacritty
     autoconf
     bluezFull
-    bluez-alsa
     curl
     dmenu   
     ffmpeg-full
