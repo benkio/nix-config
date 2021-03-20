@@ -80,6 +80,7 @@ in
       kdeApplications.kdenlive
       lilypond
       haskellPackages.hoogle
+      # BROKEN haskellPackages.ghc-mod 
       nodePackages.npm
       nodePackages.typescript
       nodejs
