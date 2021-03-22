@@ -62,6 +62,9 @@
     enable = true;
     package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
     extraModules = [ pkgs.pulseaudio-modules-bt ];
+    extraConfig = ''
+      load-module module-echo-cancel
+    '';
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
