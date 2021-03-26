@@ -120,7 +120,7 @@ in
       enable = true;
       extensions = [
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
-        "nngceckbapebfimnlniiiahkandclblb" # LastPass
+        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
         "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
       ];
     };
