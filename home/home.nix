@@ -71,6 +71,8 @@ in
       deluge
       discord
       docker
+      elmPackages.elm
+      elmPackages.elm-format
       feh
       filezilla
       ghc
@@ -103,7 +105,7 @@ in
       unetbootin
       unrar
       youtube-dl
-amule      
+      amule
     ];
   };
 
