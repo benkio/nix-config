@@ -59,7 +59,7 @@ in {
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
-        "XF86AudioMute" = "exec amixer sset 'Master' toggle";
+        "XF86AudioMute" = "exec pulseaudio-ctl mute";
         "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
         "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
 

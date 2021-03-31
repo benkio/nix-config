@@ -134,7 +134,7 @@
     autoconf
     bluezFull
     curl
-    dmenu   
+    dmenu
     ffmpeg-full
     flameshot
     firefox
@@ -154,6 +154,8 @@
     ntfs3g
     parted
     pavucontrol
+    pulseaudio-ctl
+    pulsemixer
     playerctl
     psmisc
     silver-searcher
