@@ -135,10 +135,12 @@
     bluezFull
     curl
     dmenu
+    fd
     ffmpeg-full
     flameshot
     firefox
     gcc
+    ghc
     glibcLocales
     gimp
     gparted
@@ -159,6 +161,7 @@
     playerctl
     psmisc
     silver-searcher
+    ripgrep
     tldr
     unzip
     usbutils
