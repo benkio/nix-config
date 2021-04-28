@@ -1,19 +1,19 @@
 { config, pkgs, lib, ... }:
 
 let
-   # TODO: upgrade to the latest in here or do it after
-   #       from the emacs folder.
-   emacsConfig = pkgs.fetchgit {
-      url = "git://github.com/benkio/emacs-config.git";
-      rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
-      sha256 = "1sjky33xks94aw3zkbl82spn3jz8bjyj8fb6fsm6c8kncm7qgbd7";
-      leaveDotGit = true;
-    };
-   bobPaitings = pkgs.fetchgit {
-      url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
-      rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
-      sha256 = "0fs72f2a0q25cyvjjnx0wf1jrmmv7ai5j9389gdybalmwip7f5xk";
-    };
+  # TODO: upgrade to the latest in here or do it after
+  #       from the emacs folder.
+  emacsConfig = pkgs.fetchgit {
+    url = "git://github.com/benkio/emacs-config.git";
+    rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
+    sha256 = "1sjky33xks94aw3zkbl82spn3jz8bjyj8fb6fsm6c8kncm7qgbd7";
+    leaveDotGit = true;
+  };
+  bobPaitings = pkgs.fetchgit {
+    url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
+    rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
+    sha256 = "0fs72f2a0q25cyvjjnx0wf1jrmmv7ai5j9389gdybalmwip7f5xk";
+  };
 in
 {
   imports = [./i3.nix ./firefox.nix];
@@ -73,6 +73,7 @@ in
       docker
       elmPackages.elm
       elmPackages.elm-format
+      obs-linuxbrowser # Need extra steps to be added, obs doesn't have the plugin section. See the end of the file
       feh
       filezilla
       ghc
@@ -146,6 +147,15 @@ in
       enableSshSupport = true;
     };
   };
+
+  # obs-linuxbrowser extra steps
+  # We don't have a wrapper which can supply obs-studio plugins so you have to
+  # somewhat manually install this:
+
+  # nix-env -f . -iA obs-linuxbrowser
+  # mkdir -p ~/.config/obs-studio/plugins
+  # ln -s ~/.nix-profile/share/obs/obs-plugins/obs-linuxbrowser ~/.config/obs-studio/plugins/
+
 
   # TODO: split/organize into separate files
 
