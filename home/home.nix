@@ -68,7 +68,6 @@ in
       bitwarden
       bleachbit
       calibre
-      deluge
       discord
       docker
       elmPackages.elm
@@ -103,6 +102,7 @@ in
       stack
       symbola
       tdesktop #telegram-desktop
+      tixati
       teamviewer
       unetbootin
       unrar
