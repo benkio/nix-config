@@ -9,9 +9,10 @@
     };
   };
 
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw 
+  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   programs.dconf.enable = true;
-  
+  time.timeZone = "Europe/London";
+
   imports =
     [
       # Include the results of the hardware scan.
@@ -24,7 +25,7 @@
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot";
     };
-  }; 
+  };
 
   powerManagement.enable = true;
   hardware.opengl.driSupport32Bit = true;
