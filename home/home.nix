@@ -78,7 +78,7 @@ in
       ghc
       ghcid
       hlint
-      jdk8
+      jdk11
       kdeApplications.kdenlive
       lilypond
       haskellPackages.hoogle
