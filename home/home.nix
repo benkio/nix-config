@@ -95,7 +95,7 @@ in
       purescript
       qjackctl
       reaper
-      sbt
+      (sbt.override { jre = pkgs.jdk11; })
       scala
       slack
       sound-juicer
