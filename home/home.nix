@@ -42,6 +42,7 @@ in
         export HISTCONTROL=ignoreboth
         export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
         export PATH=$PATH:~/.local/bin
+        export JAVA_HOME=~/.nix-profile/bin/java
         alias sbt="sbt -Dsbt.supershell=false"
       '';
 
