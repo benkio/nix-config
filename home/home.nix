@@ -43,7 +43,80 @@ in
         export XDG_DATA_DIRS=~/.local/share/:~/.nix-profile/share:/usr/share
         export PATH=$PATH:~/.local/bin
         export JAVA_HOME=~/.nix-profile/bin/java
+
+        if [ -f ~/.bash_aliases ]; then
+           . ~/.bash_aliases
+        fi
+      '';
+
+      ".bash_aliases".text = ''
+        # SBT
         alias sbt="sbt -Dsbt.supershell=false"
+
+        # Emacs client
+        alias emacs="emacsclient -c"
+
+        # Copying from https://raw.githubusercontent.com/vikaskyadav/awesome-bash-alias/master/README.md
+        # List files
+        alias ls='ls -F'
+        alias ll='ls -lh'
+        alias lt='ls --human-readable --size -1 -S --classify'
+
+        # History
+        alias h="history"
+        alias h1="history 10"
+        alias h2="history 20"
+        alias h3="history 30"
+        alias hgrep='history | grep'
+
+        # Git
+        alias gs="git status"
+        alias gst="git status -sb"
+        alias ga="git add"
+        alias gaa="git add -A"
+        alias gal="git add ."
+        alias gall="git add ."
+        alias gca="git commit -a -m"
+        alias gc="git commit -m"
+        alias gcot="git checkout"
+        alias gchekout="git checkout"
+        alias gchckout="git checkout"
+        alias gckout="git checkout"
+        alias go="git push -u origin"
+        alias gsh='git stash'
+        alias gw='git whatchanged'
+        alias gitlg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+        alias gl="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+        alias nah="git clean -df && git checkout -- ."
+
+        # Ping
+        alias pg="ping google.com -c 5"
+
+        # Confirmation
+        alias mv='mv -i'
+        alias cp='cp -i'
+        alias ln='ln -i'
+        alias rm='rm -I --preserve-root'
+
+        # Free and Used
+        alias meminfo="free -m -l -t"
+
+        # Get top process eating memory
+        alias psmem="ps auxf | sort -nr -k 4"
+        alias psmem10="ps auxf | sort -nr -k 4 | head -10"
+
+        # Get top process eating cpu
+        alias pscpu="ps auxf | sort -nr -k 3"
+        alias pscpu10="ps auxf | sort -nr -k 3 | head -10"
+
+        # Get details of a process
+        alias paux='ps aux | grep'
+
+        # Grabs the disk usage in the current directory
+        alias usage='du -ch | grep total'
+
+        # Gets the total disk usage on your machine
+        alias totalusage='df -hl --total | grep total'
       '';
 
       ".ghci".text = ''
