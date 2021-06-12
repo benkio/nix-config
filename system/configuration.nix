@@ -12,12 +12,14 @@
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   programs.dconf.enable = true;
   time.timeZone = "Europe/London";
+  system.autoUpgrade.enable = true;
+  system.autoUpgrade.allowReboot = true;
 
   imports =
     [
       # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ];
+    ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -91,7 +93,7 @@
       xkbVariant = "dvp";
       desktopManager = {
         xterm.enable = false;
-	gnome3.enable = true;
+	      gnome3.enable = true;
       };
       displayManager = {
         defaultSession = "none+i3";
@@ -113,19 +115,19 @@
     };
   };
 
-   fonts = {
-     enableFontDir = true;
-     enableGhostscriptFonts = true;
-     fonts = with pkgs; [
-       inconsolata
-       terminus_font
-       proggyfonts
-       dejavu_fonts
-       font-awesome-ttf
-       ubuntu_font_family
-       source-code-pro
-       source-sans-pro
-       source-serif-pro
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      inconsolata
+      terminus_font
+      proggyfonts
+      dejavu_fonts
+      font-awesome-ttf
+      ubuntu_font_family
+      source-code-pro
+      source-sans-pro
+      source-serif-pro
     ];
   };
 
