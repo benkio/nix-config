@@ -146,14 +146,13 @@ in
       docker
       elmPackages.elm
       elmPackages.elm-format
-      obs-linuxbrowser # Need extra steps to be added, obs doesn't have the plugin section. See the end of the file
       feh
       filezilla
       ghc
       ghcid
       hlint
       jdk11
-      kdeApplications.kdenlive
+      libsForQt5.kdenlive
       lilypond
       haskellPackages.hoogle
       # BROKEN haskellPackages.ghc-mod
@@ -221,15 +220,6 @@ in
       enableSshSupport = true;
     };
   };
-
-  # obs-linuxbrowser extra steps
-  # We don't have a wrapper which can supply obs-studio plugins so you have to
-  # somewhat manually install this:
-
-  # nix-env -f . -iA obs-linuxbrowser
-  # mkdir -p ~/.config/obs-studio/plugins
-  # ln -s ~/.nix-profile/share/obs/obs-plugins/obs-linuxbrowser ~/.config/obs-studio/plugins/
-
 
   # TODO: split/organize into separate files
 

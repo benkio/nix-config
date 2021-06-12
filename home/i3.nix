@@ -9,7 +9,6 @@ in {
       terminal = "alacritty";
       modifier = mod;
 
-      fonts = ["DejaVu Sans Mono, FontAwesome 6"];
       workspaceLayout = "tabbed";
       keybindings = lib.mkOptionDefault {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
