@@ -39,7 +39,7 @@ remove the nixos image from the drive
 
 #+begin_src shell
 # passwd benkio from root in case, default password in config
-nix-channel --add https://github.com/nix-community/home-manager/archive/release-20.09.tar.gz home-manager
+nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 nix-channel --update
 #+end_src
 
