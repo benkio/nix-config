@@ -17,7 +17,7 @@
     [
       # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
-      ];
+    ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -46,7 +46,7 @@
 
   # Enable sound.
   sound = {
-    enable = true;
+    enable = false; # Turned off since it conflicts with PipeWire
     mediaKeys.enable = true;
   };
   hardware.bluetooth = {
@@ -59,14 +59,50 @@
     };
   };
   hardware.enableRedistributableFirmware = true;
-  hardware.pulseaudio = {
+  # Not strictly required but pipewire will use rtkit if it is present
+  security.rtkit.enable = true;
+  services.pipewire = {
     enable = true;
-    package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
-    extraConfig = ''
-      load-module module-echo-cancel
-    '';
+    # Compatibility shims, adjust according to your needs
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    jack.enable = true;
+    media-session.config.bluez-monitor.rules = [
+      {
+        # Matches all cards
+        matches = [ { "device.name" = "~bluez_card.*"; } ];
+        actions = {
+          "update-props" = {
+            "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+            # mSBC is not expected to work on all headset + adapter combinations.
+            "bluez5.msbc-support" = true;
+            # SBC-XQ is not expected to work on all headset + adapter combinations.
+            "bluez5.sbc-xq-support" = true;
+          };
+        };
+      }
+      {
+        matches = [
+          # Matches all sources
+          { "node.name" = "~bluez_input.*"; }
+          # Matches all outputs
+          { "node.name" = "~bluez_output.*"; }
+        ];
+        actions = {
+          "node.pause-on-idle" = false;
+        };
+      }
+    ];
   };
+  # hardware.pulseaudio = {
+  #   enable = true;
+  #   package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
+  #   extraModules = [ pkgs.pulseaudio-modules-bt ];
+  #   extraConfig = ''
+  #     load-module module-echo-cancel
+  #   '';
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benkio = {
@@ -91,7 +127,7 @@
       xkbVariant = "dvp";
       desktopManager = {
         xterm.enable = false;
-	gnome3.enable = true;
+        gnome3.enable = true;
       };
       displayManager = {
         defaultSession = "none+i3";
@@ -113,19 +149,19 @@
     };
   };
 
-   fonts = {
-     enableFontDir = true;
-     enableGhostscriptFonts = true;
-     fonts = with pkgs; [
-       inconsolata
-       terminus_font
-       proggyfonts
-       dejavu_fonts
-       font-awesome-ttf
-       ubuntu_font_family
-       source-code-pro
-       source-sans-pro
-       source-serif-pro
+  fonts = {
+    enableFontDir = true;
+    enableGhostscriptFonts = true;
+    fonts = with pkgs; [
+      inconsolata
+      terminus_font
+      proggyfonts
+      dejavu_fonts
+      font-awesome-ttf
+      ubuntu_font_family
+      source-code-pro
+      source-sans-pro
+      source-serif-pro
     ];
   };
 
