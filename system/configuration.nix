@@ -54,7 +54,7 @@
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluezFull;
-    config = {
+    settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
       };
@@ -92,7 +92,7 @@
       xkbVariant = "dvp";
       desktopManager = {
         xterm.enable = false;
-	      gnome3.enable = true;
+	      gnome.enable = true;
       };
       displayManager = {
         defaultSession = "none+i3";
@@ -115,7 +115,7 @@
   };
 
   fonts = {
-    enableFontDir = true;
+    fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       inconsolata
