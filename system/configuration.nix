@@ -86,7 +86,6 @@
     teamviewer.enable = true;   # teamviewer service
 
     xserver = {
-      startDbusSession = true;
       enable = true;
       autorun = true;
       layout = "us";
