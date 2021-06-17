@@ -144,6 +144,7 @@ in
       calibre
       discord
       docker
+      cadence
       elmPackages.elm
       elmPackages.elm-format
       feh
@@ -165,7 +166,6 @@ in
       pandoc
       postgresql
       purescript
-      qjackctl
       reaper
       (sbt.override { jre = pkgs.jdk11; })
       scala
@@ -180,6 +180,7 @@ in
       unetbootin
       unrar
       youtube-dl
+      zoom-us
       amule
     ];
   };

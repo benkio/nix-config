@@ -67,6 +67,17 @@
     extraModules = [ pkgs.pulseaudio-modules-bt ];
     extraConfig = ''
       load-module module-echo-cancel
+
+      # null sink
+      .ifexists module-null-sink.so
+      load-module module-null-sink sink_name=Source
+      .endif
+
+      # virtual source
+      .ifexists module-virtual-source.so
+      load-module module-virtual-source source_name=VirtualMic master=Source.monitor
+      .endif
+
     '';
   };
 
