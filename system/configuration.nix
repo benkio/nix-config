@@ -48,7 +48,7 @@
 
   # Enable sound.
   sound = {
-    enable = true;
+    # enable = true; conflicts with pipewire
     mediaKeys.enable = true;
   };
   hardware.bluetooth = {
@@ -61,25 +61,16 @@
     };
   };
   hardware.enableRedistributableFirmware = true;
-  hardware.pulseaudio = {
-    enable = true;
-    package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
-    extraModules = [ pkgs.pulseaudio-modules-bt ];
-    extraConfig = ''
-      load-module module-echo-cancel
+  hardware.pulseaudio.enable = false;
+  # hardware.pulseaudio = {
+  #   enable = false;
+  #   package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
+  #   extraModules = [ pkgs.pulseaudio-modules-bt ];
+  #   extraConfig = ''
+  #     load-module module-echo-cancel
+  #     '';
+  # };
 
-      # null sink
-      .ifexists module-null-sink.so
-      load-module module-null-sink sink_name=Source
-      .endif
-
-      # virtual source
-      .ifexists module-virtual-source.so
-      load-module module-virtual-source source_name=VirtualMic master=Source.monitor
-      .endif
-
-    '';
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benkio = {
@@ -88,6 +79,7 @@
     initialHashedPassword = "benkio";
   };
 
+  security.rtkit.enable = true; # Pipewire recommemded
   # Enable the X11 windowing system.
   services = {
     openssh.enable = true;      # Enable the OpenSSH daemon.
@@ -96,6 +88,44 @@
     blueman.enable = true;      # bluetooth service
     teamviewer.enable = true;   # teamviewer service
 
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      # If you want to use JACK applications, uncomment this
+      jack.enable = true;
+
+      # use the example session manager (no others are packaged yet so this is enabled by default,
+      # no need to redefine it in your config for now)
+      #media-session.enable = true;
+      media-session.config.bluez-monitor.rules = [
+        {
+          # Matches all cards
+          matches = [ { "device.name" = "~bluez_card.*"; } ];
+          actions = {
+            "update-props" = {
+              "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+              # mSBC is not expected to work on all headset + adapter combinations.
+              "bluez5.msbc-support" = true;
+              # SBC-XQ is not expected to work on all headset + adapter combinations.
+              "bluez5.sbc-xq-support" = true;
+            };
+          };
+        }
+        {
+          matches = [
+            # Matches all sources
+            { "node.name" = "~bluez_input.*"; }
+            # Matches all outputs
+            { "node.name" = "~bluez_output.*"; }
+          ];
+          actions = {
+            "node.pause-on-idle" = false;
+          };
+        }
+      ];
+    };
     xserver = {
       enable = true;
       autorun = true;
@@ -103,7 +133,7 @@
       xkbVariant = "dvp";
       desktopManager = {
         xterm.enable = false;
-	      gnome.enable = true;
+        gnome.enable = true;
       };
       displayManager = {
         defaultSession = "none+i3";
@@ -169,8 +199,7 @@
     ntfs3g
     parted
     pavucontrol
-    pulseaudio-ctl
-    pulsemixer
+    pamixer
     playerctl
     psmisc
     silver-searcher

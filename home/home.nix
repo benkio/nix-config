@@ -138,50 +138,50 @@ in
     };
 
     packages = with pkgs; [
+      (sbt.override { jre = pkgs.jdk11; })
+      amule
       awscli
       bitwarden
       bleachbit
       calibre
       discord
       docker
-      cadence
       elmPackages.elm
       elmPackages.elm-format
       feh
       filezilla
       ghc
       ghcid
+      haskellPackages.hoogle
       hlint
       jdk11
       libsForQt5.kdenlive
       lilypond
-      haskellPackages.hoogle
-      # BROKEN haskellPackages.ghc-mod
+      nix-index
+      nodePackages.js-beautify
       nodePackages.npm
       nodePackages.typescript
-      nodePackages.js-beautify
       nodejs
-      nix-index
       ormolu
       pandoc
       postgresql
       purescript
+      qjackctl
       reaper
-      (sbt.override { jre = pkgs.jdk11; })
       scala
       slack
-      sound-juicer
       soulseekqt
+      sound-juicer
       stack
       symbola
       tdesktop #telegram-desktop
-      tixati
       teamviewer
+      tixati
       unetbootin
       unrar
       youtube-dl
       zoom-us
-      amule
+      # BROKEN haskellPackages.ghc-mod
     ];
   };
 

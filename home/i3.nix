@@ -59,8 +59,8 @@ in {
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
         "XF86AudioMute" = "exec pulseaudio-ctl mute";
-        "XF86AudioLowerVolume" = "exec amixer sset 'Master' 5%-";
-        "XF86AudioRaiseVolume" = "exec amixer sset 'Master' 5%+";
+        "XF86AudioRaiseVolume" = "exec pamixer -i 5"; #to decrease 5%
+        "XF86AudioLowerVolume" = "exec pamixer -d 5"; #to increase 5%
 
         # Sreen brightness controls
         "XF86MonBrightnessUp" = "exec brightnessctl s +10% # increase screen brightness";
