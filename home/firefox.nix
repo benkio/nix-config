@@ -13,10 +13,9 @@
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         vimium
         bitwarden
-        cookie-autodelete
-        i-dont-care-about-cookies
-        ublock-origin
-      ];    
+        vimium
+        grammarly
+      ];
     profiles.benkio.id = 0;
   };
 }
