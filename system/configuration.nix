@@ -62,15 +62,7 @@
   };
   hardware.enableRedistributableFirmware = true;
   hardware.pulseaudio.enable = false;
-  # hardware.pulseaudio = {
-  #   enable = false;
-  #   package = pkgs.pulseaudioFull; #TODO: find out how to do .override { jackaudioSupport = true; }
-  #   extraModules = [ pkgs.pulseaudio-modules-bt ];
-  #   extraConfig = ''
-  #     load-module module-echo-cancel
-  #     '';
-  # };
-
+  virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benkio = {
