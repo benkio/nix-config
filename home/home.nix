@@ -68,6 +68,7 @@ in
       elmPackages.elm-format
       feh
       filezilla
+      flameshot
       ghc
       ghcid
       haskellPackages.hoogle
@@ -167,6 +168,8 @@ in
         paux="ps aux | grep";
         usage="du -ch | grep total";
         totalusage="df -hl --total | grep total";
+        screenshotScreen="import -window root $(date +%s).png";
+        screenshotArea="flameshot gui";
       };
       initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path

@@ -172,7 +172,6 @@
     dmenu
     fd
     ffmpeg-full
-    flameshot
     firefox
     gcc
     ghc
