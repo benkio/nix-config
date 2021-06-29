@@ -63,6 +63,7 @@ in
       bleachbit
       calibre
       discord
+      direnv
       docker
       elmPackages.elm
       elmPackages.elm-format
@@ -87,6 +88,7 @@ in
       qjackctl
       reaper
       scala
+      scalafmt
       slack
       soulseekqt
       sound-juicer
@@ -174,6 +176,7 @@ in
       initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path
         . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+        eval "$(direnv hook bash)"
       '';
     };
   };
