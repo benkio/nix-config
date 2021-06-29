@@ -68,7 +68,6 @@ in
       elmPackages.elm-format
       feh
       filezilla
-      flameshot
       ghc
       ghcid
       haskellPackages.hoogle

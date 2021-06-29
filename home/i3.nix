@@ -55,8 +55,8 @@ in {
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec firefox";
         "${mod}+e" = "exec nautilus";
-        "${mod}+s" = "exec import -window root $(date +%s).png";
-        "${mod}+shift+s" = "exec flameshot gui";
+        "Print" = "exec gnome-screenshot";
+        "--release ${mod}+Print" = "exec gnome-screenshot -a";
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
