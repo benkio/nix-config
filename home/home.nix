@@ -29,6 +29,7 @@ in
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
       HISTCONTROL = "ignoreboth";
       JAVA_HOME = "~/.nix-profile/bin/java";
+      GITHUB_TOKEN = "<YOUR GITHUB TOKEN>";
     };
     activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       mkdir -p $HOME/.emacs.d $HOME/.local/share/applications $HOME/workspace
