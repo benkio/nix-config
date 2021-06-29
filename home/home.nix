@@ -98,6 +98,7 @@ in
       unetbootin
       unrar
       youtube-dl
+      xclip
       zoom-us
       # BROKEN haskellPackages.ghc-mod
     ];
