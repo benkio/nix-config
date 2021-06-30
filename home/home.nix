@@ -103,6 +103,8 @@ in
       xclip
       zoom-us
       # BROKEN haskellPackages.ghc-mod
+      vscode
+      vscode-extensions.ms-vsliveshare.vsliveshare
     ];
   };
 
