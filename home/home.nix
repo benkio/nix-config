@@ -16,7 +16,10 @@ let
   };
 in
 {
-  imports = [./i3.nix ./firefox.nix];
+  imports = [
+    ./i3.nix
+    ./firefox.nix
+  ];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
 
@@ -65,6 +68,7 @@ in
       discord
       direnv
       docker
+      docker-compose
       elmPackages.elm
       elmPackages.elm-format
       feh
@@ -103,8 +107,6 @@ in
       xclip
       zoom-us
       # BROKEN haskellPackages.ghc-mod
-      vscode
-      vscode-extensions.ms-vsliveshare.vsliveshare
     ];
   };
 
@@ -180,6 +182,15 @@ in
         . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
         eval "$(direnv hook bash)"
       '';
+    };
+    vscode = {
+      enable = true;
+      package = pkgs.vscode;
+      extensions = with pkgs.vscode-extensions; [
+        ms-vsliveshare.vsliveshare
+        scala-lang.scala
+        scalameta.metals
+      ];
     };
   };
 
