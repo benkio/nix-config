@@ -79,7 +79,17 @@
     emacs.enable = true;        # Emacs daemon
     blueman.enable = true;      # bluetooth service
     teamviewer.enable = true;   # teamviewer service
-
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql;
+      authentication = pkgs.lib.mkForce ''
+    # Generated file; do not edit!
+    # TYPE  DATABASE        USER            ADDRESS                 METHOD
+    local   all             all                                     trust
+    host    all             all             127.0.0.1/32            trust
+    host    all             all             ::1/128                 trust
+    '';
+    };
     pipewire = {
       enable = true;
       alsa.enable = true;
