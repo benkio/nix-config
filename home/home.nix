@@ -5,8 +5,8 @@ let
   #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
     url = "git://github.com/benkio/emacs-config.git";
-    rev = "f4e74803d6cd777d9e95295244784d47e1afc1f1";
-    sha256 = "1sjky33xks94aw3zkbl82spn3jz8bjyj8fb6fsm6c8kncm7qgbd7";
+    rev = "822f696c1c6e89a208d2c6301cf688c4795c17b9";
+    sha256 = "0n0hi6j5xpkxdrpagagrvf5ykb06nlflki1vczici2b02191hr7m";
     leaveDotGit = true;
   };
   bobPaitings = pkgs.fetchgit {
