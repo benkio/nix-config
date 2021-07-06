@@ -26,7 +26,7 @@
   #     canTouchEfiVariables = true;
   #     efiSysMountPoint = "/boot";
   #   };
-  # }; 
+  # };
 
   # powerManagement.enable = true;
   # hardware.opengl.driSupport32Bit = true;
@@ -79,6 +79,10 @@
     # blueman.enable = true;      # bluetooth service
     # teamviewer.enable = true;   # teamviewer service
 
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql;
+    };
     # pipewire = {
     #   enable = true;
     #   alsa.enable = true;

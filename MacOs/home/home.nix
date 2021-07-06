@@ -32,7 +32,10 @@ in
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
       HISTCONTROL = "ignoreboth";
       JAVA_HOME = "~/.nix-profile/bin/java";
+      ESHELL = "/run/current-system/sw/bin/bash";
+      NIX_PATH = "darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH";
     };
+    sessionPath = [ "/run/current-system/sw/bin" ];
     activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       mkdir -p $HOME/.emacs.d $HOME/.local/share/applications $HOME/workspace
       cp -r -n ${emacsConfig}/. $HOME/.emacs.d

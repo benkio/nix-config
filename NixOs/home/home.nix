@@ -31,6 +31,7 @@ in
       EDITOR = "emacsclient -t";          # emacs client terminal
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
       HISTCONTROL = "ignoreboth";
+      ESHELL = "/run/current-system/sw/bin/bash";
       JAVA_HOME = "~/.nix-profile/bin/java";
     };
     activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
