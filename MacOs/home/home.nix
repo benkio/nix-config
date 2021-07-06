@@ -81,26 +81,36 @@ in
     };
 
     packages = with pkgs; [
-      (sbt.override { jre = pkgs.jdk11; })
+            # BROKEN haskellPackages.ghc-mod
       # amule
-      awscli
       # bitwarden
       # bleachbit
       # calibre
       # discord
+      # feh
+      # filezilla
+      # jdk11
+      # libsForQt5.kdenlive
+      # qjackctl
+      # reaper
+      # slack
+      # soulseekqt
+      # sound-juicer
+      # tdesktop #telegram-desktop
+      # teamviewer
+      # tixati
+      # unetbootin
+      # zoom-us
+      awscli
       direnv
       docker
       docker-compose
       elmPackages.elm
       elmPackages.elm-format
-      # feh
-      # filezilla
       ghc
       ghcid
       haskellPackages.hoogle
       hlint
-      # jdk11
-      # libsForQt5.kdenlive
       lilypond
       nix-index
       nodePackages.js-beautify
@@ -111,24 +121,14 @@ in
       pandoc
       postgresql
       purescript
-      # qjackctl
-      # reaper
       scala
       scalafmt
-      # slack
-      # soulseekqt
-      # sound-juicer
       stack
       symbola
-      # tdesktop #telegram-desktop
-      # teamviewer
-      # tixati
-      # unetbootin
       unrar
-      youtube-dl
       xclip
-      # zoom-us
-      # BROKEN haskellPackages.ghc-mod
+      youtube-dl
+(sbt.override { jre = pkgs.jdk11; })
     ];
   };
 

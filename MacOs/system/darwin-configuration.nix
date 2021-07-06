@@ -79,6 +79,8 @@
     # blueman.enable = true;      # bluetooth service
     # teamviewer.enable = true;   # teamviewer service
 
+    redis.enable = true;
+
     postgresql = {
       enable = true;
       package = pkgs.postgresql;
