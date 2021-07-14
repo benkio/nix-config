@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let
-  # TODO: upgrade to the latest in here or do it after
-  #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
     url = "git://github.com/benkio/emacs-config.git";
     rev = "822f696c1c6e89a208d2c6301cf688c4795c17b9";
@@ -19,6 +17,8 @@ in
   imports = [
     ./i3.nix
     ./firefox.nix
+    ./packages.nix
+    ./programs/programs.nix
   ];
   nixpkgs.config.allowUnfree = true;
   fonts.fontconfig.enable = true;
@@ -58,146 +58,6 @@ in
       '';
       "wallpapers".source = "${bobPaitings}/data/paintings";
     };
-
-    packages = with pkgs; [
-      (sbt.override { jre = pkgs.jdk11; })
-      amule
-      awscli
-      bitwarden
-      bleachbit
-      calibre
-      discord
-      direnv
-      docker
-      docker-compose
-      elmPackages.elm
-      elmPackages.elm-format
-      feh
-      filezilla
-      ghc
-      ghcid
-      haskellPackages.hoogle
-      hlint
-      jdk11
-      libsForQt5.kdenlive
-      lilypond
-      nix-index
-      nodePackages.js-beautify
-      nodePackages.npm
-      nodePackages.typescript
-      nodejs
-      ormolu
-      pandoc
-      purescript
-      qjackctl
-      reaper
-      scala
-      scalafmt
-      slack
-      soulseekqt
-      sound-juicer
-      stack
-      symbola
-      tdesktop #telegram-desktop
-      teamviewer
-      tixati
-      unetbootin
-      unrar
-      youtube-dl
-      xclip
-      zoom-us
-      # BROKEN haskellPackages.ghc-mod
-    ];
-  };
-
-  programs = {
-    emacs.enable = true;
-    htop.enable = true;
-    obs-studio.enable = true;
-    texlive.enable = true;
-    zathura.enable = true;
-    home-manager.enable = true;
-    chromium = {
-      enable = true;
-      extensions = [
-        "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
-        "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-        "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
-      ];
-    };
-    git = {
-      enable = true;
-      userName = "Enrico Benini";
-      userEmail = "benkio89@gmail.com";
-    };
-    bash = {
-      enable = true;
-      shellAliases = {
-        sbt="sbt -Dsbt.supershell=false";
-        emacs="emacsclient -c";
-        ls="ls -F";
-        ll="ls -lh";
-        lt="ls --human-readable --size -1 -S --classify";
-        h="history";
-        h1="history 10";
-        h2="history 20";
-        h3="history 30";
-        hgrep="history | grep";
-        gs="git status";
-        gst="git status -sb";
-        ga="git add";
-        gaa="git add -A";
-        gal="git add .";
-        gall="git add .";
-        gca="git commit -a -m";
-        gc="git commit -m";
-        gcot="git checkout";
-        gchekout="git checkout";
-        gchckout="git checkout";
-        gckout="git checkout";
-        go="git push -u origin";
-        gsh="git stash";
-        gw="git whatchanged";
-        gitlg="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
-        gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
-        nah="git clean -df && git checkout -- .";
-        pg="ping google.com -c 5";
-        mv="mv -i";
-        cp="cp -i";
-        ln="ln -i";
-        rm="rm -I --preserve-root";
-        meminfo="free -m -l -t";
-        psmem="ps auxf | sort -nr -k 4";
-        psmem10="ps auxf | sort -nr -k 4 | head -10";
-        pscpu="ps auxf | sort -nr -k 3";
-        pscpu10="ps auxf | sort -nr -k 3 | head -10";
-        paux="ps aux | grep";
-        usage="du -ch | grep total";
-        totalusage="df -hl --total | grep total";
-        screenshotScreen="import -window root $(date +%s).png";
-        screenshotArea="flameshot gui";
-      };
-      initExtra = ''
-        shopt -s autocd #Automatically put `cd` before a path
-        . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
-        eval "$(direnv hook bash)"
-      '';
-    };
-    vscode = {
-      enable = true;
-      package = pkgs.vscode;
-      extensions = with pkgs.vscode-extensions; [
-        ms-vsliveshare.vsliveshare
-        scala-lang.scala
-        scalameta.metals
-        editorconfig.editorconfig
-      ]++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
-        name = "emacs-mcx";
-        publisher = "tuttieee";
-        version = "0.32.0";
-        sha256 = "1m6wjy2h3a72iyqf8acxb1ra9ql3n1cmllnwadi8bbrh599n9p6i";
-      }];
-    };
   };
 
   services = {
@@ -208,7 +68,4 @@ in
       enableSshSupport = true;
     };
   };
-
-  # TODO: split/organize into separate files
-
 }
