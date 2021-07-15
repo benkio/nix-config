@@ -83,26 +83,6 @@ in
     };
 
     packages = with pkgs; [
-            # BROKEN haskellPackages.ghc-mod
-      # amule
-      # bitwarden
-      # bleachbit
-      # calibre
-      # discord
-      # feh
-      # filezilla
-      # jdk11
-      # libsForQt5.kdenlive
-      # qjackctl
-      # reaper
-      # slack
-      # soulseekqt
-      # sound-juicer
-      # tdesktop #telegram-desktop
-      # teamviewer
-      # tixati
-      # unetbootin
-      # zoom-us
       awscli
       direnv
       docker
@@ -137,18 +117,9 @@ in
   programs = {
     emacs.enable = true;
     htop.enable = true;
-    # obs-studio.enable = true;
     texlive.enable = true;
     zathura.enable = true;
     home-manager.enable = true;
-    #chromium = {
-    #  enable = true;
-    #  extensions = [
-    #    "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
-    #    "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
-    #     "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
-    #  ];
-    #};
     git = {
       enable = true;
       userName = "Enrico Benini";
@@ -217,16 +188,5 @@ in
       ];
     };
   };
-
-  services = {
-    #udiskie.enable = true;      # Mount external disks automatically
-    #gpg-agent = {
-    #  enable = true;
-    #  defaultCacheTtl = 1800;
-    #  enableSshSupport = true;
-    #};
-  };
-
-  # TODO: split/organize into separate files
 
 }
