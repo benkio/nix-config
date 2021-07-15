@@ -33,6 +33,8 @@ in
       HISTCONTROL = "ignoreboth";
       JAVA_HOME = "~/.nix-profile/bin/java";
       ESHELL = "/run/current-system/sw/bin/bash";
+      LC_ALL="en_US.UTF-8";
+      LC_CTYPE="en_US.UTF-8";
       NIX_PATH = "darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH";
     };
     sessionPath = [ "/run/current-system/sw/bin" ];

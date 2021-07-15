@@ -75,10 +75,9 @@
   services = {
     # openssh.enable = true;      # Enable the OpenSSH daemon.
     # printing.enable = true;     # Enable CUPS to print documents.
-    emacs.enable = true;        # Emacs daemon
+    # emacs.enable = true;        # Emacs daemon
     # blueman.enable = true;      # bluetooth service
     # teamviewer.enable = true;   # teamviewer service
-
     redis.enable = true;
 
     postgresql = {
