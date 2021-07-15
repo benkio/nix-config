@@ -1,27 +1,11 @@
 { config, pkgs, lib, ... }:
 
-let
-  # TODO: upgrade to the latest in here or do it after
-  #       from the emacs folder.
-  emacsConfig = pkgs.fetchgit {
-    url = "git://github.com/benkio/emacs-config.git";
-    rev = "822f696c1c6e89a208d2c6301cf688c4795c17b9";
-    sha256 = "0n0hi6j5xpkxdrpagagrvf5ykb06nlflki1vczici2b02191hr7m";
-    leaveDotGit = true;
-  };
-  bobPaitings = pkgs.fetchgit {
-    url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
-    rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
-    sha256 = "0fs72f2a0q25cyvjjnx0wf1jrmmv7ai5j9389gdybalmwip7f5xk";
-  };
-in
 {
   imports = [
-    # ./i3.nix
-    # ./firefox.nix
+    ../../common/emacsConfig.nix
+    ../../common/bobPaintings.nix
   ];
   nixpkgs.config.allowUnfree = true;
-  # fonts.fontconfig.enable = true;
 
   home = {
     keyboard.layout = "us";
@@ -38,12 +22,7 @@ in
       NIX_PATH = "darwin-config=$HOME/.nixpkgs/darwin-configuration.nix:$NIX_PATH";
     };
     sessionPath = [ "/run/current-system/sw/bin" ];
-    activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p $HOME/.emacs.d $HOME/.local/share/applications $HOME/workspace
-      cp -r -n ${emacsConfig}/. $HOME/.emacs.d
-      chmod -R 777 $HOME/.emacs.d
-    '';
-
+    
     activation.copyApplications = let
       apps = pkgs.buildEnv {
         name = "home-manager-applications";
@@ -79,7 +58,6 @@ in
         # Services
         systemctl --user start udiskie.service emacs.service
       '';
-      "wallpapers".source = "${bobPaitings}/data/paintings";
     };
 
     packages = with pkgs; [
@@ -182,7 +160,6 @@ in
       enable = true;
       package = pkgs.vscode;
       extensions = with pkgs.vscode-extensions; [
-        ## ms-vsliveshare.vsliveshare not supported in macos + doesn`t work on nixos, yet
         scala-lang.scala
         scalameta.metals
       ];
