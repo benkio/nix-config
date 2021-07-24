@@ -9,7 +9,6 @@
     enable = true;
     package = pkgs.vscode;
     extensions = with pkgs.vscode-extensions; [
-      ms-vsliveshare.vsliveshare
       scala-lang.scala
       scalameta.metals
       editorconfig.editorconfig

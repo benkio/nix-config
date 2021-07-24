@@ -37,7 +37,6 @@
       gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       nah="git clean -df && git checkout -- .";
       pg="ping google.com -c 5";
-      rm="rm -I --preserve-root";
       meminfo="free -m -l -t";
       psmem="ps auxf | sort -nr -k 4";
       psmem10="ps auxf | sort -nr -k 4 | head -10";
