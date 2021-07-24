@@ -36,6 +36,8 @@
         $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
       done
     '';
+
+    ## Look at the nixos packages for missing programs. installing them manually unfortunately
   };
 
 }
