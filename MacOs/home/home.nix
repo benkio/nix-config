@@ -37,6 +37,12 @@
       done
     '';
 
+    activation.postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      if [ ! -d "/Users/benkio/postgresDataDir" ]; then
+         mkdir -p "/Users/benkio/postgresDataDir"
+         chown -R benkio:staff "/Users/benkio/postgresDataDir"
+      fi
+      '';
     ## Look at the nixos packages for missing programs. installing them manually unfortunately
   };
 

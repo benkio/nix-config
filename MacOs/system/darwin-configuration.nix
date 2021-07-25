@@ -12,7 +12,13 @@
     postgresql = {
       enable = true;
       package = pkgs.postgresql;
+      dataDir = "/Users/benkio/postgresDataDir";
     };
+  };
+
+  launchd.user.agents.postgresql.serviceConfig = {
+    StandardErrorPath = "/Users/benkio/postgres.error.log";
+    StandardOutPath = "/Users/benkio/postgres.log";
   };
 
   fonts = {
