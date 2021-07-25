@@ -2,11 +2,11 @@
 
 {
   imports = [
-    ../../common/emacsConfig.nix
-    ../../common/bobPaintings.nix
-    ../../common/homeConfig.nix
-    ../../common/packages.nix
-    ../../common/programs/programs.nix
+    ../../homeCommon/emacsConfig.nix
+    ../../homeCommon/bobPaintings.nix
+    ../../homeCommon/homeConfig.nix
+    ../../homeCommon/packages.nix
+    ../../homeCommon/programs/programs.nix
   ];
   nixpkgs.config.allowUnfree = true;
 

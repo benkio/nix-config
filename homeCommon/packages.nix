@@ -14,6 +14,7 @@
       ghc
       ghcid
       haskellPackages.hoogle
+      heroku
       hlint
       lilypond
       nix-index

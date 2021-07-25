@@ -2,16 +2,7 @@
 
 
 {
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
-  environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   programs.dconf.enable = true;
-  time.timeZone = "Europe/London";
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = true;
 
@@ -19,6 +10,7 @@
     [
       # Include the results of the hardware scan.
       /etc/nixos/hardware-configuration.nix
+      ../../systemCommon/systemConfig.nix
     ];
 
   boot.loader = {
@@ -161,30 +153,14 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
-      inconsolata
       terminus_font
-      proggyfonts
-      dejavu_fonts
-      font-awesome-ttf
-      ubuntu_font_family
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
     ];
   };
 
   environment.systemPackages = with pkgs; [
-    aspell
-    alacritty
-    autoconf
     bluezFull
-    curl
     dmenu
-    fd
-    ffmpeg-full
     firefox
-    gcc
-    ghc
     glibcLocales
     gimp
     gparted
@@ -192,45 +168,24 @@
     i3
     i3lock
     i3status
-    imagemagick
     jack2
-    lsof
     nettools
-    nmap
-    ntfs3g
     parted
     pavucontrol
     pamixer
     playerctl
     psmisc
-    silver-searcher
-    ripgrep
-    tldr
-    unzip
     usbutils
     vlc
-    wget
     xorg.xrandr
     brightnessctl
-    zip
   ];
 
   # Nix daemon config
   nix = {
     autoOptimiseStore = true; # Automate `nix-store --optimise`
-
     gc = {                    # Automate garbage collection
-      automatic = true;
       dates     = "weekly";
-      options   = "--delete-older-than 7d";
     };
-
-    # Avoid unwanted garbage collection when using nix-direnv
-    extraOptions = ''
-      keep-outputs     = true
-      keep-derivations = true
-    '';
-
-    trustedUsers = [ "root" "benkio" ]; # Required by Cachix to be used as non-root user
   };
 }
