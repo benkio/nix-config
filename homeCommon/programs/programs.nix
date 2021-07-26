@@ -13,6 +13,7 @@
 
   programs = {
     emacs.enable = true;
+    mpv.enable = true;
     htop.enable = true;
     texlive.enable = true;
     zathura.enable = true;
