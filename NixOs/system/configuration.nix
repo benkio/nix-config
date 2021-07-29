@@ -164,6 +164,7 @@
     glibcLocales
     gimp
     gparted
+    gnome_mplayer
     hexchat
     i3
     i3lock
