@@ -13,6 +13,7 @@
       elmPackages.elm-format
       ghc
       ghcid
+      handbrake
       haskellPackages.hoogle
       heroku
       hlint
