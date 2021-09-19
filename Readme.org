@@ -1,5 +1,7 @@
 * Minimal NixOs Commands
 
+  Commands to run on startup to install nixos and add the configuration
+
 #+begin_src
 nix-env -i git
 git clone https://github.com/benkio/nix-config.git
@@ -52,6 +54,12 @@ git clone https://github.com/benkio/nix-config.git
 cd nix-config/
 ln -s ~/nix-config/MacOs/home/home.nix ~/.config/nixpkgs/home.nix
 home-manager switch
+#+end_src
+
+* Symbolic link for NixOs Configuration
+
+#+begin_src shell
+  sudo ln -s ~/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix
 #+end_src
 
 * MacOs - Darwin-nix
