@@ -169,11 +169,13 @@
     i3
     i3lock
     i3status
+    lshw
     jack2
     nettools
     parted
     pavucontrol
     pamixer
+    pciutils
     playerctl
     psmisc
     usbutils

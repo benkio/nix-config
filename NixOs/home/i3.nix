@@ -58,6 +58,7 @@ in {
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec firefox";
+        "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
         "Print" = "exec gnome-screenshot";
         "--release ${mod}+Print" = "exec gnome-screenshot -a";
