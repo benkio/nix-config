@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  
+
   home = {
     keyboard.layout = "us";
     keyboard.variant = "dvp";
@@ -30,6 +30,12 @@
 
         # Services
         systemctl --user start udiskie.service emacs.service
+
+        # Startup Programs
+        firefox &
+        telegram-desktop &
+        emacsclient -c &
+        alacritty &
       '';
     };
   };
