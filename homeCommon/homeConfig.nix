@@ -13,6 +13,7 @@
       HISTCONTROL = "ignoreboth";
       JAVA_HOME = "~/.nix-profile/bin/java";
       ESHELL = "/run/current-system/sw/bin/bash";
+      SBT_NATIVE_CLIENT = "true";
     };
 
     file = {
