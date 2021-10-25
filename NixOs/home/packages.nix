@@ -15,6 +15,7 @@
     discord
     feh
     filezilla
+    guvcview
     jdk11
     libsForQt5.kdenlive
     qjackctl
