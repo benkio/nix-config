@@ -6,6 +6,7 @@
     aspell
     alacritty
     autoconf
+    bat
     curl
     fd
     ffmpeg-full
@@ -15,6 +16,7 @@
     lsof
     nmap
     ntfs3g
+    ngrok
     silver-searcher
     ripgrep
     tldr
