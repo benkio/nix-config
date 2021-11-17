@@ -6,6 +6,7 @@
 
 {
   home.packages = with pkgs; [
+      awscli2
       direnv
       docker
       docker-compose
@@ -17,6 +18,8 @@
       haskellPackages.hoogle
       heroku
       hlint
+      kubectl
+      k9s
       lilypond
       nix-index
       nodePackages.js-beautify
@@ -34,7 +37,6 @@
       unrar
       xclip
       youtube-dl
-(sbt.override { jre = pkgs.jdk11; })
-awscli
+      (sbt.override { jre = pkgs.jdk11; })
     ];
 }
