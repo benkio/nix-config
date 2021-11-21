@@ -7,6 +7,7 @@
     alacritty
     autoconf
     bat
+    byzanz
     curl
     fd
     ffmpeg-full
