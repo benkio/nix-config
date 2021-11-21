@@ -11,7 +11,7 @@
       EDITOR = "emacsclient -t";          # emacs client terminal
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
       HISTCONTROL = "ignoreboth";
-      JAVA_HOME = "~/.nix-profile/bin/java";
+      JAVA_HOME = "/usr/bin/java";
       ESHELL = "/run/current-system/sw/bin/bash";
       SBT_NATIVE_CLIENT = "true";
     };
