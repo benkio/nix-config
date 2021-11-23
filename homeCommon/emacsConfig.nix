@@ -12,7 +12,7 @@ let
 in
 {
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p $HOME/.emacs.d $HOME/.local/share/applications $HOME/workspace
+      mkdir -p $HOME/.emacs.d
       cp -r -n ${emacsConfig}/. $HOME/.emacs.d
       chmod -R 777 $HOME/.emacs.d
     '';
