@@ -18,6 +18,7 @@
     guvcview
     jdk11
     libsForQt5.kdenlive
+    megasync
     qjackctl
     reaper
     slack
