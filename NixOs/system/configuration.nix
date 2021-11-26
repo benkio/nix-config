@@ -151,7 +151,8 @@
         ];
       };
     };
-    dropbox = {
+  };
+  systemd.user.services.dropbox = {
       description = "Dropbox";
       wantedBy = [ "graphical-session.target" ];
       environment = {
@@ -168,7 +169,6 @@
         Nice = 10;
       };
     };
-  };
 
   fonts = {
     fontDir.enable = true;
@@ -187,6 +187,7 @@
     gimp
     gparted
     gnome_mplayer
+    gtklick
     hexchat
     i3
     i3lock

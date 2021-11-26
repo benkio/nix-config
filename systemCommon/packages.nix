@@ -22,6 +22,7 @@
     heroku
     imagemagick
     k9s
+    klick
     kubectl
     lilypond
     lsof
