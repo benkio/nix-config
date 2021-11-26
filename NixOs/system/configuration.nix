@@ -4,7 +4,7 @@
 {
   programs.dconf.enable = true;
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade.allowReboot = false;
 
   imports =
     [
