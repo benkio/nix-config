@@ -29,6 +29,7 @@
     lsof
     ngrok
     nix-index
+    nix-prefetch-scripts
     nmap
     nodejs
     ntfs3g

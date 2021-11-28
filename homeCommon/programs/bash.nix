@@ -9,7 +9,6 @@
     enable = true;
     shellAliases = {
       sbt="sbt -Dsbt.supershell=false";
-      emacs="emacsclient -c";
       ls="ls -F";
       ll="ls -lh";
       lt="ls --human-readable --size -1 -S --classify";

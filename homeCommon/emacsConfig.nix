@@ -5,15 +5,23 @@ let
   #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
     url = "git://github.com/benkio/emacs-config.git";
-    rev = "8c05a990fa8d0c772646d5d212f88c15fda8330b";
-    sha256 = "sha256-wp4Cy11dnhRfAxVWj0kqdaH/nG/Gfgq4tJZDGeBgAnc=";
+    rev = "df6e9b1320f2d9cc8e688bc37e6e9c00b253baab";
+    sha256 = "sha256-fVOxVvasCy8mDJdTUSx4ZZuQBftJ2uMHdwLdLN641b4=";
     leaveDotGit = true;
   };
 in
 {
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      mkdir -p $HOME/.emacs.d
-      cp -r -n ${emacsConfig}/. $HOME/.emacs.d
-      chmod -R 777 $HOME/.emacs.d
+      if [ ! -d "$HOME/.emacs.d" ]; then
+        mkdir -p $HOME/.emacs.d
+        cp -r -n ${emacsConfig}/. $HOME/.emacs.d
+        chmod -R 777 $HOME/.emacs.d
+        cd $HOME/.emacs.d
+        git remote add origin git://github.com/benkio/emacs-config.git
+        git pull origin master
+        git checkout -f master
+        git clean -fx
+        git branch -D fetchgit
+      fi
     '';
 }
