@@ -21,6 +21,14 @@
       enable = true;
       userName = "Enrico Benini";
       userEmail = "benkio89@gmail.com";
+      extraConfig = {
+        fetch = {
+          prune = true;
+        };
+        pull = {
+          rebase = false;
+        };
+      };
       delta = {
         enable = true;
         options = {
