@@ -17,7 +17,7 @@ in
         cp -r -n ${emacsConfig}/. $HOME/.emacs.d
         chmod -R 777 $HOME/.emacs.d
         cd $HOME/.emacs.d
-        git remote add origin git://github.com/benkio/emacs-config.git
+        git remote add origin git@github.com:benkio/emacs-config.git
         git pull origin master
         git checkout -f master
         git clean -fx
