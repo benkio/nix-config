@@ -12,6 +12,7 @@
     curl
     docker
     docker-compose
+    evince
     elmPackages.elm
     elmPackages.elm-format
     fd
@@ -31,6 +32,7 @@
     nmap
     nodejs
     ntfs3g
+    mcomix3
     pandoc
     postgresql
     purescript
@@ -39,6 +41,7 @@
     scalafmt
     silver-searcher
     (sbt.override { jre = pkgs.jdk11; })
+    soulseekqt
     tldr
     unrar
     unzip

@@ -16,7 +16,6 @@
     mpv.enable = true;
     htop.enable = true;
     texlive.enable = true;
-    zathura.enable = true;
     home-manager.enable = true;
     git = {
       enable = true;
