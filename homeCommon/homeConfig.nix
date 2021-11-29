@@ -32,12 +32,21 @@
         # Services
         systemctl --user start udiskie.service emacs.service
 
-        # Startup Programs
-        firefox &
-        telegram-desktop &
-        emacsclient -c &
-        alacritty &
-      '';
+        # Workaround from here: https://github.com/NixOS/nixpkgs/issues/119513#issuecomment-873506384
+        if [ -z $_XPROFILE_SOURCED ]; then
+          export _XPROFILE_SOURCED=1
+
+          # Create known directory if doesn't exists
+          mkdir -p $HOME/.local/share/applications $HOME/workspace $HOME/temp
+
+          # Startup Programs
+          firefox &
+          telegram-desktop &
+          emacsclient -c &
+          alacritty &
+
+        fi
+        '';
     };
   };
 }

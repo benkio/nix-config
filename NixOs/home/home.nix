@@ -22,4 +22,16 @@
       enableSshSupport = true;
     };
   };
+
+  gtk = {
+    enable = true;
+    gtk3 = {
+      extraConfig = {
+        gtk-recent-files-limit = 20;
+      };
+      bookmarks = [
+        "file:///home/benkio/temp temp"
+      ];
+    };
+  };
 }

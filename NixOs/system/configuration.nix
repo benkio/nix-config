@@ -4,7 +4,7 @@
 {
   programs.dconf.enable = true;
   system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = true;
+  system.autoUpgrade.allowReboot = false;
 
   imports =
     [
@@ -33,6 +33,11 @@
     # Per-interface useDHCP will be mandatory in the future, so this generated config
     # replicates the default behaviour.
     useDHCP = false;
+
+    firewall = {
+      allowedTCPPorts = [ 17500 ];
+      allowedUDPPorts = [ 17500 ];
+    };
   };
 
   # Select internationalisation properties.
@@ -139,7 +144,6 @@
 
       windowManager.i3 = {
         enable = true;
-        package = pkgs.i3-gaps;
         extraPackages = with pkgs; [
           dmenu    # application launcher most people use
           i3status # gives you the default i3 status bar
@@ -148,6 +152,23 @@
       };
     };
   };
+  systemd.user.services.dropbox = {
+      description = "Dropbox";
+      wantedBy = [ "graphical-session.target" ];
+      environment = {
+        QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+        QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
+      };
+      serviceConfig = {
+        ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
+        ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+        KillMode = "control-group"; # upstream recommends process
+        Restart = "on-failure";
+        PrivateTmp = true;
+        ProtectSystem = "full";
+        Nice = 10;
+      };
+    };
 
   fonts = {
     fontDir.enable = true;
@@ -160,11 +181,13 @@
   environment.systemPackages = with pkgs; [
     bluezFull
     dmenu
+    dropbox-cli
     firefox
     glibcLocales
     gimp
     gparted
     gnome_mplayer
+    gtklick
     hexchat
     i3
     i3lock
