@@ -153,22 +153,27 @@
     };
   };
   systemd.user.services.dropbox = {
-      description = "Dropbox";
-      wantedBy = [ "graphical-session.target" ];
-      environment = {
-        QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
-        QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
-      };
-      serviceConfig = {
-        ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
-        ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
-        KillMode = "control-group"; # upstream recommends process
-        Restart = "on-failure";
-        PrivateTmp = true;
-        ProtectSystem = "full";
-        Nice = 10;
-      };
+    description = "Dropbox";
+    wantedBy = [ "graphical-session.target" ];
+    environment = {
+      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
+      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
     };
+    serviceConfig = {
+      ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
+      ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
+      KillMode = "control-group"; # upstream recommends process
+      Restart = "on-failure";
+      PrivateTmp = true;
+      ProtectSystem = "full";
+      Nice = 10;
+    };
+  };
+
+  services.logind.extraConfig = ''
+    # don’t shutdown when power button is short-pressed
+    HandlePowerKey=ignore
+  '';
 
   fonts = {
     fontDir.enable = true;
@@ -180,8 +185,10 @@
 
   environment.systemPackages = with pkgs; [
     bluezFull
+    byzanz
     dmenu
     dropbox-cli
+    evince
     firefox
     glibcLocales
     gimp
@@ -192,6 +199,7 @@
     i3
     i3lock
     i3status
+    klick
     lshw
     jack2
     nettools
@@ -201,6 +209,7 @@
     pciutils
     playerctl
     psmisc
+    soulseekqt
     usbutils
     vlc
     xorg.xrandr

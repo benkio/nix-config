@@ -19,11 +19,6 @@
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";
 
- services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
-
   fonts = {
     fonts = with pkgs; [
       inconsolata
