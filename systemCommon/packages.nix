@@ -34,6 +34,7 @@
     purescript
     ripgrep
     scala
+    scala-cli
     scalafmt
     silver-searcher
     (sbt.override { jre = pkgs.jdk11; })
