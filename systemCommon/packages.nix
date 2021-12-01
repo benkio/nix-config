@@ -38,7 +38,6 @@
     scala
     scala-cli
     scalafmt
-    silver-searcher
     (sbt.override { jre = pkgs.jdk11; })
     tldr
     unrar
