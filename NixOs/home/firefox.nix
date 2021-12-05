@@ -12,7 +12,7 @@
     extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         vimium
         bitwarden
-        grammarly,
+        grammarly
         xbrowsersync
       ];
     profiles.benkio.id = 0;
