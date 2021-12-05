@@ -9,7 +9,7 @@
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
         "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
-        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
+        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync - sync Id 4a1aea669e6d4c11be1cce243ff0ef76
       ];
     };
     vscode = {
