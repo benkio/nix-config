@@ -1,9 +1,5 @@
 { config, pkgs, lib, ... }:
 
-###############################################################################
-#               General Programs Without Specific Configuration                #
-###############################################################################
-
 {
   programs = {
     obs-studio.enable = true;
@@ -13,6 +9,7 @@
         "dbepggeogbaibhgnhhndojpepiihcmeb" # Vimium
         "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
         "gighmmpiobklfepjocnamgkkbiglidom" # AdBlock
+        "lcbjdhceifofjlpecfpeimnnphbcjgnc" # xBrowserSync
       ];
     };
     vscode = {

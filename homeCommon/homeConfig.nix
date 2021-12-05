@@ -40,7 +40,7 @@
           mkdir -p $HOME/.local/share/applications $HOME/workspace $HOME/temp
 
           # Startup Programs
-          firefox &
+          chromium &
           telegram-desktop &
           emacsclient -c &
           alacritty &
