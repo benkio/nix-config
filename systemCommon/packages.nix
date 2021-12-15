@@ -40,6 +40,7 @@
     scalafmt
     (sbt.override { jre = pkgs.jdk11; })
     tldr
+    termdown
     unrar
     unzip
     wget
