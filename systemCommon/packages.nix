@@ -24,6 +24,7 @@
     kubectl
     lilypond
     lsof
+    nethogs
     ngrok
     nix-index
     nix-prefetch-scripts
