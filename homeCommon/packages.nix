@@ -7,6 +7,7 @@
 {
   home.packages = with pkgs; [
     # BROKEN handbrake
+    cabal-install
     direnv
     ghcid
     hlint

@@ -203,6 +203,7 @@
     lshw
     jack2
     nettools
+    nethogs
     parted
     pavucontrol
     pamixer

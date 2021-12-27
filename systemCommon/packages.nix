@@ -15,6 +15,7 @@
     elmPackages.elm-format
     fd
     ffmpeg-full
+    haskellPackages.fswatcher
     gcc
     ghc
     haskellPackages.hoogle
@@ -24,7 +25,6 @@
     kubectl
     lilypond
     lsof
-    nethogs
     ngrok
     nix-index
     nix-prefetch-scripts
