@@ -46,7 +46,7 @@
     unzip
     wget
     xclip
-    youtube-dl
+    yt-dlp
     zip
   ];
 }

@@ -14,6 +14,7 @@
     nodePackages.js-beautify
     nodePackages.npm
     nodePackages.typescript
+    nodePackages.yarn
     ormolu
     stack
     symbola
