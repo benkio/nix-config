@@ -42,6 +42,7 @@
     (sbt.override { jre = pkgs.jdk11; })
     tldr
     termdown
+    tunnelto
     unrar
     unzip
     wget
