@@ -33,7 +33,6 @@
     ntfs3g
     mcomix3
     pandoc
-    postgresql
     purescript
     ripgrep
     scala
