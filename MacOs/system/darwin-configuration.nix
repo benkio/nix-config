@@ -13,6 +13,7 @@
       enable = true;
       package = pkgs.postgresql;
       dataDir = "/Users/benkio/postgresDataDir";
+      extraPlugins = with pkgs.postgresql_13.pkgs; [ postgis ];
     };
   };
 
