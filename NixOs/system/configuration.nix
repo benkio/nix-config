@@ -86,6 +86,7 @@
     host    all             all             127.0.0.1/32            trust
     host    all             all             ::1/128                 trust
     '';
+     extraPlugins = [ pkgs.postgresql.pkgs.postgis ];
     };
     pipewire = {
       enable = true;

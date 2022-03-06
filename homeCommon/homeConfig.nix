@@ -13,6 +13,7 @@
       HISTCONTROL = "ignoreboth";
       ESHELL = "/run/current-system/sw/bin/bash";
       SBT_NATIVE_CLIENT = "true";
+      PGDATA = "/Users/benkio/postgresDataDir";
     };
 
     file = {
