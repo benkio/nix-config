@@ -24,7 +24,7 @@
       inconsolata
       proggyfonts
       dejavu_fonts
-      font-awesome-ttf
+      font-awesome
       ubuntu_font_family
       source-code-pro
       source-sans-pro
