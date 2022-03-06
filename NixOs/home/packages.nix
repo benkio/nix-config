@@ -16,7 +16,7 @@
     feh
     filezilla
     guvcview
-    jdk11
+    jdk17
     libsForQt5.kdenlive
     megasync
     qjackctl

@@ -26,7 +26,7 @@
   networking = {
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
-      packages = [ pkgs.networkmanager_openvpn ];
+      packages = [ pkgs.networkmanager-openvpn ];
     };
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -194,12 +194,11 @@
     gimp
     gparted
     gnome_mplayer
-    gtklick
     hexchat
     i3
     i3lock
     i3status
-    klick
+    kmetronome
     lshw
     jack2
     nettools
@@ -219,7 +218,7 @@
 
   # Nix daemon config
   nix = {
-    autoOptimiseStore = true; # Automate `nix-store --optimise`
+    settings.auto-optimise-store = true; # Automate `nix-store --optimise`
     gc = {                    # Automate garbage collection
       dates     = "weekly";
     };
