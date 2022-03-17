@@ -2,7 +2,7 @@
 
 {
 
-    imports =
+  imports =
     [
       ./packages.nix
       ./nixConfig.nix
@@ -30,5 +30,9 @@
       source-sans-pro
       source-serif-pro
     ];
+  };
+
+  services = {
+    emacs.enable = true;        # Emacs daemon
   };
 }

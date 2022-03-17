@@ -9,8 +9,6 @@
     awscli2
     bat
     curl
-    docker
-    docker-compose
     elmPackages.elm
     elmPackages.elm-format
     fd

@@ -11,9 +11,8 @@
 
     postgresql = {
       enable = true;
-      package = pkgs.postgresql;
+      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
       dataDir = "/Users/benkio/postgresDataDir";
-      extraPlugins = [ pkgs.postgresql.pkgs.postgis ];
     };
   };
 

@@ -73,12 +73,11 @@
   services = {
     openssh.enable = true;      # Enable the OpenSSH daemon.
     printing.enable = true;     # Enable CUPS to print documents.
-    emacs.enable = true;        # Emacs daemon
     blueman.enable = true;      # bluetooth service
     teamviewer.enable = true;   # teamviewer service
     postgresql = {
       enable = true;
-      package = pkgs.postgresql;
+      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
       authentication = pkgs.lib.mkForce ''
     # Generated file; do not edit!
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
@@ -86,7 +85,6 @@
     host    all             all             127.0.0.1/32            trust
     host    all             all             ::1/128                 trust
     '';
-     extraPlugins = [ pkgs.postgresql.pkgs.postgis ];
     };
     pipewire = {
       enable = true;
@@ -189,6 +187,8 @@
     byzanz
     dmenu
     dropbox-cli
+    docker
+    docker-compose
     evince
     firefox
     glibcLocales
