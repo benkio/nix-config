@@ -76,6 +76,7 @@
     emacs.enable = true;        # Emacs daemon
     blueman.enable = true;      # bluetooth service
     teamviewer.enable = true;   # teamviewer service
+    gnome.gnome-keyring.enable = true; # Store Wifi passwords
     postgresql = {
       enable = true;
       package = pkgs.postgresql;
