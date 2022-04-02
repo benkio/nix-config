@@ -16,6 +16,7 @@
     feh
     filezilla
     guvcview
+    gnome.gnome-screenshot
     jdk17
     libsForQt5.kdenlive
     megasync
