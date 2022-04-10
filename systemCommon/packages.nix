@@ -9,6 +9,7 @@
     awscli2
     bat
     curl
+    corefonts
     docker
     docker-compose
     elmPackages.elm
