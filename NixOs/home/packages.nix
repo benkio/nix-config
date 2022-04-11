@@ -13,10 +13,13 @@
     bleachbit
     calibre
     discord
+    docker
+    docker-compose
     feh
     filezilla
     guvcview
-    jdk11
+    gnome.gnome-screenshot
+    jdk17
     libsForQt5.kdenlive
     megasync
     qjackctl

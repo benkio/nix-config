@@ -13,7 +13,8 @@
       keep-outputs     = true
       keep-derivations = true
     '';
-
-    trustedUsers = [ "root" "benkio" ]; # Required by Cachix to be used as non-root user
+    settings = {
+      trusted-users = [ "root" "benkio" ]; # Required by Cachix to be used as non-root user
+    };
   };
 }

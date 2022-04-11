@@ -9,6 +9,7 @@
     awscli2
     bat
     curl
+    corefonts
     elmPackages.elm
     elmPackages.elm-format
     fd
@@ -36,7 +37,7 @@
     scala
     scala-cli
     scalafmt
-    (sbt.override { jre = pkgs.jdk11; })
+    (sbt.override { jre = pkgs.jdk17; })
     tldr
     termdown
     tunnelto
