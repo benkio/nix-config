@@ -26,7 +26,7 @@
   networking = {
     networkmanager = { # Enables wireless support and openvpn via network manager.
       enable   = true;
-      packages = [ pkgs.networkmanager-openvpn ];
+      plugins = [ pkgs.networkmanager-openvpn ];
     };
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
