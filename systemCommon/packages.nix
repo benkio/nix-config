@@ -37,7 +37,6 @@
     scala
     scala-cli
     scalafmt
-    (sbt.override { jre = pkgs.jdk17; })
     tldr
     termdown
     tunnelto

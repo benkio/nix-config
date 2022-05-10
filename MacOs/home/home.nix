@@ -7,6 +7,7 @@
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/packages.nix
     ../../homeCommon/programs/programs.nix
+    ./packages.nix
   ];
   nixpkgs.config.allowUnfree = true;
 

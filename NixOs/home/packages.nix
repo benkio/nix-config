@@ -19,7 +19,7 @@
     filezilla
     guvcview
     gnome.gnome-screenshot
-    jdk17
+    jdk
     libsForQt5.kdenlive
     megasync
     qjackctl
