@@ -25,6 +25,7 @@
     qjackctl
     reaper
     slack
+    sbt
     soulseekqt
     sound-juicer
     tdesktop #telegram-desktop
