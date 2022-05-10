@@ -34,6 +34,7 @@
     pandoc
     purescript
     ripgrep
+    sbt
     scala
     scala-cli
     scalafmt
