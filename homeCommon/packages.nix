@@ -17,6 +17,7 @@
     nodePackages.yarn
     ormolu
     stack
+    sqlfluff
     symbola
   ];
 }
