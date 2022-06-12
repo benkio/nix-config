@@ -22,7 +22,7 @@
   };
 
   fonts = {
-    enableFontDir = true;
+    fontDir = true;
   };
 
   # Use a custom configuration.nix location.
