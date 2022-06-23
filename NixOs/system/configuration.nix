@@ -186,6 +186,7 @@
   environment.systemPackages = with pkgs; [
     bluezFull
     byzanz
+    copyq
     dmenu
     dropbox-cli
     docker
