@@ -15,7 +15,8 @@
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "/Users/benkio/postgresDataDir";
     };
-
+    stateVersion = "22.11";
+    username = "benkio";
     file = {
       ".ghci".text = ''
         :set prompt "\ESC[38;5;208m\STXλ>\ESC[m\STX "

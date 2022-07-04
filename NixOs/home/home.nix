@@ -34,4 +34,6 @@
       ];
     };
   };
+
+  home.homeDirectory = "/home/benkio";
 }
