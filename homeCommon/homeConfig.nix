@@ -4,6 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
+    homeDirectory = "/home/benkio";
     keyboard.layout = "us";
     keyboard.variant = "dvp";
     sessionVariables = {
