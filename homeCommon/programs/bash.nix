@@ -30,9 +30,8 @@
       h3="history 30";
       h="history";
       hgrep="history | grep";
-      ll="ls -lh";
-      ls="ls -F";
-      lt="ls --human-readable --size -1 -S --classify";
+      ll="exa -lh";
+      ls="exa";
       meminfo="free -m -l -t";
       nah="git clean -df && git checkout -- .";
       paux="ps aux | grep";
