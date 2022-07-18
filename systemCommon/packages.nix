@@ -12,6 +12,7 @@
     corefonts
     elmPackages.elm
     elmPackages.elm-format
+    exa
     fd
     ffmpeg-full
     haskellPackages.fswatcher
