@@ -31,6 +31,7 @@
     nmap
     nodejs
     ntfs3g
+    mysql
     mcomix3
     pandoc
     purescript
