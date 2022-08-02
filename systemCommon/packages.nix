@@ -7,6 +7,7 @@
     aspell
     autoconf
     awscli2
+    aws-vault
     bat
     curl
     corefonts

@@ -8,7 +8,6 @@
   home.packages = with pkgs; [
         # BROKEN haskellPackages.ghc-mod
     amule
-    awscli
     bitwarden
     bleachbit
     calibre
