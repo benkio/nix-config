@@ -12,7 +12,7 @@
   nixpkgs.config.allowUnfree = true;
 
   targets.darwin.keybindings = {
-    "@$Z" = "performZoom:";
+    "@$M" = "performZoom:";
   };
 
   home = {
