@@ -11,6 +11,10 @@
   ];
   nixpkgs.config.allowUnfree = true;
 
+  targets.darwin.keybindings = {
+    "@$Z" = "performZoom:";
+  };
+
   home = {
     sessionVariables = {
       LC_ALL="en_US.UTF-8";
@@ -45,5 +49,4 @@
       '';
     ## Look at the nixos packages for missing programs. installing them manually unfortunately
   };
-
 }
