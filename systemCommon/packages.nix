@@ -21,6 +21,7 @@
     ghc
     haskellPackages.hoogle
     heroku
+    html-tidy
     imagemagick
     k9s
     kubectl
