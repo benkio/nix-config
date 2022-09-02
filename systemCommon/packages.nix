@@ -42,6 +42,7 @@
     scala
     scala-cli
     scalafmt
+    sqlite
     tldr
     termdown
     tunnelto
