@@ -26,6 +26,7 @@
     k9s
     kubectl
     lilypond
+    linkchecker
     lsof
     ngrok
     nix-index
