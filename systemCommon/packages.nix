@@ -16,6 +16,7 @@
     exa
     fd
     ffmpeg-full
+    fswatch
     haskellPackages.fswatcher
     gcc
     ghc
@@ -39,9 +40,11 @@
     pandoc
     purescript
     ripgrep
+    rustup
     scala
     scala-cli
     scalafmt
+    sqlite
     tldr
     termdown
     tunnelto
