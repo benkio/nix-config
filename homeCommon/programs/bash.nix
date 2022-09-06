@@ -14,10 +14,8 @@
       gall="git add .";
       gc="git commit -m";
       gca="git commit -a -m";
-      gchckout="git checkout";
-      gchekout="git checkout";
-      gckout="git checkout";
-      gcot="git checkout";
+      gcko="git checkout";
+      gp="git pull";
       gitlg="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       go="git push -u origin";
