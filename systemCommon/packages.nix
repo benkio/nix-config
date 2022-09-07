@@ -16,7 +16,6 @@
     exa
     fd
     ffmpeg-full
-    fswatch
     haskellPackages.fswatcher
     gcc
     ghc
