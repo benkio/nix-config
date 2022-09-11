@@ -19,6 +19,7 @@
     haskellPackages.fswatcher
     gcc
     ghc
+    go
     haskellPackages.hoogle
     heroku
     html-tidy
