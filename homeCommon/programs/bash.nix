@@ -15,10 +15,10 @@
       gc="git commit -m";
       gca="git commit -a -m";
       gcko="git checkout";
-      gp="git pull";
+      gpl="git pull";
       gitlg="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
-      go="git push -u origin";
+      gph="git push -u origin";
       gs="git status";
       gsh="git stash";
       gst="git status -sb";
