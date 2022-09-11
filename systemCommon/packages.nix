@@ -17,7 +17,6 @@
     fd
     ffmpeg-full
     haskellPackages.fswatcher
-    gifsicle
     gcc
     ghc
     haskellPackages.hoogle
