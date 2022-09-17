@@ -16,9 +16,9 @@
     fd
     ffmpeg-full
     haskellPackages.fswatcher
-    gifsicle
     gcc
     ghc
+    go
     haskellPackages.hoogle
     heroku
     html-tidy
