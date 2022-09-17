@@ -4,7 +4,6 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    aspell
     autoconf
     awscli2
     aws-vault
