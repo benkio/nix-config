@@ -49,6 +49,7 @@
 
         fi
         '';
+      ".aspell.conf".text = "data-dir ${config.home.homeDirectory}/.nix-profile/lib/aspell";
     };
   };
 }
