@@ -14,6 +14,8 @@
         bitwarden
         grammarly
         xbrowsersync
+        ublock-origin
+        darkreader
       ];
     profiles.benkio.id = 0;
   };
