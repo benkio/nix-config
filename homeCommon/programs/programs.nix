@@ -8,7 +8,6 @@
 
   imports = [
     ./bash.nix
-    ./vscode.nix
   ];
 
   programs = {

@@ -13,10 +13,5 @@
         "niloccemoadcdkdjlinkgdfekeahmflj" # Pocket
       ];
     };
-    vscode = {
-      extensions = with pkgs.vscode-extensions; [
-        ms-vsliveshare.vsliveshare
-      ];
-    };
   };
 }

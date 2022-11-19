@@ -22,13 +22,14 @@
     };
     sessionPath = [ "/run/current-system/sw/bin" ];
 
-    activation.copyApplications = let
-      apps = pkgs.buildEnv {
-        name = "home-manager-applications";
-        paths = config.home.packages;
-        pathsToLink = "/Applications";
-      };
-    in lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    activation = {
+      copyApplications = let
+        apps = pkgs.buildEnv {
+          name = "home-manager-applications";
+          paths = config.home.packages;
+          pathsToLink = "/Applications";
+        };
+      in lib.hm.dag.entryAfter [ "writeBoundary" ] ''
       baseDir="$HOME/Applications/Home Manager Apps"
       if [ -d "$baseDir" ]; then
         rm -rf "$baseDir"
@@ -40,13 +41,31 @@
         $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
       done
     '';
-
-    activation.postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+      postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -d "/Users/benkio/postgresDataDir" ]; then
-         mkdir -p "/Users/benkio/postgresDataDir"
-         chown -R benkio:staff "/Users/benkio/postgresDataDir"
+         $DRY_RUN_CMD mkdir -p "/Users/benkio/postgresDataDir"
+         $DRY_RUN_CMD chown -R benkio:staff "/Users/benkio/postgresDataDir"
       fi
       '';
-    ## Look at the nixos packages for missing programs. installing them manually unfortunately
+    };
+
+    ## Look at the nixos packages for missing programs. installing them using homebrew
+    file = {
+      "browser.scpt".text =
+        ''on run argv
+  do shell script "defaultbrowser " & item 1 of argv
+  try
+    tell application "System Events"
+      tell application process "CoreServicesUIAgent"
+        tell window 1
+          tell (first button whose name starts with "use")
+            perform action "AXPress"
+          end tell
+        end tell
+      end tell
+    end tell
+  end try
+end run'';
+    };
   };
 }

@@ -52,4 +52,15 @@
       ".aspell.conf".text = "data-dir ${config.home.homeDirectory}/.nix-profile/lib/aspell";
     };
   };
+
+  xdg.mimeApps.defaultApplications = {
+    "video/x-msvideo" = [ "vlc.desktop" ];
+    "video/mp4"       = [ "vlc.desktop" ];
+    "audio/mpeg"      = [ "vlc.desktop" ];
+    "video/webm"      = [ "vlc.desktop" ];
+    "audio/webm"      = [ "vlc.desktop" ];
+    "video/mpeg"      = [ "vlc.desktop" ];
+    "text/html"       = [ "firefox.desktop" ];
+    "application/pdf" = [ "evince.desktop" ];
+  };
 }

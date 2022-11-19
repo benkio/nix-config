@@ -11,11 +11,7 @@
     bitwarden
     bleachbit
     calibre
-    discord
-    docker
-    docker-compose
     feh
-    filezilla
     guvcview
     gnome.gnome-screenshot
     jdk

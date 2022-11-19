@@ -189,8 +189,6 @@
     copyq
     dmenu
     dropbox-cli
-    docker
-    docker-compose
     evince
     firefox
     glibcLocales

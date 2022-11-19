@@ -5,20 +5,22 @@
   environment.systemPackages = with pkgs; [
     alacritty
     autoconf
-    awscli2
     aws-vault
+    awscli2
     bat
-    curl
     corefonts
+    curl
+    docker
+    docker-compose
     elmPackages.elm
     elmPackages.elm-format
     exa
     fd
     ffmpeg-full
-    haskellPackages.fswatcher
     gcc
     ghc
     go
+    haskellPackages.fswatcher
     haskellPackages.hoogle
     heroku
     html-tidy
@@ -28,14 +30,14 @@
     lilypond
     linkchecker
     lsof
+    mcomix3
+    mysql
     ngrok
     nix-index
     nix-prefetch-scripts
     nmap
     nodejs
     ntfs3g
-    mysql
-    mcomix3
     pandoc
     purescript
     ripgrep
@@ -44,8 +46,8 @@
     scala-cli
     scalafmt
     sqlite
-    tldr
     termdown
+    tldr
     tunnelto
     unrar
     unzip

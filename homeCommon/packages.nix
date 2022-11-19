@@ -13,6 +13,7 @@
     aspellDicts.en-computers
     aspellDicts.it
     cabal-install
+    discord
     direnv
     ghcid
     hlint
