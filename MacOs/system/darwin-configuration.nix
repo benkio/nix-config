@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 
-{
+let home = "/Users/benkio";
+in {
   imports =
     [
       ../../systemCommon/systemConfig.nix
@@ -12,17 +13,17 @@
     postgresql = {
       enable = true;
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
-      dataDir = "/Users/benkio/postgresDataDir";
+      dataDir = "${home}/postgresDataDir";
     };
   };
 
   launchd.user.agents = {
     postgresql.serviceConfig = {
-      StandardErrorPath = "/Users/benkio/postgres.error.log";
-      StandardOutPath = "/Users/benkio/postgres.log";
+      StandardErrorPath = "${home}/postgres.error.log";
+      StandardOutPath = "${home}/postgres.log";
     };
     defaultWorkBrowser = {
-      command = "osascript /Users/benkio/browser.scpt chromium";
+      command = "osascript ${home}/browser.scpt chromium";
       serviceConfig.StartCalendarInterval = [
         { Hour = 9; Weekday = 1; }
         { Hour = 9; Weekday = 2; }
@@ -32,7 +33,7 @@
       ];
     };
     defaultPersonalBrowser = {
-      command = "osascript /Users/benkio/browser.scpt firefox";
+      command = "osascript ${home}/browser.scpt firefox";
       serviceConfig.StartCalendarInterval = [{ Hour = 18; }];
     };
   };
@@ -73,7 +74,7 @@
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  environment.darwinConfig = "/Users/benkio/nix-config/MacOs/system/darwin-configuration.nix";
+  environment.darwinConfig = "${home}/nix-config/MacOs/system/darwin-configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;

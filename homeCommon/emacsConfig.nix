@@ -12,11 +12,11 @@ let
 in
 {
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -d "$HOME/.emacs.d" ]; then
-        mkdir -p $HOME/.emacs.d
-        cp -r -n ${emacsConfig}/. $HOME/.emacs.d
-        chmod -R 777 $HOME/.emacs.d
-        cd $HOME/.emacs.d
+      if [ ! -d "${config.home.homeDirectory}/.emacs.d" ]; then
+        mkdir -p ${config.home.homeDirectory}/.emacs.d
+        cp -r -n ${emacsConfig}/. ${config.home.homeDirectory}/.emacs.d
+        chmod -R 777 ${config.home.homeDirectory}/.emacs.d
+        cd ${config.home.homeDirectory}/.emacs.d
         git remote add origin git@github.com:benkio/emacs-config.git
         git pull origin master
         git checkout -f master

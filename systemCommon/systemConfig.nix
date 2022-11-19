@@ -35,6 +35,4 @@
   services = {
     emacs.enable = true;        # Emacs daemon
   };
-
-  system.stateVersion = "22.11";
 }

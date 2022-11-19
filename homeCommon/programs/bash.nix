@@ -47,7 +47,7 @@
     };
     initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path
-        . $HOME/.nix-profile/etc/profile.d/hm-session-vars.sh
+        . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh
         eval "$(direnv hook bash)"
       '';
   };

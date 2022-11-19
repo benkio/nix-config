@@ -14,7 +14,7 @@
       HISTCONTROL = "ignoreboth";
       ESHELL = "/run/current-system/sw/bin/bash";
       SBT_NATIVE_CLIENT = "true";
-      PGDATA = "/Users/benkio/postgresDataDir";
+      PGDATA = "${config.home.homeDirectory}/postgresDataDir";
     };
     stateVersion = "22.11";
     username = "benkio";
@@ -39,7 +39,7 @@
           export _XPROFILE_SOURCED=1
 
           # Create known directory if doesn't exists
-          mkdir -p $HOME/.local/share/applications $HOME/workspace $HOME/temp
+          mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp
 
           # Startup Programs
           chromium &

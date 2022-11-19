@@ -30,7 +30,7 @@
           pathsToLink = "/Applications";
         };
       in lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      baseDir="$HOME/Applications/Home Manager Apps"
+      baseDir="${config.home.homeDirectory}/Applications/Home Manager Apps"
       if [ -d "$baseDir" ]; then
         rm -rf "$baseDir"
       fi
@@ -42,9 +42,9 @@
       done
     '';
       postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -d "/Users/benkio/postgresDataDir" ]; then
-         $DRY_RUN_CMD mkdir -p "/Users/benkio/postgresDataDir"
-         $DRY_RUN_CMD chown -R benkio:staff "/Users/benkio/postgresDataDir"
+      if [ ! -d "${config.home.homeDirectory}/postgresDataDir" ]; then
+         $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/postgresDataDir"
+         $DRY_RUN_CMD chown -R benkio:staff "${config.home.homeDirectory}/postgresDataDir"
       fi
       '';
     };
