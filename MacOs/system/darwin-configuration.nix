@@ -24,11 +24,11 @@
     defaultWorkBrowser = {
       command = "osascript /Users/benkio/browser.scpt chromium";
       serviceConfig.StartCalendarInterval = [
-        { Hour = 9; Weekday = 1; },
-        { Hour = 9; Weekday = 2; },
-        { Hour = 9; Weekday = 3; },
-        { Hour = 9; Weekday = 4; },
-        { Hour = 9; Weekday = 5; },
+        { Hour = 9; Weekday = 1; }
+        { Hour = 9; Weekday = 2; }
+        { Hour = 9; Weekday = 3; }
+        { Hour = 9; Weekday = 4; }
+        { Hour = 9; Weekday = 5; }
       ];
     };
     defaultPersonalBrowser = {
