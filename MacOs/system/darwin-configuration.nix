@@ -22,6 +22,9 @@ in {
       StandardErrorPath = "${home}/postgres.error.log";
       StandardOutPath = "${home}/postgres.log";
     };
+  };
+
+  launchd.daemons = {
     defaultWorkBrowser = {
       command = "osascript ${home}/browser.scpt chromium";
       serviceConfig.StartCalendarInterval = [
