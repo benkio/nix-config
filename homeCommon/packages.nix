@@ -15,14 +15,10 @@
     cabal-install
     discord
     direnv
-    ghcid
-    hlint
     nodePackages.js-beautify
     nodePackages.npm
     nodePackages.typescript
     nodePackages.yarn
-    ormolu
-    stack
     sqlfluff
     symbola
   ];

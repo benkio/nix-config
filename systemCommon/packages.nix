@@ -20,7 +20,7 @@
     gcc
     ghc
     go
-    haskellPackages.fswatcher
+    watchman
     haskellPackages.hoogle
     heroku
     html-tidy
@@ -38,6 +38,10 @@
     nmap
     nodejs
     ntfs3g
+    ormolu
+    stack
+    ghcid
+    hlint
     pandoc
     purescript
     ripgrep
