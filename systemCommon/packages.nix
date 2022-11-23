@@ -20,7 +20,7 @@
     gcc
     ghc
     go
-    watchman
+    watchexec
     haskellPackages.hoogle
     heroku
     html-tidy
