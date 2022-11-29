@@ -28,6 +28,7 @@
       h3="history 30";
       h="history";
       hgrep="history | grep";
+      kaj="killall -9 java";
       ll="exa -lh";
       ls="exa";
       meminfo="free -m -l -t";
