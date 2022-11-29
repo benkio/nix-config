@@ -192,6 +192,7 @@
     evince
     firefox
     glibcLocales
+    gcc
     gimp
     gparted
     gnome_mplayer

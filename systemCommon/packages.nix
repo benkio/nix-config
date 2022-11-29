@@ -17,7 +17,6 @@
     exa
     fd
     ffmpeg-full
-    gcc
     ghc
     go
     watchexec
@@ -38,6 +37,7 @@
     nmap
     nodejs
     ntfs3g
+    jq
     ormolu
     stack
     ghcid
