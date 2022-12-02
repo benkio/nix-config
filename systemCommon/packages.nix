@@ -21,6 +21,7 @@
     go
     watchexec
     haskellPackages.hoogle
+    haskellPackages.fix-imports
     heroku
     html-tidy
     imagemagick
