@@ -40,6 +40,7 @@
     ntfs3g
     jq
     ormolu
+    haskellPackages.fourmolu
     stack
     ghcid
     hlint
