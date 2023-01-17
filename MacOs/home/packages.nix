@@ -19,5 +19,6 @@
   home.packages = with pkgs; [
     jdk11
     (pkgs.sbt.override { jre = pkgs.jdk11; })
+    (pkgs.maven.override { jdk = pkgs.jdk11; })
   ];
 }
