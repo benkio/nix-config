@@ -17,11 +17,11 @@
     exa
     fd
     ffmpeg-full
-    gcc
     ghc
     go
     watchexec
     haskellPackages.hoogle
+    haskellPackages.fix-imports
     heroku
     html-tidy
     imagemagick
@@ -38,7 +38,9 @@
     nmap
     nodejs
     ntfs3g
+    jq
     ormolu
+    haskellPackages.fourmolu
     stack
     ghcid
     hlint
