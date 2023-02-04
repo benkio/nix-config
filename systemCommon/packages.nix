@@ -15,6 +15,7 @@
     elmPackages.elm
     elmPackages.elm-format
     exa
+    exfatprogs
     fd
     ffmpeg-full
     ghc
