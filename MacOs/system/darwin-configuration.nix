@@ -55,7 +55,6 @@ in {
       "firefox"
       "kdenlive"
       "obs"
-      "qbittorrent"
       "slack"
     ];
 
