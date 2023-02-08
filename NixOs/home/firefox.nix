@@ -9,7 +9,9 @@
 
   programs.firefox = {
     enable = true;
-    extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    profiles.benkio = {
+      id = 0;
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         vimium
         bitwarden
         grammarly
@@ -17,6 +19,6 @@
         ublock-origin
         darkreader
       ];
-    profiles.benkio.id = 0;
+    };
   };
 }
