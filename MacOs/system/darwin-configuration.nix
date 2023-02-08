@@ -48,6 +48,7 @@ in {
       "irssi"
       "ntfs-3g-mac"
       "defaultbrowser"
+      "gnu-sed"
     ];
     casks = [
       "caffeine"

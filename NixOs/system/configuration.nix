@@ -190,6 +190,7 @@
     dmenu
     dropbox-cli
     evince
+    exfatprogs
     firefox
     glibcLocales
     gcc
