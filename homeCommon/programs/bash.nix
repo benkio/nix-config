@@ -50,6 +50,10 @@
         shopt -s autocd #Automatically put `cd` before a path
         . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh
         eval "$(direnv hook bash)"
+        if [[ -f ${config.home.homeDirectory}/.bashrcextra ]]
+        then
+          . ${config.home.homeDirectory}/.bashrcextra
+        fi
       '';
   };
 }

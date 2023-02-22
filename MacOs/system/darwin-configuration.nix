@@ -45,6 +45,7 @@ in {
     enable = true;
     autoUpdate = true;
     brews = [
+      "awscli"
       "irssi"
       "ntfs-3g-mac"
       "defaultbrowser"

@@ -6,7 +6,6 @@
     alacritty
     autoconf
     aws-vault
-    awscli2
     bat
     corefonts
     curl

@@ -184,6 +184,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    awscli2
     bluezFull
     byzanz
     copyq

@@ -4,7 +4,7 @@
   nixpkgs.config.allowUnfree = true;
 
   home = {
-    homeDirectory = "/home/benkio";
+    homeDirectory = if lib.hasInfix "darwin" builtins.currentSystem then "/Users/benkio" else "/home/benkio";
     keyboard.layout = "us";
     keyboard.variant = "dvp";
     sessionVariables = {
