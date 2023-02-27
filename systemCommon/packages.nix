@@ -45,6 +45,7 @@
     hlint
     pandoc
     purescript
+    #(pkgs.callPackage ./revealjs.nix {})
     ripgrep
     rustup
     scala
