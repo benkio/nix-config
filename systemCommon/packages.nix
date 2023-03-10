@@ -58,7 +58,6 @@
     unzip
     wget
     xclip
-    yt-dlp
     zip
   ];
 }
