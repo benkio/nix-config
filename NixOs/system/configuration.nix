@@ -189,7 +189,7 @@
     usbutils
     vlc
     xorg.xrandr
-    yt-dly
+    yt-dlp
   ];
 
   # Nix daemon config
