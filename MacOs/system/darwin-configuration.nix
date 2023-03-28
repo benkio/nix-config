@@ -50,6 +50,7 @@ in {
       "ntfs-3g-mac"
       "defaultbrowser"
       "gnu-sed"
+      "yt-dlp"
     ];
     casks = [
       "caffeine"

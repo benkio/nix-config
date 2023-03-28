@@ -45,7 +45,6 @@
     hlint
     pandoc
     purescript
-    #(pkgs.callPackage ./revealjs.nix {})
     ripgrep
     rustup
     scala
@@ -59,7 +58,6 @@
     unzip
     wget
     xclip
-    yt-dlp
     zip
   ];
 }

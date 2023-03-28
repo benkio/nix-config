@@ -157,6 +157,7 @@
   environment.systemPackages = with pkgs; [
     awscli2
     bluezFull
+    brightnessctl
     byzanz
     copyq
     dmenu
@@ -164,23 +165,23 @@
     evince
     exfatprogs
     firefox
-    glibcLocales
     gcc
     gimp
-    gparted
+    glibcLocales
     gnome_mplayer
+    gparted
     hexchat
     i3
     i3lock
     i3status
+    jack2
     kmetronome
     lshw
-    jack2
-    nettools
     nethogs
+    nettools
+    pamixer
     parted
     pavucontrol
-    pamixer
     pciutils
     playerctl
     psmisc
@@ -188,7 +189,7 @@
     usbutils
     vlc
     xorg.xrandr
-    brightnessctl
+    yt-dly
   ];
 
   # Nix daemon config
