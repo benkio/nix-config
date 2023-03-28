@@ -25,7 +25,6 @@
     sound-juicer
     tdesktop #telegram-desktop
     teamviewer
-    tixati
     unetbootin
     zoom-us
   ];
