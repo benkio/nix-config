@@ -24,6 +24,7 @@
     soulseekqt
     sound-juicer
     tdesktop #telegram-desktop
+    torrential
     teamviewer
     unetbootin
     zoom-us
