@@ -173,15 +173,7 @@
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
     HandlePowerKey=ignore
-  '';
-
-  fonts = {
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
-    fonts = with pkgs; [
-      terminus_font
-    ];
-  };
+  '';;
 
   environment.systemPackages = with pkgs; [
     awscli2

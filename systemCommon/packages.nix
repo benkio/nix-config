@@ -7,7 +7,6 @@
     autoconf
     aws-vault
     bat
-    corefonts
     curl
     docker
     docker-compose

@@ -20,11 +20,12 @@
   time.timeZone = "Europe/London";
 
   fonts = {
+    fontDir.enable = true;
     fonts = with pkgs; [
-      inconsolata
       proggyfonts
       dejavu_fonts
-      font-awesome
+      nerdfonts
+      corefonts
       ubuntu_font_family
       source-code-pro
       source-sans-pro
