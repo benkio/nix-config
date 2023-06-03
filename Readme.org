@@ -1,5 +1,6 @@
 * Minimal NixOs Commands
 
+  Edit: this was done long ago, it might be outdated/unecessary now
   Commands to run on startup to install nixos and add the configuration
 
 #+begin_src
@@ -48,12 +49,13 @@ nix-channel --update
 log off and in
 
 #+begin_src shell
-nix-shell '<home-manager>' -A install
-# mkdir ~/.config/nixpkgs
-git clone https://github.com/benkio/nix-config.git
-cd nix-config/
-ln -s ~/nix-config/MacOs/home/home.nix ~/.config/nixpkgs/home.nix
-home-manager switch
+  nix-shell '<home-manager>' -A install
+  # mkdir ~/.config/nixpkgs
+  git clone https://github.com/benkio/nix-config.git
+  cd nix-config/
+  # Change it to NixOs home file if in NixOs
+  ln -s ~/nix-config/MacOs/home/home.nix ~/.config/home-manager/home.nix
+  home-manager switch
 #+end_src
 
 * Symbolic link for NixOs Configuration
