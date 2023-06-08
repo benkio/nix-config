@@ -40,6 +40,7 @@
     ormolu
     haskellPackages.fourmolu
     stack
+    gimp
     ghcid
     hlint
     pandoc

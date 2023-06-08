@@ -158,7 +158,6 @@
     exfatprogs
     firefox
     gcc
-    gimp
     glibcLocales
     gnome_mplayer
     gparted
