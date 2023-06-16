@@ -42,6 +42,7 @@
     stack
     gimp
     ghcid
+    haskellPackages.apply-refact
     hlint
     pandoc
     purescript
