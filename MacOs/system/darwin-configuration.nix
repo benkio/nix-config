@@ -51,6 +51,8 @@ in {
       "defaultbrowser"
       "gnu-sed"
       "yt-dlp"
+      "tgenv"
+      "tfenv"
     ];
     casks = [
       "caffeine"
