@@ -61,6 +61,7 @@ in {
       "kdenlive"
       "obs"
       "slack"
+      "musicbrainz-picard"
     ];
 
   };

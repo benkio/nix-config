@@ -28,5 +28,6 @@
     teamviewer
     unetbootin
     zoom-us
+    picard
   ];
 }

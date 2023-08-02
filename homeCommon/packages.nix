@@ -21,6 +21,5 @@
     nodePackages.yarn
     sqlfluff
     symbola
-    picard
   ];
 }
