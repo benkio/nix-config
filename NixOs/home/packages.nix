@@ -16,6 +16,7 @@
     gnome.gnome-screenshot
     jdk
     libsForQt5.kdenlive
+    lychee
     megasync
     qjackctl
     reaper

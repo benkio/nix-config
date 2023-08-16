@@ -53,6 +53,7 @@ in {
       "yt-dlp"
       "tgenv"
       "tfenv"
+      "lychee"
     ];
     casks = [
       "caffeine"
