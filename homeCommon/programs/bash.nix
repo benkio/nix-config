@@ -15,6 +15,7 @@
       gc="git commit -m";
       gca="git commit -a -m";
       gcko="git checkout";
+      gco="git checkout";
       gpl="git pull";
       gitlg="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
@@ -36,15 +37,12 @@
       paux="ps aux | grep";
       pg="ping google.com -c 5";
       portListen="sudo lsof -i -P -n | grep LISTEN";
-      pscpu10="ps auxf | sort -nr -k 3 | head -10";
-      pscpu="ps auxf | sort -nr -k 3";
-      psmem10="ps auxf | sort -nr -k 4 | head -10";
-      psmem="ps auxf | sort -nr -k 4";
+      pscpu10="ps auxr | head -10";
+      psmem10="ps auxm | head -10";
       sbt="sbt -Dsbt.supershell=false";
       screenshotArea="flameshot gui";
       screenshotScreen="import -window root $(date +%s).png";
-      totalusage="df -hl --total | grep total";
-      usage="du -ch | grep total";
+      dirsize="du -ch | grep total";
     };
     initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path
