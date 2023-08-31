@@ -59,6 +59,7 @@
   };
   hardware.enableRedistributableFirmware = true;
   hardware.pulseaudio.enable = false;
+  hardware.nvidia.package = pkgs.nvidia_x11;
   virtualisation.docker.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
