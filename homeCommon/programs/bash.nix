@@ -8,6 +8,8 @@
   programs.bash = {
     enable = true;
     shellAliases = {
+      cat="bat";
+      dirsize="du -ch | grep total";
       ga="git add";
       gaa="git add -A";
       gal="git add .";
@@ -16,10 +18,10 @@
       gca="git commit -a -m";
       gcko="git checkout";
       gco="git checkout";
-      gpl="git pull";
       gitlg="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       gl="git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
       gph="git push -u origin";
+      gpl="git pull";
       gs="git status";
       gsh="git stash";
       gst="git status -sb";
@@ -42,7 +44,6 @@
       sbt="sbt -Dsbt.supershell=false";
       screenshotArea="flameshot gui";
       screenshotScreen="import -window root $(date +%s).png";
-      dirsize="du -ch | grep total";
     };
     initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path

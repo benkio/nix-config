@@ -16,12 +16,11 @@
     fd
     ffmpeg-full
     ghc
-    go
     watchexec
     haskellPackages.hoogle
     # Broken haskellPackages.fix-imports
-    heroku
     html-tidy
+    id3v2
     imagemagick
     k9s
     kubectl
@@ -30,7 +29,6 @@
     lsof
     mcomix3
     mysql
-    ngrok
     nix-index
     nix-prefetch-scripts
     nmap
