@@ -21,7 +21,7 @@
 
   fonts = {
     fontDir.enable = true;
-    packages = with pkgs; [
+    fonts = with pkgs; [
       proggyfonts
       dejavu_fonts
       nerdfonts
