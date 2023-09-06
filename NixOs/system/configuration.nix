@@ -21,6 +21,15 @@
     };
   };
 
+  boot.supportedFilesystems = [ "ntfs" ];
+
+  fileSystems."/run/media/benkio/externalHD" =
+    { device = "dev/sdb1";
+      fsType = "ntfs-3g";
+      options = [ "rw" "uid=1000"];
+    };
+  systemd.enableEmergencyMode = false;
+
   powerManagement.enable = true;
   hardware.opengl.driSupport32Bit = true;
   networking = {
