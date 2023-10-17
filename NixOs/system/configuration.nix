@@ -59,7 +59,7 @@
   };
   hardware.bluetooth = {
     enable = true;
-    package = pkgs.bluezFull;
+    package = pkgs.bluez;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
@@ -158,7 +158,7 @@
 
   environment.systemPackages = with pkgs; [
     awscli2
-    bluezFull
+    bluez
     brightnessctl
     byzanz
     copyq
