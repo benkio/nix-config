@@ -32,8 +32,8 @@
       h="history";
       hgrep="history | grep";
       kaj="killall -9 java";
-      ll="exa -lh";
-      ls="exa";
+      ll="eza -lh";
+      ls="eza";
       meminfo="free -m -l -t";
       nah="git clean -df && git checkout -- .";
       paux="ps aux | grep";

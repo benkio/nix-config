@@ -12,7 +12,7 @@
     docker-compose
     elmPackages.elm
     elmPackages.elm-format
-    exa
+    eza
     fd
     ffmpeg-full
     ghc
