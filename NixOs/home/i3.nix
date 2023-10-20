@@ -57,7 +57,7 @@ in {
         "${mod}+Shift+0" = "move container to workspace 10";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
-        "${mod}+b" = "exec chromium";
+        "${mod}+b" = "exec firefox";
         "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
         "Print" = "exec gnome-screenshot";

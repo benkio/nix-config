@@ -24,23 +24,6 @@ in {
     };
   };
 
-  launchd.daemons = {
-    defaultWorkBrowser = {
-      command = "osascript ${home}/browser.scpt chromium";
-      serviceConfig.StartCalendarInterval = [
-        { Hour = 9; Weekday = 1; }
-        { Hour = 9; Weekday = 2; }
-        { Hour = 9; Weekday = 3; }
-        { Hour = 9; Weekday = 4; }
-        { Hour = 9; Weekday = 5; }
-      ];
-    };
-    defaultPersonalBrowser = {
-      command = "osascript ${home}/browser.scpt firefox";
-      serviceConfig.StartCalendarInterval = [{ Hour = 18; }];
-    };
-  };
-
   homebrew = {
     enable = true;
     autoUpdate = true;
@@ -48,7 +31,6 @@ in {
       "awscli"
       "irssi"
       "ntfs-3g-mac"
-      "defaultbrowser"
       "gnu-sed"
       "yt-dlp"
       "tgenv"
@@ -57,7 +39,6 @@ in {
     ];
     casks = [
       "caffeine"
-      "chromium"
       "firefox"
       "kdenlive"
       "obs"

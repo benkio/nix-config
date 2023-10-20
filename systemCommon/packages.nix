@@ -27,6 +27,7 @@
     lilypond
     linkchecker
     lsof
+    magic-wormhole
     mcomix3
     mysql
     nix-index
@@ -45,6 +46,7 @@
     pandoc
     purescript
     ripgrep
+    rymdport
     rustup
     scala
     scala-cli

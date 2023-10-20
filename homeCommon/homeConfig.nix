@@ -42,7 +42,7 @@
           mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp
 
           # Startup Programs
-          chromium &
+          firefox &
           telegram-desktop &
           emacsclient -c &
           alacritty &
