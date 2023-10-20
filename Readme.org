@@ -66,7 +66,7 @@ log off and in
 
 * MacOs - Darwin-nix
 
-  For installation of darwin-nix you can follow the instructions in this gist: [[https://gist.github.com/mandrean/65108e0898629e20afe1002d8bf4f223][darwin-nix setup]]
+  For installation of ~darwin-nix~ you can follow the instructions in this gist: [[https://gist.github.com/mandrean/65108e0898629e20afe1002d8bf4f223][darwin-nix setup]] and install [[https://brew.sh][Homebrew]]
 
   Just add the symlink for the darwin configuration as follow
 
