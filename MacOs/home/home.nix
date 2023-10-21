@@ -20,7 +20,10 @@
       LC_ALL="en_US.UTF-8";
       LC_CTYPE="en_US.UTF-8";
     };
-    sessionPath = [ "/run/current-system/sw/bin" ];
+    sessionPath = [
+      "/run/current-system/sw/bin"
+      "/usr/local/bin"
+    ];
 
     activation = {
       # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1716147796
