@@ -43,6 +43,7 @@ in {
       "obs"
       #"slack"
       "musicbrainz-picard"
+      "telegram-desktop"
     ];
 
   };
