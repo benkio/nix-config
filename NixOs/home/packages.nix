@@ -24,7 +24,7 @@
     sbt
     soulseekqt
     sound-juicer
-    tdesktop #telegram-desktop
+    telegram-desktop
     torrential
     teamviewer
     unetbootin
