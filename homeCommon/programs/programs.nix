@@ -15,6 +15,8 @@
     mpv.enable = true;
     htop.enable = true;
     texlive.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
     home-manager.enable = true;
     ssh.enable = true;
     git = {
