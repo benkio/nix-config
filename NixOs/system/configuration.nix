@@ -26,7 +26,7 @@
   fileSystems."/run/media/benkio/externalHD" =
     { device = "dev/sdb1";
       fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000"];
+      options = [ "rw" "uid=1000" "errors=continue"];
     };
   systemd.enableEmergencyMode = false;
 
