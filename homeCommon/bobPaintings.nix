@@ -2,9 +2,9 @@
 
 let
   bobPaitings = pkgs.fetchgit {
-    url = "git://github.com/jwilber/Bob_Ross_Paintings.git";
-    rev = "b782b9ec29a847b2d4ba5fe9656396df6a59950f";
-    sha256 = "0fs72f2a0q25cyvjjnx0wf1jrmmv7ai5j9389gdybalmwip7f5xk";
+    url = "https://github.com/jwilber/Bob_Ross_Paintings.git";
+    rev = "90dcb68c20502b0151497c0dad7d08a3ceedaf85";
+    sha256 = "sha256-TMt+hr1pewzFg6pFfgaAuC6Pop6wPZNAvn/lc8PH8tk=";
   };
 in
 {

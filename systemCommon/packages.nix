@@ -46,7 +46,6 @@
     pandoc
     purescript
     ripgrep
-    rymdport
     rustup
     scala
     scala-cli

@@ -26,11 +26,10 @@ in {
 
   homebrew = {
     enable = true;
-    autoUpdate = true;
+    onActivation.upgrade = true;
     brews = [
       "awscli"
       "irssi"
-      "ntfs-3g-mac"
       "gnu-sed"
       "yt-dlp"
       "tgenv"
@@ -39,10 +38,10 @@ in {
     ];
     casks = [
       "caffeine"
-      "firefox"
+      "firefox" # Check if it's finally fine with home manager
       "kdenlive"
       "obs"
-      "slack"
+      #"slack"
       "musicbrainz-picard"
     ];
 

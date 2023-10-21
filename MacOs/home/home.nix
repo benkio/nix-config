@@ -23,24 +23,32 @@
     sessionPath = [ "/run/current-system/sw/bin" ];
 
     activation = {
-      copyApplications = let
-        apps = pkgs.buildEnv {
-          name = "home-manager-applications";
-          paths = config.home.packages;
-          pathsToLink = "/Applications";
-        };
-      in lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      baseDir="${config.home.homeDirectory}/Applications/Home Manager Apps"
-      if [ -d "$baseDir" ]; then
-        rm -rf "$baseDir"
-      fi
-      mkdir -p "$baseDir"
-      for appFile in ${apps}/Applications/*; do
-        target="$baseDir/$(basename "$appFile")"
-        $DRY_RUN_CMD cp ''${VERBOSE_ARG:+-v} -fHRL "$appFile" "$baseDir"
-        $DRY_RUN_CMD chmod ''${VERBOSE_ARG:+-v} -R +w "$target"
-      done
-    '';
+      # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1716147796
+      trampolineApps = let
+      apps = pkgs.buildEnv {
+        name = "home-manager-applications";
+        paths = config.home.packages;
+        pathsToLink = "/Applications";
+      };
+    in
+      lib.hm.dag.entryAfter ["writeBoundary"] ''
+        toDir="$HOME/Applications/HMApps"
+        fromDir="${apps}/Applications"
+        rm -rf "$toDir"
+        mkdir "$toDir"
+        (
+          cd "$fromDir"
+          for app in *.app; do
+            /usr/bin/osacompile -o "$toDir/$app" -e "do shell script \"open '$fromDir/$app'\""
+            icon="$(/usr/bin/plutil -extract CFBundleIconFile raw "$fromDir/$app/Contents/Info.plist")"
+            if [[ $icon != *".icns" ]]; then
+              icon="$icon.icns"
+            fi
+            mkdir -p "$toDir/$app/Contents/Resources"
+            cp -f "$fromDir/$app/Contents/Resources/$icon" "$toDir/$app/Contents/Resources/applet.icns"
+          done
+        )
+      '';
       postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
       if [ ! -d "${config.home.homeDirectory}/postgresDataDir" ]; then
          $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/postgresDataDir"

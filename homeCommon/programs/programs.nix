@@ -16,6 +16,7 @@
     htop.enable = true;
     texlive.enable = true;
     home-manager.enable = true;
+    ssh.enable = true;
     git = {
       enable = true;
       userName = "Enrico Benini";

@@ -4,15 +4,15 @@ let
   # TODO: upgrade to the latest in here or do it after
   #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
-    url = "git://github.com/benkio/emacs-config.git";
-    rev = "526a2c7749576090929f70c43cac3a3e18e53716";
-    sha256 = "sha256-e1z3Olnwbk3zvvM7tmKAh7up6aCN1xtG9oVk7QKRjYY=";
+    url = "https://github.com/benkio/emacs-config.git";
+    rev = "be0b04d60ff0588fabad885fc6cbf9d025f51309";
+    sha256 = "sha256-T5i/2K058mCupGXvseRW15ex4NCvLtRV69zJBQ0F27I=";
     leaveDotGit = true;
   };
 in
 {
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -d "${config.home.homeDirectory}/.emacs.d" ]; then
+      if [ ! -d "${config.home.homeDirectory}/.emacs.d" ] || [ ! "$(ls -A ${config.home.homeDirectory}/.emacs.d)" ]; then
         mkdir -p ${config.home.homeDirectory}/.emacs.d
         cp -r -n ${emacsConfig}/. ${config.home.homeDirectory}/.emacs.d
         chmod -R 777 ${config.home.homeDirectory}/.emacs.d
