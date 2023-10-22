@@ -38,6 +38,7 @@ in {
     ];
     casks = [
       "caffeine"
+      "dropbox"
       "firefox" # Check if it's finally fine with home manager
       "kdenlive"
       "obs"
