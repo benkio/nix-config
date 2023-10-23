@@ -29,6 +29,7 @@ in {
     onActivation.upgrade = true;
     brews = [
       "awscli"
+      "defaultbrowser"
       "irssi"
       "gnu-sed"
       "yt-dlp"
