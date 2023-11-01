@@ -28,7 +28,6 @@
     torrential
     teamviewer
     unetbootin
-    zoom-us
     picard
   ];
 }

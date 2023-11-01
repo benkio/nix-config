@@ -30,7 +30,6 @@ in {
     brews = [
       "awscli"
       "defaultbrowser"
-      "irssi"
       "gnu-sed"
       "yt-dlp"
       "tgenv"
@@ -40,7 +39,7 @@ in {
     casks = [
       "caffeine"
       "dropbox"
-      "firefox" # Check if it's finally fine with home manager
+      "firefox" # Check if it's finally fine with home manager (not ready October 2023)
       "kdenlive"
       "obs"
       #"slack"
