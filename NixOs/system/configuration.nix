@@ -23,11 +23,11 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  fileSystems."/run/media/benkio/externalHD" =
-    { device = "dev/sdb1";
-      fsType = "ntfs-3g";
-      options = [ "rw" "uid=1000" "errors=continue"];
-    };
+  # fileSystems."/run/media/benkio/externalHD" =
+  #   { device = "dev/sdb1";
+  #     fsType = "ntfs-3g";
+  #     options = [ "rw" "uid=1000" "silent"];
+  #   };
   systemd.enableEmergencyMode = false;
 
   powerManagement.enable = true;
