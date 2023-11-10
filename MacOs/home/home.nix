@@ -19,6 +19,7 @@
     sessionVariables = {
       LC_ALL="en_US.UTF-8";
       LC_CTYPE="en_US.UTF-8";
+      SHELL="/run/current-system/sw/bin/bash";
     };
     sessionPath = [
       "/run/current-system/sw/bin"

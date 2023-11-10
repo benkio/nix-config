@@ -44,5 +44,18 @@
         };
       };
     };
+    irssi = {
+      enable = true;
+      extraConfig = ''
+      settings = {
+        core = {
+          real_name = "Enrico Benini";
+          user_name = "benkio";
+          nick = "benkio";
+        };
+        "irc/dcc" = { dcc_autoget ="yes"; };
+      };
+      '';
+    };
   };
 }

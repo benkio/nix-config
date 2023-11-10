@@ -8,7 +8,7 @@
     keyboard.layout = "us";
     keyboard.variant = "dvp";
     sessionVariables = {
-      LANG = "en_US.utf8";
+      LANG = "en_US.utf-8";
       EDITOR = "emacsclient -t";          # emacs client terminal
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
       HISTCONTROL = "ignoreboth";

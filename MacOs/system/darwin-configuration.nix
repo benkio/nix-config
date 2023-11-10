@@ -29,7 +29,7 @@ in {
     onActivation.upgrade = true;
     brews = [
       "awscli"
-      "irssi"
+      "defaultbrowser"
       "gnu-sed"
       "yt-dlp"
       "tgenv"
@@ -38,11 +38,13 @@ in {
     ];
     casks = [
       "caffeine"
-      "firefox" # Check if it's finally fine with home manager
+      "dropbox"
+      "firefox" # Check if it's finally fine with home manager (not ready October 2023)
       "kdenlive"
       "obs"
       #"slack"
       "musicbrainz-picard"
+      "telegram-desktop"
     ];
 
   };
