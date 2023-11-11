@@ -51,6 +51,7 @@
     tunnelto
     unrar
     unzip
+    unipicker
     wget
     xclip
     zip
