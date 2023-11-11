@@ -152,7 +152,6 @@
   '';
 
   environment.systemPackages = with pkgs; [
-    awscli2
     bluez
     brightnessctl
     byzanz
@@ -184,7 +183,6 @@
     usbutils
     vlc
     xorg.xrandr
-    yt-dlp
   ];
 
   # Nix daemon config

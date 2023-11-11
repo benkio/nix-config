@@ -3,6 +3,7 @@
 {
   programs = {
     obs-studio.enable = true;
+    sbt.enable = true;
     chromium = {
       enable = true;
       extensions = [

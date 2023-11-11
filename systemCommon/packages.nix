@@ -3,10 +3,8 @@
 {
 
   environment.systemPackages = with pkgs; [
-    alacritty
     autoconf
     aws-vault
-    bat
     curl
     docker
     docker-compose
@@ -27,15 +25,13 @@
     lilypond
     linkchecker
     lsof
-    magic-wormhole
+    #magic-wormhole
     mcomix3
     mysql
-    nix-index
     nix-prefetch-scripts
     nmap
     nodejs
     ntfs3g
-    jq
     ormolu
     haskellPackages.fourmolu
     stack
@@ -43,7 +39,6 @@
     ghcid
     haskellPackages.apply-refact
     hlint
-    pandoc
     purescript
     ripgrep
     rustup

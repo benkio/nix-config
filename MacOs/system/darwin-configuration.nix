@@ -28,10 +28,8 @@ in {
     enable = true;
     onActivation.upgrade = true;
     brews = [
-      "awscli"
       "defaultbrowser"
       "gnu-sed"
-      "yt-dlp"
       "tgenv"
       "tfenv"
       "lychee"
@@ -45,6 +43,7 @@ in {
       #"slack"
       "musicbrainz-picard"
       "telegram-desktop"
+      "vlc"
     ];
 
   };

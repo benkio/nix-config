@@ -14,7 +14,6 @@
     aspellDicts.it
     cabal-install
     discord
-    direnv
     nodePackages.js-beautify
     nodePackages.npm
     nodePackages.typescript

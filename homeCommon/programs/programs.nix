@@ -11,14 +11,19 @@
   ];
 
   programs = {
+    alacritty.enable = true;
+    awscli.enable = true;
+    bat.enable = true;
     emacs.enable = true;
-    mpv.enable = true;
+    nix-index.enable = true;
     htop.enable = true;
     texlive.enable = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
+    pandoc.enable = true;
     home-manager.enable = true;
     ssh.enable = true;
+    yt-dlp.enable = true;
     git = {
       enable = true;
       userName = "Enrico Benini";
@@ -57,5 +62,6 @@
       };
       '';
     };
+    jq.enable = true;
   };
 }

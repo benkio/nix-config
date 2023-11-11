@@ -25,7 +25,7 @@
       proggyfonts
       dejavu_fonts
       nerdfonts
-      corefonts
+      # corefonts
       ubuntu_font_family
       source-code-pro
       source-sans-pro
