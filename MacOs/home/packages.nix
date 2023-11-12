@@ -18,7 +18,7 @@
 
   programs.sbt = {
     enable = true;
-    package = pkgs.jdk11;
+    package = (pkgs.sbt.override { jre = pkgs.jdk11; });
   };
   home.packages = with pkgs; [
     jdk11
