@@ -24,6 +24,7 @@
     ssh.enable = true;
     texlive.enable = true;
     yt-dlp.enable = true;
+    rtorrent.enable = true;
     fzf.enable = true;
     git = {
       enable = true;
