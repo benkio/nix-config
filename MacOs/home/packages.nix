@@ -16,13 +16,10 @@
       });
   })];
 
-  programs.sbt = {
-    enable = true;
-    package = (pkgs.sbt.override { jre = pkgs.jdk11; });
-  };
+  programs.sbt.enable = true;
   home.packages = with pkgs; [
-    jdk11
-    (pkgs.maven.override { jdk = pkgs.jdk11; })
+    jdk17
+    maven
     ntfs3g
   ];
 }
