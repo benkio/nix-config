@@ -52,6 +52,7 @@ in {
     NSGlobalDomain = {
       AppleShowAllFiles = true;
       AppleInterfaceStyleSwitchesAutomatically = true;
+      KeyRepeat = 1;
     };
     dock = {
       autohide = true;
