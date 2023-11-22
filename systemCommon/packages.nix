@@ -3,6 +3,7 @@
 {
 
   environment.systemPackages = with pkgs; [
+    act
     autoconf
     aws-vault
     curl
