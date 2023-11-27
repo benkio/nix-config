@@ -33,6 +33,8 @@ in {
       "tgenv"
       "tfenv"
       "lychee"
+      "sdl2"
+      "pkg-config"
     ];
     casks = [
       "caffeine"
