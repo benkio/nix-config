@@ -42,8 +42,6 @@
       pscpu10="ps auxr | head -10";
       psmem10="ps auxm | head -10";
       sbt="sbt -Dsbt.supershell=false";
-      screenshotArea="flameshot gui";
-      screenshotScreen="import -window root $(date +%s).png";
     };
     initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path
