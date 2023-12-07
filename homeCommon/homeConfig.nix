@@ -16,7 +16,7 @@
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
     };
-    stateVersion = "22.11";
+    stateVersion = "24.05";
     username = "benkio";
     file = {
       ".ghci".text = ''
