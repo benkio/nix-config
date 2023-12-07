@@ -157,6 +157,7 @@
     byzanz
     copyq
     dmenu
+    dropbox-cli
     evince
     exfatprogs
     firefox
