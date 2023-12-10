@@ -157,7 +157,6 @@
     byzanz
     copyq
     dmenu
-    dropbox-cli
     evince
     exfatprogs
     firefox
@@ -172,6 +171,7 @@
     jack2
     kmetronome
     lshw
+    maestral
     nethogs
     nettools
     pamixer
