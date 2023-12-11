@@ -5,6 +5,7 @@
   programs.dconf.enable = true;
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
+  system.stateVersion = "24.05";
 
   imports =
     [

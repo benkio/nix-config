@@ -21,6 +21,7 @@
     html-tidy
     id3v2
     imagemagick
+    lame
     k9s
     kubectl
     lilypond
