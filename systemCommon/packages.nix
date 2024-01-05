@@ -13,7 +13,7 @@
     elmPackages.elm-format
     eza
     fd
-    ffmpeg-full
+    ffmpeg
     ghc
     watchexec
     haskellPackages.hoogle
@@ -27,7 +27,7 @@
     lilypond
     linkchecker
     lsof
-    #magic-wormhole
+    magic-wormhole
     mcomix3
     mysql
     nix-prefetch-scripts
