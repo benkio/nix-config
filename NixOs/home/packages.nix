@@ -24,7 +24,6 @@
     soulseekqt
     sound-juicer
     telegram-desktop
-    torrential
     teamviewer
     unetbootin
     picard
