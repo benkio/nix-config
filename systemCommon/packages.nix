@@ -13,7 +13,7 @@
     elmPackages.elm-format
     eza
     fd
-    ffmpeg
+    ffmpeg_full
     ghc
     watchexec
     haskellPackages.hoogle
