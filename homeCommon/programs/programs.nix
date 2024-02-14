@@ -60,7 +60,10 @@
           user_name = "benkio";
           nick = "benkio";
         };
-        "irc/dcc" = { dcc_autoget ="yes"; };
+        "irc/dcc" = {
+          dcc_autoget = "yes";
+          dcc_autoresume = "yes";
+        };
       };
       '';
     };
