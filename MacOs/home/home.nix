@@ -61,7 +61,7 @@
       '';
     };
 
-    ## Look at the nixos packages for missing programs. installing them using homebrew
+    # Look at the nixos packages for missing programs. installing them using homebrew
     file = {
       "browser.scpt".text =
         ''on run argv

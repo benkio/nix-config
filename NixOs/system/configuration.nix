@@ -100,13 +100,14 @@
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
       jack.enable = true;
-
     };
     xserver = {
       enable = true;
       autorun = true;
-      layout = "us";
-      xkbVariant = "dvp";
+      xkb = {
+        layout = "us";
+        variant = "dvp";
+      };
       desktopManager = {
         xterm.enable = false;
         gnome.enable = true;
