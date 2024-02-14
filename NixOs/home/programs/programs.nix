@@ -2,7 +2,6 @@
 
 {
   programs = {
-    alacritty.enable = true;
     obs-studio.enable = true;
     sbt.enable = true;
     chromium = {

@@ -45,7 +45,7 @@
           firefox &
           telegram-desktop &
           emacsclient -c &
-          alacritty &
+          wezterm start --always-new-process &
 
         fi
         '';

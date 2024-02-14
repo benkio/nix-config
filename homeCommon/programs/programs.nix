@@ -11,6 +11,7 @@
   ];
 
   programs = {
+    wezterm.enable = true;
     awscli.enable = true;
     bat.enable = true;
     direnv.enable = true;
