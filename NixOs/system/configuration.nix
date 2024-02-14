@@ -153,6 +153,7 @@
   '';
 
   environment.systemPackages = with pkgs; [
+    aws-vault
     bluez
     brightnessctl
     byzanz
