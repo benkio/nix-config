@@ -10,6 +10,7 @@ in {
   xsession.windowManager.i3 = {
     enable = true;
     config = {
+      terminal = "wezterm";
       modifier = mod;
 
       workspaceLayout = "tabbed";
