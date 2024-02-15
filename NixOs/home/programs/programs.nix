@@ -2,7 +2,6 @@
 
 {
   programs = {
-    wezterm.enable = true;
     obs-studio.enable = true;
     sbt.enable = true;
     chromium = {

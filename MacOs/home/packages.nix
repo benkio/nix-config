@@ -16,7 +16,10 @@
       });
   })];
 
-  programs.sbt.enable = true;
+  programs = {
+    sbt.enable = true;
+    zsh.enable = false;
+  };
   home.packages = with pkgs; [
     jdk17
     maven

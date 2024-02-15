@@ -52,7 +52,6 @@ in {
       "telegram-desktop"
       "vlc"
       "xld"
-      "wezterm"
     ];
 
   };
