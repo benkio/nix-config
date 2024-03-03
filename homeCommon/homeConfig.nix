@@ -15,6 +15,7 @@
       ESHELL = "/run/current-system/sw/bin/bash";
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
+      XDG_CURRENT_DESKTOP = "GNOME"; # To trick some app to work on i3 alone, eg gnome-control-center
     };
     stateVersion = "24.05";
     username = "benkio";

@@ -114,20 +114,28 @@
       };
       displayManager = {
         defaultSession = "none+i3";
+        lightdm.enable = true;
         autoLogin = {
           enable = true;
           user = "benkio";
         };
       };
-
       windowManager.i3 = {
         enable = true;
         extraPackages = with pkgs; [
-          dmenu    # application launcher most people use
-          i3status # gives you the default i3 status bar
+          dunst
+          rofi     # is a program launcher, similar with dmenu but with more options.
           i3lock   # default i3 screen locker
+          lxappearance # is used for changing GTK theme icons, fonts, and some other preferences.
         ];
       };
+    };
+    picom = {
+      enable = true;
+      shadow = true;
+      shadowOffsets = [(-12) (-12)];
+      shadowOpacity = 0.95;
+      fade = true;
     };
   };
   systemd.user.services.dropbox = {

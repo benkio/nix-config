@@ -30,6 +30,7 @@
     mcomix3
     mysql
     nix-prefetch-scripts
+    nixfmt
     nmap
     nodejs
     ntfs3g

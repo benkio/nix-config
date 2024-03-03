@@ -8,11 +8,11 @@ let
   mod = "Mod4";
 in {
   xsession.windowManager.i3 = {
+    # influenced by https://github.com/addy-dclxvi/i3-starterpack/tree/master
     enable = true;
     config = {
       terminal = "wezterm";
       modifier = mod;
-
       workspaceLayout = "tabbed";
       keybindings = lib.mkOptionDefault {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
@@ -79,10 +79,45 @@ in {
         "XF86AudioNext" = "exec playerctl next";
         "XF86AudioPrev" = "exec playerctl previous";
       };
+      fonts = {
+        names = [ "NotoSans Nerd Font" "DejaVu Sans Mono" "Symbola" ];
+        size = 8.0;
+      };
       startup = [
         { command = "nm-applet --sm-disable"; always = false; notification = false; }
         { command = "volumeicon"; always = false; notification = false; }
         { command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & "; always = false; notification = false; }
+      ];
+      bars = [
+        {
+          command = "${pkgs.i3status-rust}/bin/i3status-rs";
+          # other config options
+          colors = {
+            background  = "#2f343f";
+            statusline  = "#2f343f";
+            separator   = "#4b5262";
+            focusedWorkspace = {
+              background = "#2f343f";
+              border = "#bf616a";
+              text = "#d8dee8";
+            };
+            activeWorkspace = {
+              background = "#2f343f";
+              border = "#bf616a";
+              text = "#d8dee8";
+            };
+            inactiveWorkspace = {
+              background = "#2f343f";
+              border = "#bf616a";
+              text = "#d8dee8";
+            };
+            urgentWorkspace = {
+              background = "#2f343f";
+              border = "#ebcb8b";
+              text = "#2f343f";
+            };
+          };
+        }
       ];
     };
   };
