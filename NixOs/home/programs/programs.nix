@@ -12,14 +12,15 @@
           bottom = {
             blocks = [
               {
-                block = "ethernet enp1s0";
-                format_up = "<span background='#88c0d0'>  %ip </span>";
-                format_down = "<span background='#88c0d0'>  Disconnected </span>";
+                block = "net";
+                format = " $icon {$signal_strength $ssid $frequency|Wired connection} via $device ";
               }
               {
-                block = "wireless wlp2s0";
-                format_up = "<span background='#b48ead'>  %essid </span>";
-                format_down = "<span background='#b48ead'>  Disconnected </span>";
+                block = "battery";
+                format = " $percentage {$time |}";
+                device = "DisplayDevice";
+                driver = "upower";
+                missing_format = "";
               }
               {
                 block = "disk_space";
@@ -31,8 +32,12 @@
               }
               {
                 block = "memory";
-                format_mem = " $icon $mem_used_percents ";
-                format_swap = " $icon $swap_used_percents ";
+                format = " $icon $mem_used_percents.eng(w:1) ";
+                format_alt = " $icon_swap $swap_free.eng(w:3,u:B,p:Mi)/$swap_total.eng(w:3,u:B,p:Mi)($swap_used_percents.eng(w:2)) ";
+                interval = 30;
+                warning_mem = 70;
+                critical_mem = 90;
+
               }
               {
                 block = "cpu";

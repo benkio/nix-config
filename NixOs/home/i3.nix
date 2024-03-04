@@ -81,7 +81,7 @@ in {
       };
       fonts = {
         names = [ "NotoSans Nerd Font" "DejaVu Sans Mono" "Symbola" ];
-        size = 8.0;
+        size = 11.0;
       };
       startup = [
         { command = "nm-applet --sm-disable"; always = false; notification = false; }
@@ -90,30 +90,33 @@ in {
       ];
       bars = [
         {
-          command = "${pkgs.i3status-rust}/bin/i3status-rs";
-          # other config options
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-bottom.toml";
+          fonts = {
+            names = [ "NotoSans Nerd Font" "DejaVu Sans Mono" "Symbola" ];
+            size = 11.0;
+          };
           colors = {
             background  = "#2f343f";
             statusline  = "#2f343f";
             separator   = "#4b5262";
             focusedWorkspace = {
-              background = "#2f343f";
-              border = "#bf616a";
+              border = "#2f343f";
+              background = "#bf616a";
               text = "#d8dee8";
             };
             activeWorkspace = {
+              border = "#2f343f";
               background = "#2f343f";
-              border = "#bf616a";
               text = "#d8dee8";
             };
             inactiveWorkspace = {
+              border = "#2f343f";
               background = "#2f343f";
-              border = "#bf616a";
               text = "#d8dee8";
             };
             urgentWorkspace = {
-              background = "#2f343f";
-              border = "#ebcb8b";
+              border = "#2f343f";
+              background = "#ebcb8b";
               text = "#2f343f";
             };
           };
