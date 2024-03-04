@@ -18,7 +18,6 @@
         xbrowsersync
         ublock-origin
         darkreader
-        pkgs.nur.repos.fedx.searxng
       ];
     };
   };

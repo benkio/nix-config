@@ -83,7 +83,7 @@
     teamviewer.enable = true;   # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     postgresql = {
-      enable = true;
+      enable = false; # broken <2024-03-04 Mon>
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
       authentication = pkgs.lib.mkForce ''
     # Generated file; do not edit!
