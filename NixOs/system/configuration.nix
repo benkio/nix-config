@@ -182,7 +182,7 @@
     jack2
     kmetronome
     lshw
-    maestral
+    maestral # dropbox alternative
     nethogs
     nettools
     pamixer
