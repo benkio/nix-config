@@ -19,6 +19,10 @@
         ublock-origin
         darkreader
       ];
+      search.engines = {
+        "Youtube".metaData.alias = "@yt";
+        "Google".metaData.alias = "@g";
+      };
     };
   };
 }
