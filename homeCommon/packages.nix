@@ -18,6 +18,7 @@
     nodePackages.npm
     nodePackages.typescript
     nodePackages.yarn
+    nodePackages.prettier
     nodePackages.webtorrent-cli
     sqlfluff
     symbola
