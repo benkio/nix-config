@@ -18,6 +18,7 @@
     nodePackages.npm
     nodePackages.typescript
     nodePackages.yarn
+    nodePackages.webtorrent-cli
     sqlfluff
     symbola
     zoom-us
