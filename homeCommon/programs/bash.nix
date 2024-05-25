@@ -4,10 +4,19 @@
 #                             Bash Configurations                             #
 ###############################################################################
 
-{
+let
+  systemSpecificAliases =
+    if pkgs.system == "x86_64-darwin"
+    then {
+      update="nix-channel --update && darwin-rebuild switch && home-manager switch && nix-collect-garbage";
+    }
+    else {
+      update="nix-channel --update && nixos-rebuild switch && home-manager switch && nix-collect-garbage";
+    };
+in {
   programs.bash = {
     enable = true;
-    shellAliases = {
+    shellAliases = lib.attrsets.mergeAttrsList [  systemSpecificAliases {
       cat="bat";
       dirsize="du -ch | grep total";
       ga="git add";
@@ -42,7 +51,7 @@
       pscpu10="ps auxr | head -10";
       psmem10="ps auxm | head -10";
       sbt="sbt -Dsbt.supershell=false";
-    };
+    }];
     initExtra = ''
         shopt -s autocd #Automatically put `cd` before a path
         . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh

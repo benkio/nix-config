@@ -8,7 +8,7 @@
     curl
     docker
     docker-compose
-    elmPackages.elm
+    # elmPackages.elm
     elmPackages.elm-format
     eza
     fd
