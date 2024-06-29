@@ -23,13 +23,13 @@ jobs:
           sudo rm /etc/nix/nix.conf
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
           ./result/bin/darwin-installer
-      - uses: cachix/cachix-action@v14
-        with:
-          name: mycache
-          # If you chose signing key for write access
-          signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
-          # If you chose API tokens for write access OR if you have a private cache
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      # - uses: cachix/cachix-action@v14
+      #   with:
+      #     name: mycache
+      #     # If you chose signing key for write access
+      #     signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
+      #     # If you chose API tokens for write access OR if you have a private cache
+      #     authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Formatting
