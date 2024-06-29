@@ -3,20 +3,34 @@ name: Scala CI
 on:
   push:
     branches:
-        - "**"
+      - "**"
 
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Install nix
-      uses: cachix/install-nix-action@v27
-      with:
-        nix_path: nixpkgs=channel:nixos-unstable
-    - name: Formatting
-      run: |
-        echo this workflow was triggered by ${{github.actor}}
-        nix-env -iA nixfmt-classic -f '<nixpkgs>'
-        find . -name '*.nix' | xargs nixfmt -c
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+      - name: Install dependencies
+        run: |
+          nix-channel --update
+          nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
+          ./result/bin/darwin-installer
+          nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
+      - uses: cachix/cachix-action@v14
+        with:
+          name: mycache
+          # If you chose signing key for write access
+          signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
+          # If you chose API tokens for write access OR if you have a private cache
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+      - name: Formatting
+        run: |
+          echo this workflow was triggered by ${{github.actor}}
+          find . -name '*.nix' | xargs nixfmt -c
+      - name: Darwin build
+        run: darwin-rebuild build -I ./MacOs/system/darwin-configuration.nix
