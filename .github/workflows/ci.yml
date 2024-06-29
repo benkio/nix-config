@@ -19,9 +19,9 @@ jobs:
           nix-channel --update
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
       - name: Install nix-darwin
-        run:
+        run: |
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-          ~/result/bin/darwin-installer
+          ./result/bin/darwin-installer
       - uses: cachix/cachix-action@v14
         with:
           name: mycache
