@@ -17,9 +17,10 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Install dependencies
         run: |
-          nix-channel --update
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
           ./result/bin/darwin-installer
+          nix-channel --add http://nixos.org/channels/nixpkgs-unstable nixpkgs
+          nix-channel --update
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
       - uses: cachix/cachix-action@v14
         with:
