@@ -6,8 +6,8 @@ on:
       - "**"
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
+  test-macos:
+    runs-on: macos-12
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -19,8 +19,7 @@ jobs:
         run: |
           nix-channel --update
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-          # ./result/bin/darwin-installer
-          darwin-install
+          ./result/bin/darwin-installer
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
       - uses: cachix/cachix-action@v14
         with:
