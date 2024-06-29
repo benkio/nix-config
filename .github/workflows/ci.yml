@@ -20,7 +20,7 @@ jobs:
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
       - name: Install nix-darwin
         run: |
-          rm /etc/nix/nix.conf
+          sudo rm /etc/nix/nix.conf
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
           ./result/bin/darwin-installer
       - uses: cachix/cachix-action@v14
