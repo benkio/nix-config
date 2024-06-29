@@ -27,6 +27,7 @@
     linkchecker
     lsof
     magic-wormhole
+    mediainfo
     mcomix3
     mysql
     nix-prefetch-scripts
