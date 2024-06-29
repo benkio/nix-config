@@ -20,8 +20,7 @@
   time.timeZone = "Europe/London";
 
   fonts = {
-    fontDir.enable = true;
-    fonts = with pkgs; [
+    packages = with pkgs; [
       proggyfonts
       dejavu_fonts
       nerdfonts
