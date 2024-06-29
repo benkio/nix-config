@@ -18,5 +18,5 @@ jobs:
     - name: Formatting
       run: |
         echo this workflow was triggered by ${{github.actor}}
-        nix-shell -p nixfmt-rfc-style
-        run: find . -name '*.nix' | xargs nixfmt -c
+        nix-env -iA nixfmt-classic -f '<nixpkgs>'
+        find . -name '*.nix' | xargs nixfmt -c
