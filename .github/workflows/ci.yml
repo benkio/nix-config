@@ -19,7 +19,8 @@ jobs:
         run: |
           nix-channel --update
           nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-          ./result/bin/darwin-installer
+          # ./result/bin/darwin-installer
+          darwin-install
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
       - uses: cachix/cachix-action@v14
         with:
