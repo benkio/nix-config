@@ -1,0 +1,17 @@
+name: Scala CI
+
+on:
+  push:
+    branches:
+        - "**"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Formatting
+      run: |
+        echo this workflow was triggered by ${{github.actor}}
+        run: find . -name '*.nix' | xargs nixfmt -c
