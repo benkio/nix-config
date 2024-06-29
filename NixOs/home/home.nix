@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
@@ -15,7 +20,7 @@
   fonts.fontconfig.enable = true;
 
   services = {
-    udiskie.enable = true;      # Mount external disks automatically
+    udiskie.enable = true; # Mount external disks automatically
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800;
@@ -29,9 +34,7 @@
       extraConfig = {
         gtk-recent-files-limit = 20;
       };
-      bookmarks = [
-        "file:///home/benkio/temp temp"
-      ];
+      bookmarks = [ "file:///home/benkio/temp temp" ];
     };
   };
 }

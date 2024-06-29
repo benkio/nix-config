@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 ###############################################################################
 #                   Packages without specific configuration                   #
@@ -6,7 +11,7 @@
 
 {
   home.packages = with pkgs; [
-        # BROKEN haskellPackages.ghc-mod
+    # BROKEN haskellPackages.ghc-mod
     amule
     bitwarden
     bleachbit

@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   # TODO: upgrade to the latest in here or do it after
@@ -12,16 +17,16 @@ let
 in
 {
   home.activation.linkEmacsConfig = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-      if [ ! -d "${config.home.homeDirectory}/.emacs.d" ] || [ ! "$(ls -A ${config.home.homeDirectory}/.emacs.d)" ]; then
-        mkdir -p ${config.home.homeDirectory}/.emacs.d
-        cp -r -n ${emacsConfig}/. ${config.home.homeDirectory}/.emacs.d
-        chmod -R 777 ${config.home.homeDirectory}/.emacs.d
-        cd ${config.home.homeDirectory}/.emacs.d
-        git remote add origin git@github.com:benkio/emacs-config.git
-        git pull origin master
-        git checkout -f master
-        git clean -fx
-        git branch -D fetchgit
-      fi
-    '';
+    if [ ! -d "${config.home.homeDirectory}/.emacs.d" ] || [ ! "$(ls -A ${config.home.homeDirectory}/.emacs.d)" ]; then
+      mkdir -p ${config.home.homeDirectory}/.emacs.d
+      cp -r -n ${emacsConfig}/. ${config.home.homeDirectory}/.emacs.d
+      chmod -R 777 ${config.home.homeDirectory}/.emacs.d
+      cd ${config.home.homeDirectory}/.emacs.d
+      git remote add origin git@github.com:benkio/emacs-config.git
+      git pull origin master
+      git checkout -f master
+      git clean -fx
+      git branch -D fetchgit
+    fi
+  '';
 }

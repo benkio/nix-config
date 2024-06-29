@@ -2,12 +2,10 @@
 
 {
 
-  imports =
-    [
-      ./packages.nix
-      ./nixConfig.nix
-    ];
-
+  imports = [
+    ./packages.nix
+    ./nixConfig.nix
+  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
@@ -33,6 +31,6 @@
   };
 
   services = {
-    emacs.enable = true;        # Emacs daemon
+    emacs.enable = true; # Emacs daemon
   };
 }

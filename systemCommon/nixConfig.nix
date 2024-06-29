@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
-
 {
   nix = {
-    gc = {                    # Automate garbage collection
+    gc = {
+      # Automate garbage collection
       automatic = true;
-      options   = "--delete-older-than 7d";
+      options = "--delete-older-than 7d";
     };
 
     # Avoid unwanted garbage collection when using nix-direnv

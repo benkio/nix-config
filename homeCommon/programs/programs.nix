@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 ###############################################################################
 #               General Programs Without Specific Configuration                #
@@ -6,9 +11,7 @@
 
 {
 
-  imports = [
-    ./bash.nix
-  ];
+  imports = [ ./bash.nix ];
 
   programs = {
     awscli.enable = true;
@@ -53,17 +56,17 @@
     irssi = {
       enable = true;
       extraConfig = ''
-      settings = {
-        core = {
-          real_name = "Enrico Benini";
-          user_name = "benkio";
-          nick = "benkio";
+        settings = {
+          core = {
+            real_name = "Enrico Benini";
+            user_name = "benkio";
+            nick = "benkio";
+          };
+          "irc/dcc" = {
+            dcc_autoget = "yes";
+            dcc_autoresume = "yes";
+          };
         };
-        "irc/dcc" = {
-          dcc_autoget = "yes";
-          dcc_autoresume = "yes";
-        };
-      };
       '';
     };
     jq.enable = true;

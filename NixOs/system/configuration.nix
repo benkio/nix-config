@@ -1,18 +1,16 @@
 { config, pkgs, ... }:
 
-
 {
   programs.dconf.enable = true;
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   system.stateVersion = "24.05";
 
-  imports =
-    [
-      # Include the results of the hardware scan.
-      /etc/nixos/hardware-configuration.nix
-      ../../systemCommon/systemConfig.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    /etc/nixos/hardware-configuration.nix
+    ../../systemCommon/systemConfig.nix
+  ];
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -29,8 +27,9 @@
   powerManagement.enable = true;
   hardware.opengl.driSupport32Bit = true;
   networking = {
-    networkmanager = { # Enables wireless support and openvpn via network manager.
-      enable   = true;
+    networkmanager = {
+      # Enables wireless support and openvpn via network manager.
+      enable = true;
       plugins = [ pkgs.networkmanager-openvpn ];
     };
 
@@ -70,28 +69,32 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.benkio = {
     isNormalUser = true;
-    extraGroups  = [ "docker" "networkmanager" "wheel" ]; # wheel for ‘sudo’.
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ]; # wheel for ‘sudo’.
     initialHashedPassword = "benkio";
   };
 
   security.rtkit.enable = true; # Pipewire recommemded
   # Enable the X11 windowing system.
   services = {
-    openssh.enable = true;      # Enable the OpenSSH daemon.
-    printing.enable = true;     # Enable CUPS to print documents.
-    blueman.enable = true;      # bluetooth service
-    teamviewer.enable = true;   # teamviewer service
+    openssh.enable = true; # Enable the OpenSSH daemon.
+    printing.enable = true; # Enable CUPS to print documents.
+    blueman.enable = true; # bluetooth service
+    teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
-      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
+      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
       authentication = pkgs.lib.mkForce ''
-    # Generated file; do not edit!
-    # TYPE  DATABASE        USER            ADDRESS                 METHOD
-    local   all             all                                     trust
-    host    all             all             127.0.0.1/32            trust
-    host    all             all             ::1/128                 trust
-    '';
+        # Generated file; do not edit!
+        # TYPE  DATABASE        USER            ADDRESS                 METHOD
+        local   all             all                                     trust
+        host    all             all             127.0.0.1/32            trust
+        host    all             all             ::1/128                 trust
+      '';
     };
     pipewire = {
       enable = true;
@@ -124,8 +127,8 @@
         enable = true;
         extraPackages = with pkgs; [
           dunst
-          rofi     # is a program launcher, similar with dmenu but with more options.
-          i3lock   # default i3 screen locker
+          rofi # is a program launcher, similar with dmenu but with more options.
+          i3lock # default i3 screen locker
           lxappearance # is used for changing GTK theme icons, fonts, and some other preferences.
         ];
       };
@@ -133,7 +136,10 @@
     picom = {
       enable = true;
       shadow = true;
-      shadowOffsets = [(-12) (-12)];
+      shadowOffsets = [
+        (-12)
+        (-12)
+      ];
       shadowOpacity = 0.95;
       fade = true;
     };
@@ -200,8 +206,9 @@
   # Nix daemon config
   nix = {
     settings.auto-optimise-store = true; # Automate `nix-store --optimise`
-    gc = {                    # Automate garbage collection
-      dates     = "weekly";
+    gc = {
+      # Automate garbage collection
+      dates = "weekly";
     };
   };
 }

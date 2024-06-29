@@ -1,18 +1,17 @@
 { config, pkgs, ... }:
 
-let home = "/Users/benkio";
-in {
-  imports =
-    [
-      ../../systemCommon/systemConfig.nix
-    ];
+let
+  home = "/Users/benkio";
+in
+{
+  imports = [ ../../systemCommon/systemConfig.nix ];
 
   services = {
     redis.enable = true;
 
     postgresql = {
       enable = true;
-      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]) );
+      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
       dataDir = "${home}/postgresDataDir";
     };
   };
@@ -64,12 +63,11 @@ in {
     };
     dock = {
       autohide = true;
-      wvous-tr-corner = 10; #top right corner puts the display on sleep
+      wvous-tr-corner = 10; # top right corner puts the display on sleep
     };
     finder.AppleShowAllFiles = true;
 
   };
-
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix

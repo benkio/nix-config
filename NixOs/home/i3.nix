@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 ###############################################################################
 #                                  I3 Config                                  #
@@ -6,7 +11,8 @@
 
 let
   mod = "Mod4";
-in {
+in
+{
   xsession.windowManager.i3 = {
     # influenced by https://github.com/addy-dclxvi/i3-starterpack/tree/master
     enable = true;
@@ -66,8 +72,8 @@ in {
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
         "XF86AudioMute" = "exec pamixer -t";
-        "XF86AudioRaiseVolume" = "exec pamixer -i 5"; #to decrease 5%
-        "XF86AudioLowerVolume" = "exec pamixer -d 5"; #to increase 5%
+        "XF86AudioRaiseVolume" = "exec pamixer -i 5"; # to decrease 5%
+        "XF86AudioLowerVolume" = "exec pamixer -d 5"; # to increase 5%
 
         # Sreen brightness controls
         "XF86MonBrightnessUp" = "exec brightnessctl s +10% # increase screen brightness";
@@ -80,25 +86,45 @@ in {
         "XF86AudioPrev" = "exec playerctl previous";
       };
       fonts = {
-        names = [ "NotoSans Nerd Font" "DejaVu Sans Mono" "Symbola" ];
+        names = [
+          "NotoSans Nerd Font"
+          "DejaVu Sans Mono"
+          "Symbola"
+        ];
         size = 11.0;
       };
       startup = [
-        { command = "nm-applet --sm-disable"; always = false; notification = false; }
-        { command = "volumeicon"; always = false; notification = false; }
-        { command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & "; always = false; notification = false; }
+        {
+          command = "nm-applet --sm-disable";
+          always = false;
+          notification = false;
+        }
+        {
+          command = "volumeicon";
+          always = false;
+          notification = false;
+        }
+        {
+          command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & ";
+          always = false;
+          notification = false;
+        }
       ];
       bars = [
         {
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ${config.home.homeDirectory}/.config/i3status-rust/config-bottom.toml";
           fonts = {
-            names = [ "NotoSans Nerd Font" "DejaVu Sans Mono" "Symbola" ];
+            names = [
+              "NotoSans Nerd Font"
+              "DejaVu Sans Mono"
+              "Symbola"
+            ];
             size = 11.0;
           };
           colors = {
-            background  = "#2f343f";
-            statusline  = "#2f343f";
-            separator   = "#4b5262";
+            background = "#2f343f";
+            statusline = "#2f343f";
+            separator = "#4b5262";
             focusedWorkspace = {
               border = "#2f343f";
               background = "#bf616a";
