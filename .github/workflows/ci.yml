@@ -13,11 +13,13 @@ jobs:
         uses: cachix/install-nix-action@v27
         with:
           nix_path: nixpkgs=channel:nixos-unstable
-      - name: Install nixpkgs-unstable & home-manager channel + nixfmt
+      - name: Install channels + nixfmt
         run: |
           nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
           nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
           nix-channel --update
+          sudo -i nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+          sudo -i nix-channel --update nixpkgs
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
