@@ -50,6 +50,7 @@ in
         h = "history";
         hgrep = "history | grep";
         kaj = "killall -9 java";
+        kae = "killall -9 emacs";
         ll = "eza -lh";
         ls = "eza";
         meminfo = "free -m -l -t";
