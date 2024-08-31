@@ -23,6 +23,7 @@
         xbrowsersync
         ublock-origin
         darkreader
+        aria2-integration
       ];
       search.engines = {
         "Youtube".metaData.alias = "@yt";

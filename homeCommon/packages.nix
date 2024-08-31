@@ -17,6 +17,7 @@
     aspellDicts.en-science
     aspellDicts.en-computers
     aspellDicts.it
+    persepolis # aria2c GUI
     cabal-install
     discord
     nodePackages.js-beautify
