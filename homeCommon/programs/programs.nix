@@ -78,11 +78,6 @@
         # The directory to store the downloaded file.
         dir=${config.home.homeDirectory}/Downloads
         # Downloads the URIs listed in FILE.
-        input-file=${config.home.homeDirectory}/.aria2/aria2.session
-        # Save error/unfinished downloads to FILE on exit.
-        save-session=${config.home.homeDirectory}/.aria2/aria2.session
-        # Save error/unfinished downloads to a file specified by --save-session option every SEC seconds. If 0 is given, file will be saved only when aria2 exits. Default: 0
-        save-session-interval=60
         # Set the maximum number of parallel downloads for every queue item. See also the --split option. Default: 5
         max-concurrent-downloads=5
         # Continue downloading a partially downloaded file.
@@ -91,9 +86,6 @@
         max-overall-download-limit=0
         # Set max download speed per each download in bytes/sec. 0 means unrestricted. Default: 0
         max-download-limit=0
-        # Make aria2 quiet (no console output). Default: false
-        quiet=true
-
 
         ### Advanced ###
         # Restart download from scratch if the corresponding control file doesn't exist. Default: false
@@ -121,30 +113,6 @@
         # The file name of the log file. If - is specified, log is written to stdout. If empty string("") is specified, or this option is omitted, no log is written to disk at all.
         # log=
 
-
-        ### RPC ###
-        # Enable JSON-RPC/XML-RPC server. Default: false
-        enable-rpc=true
-        # Pause download after added. This option is effective only when --enable-rpc=true is given. Default: false
-        # pause=false
-        # Save the uploaded torrent or metalink meta data in the directory specified by --dir option. If false is given to this option, the downloads added will not be saved by --save-session option. Default: true
-        # rpc-save-upload-metadata=true
-        # Add Access-Control-Allow-Origin header field with value * to the RPC response. Default: false
-        rpc-allow-origin-all=true
-        # Listen incoming JSON-RPC/XML-RPC requests on all network interfaces. If false is given, listen only on local loopback interface. Default: false
-        rpc-listen-all=false
-        # Specify a port number for JSON-RPC/XML-RPC server to listen to. Possible Values: 1024 -65535 Default: 6800
-        # rpc-listen-port=50100
-        # Set RPC secret authorization token.
-        # rpc-secret=
-        # Use the certificate in FILE for RPC server. The certificate must be either in PKCS12 (.p12, .pfx) or in PEM format. When using PEM, you have to specify the private key via --rpc-private-key as well. Use --rpc-secure option to enable encryption.
-        # rpc-certificate=
-        # Use the private key in FILE for RPC server. The private key must be decrypted and in PEM format. Use --rpc-secure option to enable encryption.
-        # rpc-private-key=
-        # RPC transport will be encrypted by SSL/TLS. The RPC clients must use https scheme to access the server. For WebSocket client, use wss scheme. Use --rpc-certificate and --rpc-private-key options to specify the server certificate and private key.
-        # rpc-secure=false
-
-
         ### HTTP/FTP/SFTP ###
         # The maximum number of connections to one server for each download. Default: 1
         max-connection-per-server=16
@@ -154,7 +122,6 @@
         split=32
         # Set user agent for HTTP(S) downloads. Default: aria2/$VERSION, $VERSION is replaced by package version.
         user-agent=Transmission/2.77
-
 
         ### BitTorrent ###
         # Save meta data as ".torrent" file. Default: false
