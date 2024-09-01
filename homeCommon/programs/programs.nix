@@ -76,7 +76,7 @@
       extraConfig = ''
         ### Basic ###
         # The directory to store the downloaded file.
-        dir=${config.home.homeDirectory}/Downloads;
+        dir=${config.home.homeDirectory}/Downloads
         # Downloads the URIs listed in FILE.
         input-file=${config.home.homeDirectory}/.aria2/aria2.session
         # Save error/unfinished downloads to FILE on exit.
