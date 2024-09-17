@@ -8,7 +8,7 @@
     curl
     docker
     docker-compose
-    # elmPackages.elm
+    elmPackages.elm
     elmPackages.elm-format
     eza
     fd
@@ -16,7 +16,7 @@
     ghc
     watchexec
     haskellPackages.hoogle
-    # Broken haskellPackages.fix-imports
+    # haskellPackages.fix-imports
     html-tidy
     id3v2
     imagemagick
@@ -24,11 +24,11 @@
     k9s
     kubectl
     lilypond
-    linkchecker
+    # linkchecker
     lsof
     magic-wormhole
     mediainfo
-    mcomix3
+    # mcomix3
     mysql
     nix-prefetch-scripts
     nixfmt-rfc-style

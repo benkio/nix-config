@@ -55,18 +55,21 @@ in
 
   };
 
-  system.defaults = {
-    NSGlobalDomain = {
-      AppleShowAllFiles = true;
-      AppleInterfaceStyleSwitchesAutomatically = true;
-      KeyRepeat = 1;
-    };
-    dock = {
-      autohide = true;
-      wvous-tr-corner = 10; # top right corner puts the display on sleep
-    };
-    finder.AppleShowAllFiles = true;
+  system = {
+    stateVersion = 5;
+    defaults = {
+      NSGlobalDomain = {
+        AppleShowAllFiles = true;
+        AppleInterfaceStyleSwitchesAutomatically = true;
+        KeyRepeat = 1;
+      };
+      dock = {
+        autohide = true;
+        wvous-tr-corner = 10; # top right corner puts the display on sleep
+      };
+      finder.AppleShowAllFiles = true;
 
+    };
   };
 
   # Use a custom configuration.nix location.
