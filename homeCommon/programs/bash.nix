@@ -63,6 +63,15 @@ in
         sbt = "sbt -Dsbt.supershell=false";
       }
     ];
+    historyControl = [ "ignoreboth" ];
+    historyIgnore = [
+      "ls"
+      "ll"
+      "cd"
+      "exit"
+    ];
+    historyFileSize = -1;
+    historySize = -1;
     initExtra = ''
       shopt -s autocd #Automatically put `cd` before a path
       . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh

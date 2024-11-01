@@ -29,7 +29,7 @@
     magic-wormhole
     mediainfo
     # mcomix3
-    mysql
+    # mysql
     nix-prefetch-scripts
     nixfmt-rfc-style
     nmap

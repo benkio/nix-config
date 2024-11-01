@@ -17,7 +17,6 @@
       LANG = "en_US.utf-8";
       EDITOR = "emacsclient -t"; # emacs client terminal
       VISUAL = "emacsclient -c -a emacs"; # emacs client visual
-      HISTCONTROL = "ignoreboth";
       ESHELL = "/run/current-system/sw/bin/bash";
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
