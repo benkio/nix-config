@@ -19,14 +19,14 @@
 
   fonts = {
     packages = with pkgs; [
-      proggyfonts
       dejavu_fonts
-      nerdfonts
-      # corefonts
-      ubuntu_font_family
-      source-code-pro
-      source-sans-pro
-      source-serif-pro
+      nerd-fonts.dejavu-sans-mono
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.proggy-clean-tt
+      nerd-fonts.sauce-code-pro
+      nerd-fonts.ubuntu
+      nerd-fonts.ubuntu-mono
+      nerd-fonts.ubuntu-sans
     ];
   };
 
