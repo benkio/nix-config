@@ -24,7 +24,7 @@
     nodePackages.typescript
     nodePackages.yarn
     nodePackages.prettier
-    # nodePackages.webtorrent-cli
+    nodePackages.aws-cdk
     sqlfluff
     symbola
     zoom-us
