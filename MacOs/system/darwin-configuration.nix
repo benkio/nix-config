@@ -51,6 +51,7 @@ in
       "telegram-desktop"
       "vlc"
       "xld"
+      "zoom"
     ];
 
   };

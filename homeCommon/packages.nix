@@ -27,6 +27,5 @@
     nodePackages.aws-cdk
     sqlfluff
     symbola
-    zoom-us
   ];
 }
