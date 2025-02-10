@@ -21,6 +21,7 @@
     discord
     nodePackages.js-beautify
     nodePackages.npm
+    nodePackages.jsonlint
     nodePackages.typescript
     nodePackages.yarn
     nodePackages.prettier

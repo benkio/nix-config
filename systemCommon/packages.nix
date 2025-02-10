@@ -6,7 +6,6 @@
     # elmPackages.elm-format
     # haskellPackages.fix-imports
     # linkchecker
-    # mcomix3
     # mysql
     act
     autoconf
@@ -32,6 +31,7 @@
     lame
     lilypond
     lsof
+    mangal
     magic-wormhole
     mediainfo
     nix-prefetch-scripts
