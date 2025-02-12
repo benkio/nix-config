@@ -31,7 +31,7 @@
     lame
     lilypond
     lsof
-    mangal
+    manga-tui
     magic-wormhole
     mediainfo
     nix-prefetch-scripts
