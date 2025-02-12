@@ -57,7 +57,7 @@ in
   };
 
   system = {
-    stateVersion = 5;
+    stateVersion = 6;
     defaults = {
       NSGlobalDomain = {
         AppleShowAllFiles = true;
@@ -77,7 +77,8 @@ in
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   environment.darwinConfig = "${home}/nix-config/MacOs/system/darwin-configuration.nix";
 
-  # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   nix.package = pkgs.nix;
+
+  # Fix the user group because of a problem, if causes errors, try to remove it
+  ids.gids.nixbld = 30000;
 }
