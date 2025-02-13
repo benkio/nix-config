@@ -32,6 +32,7 @@
     lilypond
     lsof
     manga-tui
+    mcomix
     magic-wormhole
     mediainfo
     nix-prefetch-scripts
