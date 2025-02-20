@@ -23,6 +23,7 @@
     haskellPackages.fourmolu
     haskellPackages.hoogle
     hlint
+    hurl
     html-tidy
     id3v2
     imagemagick
@@ -30,6 +31,7 @@
     kubectl
     lame
     lilypond
+    litecli
     lsof
     manga-tui
     mcomix
