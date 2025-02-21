@@ -37,6 +37,7 @@
     mcomix
     magic-wormhole
     mediainfo
+    mermaid-cli
     nix-prefetch-scripts
     nixfmt-rfc-style
     nmap
