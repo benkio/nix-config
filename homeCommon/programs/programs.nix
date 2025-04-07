@@ -53,7 +53,21 @@
           whitespace-error-style = "22 reverse";
         };
       };
+      extraConfig = {
+      'includeIf "gitdir:~/workspace/"'.path = "~/.config/git/workspace.gitconfig";
+
+      # Optional: create the work config declaratively via Home Manager too
+      # (just to ensure it exists and has correct content)
     };
+    home.file.".config/git/workspace.gitconfig".text = ''
+      [user]
+        name = Enrico Benini
+        email = workemail
+        signingkey = WORK_GPG_KEY_ID
+
+      [commit]
+        gpgsign = true
+    '';
     irssi = {
       enable = true;
       extraConfig = ''

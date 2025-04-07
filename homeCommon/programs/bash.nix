@@ -28,6 +28,7 @@ in
       {
         cat = "bat";
         dirsize = "du -ch | grep total";
+        # Consider moving this to programs.git.aliases
         ga = "git add";
         gaa = "git add -A";
         gal = "git add .";
@@ -44,6 +45,7 @@ in
         gsh = "git stash";
         gst = "git status -sb";
         gw = "git whatchanged";
+        
         h1 = "history 10";
         h2 = "history 20";
         h3 = "history 30";
