@@ -25,7 +25,8 @@ jobs:
           # Set NIX_PATH explicitly to include darwin and nixpkgs
           echo "NIX_PATH=nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:darwin=$HOME/.nix-defexpr/channels/darwin${NIX_PATH:+:}$NIX_PATH" >> $GITHUB_ENV
           export NIX_PATH=nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:darwin=$HOME/.nix-defexpr/channels/darwin${NIX_PATH:+:}$NIX_PATH
-          nix-shell '<home-manager>' -A install
+      - name: Install Home-manager
+        run: nix-shell '<home-manager>' -A install
       - name: Checkout
         uses: actions/checkout@v3
       - name: Formatting
