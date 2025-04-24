@@ -19,9 +19,8 @@ jobs:
           nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
           nix-channel --update
           sudo -i nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-          sudo nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
-          sudo -i nix-channel --update nixpkgs
-          sudo nix-channel --update
+          sudo -i nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
+          sudo -i nix-channel --update
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
@@ -35,7 +34,7 @@ jobs:
         run: |
           . /etc/static/bashrc
           nix-build '<darwin>' -A darwin-rebuild
-          ./result/bin/darwin-rebuild switch -I darwin-config=./MacOs/system/darwin-configuration.nix
+          ./result/bin/darwin-rebuild switch -I ./MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
           . /etc/static/bashrc
