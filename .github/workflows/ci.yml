@@ -15,14 +15,16 @@ jobs:
           nix_path: nixpkgs=channel:nixos-unstable
       - name: Install channels + nixfmt
         run: |
+          # Add nixpkgs and darwin channels for the user
           nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+          nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
           nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
           nix-channel --update
-          sudo -i nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-          sudo -i nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
-          sudo -i nix-channel --update
+          # Install nixfmt
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+          # Set NIX_PATH explicitly to include darwin and nixpkgs
+          echo "NIX_PATH=nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:darwin=$HOME/.nix-defexpr/channels/darwin${NIX_PATH:+:}$NIX_PATH" >> $GITHUB_ENV
+          export NIX_PATH=nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs:darwin=$HOME/.nix-defexpr/channels/darwin${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
       - name: Checkout
         uses: actions/checkout@v3
@@ -32,10 +34,10 @@ jobs:
           find . -name '*.nix' | xargs nixfmt -c
       - name: Darwin Install & build
         run: |
-          . /etc/bashrc
+          echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
           ./result/bin/darwin-rebuild switch -I ./MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
-          . /etc/bashrc
+          echo $NIX_PATH
           home-manager build -I ./MacOs/home/home.nix
