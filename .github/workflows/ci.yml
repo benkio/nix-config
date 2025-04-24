@@ -32,10 +32,8 @@ jobs:
           find . -name '*.nix' | xargs nixfmt -c
       - name: Darwin Install & build
         run: |
-          . /etc/static/bashrc
           nix-build '<darwin>' -A darwin-rebuild
           ./result/bin/darwin-rebuild switch -I ./MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
-          . /etc/static/bashrc
           home-manager build -I ./MacOs/home/home.nix
