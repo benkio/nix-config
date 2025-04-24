@@ -176,7 +176,6 @@
     dmenu
     evince
     exfatprogs
-    firefox
     gcc
     glibcLocales
     gnome_mplayer

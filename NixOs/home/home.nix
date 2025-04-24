@@ -8,7 +8,6 @@
 {
   imports = [
     ./i3.nix
-    ./firefox.nix
     ./packages.nix
     ./programs/programs.nix
     ../../homeCommon/emacsConfig.nix
@@ -16,6 +15,7 @@
     ../../homeCommon/packages.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/programs/programs.nix
+    ../../homeCommon/programs/floorp.nix
   ];
   fonts.fontconfig.enable = true;
 
