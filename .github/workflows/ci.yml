@@ -19,32 +19,23 @@ jobs:
           nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
           nix-channel --update
           sudo -i nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+          sudo nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
           sudo -i nix-channel --update nixpkgs
+          sudo nix-channel --update
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
-      - name: Install nix-darwin
-        run: |
-          sudo rm /etc/nix/nix.conf
-          nix-build https://github.com/LnL7/nix-darwin/archive/master.tar.gz -A installer
-          ./result/bin/darwin-installer
-      # - uses: cachix/cachix-action@v14
-      #   with:
-      #     name: mycache
-      #     # If you chose signing key for write access
-      #     signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
-      #     # If you chose API tokens for write access OR if you have a private cache
-      #     authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Checkout
         uses: actions/checkout@v3
       - name: Formatting
         run: |
           echo this workflow was triggered by ${{github.actor}}
           find . -name '*.nix' | xargs nixfmt -c
-      - name: Darwin build
+      - name: Darwin Install & build
         run: |
           . /etc/static/bashrc
-          darwin-rebuild build -I ./MacOs/system/darwin-configuration.nix
+          nix-build '<darwin>' -A darwin-rebuild
+          ./result/bin/darwin-rebuild switch -I darwin-config=./MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
           . /etc/static/bashrc
