@@ -51,7 +51,7 @@ jobs:
           # UID not correct: reference: https://torgeir.dev/2024/10/nix-darwin-sequoia-nixbld-users-migration/
           curl --proto '=https' --tlsv1.2 -sSf -L https://github.com/NixOS/nix/raw/master/scripts/sequoia-nixbld-user-migration.sh | bash -
 
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
+          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH:darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
           nix-build '<darwin>' -A darwin-rebuild
           ./result/bin/darwin-rebuild build -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
 
