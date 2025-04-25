@@ -34,7 +34,7 @@ jobs:
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
-          ./result/bin/darwin-rebuild switch -I $GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
+          ./result/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
