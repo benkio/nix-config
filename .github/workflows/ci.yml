@@ -13,6 +13,19 @@ jobs:
         uses: cachix/install-nix-action@v27
         with:
           nix_path: nixpkgs=channel:nixos-unstable
+
+      - name: Cache Nix store
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.temp }}/nix-store
+          key: nix-store-${{ hashFiles('flake.nix', 'MacOs/system/darwin-configuration.nix', 'MacOs/home/home.nix') }}
+          restore-keys: |
+            nix-store-
+
+      - name: Restore Nix store to local
+        run: |
+          nix copy --from file://$RUNNER_TEMP/nix-store . || echo "No previous cache available"
+
       - name: Install nixpkgs, home-manager & nixfmt
         run: |
           nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
@@ -21,21 +34,34 @@ jobs:
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           nix-shell '<home-manager>' -A install
+
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Formatting
         run: |
           echo this workflow was triggered by ${{github.actor}}
           find . -name '*.nix' | xargs nixfmt -c
+
       - name: Darwin Install & build
         run: |
           nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
           nix-channel --update
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-          echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
-          ./result/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
+          ./result/bin/darwin-rebuild build -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
+
+      - name: Export Nix store paths from Darwin build
+        run: |
+          nix copy --to file://$RUNNER_TEMP/nix-store ./result
+
+      - name: Darwin switch
+        run: |
+          ./result/sw/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
+
       - name: Home-manager build
         run: |
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           home-manager build -I $GITHUB_WORKSPACE/MacOs/home/home.nix
+          nix copy --to file://$RUNNER_TEMP/nix-store ./result
+
