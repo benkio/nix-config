@@ -48,7 +48,7 @@
           mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp
 
           # Startup Programs
-          firefox &
+          floorp &
           telegram-desktop &
           emacsclient -c &
           wezterm start --always-new-process &
@@ -66,7 +66,7 @@
     "video/webm" = [ "vlc.desktop" ];
     "audio/webm" = [ "vlc.desktop" ];
     "video/mpeg" = [ "vlc.desktop" ];
-    "text/html" = [ "firefox.desktop" ];
+    "text/html" = [ "floorp.desktop" ];
     "application/pdf" = [ "evince.desktop" ];
   };
 }

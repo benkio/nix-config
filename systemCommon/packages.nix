@@ -16,6 +16,7 @@
     eza
     fd
     ffmpeg-full
+    floorp
     ghc
     ghcid
     gimp

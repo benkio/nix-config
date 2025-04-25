@@ -45,7 +45,7 @@ in
         gsh = "git stash";
         gst = "git status -sb";
         gw = "git whatchanged";
-        
+
         h1 = "history 10";
         h2 = "history 20";
         h3 = "history 30";
