@@ -29,9 +29,9 @@ jobs:
           find . -name '*.nix' | xargs nixfmt -c
       - name: Darwin Install & build
         run: |
-          nix-channel --add https://github.com/nix-darwin/nix-darwin/archive/master.tar.gz darwin
+          nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
           nix-channel --update
-          export NIX_PATH="darwin=$HOME/.nix-defexpr/channels/darwin:nixpkgs=$HOME/.nix-defexpr/channels/nixpkgs"
+          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
           ./result/bin/darwin-rebuild switch -I ./MacOs/system/darwin-configuration.nix
