@@ -6,7 +6,7 @@ on:
       - "**"
 
 jobs:
-  test-macos-setup:
+  test-macos:
     runs-on: macos-latest
     steps:
       - name: Install nix
@@ -27,23 +27,14 @@ jobs:
         run: |
           echo this workflow was triggered by ${{github.actor}}
           find . -name '*.nix' | xargs nixfmt -c
-      - name: Darwin Install
+      - name: Darwin Install & build
         run: |
           nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
           nix-channel --update
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
           echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
-  test-macos-nix-darwin:
-    needs: test-macos-setup
-    runs-on: macos-latest
-    steps:
-      - name: nix-darwin switch
-        run: ./result/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
-  test-macos-home-manager:
-    needs: test-macos-setup
-    runs-on: macos-latest
-    steps:
+          ./result/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
       - name: Home-manager build
         run: |
           export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
