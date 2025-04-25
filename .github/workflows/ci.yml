@@ -35,13 +35,13 @@ jobs:
           echo $NIX_PATH
           nix-build '<darwin>' -A darwin-rebuild
   test-macos-nix-darwin:
-    needs: build
+    needs: test-macos-setup
     runs-on: macos-latest
     steps:
       - name: nix-darwin switch
         run: ./result/bin/darwin-rebuild switch -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
   test-macos-home-manager:
-    needs: build
+    needs: test-macos-setup
     runs-on: macos-latest
     steps:
       - name: Home-manager build
