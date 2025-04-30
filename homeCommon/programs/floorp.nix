@@ -25,6 +25,7 @@
         ublock-origin
         darkreader
       ];
+      search.force = true;
       search.engines = {
         google.metaData.alias = "@g";
         youtube = {
