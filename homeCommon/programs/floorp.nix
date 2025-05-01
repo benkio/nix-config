@@ -320,7 +320,7 @@
 
               {
                 name = "pirate-proxy/piratebay";
-                url = "https://github.com/pirate-proxy/piratebay?tab=readme-ov-file";
+                url = "https://github.com/mirroradept/pirateproxy?tab=readme-ov-file";
               }
 
             ];
