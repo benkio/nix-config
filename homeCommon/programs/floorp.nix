@@ -30,7 +30,17 @@
         google.metaData.alias = "@g";
         youtube = {
           name = "Youtube";
-          urls = [ { template = "https://www.youtube.com/results?search_query={searchTerms}"; } ];
+          urls = [
+            {
+              template = "https://www.youtube.com/results";
+              params = [
+                {
+                  name = "search_query";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
           definedAliases = [ "@yt" ];
         };
         nix-packages = {
@@ -50,14 +60,103 @@
               ];
             }
           ];
-
           icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
           definedAliases = [ "@np" ];
         };
         hoogle = {
           name = "Hoogle";
-          urls = [ { template = "https://hoogle.haskell.org/?hoogle={searchTerms}"; } ];
+          urls = [
+            {
+              template = "https://hoogle.haskell.org/";
+              params = [
+                {
+                  name = "hoogle";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
           definedAliases = [ "@hg" ];
+        };
+        searx = {
+          name = "searx";
+          urls = [
+            {
+              template = "https://searx.be/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+            {
+              template = "https://search.hbubli.cc/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+            {
+              template = "https://priv.au/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = "@sx";
+        };
+        invidious = {
+          name = "invidious";
+          urls = [
+            {
+              template = "https://yewtu.be/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+            {
+              template = "https://inv.nadeko.net/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+            {
+              template = "https://id.420129.xyz/search";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = "@iv";
+        };
+        piratebay = {
+          name = "pirate bay";
+          urls = [
+            {
+              template = "https://tpbay.site/search.php";
+              params = [
+                {
+                  name = "q";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
         };
       };
       bookmarks = {
@@ -304,7 +403,7 @@
             bookmarks = [
 
               {
-                name = "Browse - RockTorrents";
+                name = "Rock Torrents";
                 url = "http://rocktorrents.ucoz.org/load/";
               }
 
@@ -314,13 +413,13 @@
               }
 
               {
-                name = "Metal Download, Rock, Heavy music for free! | Metal Torrent Tracker";
+                name = "Metal Torrent Tracker";
                 url = "http://en.metal-tracker.com/";
               }
 
               {
-                name = "pirate-proxy/piratebay";
-                url = "https://github.com/mirroradept/pirateproxy?tab=readme-ov-file";
+                name = "Pirate Bay";
+                url = "https://tpbay.site";
               }
 
             ];
