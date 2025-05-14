@@ -27,6 +27,7 @@ in
     enable = true;
     onActivation.upgrade = true;
     brews = [
+      "coreutils"
       "defaultbrowser"
       "gnu-sed"
       "tgenv"
