@@ -109,7 +109,7 @@
               ];
             }
           ];
-          definedAliases = "@sx";
+          definedAliases = [ "@sx" ];
         };
         invidious = {
           name = "invidious";
@@ -142,7 +142,7 @@
               ];
             }
           ];
-          definedAliases = "@iv";
+          definedAliases = [ "@iv" ];
         };
         piratebay = {
           name = "pirate bay";
@@ -157,6 +157,7 @@
               ];
             }
           ];
+          definedAliases = [ "@pb" ];
         };
       };
       bookmarks = {
