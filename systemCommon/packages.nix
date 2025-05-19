@@ -10,6 +10,7 @@
     act
     autoconf
     curl
+    coursier
     docker
     docker-compose
     elmPackages.elm
