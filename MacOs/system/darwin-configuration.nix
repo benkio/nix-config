@@ -68,6 +68,13 @@ in
     };
   };
 
+  programs = {
+    bash.enable = true;
+    direnv.enable = true;
+    nix-index.enable = true;
+    zsh.enable = false;
+  };
+
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   environment.darwinConfig = "${home}/nix-config/MacOs/system/darwin-configuration.nix";

@@ -13,7 +13,7 @@ let
   systemSpecificAliases =
     if pkgs.system == "x86_64-darwin" then
       {
-        update = "nix-channel --update && sudo nix-channel --update && darwin-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
+        update = "nix-channel --update && sudo nix-channel --update && sudo darwin-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
       }
     else
       {
