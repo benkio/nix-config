@@ -27,7 +27,7 @@ in
       systemSpecificAliases
       {
         cat = "bat";
-        dirsize = "du -ch | grep total";
+        du = "dust";
         # Consider moving this to programs.git.aliases
         ga = "git add";
         gaa = "git add -A";
@@ -51,17 +51,17 @@ in
         h3 = "history 30";
         h = "history";
         hgrep = "history | grep";
+        htop = "btop";
         kaj = "killall -9 java";
         kae = "killall -9 emacs";
         ll = "eza -lh";
         ls = "eza";
-        meminfo = "free -m -l -t";
         nah = "git clean -df && git checkout -- .";
-        paux = "ps aux | grep";
+        paux = "procs";
         pg = "ping google.com -c 5";
         portListen = "sudo lsof -i -P -n | grep LISTEN";
-        pscpu10 = "ps auxr | head -10";
-        psmem10 = "ps auxm | head -10";
+        pscpu10 = "procs --sortd cpu";
+        psmem10 = "procs --sortd mem";
         sbt = "sbt -Dsbt.supershell=false";
       }
     ];

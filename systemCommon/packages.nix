@@ -9,10 +9,12 @@
     # mysql
     act
     autoconf
+    btop
     curl
     coursier
     docker
     docker-compose
+    dust
     elmPackages.elm
     eza
     fd
@@ -21,6 +23,7 @@
     ghc
     ghcid
     gimp
+    gitui
     haskellPackages.apply-refact
     haskellPackages.fourmolu
     haskellPackages.hoogle
@@ -35,7 +38,6 @@
     lilypond
     litecli
     lsof
-    manga-tui
     mcomix
     magic-wormhole
     mediainfo
@@ -47,6 +49,7 @@
     ntfs3g
     ormolu
     purescript
+    procs
     ripgrep
     rustup
     scala
@@ -60,6 +63,7 @@
     unipicker
     unrar
     unzip
+    uutils-coreutils
     watchexec
     wget
     xclip
