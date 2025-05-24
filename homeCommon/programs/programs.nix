@@ -167,13 +167,17 @@
       enable = true;
       extraConfig = ''
       local wezterm = require 'wezterm'
+
+      local act = wezterm.action
       local mux = wezterm.mux
+
       local config = {
         font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' },
         font_size = 18.0,
-        color_scheme = "Atom",
+        color_scheme = 'Brogrammer',
         hide_tab_bar_if_only_one_tab = true,
-        default_prog = { "bash", "-l" },
+        default_prog = { '/run/current-system/sw/bin/bash', '-l' },
+        keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} },
       }
 
       wezterm.on('gui-startup', function(cmd)

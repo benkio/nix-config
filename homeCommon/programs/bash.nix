@@ -60,8 +60,8 @@ in
         paux = "procs";
         pg = "ping google.com -c 5";
         portListen = "sudo lsof -i -P -n | grep LISTEN";
-        pscpu10 = "procs --sortd cpu";
-        psmem10 = "procs --sortd mem";
+        pscpu = "procs --sortd cpu";
+        psmem = "procs --sortd mem";
         sbt = "sbt -Dsbt.supershell=false";
       }
     ];

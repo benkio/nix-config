@@ -7,30 +7,6 @@
 
 {
   programs = {
-    wezterm.enable = true;
-    wezterm.extraConfig = ''
-      -- Pull in the wezterm API
-      local wezterm = require 'wezterm'
-
-      -- This will hold the configuration.
-      local config = wezterm.config_builder()
-
-      config.window_padding = {
-        left = 0,
-        right = 0,
-        top = 0,
-        bottom = 0,
-      }
-
-      config.enable_tab_bar = true
-      config.use_fancy_tab_bar = false
-      config.hide_tab_bar_if_only_one_tab = true
-      config.tab_bar_at_bottom = true
-      config.color_scheme = 'Dark+'
-
-      -- and finally, return the configuration to wezterm
-      return config
-    '';
     obs-studio.enable = true;
     sbt.enable = true;
     i3status-rust = {
