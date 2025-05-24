@@ -79,7 +79,7 @@
           definedAliases = [ "@hg" ];
         };
         searx = {
-          name = "searx";
+          name = "Searx";
           urls = [
             {
               template = "https://searx.be/search";
@@ -112,7 +112,7 @@
           definedAliases = [ "@sx" ];
         };
         invidious = {
-          name = "invidious";
+          name = "Invidious";
           urls = [
             {
               template = "https://yewtu.be/search";
@@ -145,7 +145,7 @@
           definedAliases = [ "@iv" ];
         };
         piratebay = {
-          name = "pirate bay";
+          name = "Pirate Bay";
           urls = [
             {
               template = "https://tpbay.site/search.php";
@@ -158,6 +158,21 @@
             }
           ];
           definedAliases = [ "@pb" ];
+        };
+        wikipedia = {
+          name = "Wikipedia";
+          urls = [
+            {
+              template = "https://en.wikipedia.org/w/index.php";
+              params = [
+                {
+                  name = "search";
+                  value = "{searchTerms}";
+                }
+              ];
+            }
+          ];
+          definedAliases = [ "@wiki" ];
         };
       };
       bookmarks = {
