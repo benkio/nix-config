@@ -171,14 +171,21 @@
       local act = wezterm.action
       local mux = wezterm.mux
 
-      local config = {
-        font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' },
-        font_size = 18.0,
-        color_scheme = 'Brogrammer',
-        hide_tab_bar_if_only_one_tab = true,
-        default_prog = { '/run/current-system/sw/bin/bash', '-l' },
-        keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} },
-      }
+      -- This will hold the configuration.
+      local config = wezterm.config_builder()
+
+      config.font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' }
+      config.font_size = 18.0
+      --config.color_scheme = 'Brogrammer'
+      config.color_scheme = 'Dracula (Gogh)'
+      config.hide_tab_bar_if_only_one_tab = true
+      config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
+      config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
+
+      -- Print all color schemes to the log
+      -- for name, _ in pairs(wezterm.color.get_builtin_schemes()) do
+      --     wezterm.log_info('Color scheme: ' .. name)
+      -- end
 
       wezterm.on('gui-startup', function(cmd)
         local tab, pane, window = mux.spawn_window(cmd or {})
