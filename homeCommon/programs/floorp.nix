@@ -25,154 +25,167 @@
         ublock-origin
         darkreader
       ];
-      search.force = true;
-      search.engines = {
-        google.metaData.alias = "@g";
-        youtube = {
-          name = "Youtube";
-          urls = [
-            {
-              template = "https://www.youtube.com/results";
-              params = [
-                {
-                  name = "search_query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@yt" ];
-        };
-        nix-packages = {
-          name = "Nix Packages";
-          urls = [
-            {
-              template = "https://search.nixos.org/packages";
-              params = [
-                {
-                  name = "type";
-                  value = "packages";
-                }
-                {
-                  name = "query";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
-          definedAliases = [ "@np" ];
-        };
-        hoogle = {
-          name = "Hoogle";
-          urls = [
-            {
-              template = "https://hoogle.haskell.org/";
-              params = [
-                {
-                  name = "hoogle";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@hg" ];
-        };
-        searx = {
-          name = "Searx";
-          urls = [
-            {
-              template = "https://searx.be/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-            {
-              template = "https://search.hbubli.cc/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-            {
-              template = "https://priv.au/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@sx" ];
-        };
-        invidious = {
-          name = "Invidious";
-          urls = [
-            {
-              template = "https://yewtu.be/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-            {
-              template = "https://inv.nadeko.net/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-            {
-              template = "https://id.420129.xyz/search";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@iv" ];
-        };
-        piratebay = {
-          name = "Pirate Bay";
-          urls = [
-            {
-              template = "https://tpbay.site/search.php";
-              params = [
-                {
-                  name = "q";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@pb" ];
-        };
-        wikipedia = {
-          name = "Wikipedia";
-          urls = [
-            {
-              template = "https://en.wikipedia.org/w/index.php";
-              params = [
-                {
-                  name = "search";
-                  value = "{searchTerms}";
-                }
-              ];
-            }
-          ];
-          definedAliases = [ "@wiki" ];
+      search = {
+        force = true;
+        default = "searx";
+        order = [ "searx", "google" ];
+        engines = {
+          google.metaData.alias = "@g";
+          youtube = {
+            name = "Youtube";
+            urls = [
+              {
+                template = "https://www.youtube.com/results";
+                params = [
+                  {
+                    name = "search_query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@yt" ];
+          };
+          nix-packages = {
+            name = "Nix Packages";
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [ "@np" ];
+          };
+          hoogle = {
+            name = "Hoogle";
+            urls = [
+              {
+                template = "https://hoogle.haskell.org/";
+                params = [
+                  {
+                    name = "hoogle";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@hg" ];
+          };
+          searx = {
+            name = "Searx";
+            urls = [
+              {
+                template = "https://priv.au/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://search.inetol.net/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://search.hbubli.cc/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://search.rhscz.eu/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@sx" ];
+          };
+          invidious = {
+            name = "Invidious";
+            urls = [
+              {
+                template = "https://yewtu.be/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://inv.nadeko.net/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://id.420129.xyz/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@iv" ];
+          };
+          piratebay = {
+            name = "Pirate Bay";
+            urls = [
+              {
+                template = "https://tpbay.site/search.php";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@pb" ];
+          };
+          wikipedia = {
+            name = "Wikipedia";
+            urls = [
+              {
+                template = "https://en.wikipedia.org/w/index.php";
+                params = [
+                  {
+                    name = "search";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@wiki" ];
+          };
         };
       };
       bookmarks = {
