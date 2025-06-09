@@ -23,8 +23,8 @@ in
       chmod -R 777 ${config.home.homeDirectory}/.emacs.d
       cd ${config.home.homeDirectory}/.emacs.d
       git remote add origin git@github.com:benkio/emacs-config.git
-      git pull origin master
-      git checkout -f master
+      git pull origin main
+      git checkout -f main
       git clean -fx
       git branch -D fetchgit
     fi
