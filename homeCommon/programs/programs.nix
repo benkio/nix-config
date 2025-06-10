@@ -176,8 +176,7 @@
 
       config.font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' }
       config.font_size = 18.0
-      --config.color_scheme = 'Brogrammer'
-      config.color_scheme = 'Dracula (Gogh)'
+      config.color_scheme = 'Nocturnal Winter'
       config.hide_tab_bar_if_only_one_tab = true
       config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
       config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
