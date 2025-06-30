@@ -60,7 +60,7 @@
       ".aspell.conf".text = "data-dir ${config.home.homeDirectory}/.nix-profile/lib/aspell";
 
       # Script to update All git repos
-      "UpdateAllGitMain.nix".source = pkgs.fetchurl {
+      "UpdateAllGitMain.sc".source = pkgs.fetchurl {
         url = "https://gist.githubusercontent.com/benkio/dbb9523529c875b5472a89eb391df7b4/raw/7ad18c9b51f4f2d1f932186538d221f960dee0d9/UpdateAllGitMain.sc";
         sha256 = "sha256-UkDgQRU629isEKUQBxABPt1FWXkH/QNRj6QkOcujJ68=";
       };
