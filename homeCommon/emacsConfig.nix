@@ -11,7 +11,7 @@ let
   emacsConfig = pkgs.fetchgit {
     url = "https://github.com/benkio/emacs-config.git";
     rev = "128ec139013b1093c4d5b7246931ad132fcb2877";
-    sha256 = "sha256-T5i/2K058mCupGXvseRW15ex4NCvLtRV69zJBQ0F27I=";
+    sha256 = "sha256-zBkuUUVAhuXSH+6lRZ3kDgvCLPMKfEmlQAyljKmszmk=";
     leaveDotGit = true;
   };
 in
