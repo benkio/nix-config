@@ -166,33 +166,33 @@
     wezterm = {
       enable = true;
       extraConfig = ''
-      local wezterm = require 'wezterm'
+        local wezterm = require 'wezterm'
 
-      local act = wezterm.action
-      local mux = wezterm.mux
+        local act = wezterm.action
+        local mux = wezterm.mux
 
-      -- This will hold the configuration.
-      local config = wezterm.config_builder()
+        -- This will hold the configuration.
+        local config = wezterm.config_builder()
 
-      config.font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' }
-      config.font_size = 18.0
-      config.color_scheme = 'Nocturnal Winter'
-      config.hide_tab_bar_if_only_one_tab = true
-      -- change this to use ESHELL env variable
-      config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
-      config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
+        config.font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' }
+        config.font_size = 18.0
+        config.color_scheme = 'Nocturnal Winter'
+        config.hide_tab_bar_if_only_one_tab = true
+        -- change this to use ESHELL env variable
+        config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
+        config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
 
-      -- Print all color schemes to the log
-      -- for name, _ in pairs(wezterm.color.get_builtin_schemes()) do
-      --     wezterm.log_info('Color scheme: ' .. name)
-      -- end
+        -- Print all color schemes to the log
+        -- for name, _ in pairs(wezterm.color.get_builtin_schemes()) do
+        --     wezterm.log_info('Color scheme: ' .. name)
+        -- end
 
-      wezterm.on('gui-startup', function(cmd)
-        local tab, pane, window = mux.spawn_window(cmd or {})
-        window:gui_window():maximize()
-      end)
+        wezterm.on('gui-startup', function(cmd)
+          local tab, pane, window = mux.spawn_window(cmd or {})
+          window:gui_window():maximize()
+        end)
 
-      return config
+        return config
       '';
     };
   };

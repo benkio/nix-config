@@ -28,7 +28,10 @@
       search = {
         force = true;
         default = "searx";
-        order = [ "searx" "google" ];
+        order = [
+          "searx"
+          "google"
+        ];
         engines = {
           google.metaData.alias = "@g";
           youtube = {

@@ -86,6 +86,7 @@ in
       if [[ $(uname -r) =~ WSL ]]; then
         # WSL detected
         setxkbmap -layout us -variant dvp
+        export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
       fi
     '';
   };
