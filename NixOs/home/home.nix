@@ -12,6 +12,7 @@
     ./programs/programs.nix
     ../../homeCommon/emacsConfig.nix
     ../../homeCommon/bobPaintings.nix
+    ../../homeCommon/gists.nix
     ../../homeCommon/packages.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/programs/programs.nix

@@ -9,6 +9,7 @@
   imports = [
     ../../homeCommon/emacsConfig.nix
     ../../homeCommon/bobPaintings.nix
+    ../../homeCommon/gists.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/packages.nix
     ../../homeCommon/programs/programs.nix
