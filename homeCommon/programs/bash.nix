@@ -82,6 +82,11 @@ in
       then
         . ${config.home.homeDirectory}/.bashrcextra
       fi
+
+      if [[ $(uname -r) =~ WSL ]]; then
+        # WSL detected
+        setxkbmap -layout us -variant dvp
+      fi
     '';
   };
 }

@@ -25,8 +25,8 @@
     megasync
     qjackctl
     reaper
+    xorg.setxkbmap
     slack
-    soulseekqt
     sound-juicer
     telegram-desktop
     teamviewer

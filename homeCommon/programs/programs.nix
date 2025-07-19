@@ -176,9 +176,9 @@
 
       config.font = wezterm.font_with_fallback { 'Monaco', 'JetBrains Mono' }
       config.font_size = 18.0
-      --config.color_scheme = 'Brogrammer'
       config.color_scheme = 'Dracula (Gogh)'
       config.hide_tab_bar_if_only_one_tab = true
+      -- change this to use ESHELL env variable
       config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
       config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
 
