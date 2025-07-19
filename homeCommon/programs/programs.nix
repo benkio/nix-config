@@ -178,6 +178,7 @@
       config.font_size = 18.0
       config.color_scheme = 'Nocturnal Winter'
       config.hide_tab_bar_if_only_one_tab = true
+      -- change this to use ESHELL env variable
       config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
       config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
 

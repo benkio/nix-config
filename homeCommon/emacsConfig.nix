@@ -10,8 +10,8 @@ let
   #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
     url = "https://github.com/benkio/emacs-config.git";
-    rev = "128ec139013b1093c4d5b7246931ad132fcb2877";
-    sha256 = "sha256-zBkuUUVAhuXSH+6lRZ3kDgvCLPMKfEmlQAyljKmszmk=";
+    rev = "3fba786f8bc7225a51822e57c05208545a103231";
+    sha256 = "sha256-JnZW7d9unp7TnkrtZHeyV1lXO8Jd3sfdymC3whv+eRI=";
     leaveDotGit = true;
   };
 in

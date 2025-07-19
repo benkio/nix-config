@@ -1,0 +1,88 @@
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+
+###############################################################################
+#                   Packages without specific configuration                   #
+###############################################################################
+
+{
+  # Remove linux application, but keeping and merging terminal utilities from nixos system configuration
+  home.packages = with pkgs; [
+    # BROKEN haskellPackages.ghc-mod
+    act
+    autoconf
+    aws-vault
+    btop
+    coursier
+    curl
+    docker
+    docker-compose
+    dust
+    elmPackages.elm
+    eza
+    fd
+    feh
+    ffmpeg-full
+    gcc
+    ghc
+    ghcid
+    gitui
+    glibcLocales
+    haskellPackages.apply-refact
+    haskellPackages.fourmolu
+    haskellPackages.hoogle
+    hlint
+    html-tidy
+    hurl
+    id3v2
+    imagemagick
+    jdk
+    k9s
+    kubectl
+    lame
+    lilypond
+    litecli
+    lshw
+    lsof
+    lychee
+    maestral
+    magic-wormhole
+    mediainfo
+    mermaid-cli
+    nethogs
+    nettools
+    nix-prefetch-scripts
+    nixfmt-rfc-style
+    nmap
+    ormolu
+    pciutils
+    procs
+    psmisc
+    purescript
+    ripgrep
+    rustup
+    scala
+    scala-cli
+    scalafmt
+    sqlite
+    stack
+    termdown
+    tldr
+    tunnelto
+    unetbootin
+    unipicker
+    unrar
+    unzip
+    usbutils
+    uutils-coreutils
+    watchexec
+    wget
+    xclip
+    xorg.setxkbmap
+    zip
+  ];
+}

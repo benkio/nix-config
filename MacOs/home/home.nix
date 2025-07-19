@@ -9,6 +9,7 @@
   imports = [
     ../../homeCommon/emacsConfig.nix
     ../../homeCommon/bobPaintings.nix
+    ../../homeCommon/gists.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/packages.nix
     ../../homeCommon/programs/programs.nix
@@ -26,6 +27,7 @@
       LC_ALL = "en_US.UTF-8";
       LC_CTYPE = "en_US.UTF-8";
       SHELL = "/run/current-system/sw/bin/bash";
+      ESHELL = "/run/current-system/sw/bin/bash";
     };
     sessionPath = [
       "/run/current-system/sw/bin"
