@@ -46,12 +46,6 @@
           # Create known directory if doesn't exists
           mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp
 
-          # Startup Programs
-          floorp &
-          telegram-desktop &
-          emacsclient -c &
-          wezterm start --always-new-process &
-
         fi
       '';
 
