@@ -14,15 +14,25 @@
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
     act
+    amule
     autoconf
     aws-vault
+    bitwarden
+    bleachbit
+    bluez
+    brightnessctl
     btop
+    calibre
+    copyq
     coursier
     curl
+    dmenu
     docker
     docker-compose
     dust
     elmPackages.elm
+    evince
+    exfatprogs
     eza
     fd
     feh
@@ -32,26 +42,34 @@
     ghcid
     gitui
     glibcLocales
+    gparted
+    guvcview
     haskellPackages.apply-refact
     haskellPackages.fourmolu
     haskellPackages.hoogle
+    hexchat
     hlint
     html-tidy
     hurl
     id3v2
     imagemagick
+    jack2
     jdk
     k9s
+    kmetronome
     kubectl
     lame
+    libsForQt5.kdenlive
     lilypond
     litecli
     lshw
     lsof
     lychee
     maestral
+    maestral # dropbox alternative
     magic-wormhole
     mediainfo
+    megasync
     mermaid-cli
     nethogs
     nettools
@@ -59,17 +77,28 @@
     nixfmt-rfc-style
     nmap
     ormolu
+    pamixer
+    parted
+    pavucontrol
     pciutils
+    picard
+    playerctl
     procs
     psmisc
     purescript
+    qjackctl
+    reaper
     ripgrep
     rustup
     scala
     scala-cli
     scalafmt
+    slack
+    sound-juicer
     sqlite
     stack
+    teamviewer
+    telegram-desktop
     termdown
     tldr
     tunnelto
@@ -79,10 +108,12 @@
     unzip
     usbutils
     uutils-coreutils
+    vlc
     watchexec
     wget
     xclip
     xorg.setxkbmap
     zip
+    zoom-us
   ];
 }
