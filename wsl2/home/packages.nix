@@ -25,6 +25,7 @@
     calibre
     copyq
     coursier
+    corefonts
     curl
     dmenu
     docker
