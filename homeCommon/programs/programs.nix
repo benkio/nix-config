@@ -24,7 +24,6 @@
     nix-index.enable = true;
     pandoc.enable = true;
     ssh.enable = true;
-    texlive.enable = true;
     yt-dlp.enable = true;
     fzf.enable = true;
     jq.enable = true;

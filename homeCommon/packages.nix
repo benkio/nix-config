@@ -28,6 +28,7 @@
     nodePackages.aws-cdk
     sqlfluff
     symbola
+    texliveSmall
     xorg.setxkbmap
   ];
 }
