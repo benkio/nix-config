@@ -10,7 +10,7 @@
 ###############################################################################
 let
   tex = (pkgs.texlive.combine { #from https://nixos.wiki/wiki/TexLive#Combine_Sets
-    inherit (pkgs.texlive) scheme-small
+    inherit (pkgs.texlive) scheme-full
       dvisvgm dvipng # for preview and export as html
       wrapfig amsmath ulem hyperref capt-of;
       #(setq org-latex-compiler "lualatex")

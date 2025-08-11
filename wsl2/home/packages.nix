@@ -94,6 +94,7 @@
     scala
     scala-cli
     scalafmt
+    spark
     slack
     sound-juicer
     sqlite
