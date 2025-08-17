@@ -17,21 +17,22 @@
     bleachbit
     calibre
     feh
-    guvcview
+    font-manager
     gnome.gnome-screenshot
+    guvcview
     jdk
     libsForQt5.kdenlive
     lychee
     megasync
+    picard
     qjackctl
     reaper
-    xorg.setxkbmap
     slack
     sound-juicer
-    telegram-desktop
     teamviewer
+    telegram-desktop
     unetbootin
-    picard
+    xorg.setxkbmap
     zoom-us
   ];
 }

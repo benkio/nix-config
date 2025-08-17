@@ -37,6 +37,7 @@
     eza
     fd
     feh
+    font-manager
     ffmpeg-full
     gcc
     ghc
