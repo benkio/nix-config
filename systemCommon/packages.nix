@@ -56,7 +56,6 @@
     scala
     scala-cli
     scalafmt
-    spark
     sqlite
     stack
     termdown
