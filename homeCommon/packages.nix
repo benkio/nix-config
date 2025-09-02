@@ -31,6 +31,7 @@ in
     nodePackages.npm
     nodePackages.jsonlint
     nodePackages.typescript
+    nodePackages.typescript-language-server
     nodePackages.yarn
     nodePackages.prettier
     nodePackages.aws-cdk
