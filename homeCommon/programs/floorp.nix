@@ -233,44 +233,6 @@
           }
 
           {
-            name = "47Deg";
-            toolbar = false;
-            bookmarks = [
-
-              {
-                name = "Timesheet – 47 Degrees – Harvest";
-                url = "https://47deg.harvestapp.com/time";
-              }
-
-              {
-                name = "1-on-1s · 15Five";
-                url = "https://47degrees.15five.com/one-on-one/user/";
-              }
-
-              {
-                name = "Expensify - Inbox";
-                url = "https://www.expensify.com/inbox";
-              }
-
-              {
-                name = "clickup | 47 Degrees";
-                url = "https://app.clickup.com/2338373/home";
-              }
-
-              {
-                name = "Slack";
-                url = "https://fortyseven.slack.com/ssb/redirect";
-              }
-
-              {
-                name = "Home | 47 Degrees";
-                url = "https://app.clickup.com/2338373/home";
-              }
-
-            ];
-          }
-
-          {
             name = "Social";
             toolbar = true;
             bookmarks = [

@@ -59,6 +59,7 @@ in
         nah = "git clean -df && git checkout -- .";
         paux = "procs";
         pg = "ping google.com -c 5";
+        ps = "procs";
         portListen = "sudo lsof -i -P -n | grep LISTEN";
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";

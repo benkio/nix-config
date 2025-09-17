@@ -27,26 +27,26 @@ in
     enable = true;
     onActivation.upgrade = true;
     brews = [
-      "coreutils"
-      "defaultbrowser"
-      "gnu-sed"
-      "tgenv"
-      "tfenv"
-      "lychee"
-      "pkg-config"
+      "coreutils"      # GNU Core Utilities
+      "defaultbrowser" # Script to set default browser
+      "gnu-sed"        # GNU SED Command
+      "tgenv"          # A tool to manage multiples Terragrunt versions
+      "tfenv"          # Terraform Version Manager
+      "lychee"         # Link Checker
+      "pkg-config"     # queries information about libraries
     ];
     casks = [
-      "caffeine"
-      "calibre"
-      "dropbox"
-      "kdenlive"
-      "obs"
-      # "slack"
-      "musicbrainz-picard"
-      "telegram-desktop"
-      "vlc"
-      "xld"
-      "zoom"
+      "caffeine"           # Keep mac awake
+      "calibre"            # Book management
+      "dropbox"            # Dropbox
+      "kdenlive"           # Video Editor
+      "obs"                # Video/screen recorder
+      "slack"              # Chat
+      "musicbrainz-picard" # Audio Tagger
+      "telegram-desktop"   # Chat
+      "vlc"                # Video Player
+      "xld"                # CD Ripper
+      "zoom"               # Video Chat
     ];
 
   };
