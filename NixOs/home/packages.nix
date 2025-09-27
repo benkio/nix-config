@@ -22,7 +22,7 @@
     gnome.gnome-screenshot # Screenshot utility for Gnome
     guvcview               # Linux Software for managing camera
     jdk                    # Java Development Kit
-    libsForQt5.kdenlive    # Video Editor
+    kdePackages.kdenlive   # Video Editor
     lychee                 # Link Checker
     megasync               # Mega.com Sync
     picard                 # Audio Tagger

@@ -62,7 +62,7 @@
     kmetronome                   # Metronome
     kubectl                      # Kubernetes official CLI
     lame                         # Audio Encoder
-    libsForQt5.kdenlive          # Video Editor
+    kdePackages.kdenlive         # Video Editor
     lilypond                     # Music Notation Language
     litecli                      # SQLite CLI
     lshw                         # Provide Hardware information
