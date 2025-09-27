@@ -42,7 +42,7 @@
     mcomix                       # Comix Reader
     magic-wormhole               # File transfer over network
     mediainfo                    # Information about a audio/video file
-    copyq                        # Clipboard utility
+    mermaid-cli                  # Command Line tool for mermaid
     mpv                          # Video Player
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt-rfc-style             # Nix Formatter
@@ -54,10 +54,10 @@
     procs                        # better ps
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
-    bloop                        # Scala build server and command-line tool
+    scala                        # Scala compiler
     scala-cli                    # Scala command line tool
     scalafmt                     # Scala formatting
-    litecli                      # SQLite CLI
+    sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
     termdown                     # Countdown CLI
     tldr                         # Short Man
