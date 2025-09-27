@@ -20,6 +20,7 @@
     aws-vault                    # AWS secrets local storage
     bitwarden                    # Password Manager
     bleachbit                    # Linux Cleanup
+    bloop                        # Scala build server and command-line tool
     bluez                        # Bluetooth manager
     brightnessctl                # Brightness manager
     btop                         # Better htop
