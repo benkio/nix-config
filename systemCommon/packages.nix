@@ -57,7 +57,6 @@
     rustup                       # Rust setup utility
     scala                        # Scala compiler
     scala-cli                    # Scala command line tool
-    scalafmt                     # Scala formatting
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
     termdown                     # Countdown CLI

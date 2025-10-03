@@ -95,7 +95,6 @@
     rustup                       # Rust setup utility
     scala                        # Scala Programming Language
     scala-cli                    # Scala scripting 
-    scalafmt                     # Scala formatting
     slack                        # Chat
     sqlite                       # SQLite
     stack                        # Haskell Package Manager
