@@ -17,8 +17,13 @@
     enable = true;
     profiles.benkio = {
       id = 0;
+      settings = {
+        "browser.zoom.default" = 150; # Sets the default zoom level to 150%
+        # Optional: Zoom text only (excludes images/media scaling)
+        "browser.zoom.updateBackgroundTabs" = false; # Don't update zoom on background tabs
+      };
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-	      proton-vpn
+        proton-vpn
         bitwarden
         darkreader
         grammarly

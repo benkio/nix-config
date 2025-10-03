@@ -17,7 +17,7 @@ let
       }
     else
       {
-        update = "nix-channel --update && sudo nix-channel --update && nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
+        update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
