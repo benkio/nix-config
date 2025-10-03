@@ -19,6 +19,7 @@
 
   fonts = {
     packages = with pkgs; [
+      corefonts
       dejavu_fonts
       nerd-fonts.dejavu-sans-mono
       nerd-fonts.jetbrains-mono
