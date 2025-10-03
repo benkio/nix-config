@@ -1,4 +1,22 @@
-* Minimal NixOs Commands
+* Installation
+
+** Grafical (Reccommended)
+
+Install through a USB flashed drive and then choose the minimal.
+You should skip all the nonesense for the partitioning below.
+Once in the terminal run
+
+#+begin_src
+  sudo loadkeys -v dvorak # (Optional) Set dvorak for the session
+  nmcli device wifi connect <ssid> password <password> # To connect to the internet - check with ping google.com
+  git clone https://github.com/benkio/nix-config.git # Clone this repo
+  sudo rm /etc/nixos/configuration.nix  # Remove the previous default configuration
+  sudo ln -s /home/benkio/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix # Hard link this configuration
+  nixos-rebuild build # Build it
+  nixos-rebuild switch # If previous command succeded, apply the new configuration
+#+end_src
+
+** Minimal NixOs Commands
 
   Edit: this was done long ago, it might be outdated/unecessary now
   Commands to run on startup to install nixos and add the configuration
@@ -37,6 +55,18 @@ reboot
 
 remember the root password
 remove the nixos image from the drive
+
+* Set Unstable Channel
+
+If you want the unstable channel (latest changes) you need to remove the sudo channel for nixos and put the unstable
+
+#+begin_src
+  sudo nix-channel --remove nixos
+  sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
+  sudo nix-channel --update
+  nixos-rebuild build # Build it
+  nixos-rebuild switch # If previous command succeded, apply the new configuration
+#+end_src
 
 * Home Manager Installation
 

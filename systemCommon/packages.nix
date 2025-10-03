@@ -20,7 +20,7 @@
     eza                          # Better ls
     fd                           # Better find
     ffmpeg-full                  # CMD Converter audio/video
-    floorp                       # Web Browser firefox-like
+    floorp-bin                   # Web Browser firefox-like
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
     gimp                         # Image Editor

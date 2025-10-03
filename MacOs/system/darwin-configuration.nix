@@ -6,6 +6,7 @@ in
 {
   imports = [ ../../systemCommon/systemConfig.nix ];
 
+  system.primaryUser = "benkio";
   services = {
     redis.enable = true;
 

@@ -18,12 +18,12 @@
     profiles.benkio = {
       id = 0;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        vimium
+	      proton-vpn
         bitwarden
-        grammarly
-        xbrowsersync
-        ublock-origin
         darkreader
+        grammarly
+        ublock-origin
+        vimium
       ];
       search = {
         force = true;

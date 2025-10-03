@@ -25,7 +25,7 @@
   systemd.enableEmergencyMode = false;
 
   powerManagement.enable = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.graphics.enable32Bit = true;
   networking = {
     networkmanager = {
       # Enables wireless support and openvpn via network manager.
@@ -45,13 +45,8 @@
   };
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n.defaultLocale = "en_US.UTF-8";
 
-  # Enable sound.
-  sound = {
-    # enable = true; conflicts with pipewire
-    mediaKeys.enable = true;
-  };
   hardware.bluetooth = {
     enable = true;
     package = pkgs.bluez;
@@ -62,7 +57,6 @@
     };
   };
   hardware.enableRedistributableFirmware = true;
-  hardware.pulseaudio.enable = false;
   hardware.nvidia.package = pkgs.nvidia_x11;
   virtualisation.docker.enable = true;
 
@@ -85,6 +79,8 @@
     blueman.enable = true; # bluetooth service
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
+    desktopManager.gnome.enable = true;
+    pulseaudio.enable = false; # Disable Pulseaudio
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
@@ -113,15 +109,6 @@
       };
       desktopManager = {
         xterm.enable = false;
-        gnome.enable = true;
-      };
-      displayManager = {
-        defaultSession = "none+i3";
-        lightdm.enable = true;
-        autoLogin = {
-          enable = true;
-          user = "benkio";
-        };
       };
       windowManager.i3 = {
         enable = true;
@@ -143,6 +130,14 @@
       shadowOpacity = 0.95;
       fade = true;
     };
+    displayManager = {
+      defaultSession = "none+i3";
+      # lightdm.enable = true;
+      autoLogin = {
+	enable = true;
+	user = "benkio";
+      };
+    };
   };
   systemd.user.services.dropbox = {
     description = "Dropbox";
@@ -162,11 +157,6 @@
     };
   };
 
-  services.logind.extraConfig = ''
-    # don’t shutdown when power button is short-pressed
-    HandlePowerKey=ignore
-  '';
-
   environment.systemPackages = with pkgs; [
     aws-vault
     bluez
@@ -178,7 +168,6 @@
     exfatprogs
     gcc
     glibcLocales
-    gnome_mplayer
     gparted
     hexchat
     i3
@@ -196,7 +185,7 @@
     pciutils
     playerctl
     psmisc
-    soulseekqt
+    nicotine-plus
     usbutils
     vlc
     xorg.xrandr

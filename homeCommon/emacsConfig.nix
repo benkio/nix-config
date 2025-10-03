@@ -23,6 +23,7 @@ in
       chmod -R 777 ${config.home.homeDirectory}/.emacs.d
       cd ${config.home.homeDirectory}/.emacs.d
       git remote add origin git@github.com:benkio/emacs-config.git
+      # Execute after setting the ssh key from bitwarden
       git pull origin main
       git checkout -f main
       git clean -fx

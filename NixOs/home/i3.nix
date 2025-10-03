@@ -91,7 +91,7 @@ in
           "DejaVu Sans Mono"
           "Symbola"
         ];
-        size = 11.0;
+        size = 18.0;
       };
       startup = [
         {
@@ -119,7 +119,7 @@ in
               "DejaVu Sans Mono"
               "Symbola"
             ];
-            size = 11.0;
+            size = 18.0;
           };
           colors = {
             background = "#2f343f";
