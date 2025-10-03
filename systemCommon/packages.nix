@@ -25,6 +25,7 @@
     ghcid                        # Haskell GHCID daemon
     gimp                         # Image Editor
     gitui                        # Git User interface
+    gnupg1                       # Used to sign commits
     haskellPackages.apply-refact # Automatic application of hlint suggestions
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
