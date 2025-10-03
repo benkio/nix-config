@@ -53,6 +53,7 @@
     ormolu                       # Haskell formatter
     purescript                   # Purescript language
     procs                        # better ps
+    protonvpn-gui                # Client for Proton VPN
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala compiler

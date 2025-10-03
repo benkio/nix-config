@@ -23,7 +23,6 @@
         "browser.zoom.updateBackgroundTabs" = false; # Don't update zoom on background tabs
       };
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
-        proton-vpn
         bitwarden
         darkreader
         grammarly
