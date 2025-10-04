@@ -13,7 +13,10 @@
       keep-outputs     = true
       keep-derivations = true
     '';
-
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     # trusted-users = [ "root" "benkio" ]; # Required by Cachix to be used as non-root user
   };
 }
