@@ -66,8 +66,7 @@ in
         "${mod}+b" = "exec floorp";
         "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
-        "Print" = "exec gnome-screenshot";
-        "--release Shift+Print" = "exec gnome-screenshot -a";
+        "Print" = "exec rofi-screenshot -d ~/";
         "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
