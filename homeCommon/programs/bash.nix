@@ -65,6 +65,7 @@ in
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";
         sbt = "sbt -Dsbt.supershell=false";
+        wifi = "nmtui";
       }
     ];
     historyControl = [ "ignoreboth" ];
