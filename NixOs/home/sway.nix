@@ -6,20 +6,27 @@
 }:
 
 ###############################################################################
-#                                  I3 Config                                  #
+#                                  Sway Config                                #
 ###############################################################################
 
 let
   mod = "Mod4";
 in
 {
-  xsession.windowManager.i3 = {
+  wayland.windowManager.sway = {
     # influenced by https://github.com/addy-dclxvi/i3-starterpack/tree/master
     enable = true;
     config = {
       terminal = "wezterm";
       modifier = mod;
       workspaceLayout = "tabbed";
+      input = {
+        "*" = {
+          # omitting other config options
+          xkb_layout = "us";
+          xkb_variant = "dvp";
+        };
+      };
       keybindings = lib.mkOptionDefault {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 
@@ -35,8 +42,8 @@ in
         "${mod}+Shift+Up" = "move up";
         "${mod}+Shift+Right" = "move right";
 
-        "{$mod}+Shift+q" = "kill";
-        "{$mod}+f" = "fullscreen";
+        "${mod}+Shift+q" = "kill";
+        "${mod}+f" = "fullscreen";
         "${mod}+t" = "layout toggle tabbed splitv splith";
         "${mod}+Shift+f" = "floating toggle";
         "${mod}+1" = "workspace 1";
@@ -67,7 +74,7 @@ in
         "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
         "Print" = "exec rofi-screenshot -d ~/";
-        "${mod}+Enter" = "exec ${config.xsession.windowManager.i3.config.terminal}";
+        "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
         "XF86AudioMute" = "exec pamixer -t";
@@ -96,17 +103,14 @@ in
         {
           command = "nm-applet --sm-disable";
           always = false;
-          notification = false;
         }
         {
           command = "volumeicon";
           always = false;
-          notification = false;
         }
         {
           command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & ";
           always = false;
-          notification = false;
         }
       ];
       bars = [

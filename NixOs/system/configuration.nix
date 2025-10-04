@@ -1,7 +1,14 @@
 { config, pkgs, ... }:
 
 {
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    light.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
+  };
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;
   system.stateVersion = "24.05";
@@ -22,7 +29,19 @@
 
   boot.supportedFilesystems = [ "ntfs" ];
 
-  systemd.enableEmergencyMode = false;
+  systemd = {
+    enableEmergencyMode = false;
+    user.services = {
+      kanshi = {
+        # To Start Sway
+        description = "kanshi daemon";
+        serviceConfig = {
+          Type = "simple";
+          ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+        };
+      };
+    };
+  };
 
   powerManagement.enable = true;
   hardware.graphics.enable32Bit = true;
@@ -67,6 +86,7 @@
       "docker"
       "networkmanager"
       "wheel"
+      "video"
     ]; # wheel for ‘sudo’.
     initialHashedPassword = "benkio";
   };
@@ -79,7 +99,6 @@
     blueman.enable = true; # bluetooth service
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
-    desktopManager.gnome.enable = true;
     pulseaudio.enable = false; # Disable Pulseaudio
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
@@ -100,26 +119,16 @@
       # If you want to use JACK applications, uncomment this
       jack.enable = true;
     };
-    xserver = {
-      enable = true;
-      autorun = true;
-      xkb = {
-        layout = "us";
-        variant = "dvp";
-      };
-      desktopManager = {
-        xterm.enable = false;
-      };
-      windowManager.i3 = {
+    desktopManager = {
+      gnome.enable = true;
+    };
+    displayManager = {
+      defaultSession = "sway";
+      gdm.enable = true;
+      autoLogin = {
         enable = true;
-        extraPackages = with pkgs; [
-          dunst
-          rofi # is a program launcher, similar with dmenu but with more options.
-          i3lock # default i3 screen locker
-          lxappearance # is used for changing GTK theme icons, fonts, and some other preferences.
-        ];
+        user = "benkio";
       };
-      dpi = 144;
     };
     picom = {
       enable = true;
@@ -130,31 +139,6 @@
       ];
       shadowOpacity = 0.95;
       fade = true;
-    };
-    displayManager = {
-      defaultSession = "none+i3";
-      # lightdm.enable = true;
-      autoLogin = {
-	enable = true;
-	user = "benkio";
-      };
-    };
-  };
-  systemd.user.services.dropbox = {
-    description = "Dropbox";
-    wantedBy = [ "graphical-session.target" ];
-    environment = {
-      QT_PLUGIN_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtPluginPrefix;
-      QML2_IMPORT_PATH = "/run/current-system/sw/" + pkgs.qt5.qtbase.qtQmlPrefix;
-    };
-    serviceConfig = {
-      ExecStart = "${pkgs.dropbox.out}/bin/dropbox";
-      ExecReload = "${pkgs.coreutils.out}/bin/kill -HUP $MAINPID";
-      KillMode = "control-group"; # upstream recommends process
-      Restart = "on-failure";
-      PrivateTmp = true;
-      ProtectSystem = "full";
-      Nice = 10;
     };
   };
 
@@ -171,22 +155,20 @@
     glibcLocales
     gparted
     hexchat
-    i3
-    i3lock
-    i3status
     jack2
     kmetronome
     lshw
     maestral # dropbox alternative
+    mako # notification system developed by swaywm maintainer
     nethogs
     nettools
+    nicotine-plus
     pamixer
     parted
     pavucontrol
     pciutils
     playerctl
     psmisc
-    nicotine-plus
     usbutils
     vlc
     xorg.xrandr

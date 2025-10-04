@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./i3.nix
+    ./sway.nix
     ./packages.nix
     ./programs/programs.nix
     ../../homeCommon/emacsConfig.nix
