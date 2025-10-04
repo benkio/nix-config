@@ -169,6 +169,7 @@
     pciutils
     playerctl
     psmisc
+    swww
     usbutils
     vlc
     xorg.xrandr

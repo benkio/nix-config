@@ -109,7 +109,7 @@ in
           always = false;
         }
         {
-          command = "watch -n 1200 feh --randomize --bg-fill ~/wallpapers/* &>/dev/null & ";
+          command = "sleep 1; swww-daemon & sleep 1; while true; do swww img ${config.home.homeDirectory}/wallpapers/$(ls ${config.home.homeDirectory}/wallpapers | shuf -n 1) --transition-fps 30 --transition-type=random --transition-bezier=0,0.84,1,1; sleep 600; done";
           always = false;
         }
       ];
