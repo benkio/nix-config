@@ -119,6 +119,7 @@
           lxappearance # is used for changing GTK theme icons, fonts, and some other preferences.
         ];
       };
+      dpi = 144;
     };
     picom = {
       enable = true;
