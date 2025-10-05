@@ -63,16 +63,17 @@ in
         "${mod}+0" = "workspace 10";
         "${mod}+Mod1+Right" = "workspace next";
         "${mod}+Mod1+Left" = "workspace prev";
-        "${mod}+Shift+1" = "move container to workspace 1";
-        "${mod}+Shift+2" = "move container to workspace 2";
-        "${mod}+Shift+3" = "move container to workspace 3";
-        "${mod}+Shift+4" = "move container to workspace 4";
-        "${mod}+Shift+5" = "move container to workspace 5";
-        "${mod}+Shift+6" = "move container to workspace 6";
-        "${mod}+Shift+7" = "move container to workspace 7";
-        "${mod}+Shift+8" = "move container to workspace 8";
-        "${mod}+Shift+9" = "move container to workspace 9";
-        "${mod}+Shift+0" = "move container to workspace 10";
+        # Modify from Shift because in dvorak programmer numbers accesible with Shift
+        "${mod}+Mod1+parenleft" = "move container to workspace 1";
+        "${mod}+Mod1+parenright" = "move container to workspace 2";
+        "${mod}+Mod1+braceleft" = "move container to workspace 3";
+        "${mod}+Mod1+plus" = "move container to workspace 4";
+        "${mod}+Mod1+braceright" = "move container to workspace 5";
+        "${mod}+Mod1+bracketleft" = "move container to workspace 6";
+        "${mod}+Mod1+bracketright" = "move container to workspace 7";
+        "${mod}+Mod1+exclam" = "move container to workspace 8";
+        "${mod}+Mod1+equal" = "move container to workspace 9";
+        "${mod}+Mod1+asterisk" = "move container to workspace 10";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec floorp";
