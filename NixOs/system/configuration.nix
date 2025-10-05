@@ -8,6 +8,7 @@
       enable = true;
       wrapperFeatures.gtk = true;
     };
+    xwayland.enable = true;
   };
   system.autoUpgrade.enable = true;
   system.autoUpgrade.allowReboot = false;

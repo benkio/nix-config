@@ -27,6 +27,11 @@ in
           xkb_variant = "dvp";
         };
       };
+      output = {
+        "*" = {
+          scale = "1.3";
+        };
+      };
       keybindings = lib.mkOptionDefault {
         "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
 
