@@ -27,6 +27,7 @@ in
       systemSpecificAliases
       {
         battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
+        bluetooth = "blueman-manager"
         cat = "bat";
         du = "dust";
         # Consider moving this to programs.git.aliases
