@@ -25,6 +25,7 @@ in
           # omitting other config options
           xkb_layout = "us";
           xkb_variant = "dvp";
+          xkb_numlock = "enabled";
         };
       };
       output = {
