@@ -15,9 +15,10 @@ let
       {
         update = "nix-channel --update && sudo nix-channel --update && sudo darwin-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
       }
-    else
+    else # Nixos / Linux
       {
         update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
+        open = "xdg-open";
       };
 in
 {
@@ -30,7 +31,7 @@ in
         bluetooth = "blueman-manager";
         cat = "bat";
         du = "dust";
-        # Consider moving this to programs.git.aliases
+        #1 Consider moving this to programs.git.aliases
         ga = "git add";
         gaa = "git add -A";
         gal = "git add .";
