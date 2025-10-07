@@ -19,7 +19,7 @@ let
       {
         update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
         open = "xdg-open";
-        restart-wifi = "sudo systemctl restart NetworkManager"
+        restart-wifi = "sudo systemctl restart NetworkManager";
       };
 in
 {
