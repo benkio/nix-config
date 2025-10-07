@@ -44,29 +44,4 @@
       ESHELL = "~/.nix-profile/bin/bash";
     };
   };
-
-  xdg.mimeApps = {
-    enable = true;
-    defaultApplications = {
-      "application/x-extension-html"="floorp.desktop";
-      "application/x-extension-shtml"="floorp.desktop";
-      "application/x-extension-xht"="floorp.desktop";
-      "application/x-extension-xhtml"="floorp.desktop";
-      "application/xhtml+xml"="floorp.desktop";
-      "audio/*" = "mpv.desktop";
-      "audio/mpeg"="mpv.desktop";
-      "audio/webm"="mpv.desktop";
-      "text/html"="floorp.desktop";
-      "video/mp4"="mpv.desktop";
-      "video/mpeg"="mpv.desktop";
-      "video/webm"="mpv.desktop";
-      "video/x-msvideo"="mpv.desktop";
-      "x-scheme-handler/chrome"="floorp.desktop";
-      "x-scheme-handler/http"="floorp.desktop";
-      "x-scheme-handler/https"="floorp.desktop";
-      "x-scheme-handler/tg"="org.telegram.desktop.desktop";
-      "x-scheme-handler/tonsite"="org.telegram.desktop.desktop";
-      "application/x-extension-htm"="floorp.desktop";
-    };
-  };
 }
