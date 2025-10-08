@@ -26,10 +26,10 @@
       ];
       search = {
         force = true;
-        default = "searx";
+        default = "google";
         order = [
-          "searx"
           "google"
+          "searx"
         ];
         engines = {
           google.metaData.alias = "@g";
