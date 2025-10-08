@@ -13,9 +13,9 @@
   # Remove linux application, but keeping and merging terminal utilities from nixos system configuration
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
-    abcde                        # Audio CD estractor
+    # BROKEN abcde                        # Audio CD estractor
     act                          # Github Action Tester
-    amule                        # P2P Sharing
+    # BROKEN amule                        # P2P Sharing
     autoconf                     # Unix Configuration Scripts
     aws-vault                    # AWS secrets local storage
     bitwarden                    # Password Manager

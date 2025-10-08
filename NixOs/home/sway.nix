@@ -50,6 +50,7 @@ in
 
         "${mod}+Shift+q" = "kill";
         "${mod}+f" = "fullscreen";
+        "${mod}+o" = "exec ${pkgs.bash}/bin/bash ${config.home.homeDirectory}/toggle-laptop-monitor.sh";
         "${mod}+t" = "layout toggle tabbed splitv splith";
         "${mod}+Shift+f" = "floating toggle";
         "${mod}+1" = "workspace 1";
@@ -159,5 +160,19 @@ in
         }
       ];
     };
+  };
+  home.file."toggle-laptop-monitor.sh" = {
+    executable = true;
+    text = ''
+      #!/bin/sh
+      read lcd < /tmp/lcd
+          if [ "$lcd" -eq "0" ]; then
+              swaymsg "output * power on"
+              echo 1 > /tmp/lcd
+          else
+              swaymsg "output * power off"
+              echo 0 > /tmp/lcd
+          fi
+    '';
   };
 }
