@@ -48,7 +48,7 @@
     glibcLocales                 # Locale information for GNU
     gparted                      # HD Partition
     guvcview                     # Linux Software for managing camera
-    haskellPackages.apply-refact # Automatic application of hlint suggestions
+    #BROKEN haskellPackages.apply-refact # Automatic application of hlint suggestions
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
     hexchat                      # IRC Chat

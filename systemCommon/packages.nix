@@ -26,7 +26,7 @@
     gimp                         # Image Editor
     gitui                        # Git User interface
     gnupg1                       # Used to sign commits
-    haskellPackages.apply-refact # Automatic application of hlint suggestions
+    #BROKEN haskellPackages.apply-refact # Automatic application of hlint suggestions
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
     hlint                        # Haskell Linter
