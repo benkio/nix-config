@@ -14,7 +14,7 @@
   imports = [ ./bash.nix ];
 
   programs = {
-    awscli.enable = true;
+    awscli.enable = false;
     bat.enable = true;
     chromium.enable = true;
     direnv.enable = true;
