@@ -17,9 +17,10 @@ let
       }
     else # Nixos / Linux
       {
-        update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
+        bluetooth = "blueman-manager &";      
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
+        update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
@@ -29,7 +30,6 @@ in
       systemSpecificAliases
       {
         battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
-        bluetooth = "blueman-manager";
         cat = "bat";
         du = "dust";
         #1 Consider moving this to programs.git.aliases
