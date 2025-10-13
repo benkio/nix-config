@@ -85,9 +85,9 @@ in
         "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
-        "XF86AudioMute" = "exec pamixer -t";
-        "XF86AudioRaiseVolume" = "exec pamixer -i 5"; # to decrease 5%
-        "XF86AudioLowerVolume" = "exec pamixer -d 5"; # to increase 5%
+        "XF86AudioMute" = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; # to increase 5%
+        "XF86AudioLowerVolume" = "exec --no-startup-id wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"; # to descrease 5%
 
         # Sreen brightness controls
         "XF86MonBrightnessUp" = "exec brightnessctl s +10% # increase screen brightness";

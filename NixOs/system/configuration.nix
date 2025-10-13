@@ -164,7 +164,6 @@
     nethogs
     nettools
     nicotine-plus
-    pamixer
     parted
     pavucontrol
     pciutils

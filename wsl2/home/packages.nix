@@ -80,7 +80,6 @@
     nixfmt-rfc-style             # Nix Formatter
     nmap                         # Network discovery tool
     ormolu                       # Haskell formatter
-    pamixer                      # Pulseaudio mixer
     parted                       # Partition manager
     pavucontrol                  # Pulseaudio Volume Control
     pciutils                     # PCI devices CLI tools
