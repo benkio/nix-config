@@ -162,7 +162,7 @@
             name = "Pirate Bay";
             urls = [
               {
-                template = "https://tpbay.site/search.php";
+                template = "https://unblocked.knaben.info/thepiratebay.php";
                 params = [
                   {
                     name = "q";
@@ -412,7 +412,7 @@
 
               {
                 name = "Pirate Bay";
-                url = "https://tpbay.site";
+                url = "https://unblocked.knaben.info/thepiratebay.php";
               }
 
             ];

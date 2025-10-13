@@ -160,6 +160,9 @@ in
         }
       ];
     };
+    extraConfig = ''
+      seat * xcursor_theme Vimix-White 32
+    '';
   };
   home.file."toggle-laptop-monitor.sh" = {
     executable = true;
