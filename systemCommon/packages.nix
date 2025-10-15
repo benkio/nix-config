@@ -20,11 +20,8 @@
     eza                          # Better ls
     fd                           # Better find
     ffmpeg-full                  # CMD Converter audio/video
-    floorp-bin                   # Web Browser firefox-like
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
-    gimp                         # Image Editor
-    gitui                        # Git User interface
     gnupg1                       # Used to sign commits
     #BROKEN haskellPackages.apply-refact # Automatic application of hlint suggestions
     haskellPackages.fourmolu     # Haskell Linter
@@ -36,8 +33,7 @@
     imagemagick                  # Image converter
     k9s                          # Kubernetes CLI
     kubectl                      # Kubernetes official CLI
-    lame                         # Audio Encoder
-    lilypond                     # Music Notation Language
+    lame                         # Audio Encoder 
     litecli                      # SQLite CLI
     lsof                         # List open files
     mcomix                       # Comix Reader
@@ -53,7 +49,6 @@
     ormolu                       # Haskell formatter
     purescript                   # Purescript language
     procs                        # better ps
-    protonvpn-gui                # Client for Proton VPN
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala compiler

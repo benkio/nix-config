@@ -16,7 +16,6 @@
   programs = {
     awscli.enable = false;
     bat.enable = true;
-    chromium.enable = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
     emacs.enable = true;

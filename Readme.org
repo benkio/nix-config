@@ -91,6 +91,7 @@ log off and in
 * Symbolic link for NixOs Configuration
 
 #+begin_src shell
+  sudo rm /etc/nixos/configuration.nix
   sudo ln -s ~/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix
 #+end_src
 
@@ -101,6 +102,7 @@ log off and in
   Just add the symlink for the darwin configuration as follow
 
   #+begin_src shell
-ln -s ~/nix-config/MacOs/system/darwin-configuration.nix ~/.nixpkgs/darwin-configuration.nix
-darwin-rebuild switch
+sudo rm /etc/nix-darwin/configuration.nix
+sudo ln -s ~/nix-config/MacOs/system/darwin-configuration.nix /etc/nix-darwin/configuration.nix
+sudo darwin-rebuild switch
   #+end_src

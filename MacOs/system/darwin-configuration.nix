@@ -40,6 +40,7 @@ in
       "caffeine"           # Keep mac awake
       "calibre"            # Book management
       "dropbox"            # Dropbox
+      "google-chrome"      # Web Browser
       "kdenlive"           # Video Editor
       "obs"                # Video/screen recorder
       "slack"              # Chat
