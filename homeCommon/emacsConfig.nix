@@ -10,8 +10,8 @@ let
   #       from the emacs folder.
   emacsConfig = pkgs.fetchgit {
     url = "https://github.com/benkio/emacs-config.git";
-    rev = "3fba786f8bc7225a51822e57c05208545a103231";
-    sha256 = "sha256-965nfqfyRVW3G31Sc/aRXCCa8VK+d/JywVQEiNWFcjw=";
+    rev = "7a7d942ba9503ad3b4554545bd2d8b9d6d8508cb";
+    sha256 = "sha256-fk2KQBX/kt/T35f1dmXavZlhTiSX8dsN8NqCV4nHGP4=";
     leaveDotGit = true;
   };
 in
@@ -22,12 +22,7 @@ in
       cp -r -n ${emacsConfig}/. ${config.home.homeDirectory}/.emacs.d
       chmod -R 777 ${config.home.homeDirectory}/.emacs.d
       cd ${config.home.homeDirectory}/.emacs.d
-      git remote add origin git@github.com:benkio/emacs-config.git
-      # Execute after setting the ssh key from bitwarden
-      git pull origin main
-      git checkout -f main
-      git clean -fx
-      git branch -D fetchgit
+      ${pkgs.git}/bin/git remote add origin git@github.com:benkio/emacs-config.git
     fi
   '';
 }

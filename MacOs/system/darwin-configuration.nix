@@ -84,5 +84,5 @@ in
   nix.package = pkgs.nix;
 
   # Fix the user group because of a problem, if causes errors, try to remove it
-  ids.gids.nixbld = 30000;
+  ids.gids.nixbld = 350;
 }
