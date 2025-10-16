@@ -57,8 +57,7 @@ in
           alt-shift-9 = "move-node-to-workspace 9";
           alt-tab = "workspace-back-and-forth";
 
-          alt-f = "layout floating";
-          alt-t = "layout tiling";
+          alt-t = "layout tiling floating";
         };
       };
     };
