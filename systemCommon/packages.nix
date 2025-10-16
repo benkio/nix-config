@@ -52,6 +52,7 @@
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala compiler
+    scalafmt                     # Scala formatter
     scala-cli                    # Scala command line tool
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
