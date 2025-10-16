@@ -24,7 +24,7 @@ in
         "*" = {
           # omitting other config options
           xkb_layout = "us";
-          xkb_variant = "dvp";
+          xkb_variant = "dvorak";
           xkb_numlock = "enabled";
         };
       };
@@ -66,16 +66,16 @@ in
         "${mod}+Mod1+Right" = "workspace next";
         "${mod}+Mod1+Left" = "workspace prev";
         # Modify from Shift because in dvorak programmer numbers accesible with Shift
-        "${mod}+Mod1+parenleft" = "move container to workspace 1";
-        "${mod}+Mod1+parenright" = "move container to workspace 2";
-        "${mod}+Mod1+braceleft" = "move container to workspace 3";
-        "${mod}+Mod1+plus" = "move container to workspace 4";
-        "${mod}+Mod1+braceright" = "move container to workspace 5";
-        "${mod}+Mod1+bracketleft" = "move container to workspace 6";
-        "${mod}+Mod1+bracketright" = "move container to workspace 7";
-        "${mod}+Mod1+exclam" = "move container to workspace 8";
-        "${mod}+Mod1+equal" = "move container to workspace 9";
-        "${mod}+Mod1+asterisk" = "move container to workspace 10";
+        "${mod}+Mod1+1" = "move container to workspace 1";
+        "${mod}+Mod1+2" = "move container to workspace 2";
+        "${mod}+Mod1+3" = "move container to workspace 3";
+        "${mod}+Mod1+4" = "move container to workspace 4";
+        "${mod}+Mod1+5" = "move container to workspace 5";
+        "${mod}+Mod1+6" = "move container to workspace 6";
+        "${mod}+Mod1+7" = "move container to workspace 7";
+        "${mod}+Mod1+8" = "move container to workspace 8";
+        "${mod}+Mod1+9" = "move container to workspace 9";
+        "${mod}+Mod1+0" = "move container to workspace 10";
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
         "${mod}+b" = "exec floorp";

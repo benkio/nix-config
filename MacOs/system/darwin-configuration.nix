@@ -4,53 +4,20 @@ let
   home = "/Users/benkio";
 in
 {
-  imports = [ ../../systemCommon/systemConfig.nix ];
+  imports = [
+    ../../systemCommon/systemConfig.nix
+    ./homebrew.nix
+    ./programs.nix
+    ./services.nix
+  ];
 
   system.primaryUser = "benkio";
-  services = {
-    redis.enable = true;
-
-    postgresql = {
-      enable = true;
-      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
-      dataDir = "${home}/postgresDataDir";
-    };
-  };
 
   launchd.user.agents = {
     postgresql.serviceConfig = {
       StandardErrorPath = "${home}/postgres.error.log";
       StandardOutPath = "${home}/postgres.log";
     };
-  };
-
-  homebrew = {
-    enable = true;
-    onActivation.upgrade = true;
-    brews = [
-      "coreutils"      # GNU Core Utilities
-      "defaultbrowser" # Script to set default browser
-      "gnu-sed"        # GNU SED Command
-      "tgenv"          # A tool to manage multiples Terragrunt versions
-      "tfenv"          # Terraform Version Manager
-      "lychee"         # Link Checker
-      "pkg-config"     # queries information about libraries
-    ];
-    casks = [
-      "caffeine"           # Keep mac awake
-      "calibre"            # Book management
-      "dropbox"            # Dropbox
-      "google-chrome"      # Web Browser
-      "kdenlive"           # Video Editor
-      "obs"                # Video/screen recorder
-      "slack"              # Chat
-      "musicbrainz-picard" # Audio Tagger
-      "telegram-desktop"   # Chat
-      "vlc"                # Video Player
-      "xld"                # CD Ripper
-      "zoom"               # Video Chat
-    ];
-
   };
 
   system = {
@@ -68,13 +35,6 @@ in
       finder.AppleShowAllFiles = true;
 
     };
-  };
-
-  programs = {
-    bash.enable = true;
-    direnv.enable = true;
-    nix-index.enable = true;
-    zsh.enable = false;
   };
 
   # Use a custom configuration.nix location.

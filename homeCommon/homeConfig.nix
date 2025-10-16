@@ -12,7 +12,7 @@
     homeDirectory =
       if lib.hasInfix "darwin" builtins.currentSystem then "/Users/benkio" else "/home/benkio";
     keyboard.layout = "us";
-    keyboard.variant = "dvp";
+    keyboard.variant = "dvorak";
     sessionVariables = {
       LANG = "en_US.utf-8";
       EDITOR = "emacsclient -t"; # emacs client terminal
