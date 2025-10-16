@@ -123,7 +123,8 @@ Despite the effort to reduce this there are things you need to do manually
   touch id_rsa
   touch id_rsa.pub
   # Go there and paste the SSH Private and Public keys. eg with vi
-  chmod 600 -r ~/.ssh
+  chmod 600 ~/.ssh/id_rsa
+  chmod 600 ~/.ssh/id_rsa.pub
 #+end_src
 
 ** Finish/check Emacs Configuration
