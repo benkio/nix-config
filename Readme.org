@@ -111,20 +111,22 @@ sudo darwin-rebuild switch
 
 Despite the effort to reduce this there are things you need to do manually
 
-** Setup Github SSH keys
+** Setup Github SSH and GPG keys
 
-  Go into Bitwarden, you should see a note about github ssh
+  Go into Bitwarden, you should see a note about github ssh/gpg
   keys. There you can find the content of the 2 files you need to
-  setup. These are the commands you should run.
+  setup. These are the commands you should run. Repeat for every account/key
 
 #+begin_src shell
   mkdir ~/.ssh
   cd ~/.ssh
   touch id_rsa
   touch id_rsa.pub
-  # Go there and paste the SSH Private and Public keys. eg with vi
+  # Go to Bitwarden, copy and paste the SSH Private and Public keys. eg with vi
   chmod 600 ~/.ssh/id_rsa
   chmod 600 ~/.ssh/id_rsa.pub
+  # Go to Bitwarden, copy and paste the GPG key into private.key file
+  gpg --import private.key
 #+end_src
 
 ** Finish/check Emacs Configuration
