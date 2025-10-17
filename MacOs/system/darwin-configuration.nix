@@ -9,6 +9,7 @@ in
     ./homebrew.nix
     ./programs.nix
     ./services.nix
+    ./work.nix
   ];
 
   system.primaryUser = "benkio";
