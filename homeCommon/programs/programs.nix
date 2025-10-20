@@ -169,7 +169,7 @@
       enableDefaultConfig = false;
       matchBlocks = {
         "benkioIdentity" = {
-          addKeysToAgent = "yes";
+          addKeysToAgent = "no";
           identityFile = "~/.ssh/id_rsa";
           hostname = "github.com";
         };

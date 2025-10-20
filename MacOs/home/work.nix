@@ -12,7 +12,7 @@
       enableDefaultConfig = false;
       matchBlocks = {
         "workIdentity" = {
-          addKeysToAgent = "yes";
+          addKeysToAgent = "no";
           identityFile = "~/.ssh/id_ed25519";
           hostname = "github.com";
         };
