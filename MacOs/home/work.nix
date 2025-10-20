@@ -19,4 +19,11 @@
       };
     };
   };
+  home = {
+    sessionVariables = {
+      # Generate it from the tap repository README
+      # https://github.com/commercetools/homebrew-tap
+      HOMEBREW_GITHUB_API_TOKEN = "";
+    };
+  };
 }
