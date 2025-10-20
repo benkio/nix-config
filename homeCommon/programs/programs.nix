@@ -122,9 +122,11 @@
     };
     git = {
       enable = true;
-      userName = "Enrico Benini";
-      userEmail = "benkio89@gmail.com";
-      extraConfig = {
+      settings = {
+        user = {
+          email = "benkio89@gmail.com";
+          name = "Enrico Benini";
+        };
         fetch = {
           prune = true;
         };
@@ -132,17 +134,18 @@
           rebase = false;
         };
       };
-      delta = {
-        enable = true;
-        options = {
-          decorations = {
-            commit-decoration-style = "bold yellow box ul";
-            file-decoration-style = "none";
-            file-style = "bold yellow ul";
-          };
-          features = "decorations";
-          whitespace-error-style = "22 reverse";
+    };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        decorations = {
+          commit-decoration-style = "bold yellow box ul";
+          file-decoration-style = "none";
+          file-style = "bold yellow ul";
         };
+        features = "decorations";
+        whitespace-error-style = "22 reverse";
       };
     };
     irssi = {
@@ -164,17 +167,24 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks."*" = {
-        forwardAgent = false;
-        addKeysToAgent = "no";
-        compression = false;
-        serverAliveInterval = 0;
-        serverAliveCountMax = 3;
-        hashKnownHosts = false;
-        userKnownHostsFile = "~/.ssh/known_hosts";
-        controlMaster = "no";
-        controlPath = "~/.ssh/master-%r@%n:%p";
-        controlPersist = "no";
+      matchBlocks = {
+        "benkioIdentity" = {
+          addKeysToAgent = "yes";
+          identityFile = "~/.ssh/id_rsa";
+          hostname = "github.com";
+        };
+        "*" = {
+          forwardAgent = false;
+          addKeysToAgent = "no";
+          compression = false;
+          serverAliveInterval = 0;
+          serverAliveCountMax = 3;
+          hashKnownHosts = false;
+          userKnownHostsFile = "~/.ssh/known_hosts";
+          controlMaster = "no";
+          controlPath = "~/.ssh/master-%r@%n:%p";
+          controlPersist = "no";
+        };
       };
     };
     wezterm = {

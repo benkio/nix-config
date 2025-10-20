@@ -48,7 +48,7 @@ in
         gs = "git status";
         gsh = "git stash";
         gst = "git status -sb";
-        gw = "git whatchanged";
+        gw = "git diff --cached";
 
         h1 = "history 10";
         h2 = "history 20";
@@ -67,6 +67,7 @@ in
         portListen = "sudo lsof -i -P -n | grep LISTEN";
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";
+        restart-ssh-agent = "eval \"$(ssh-agent -s)\"";
         sbt = "sbt -Dsbt.supershell=false";
         wifi = "nmtui";
       }

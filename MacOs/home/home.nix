@@ -15,6 +15,7 @@
     ../../homeCommon/programs/bash.nix
     ../../homeCommon/programs/programs.nix
     ./packages.nix
+    ./work.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
