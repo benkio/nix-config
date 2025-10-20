@@ -20,6 +20,7 @@
     eza                          # Better ls
     fd                           # Better find
     ffmpeg-full                  # CMD Converter audio/video
+    fontconfig                   # Utilities for dealing with fonts
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
     gnupg1                       # Used to sign commits
