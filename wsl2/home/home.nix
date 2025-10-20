@@ -16,7 +16,6 @@
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/programs/programs.nix
   ];
-  fonts.fontconfig.enable = true;
 
   services = {
     udiskie.enable = true; # Mount external disks automatically

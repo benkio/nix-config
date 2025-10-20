@@ -18,7 +18,6 @@
     ../../homeCommon/programs/programs.nix
     ../../homeCommon/programs/floorp.nix
   ];
-  fonts.fontconfig.enable = true;
 
   services = {
     udiskie.enable = true; # Mount external disks automatically

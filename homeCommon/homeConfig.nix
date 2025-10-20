@@ -8,6 +8,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  fonts.fontconfig.enable = true;
+
   home = {
     homeDirectory =
       if lib.hasInfix "darwin" builtins.currentSystem then "/Users/benkio" else "/home/benkio";
