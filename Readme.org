@@ -142,4 +142,11 @@ Despite the effort to reduce this there are things you need to do manually
   git checkout -f main
   git clean -fx
   git branch -D fetchgit
+  # Run generation of treesitter grammars
 #+end_src
+
+** Work Setup
+
+There are 2 work files named ~work.nix~ that are specific for your workplace.
+There might be some GPG key to be specified there, email, extra ++homebrew+ packages etc
+Go there and review.

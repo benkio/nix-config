@@ -229,14 +229,4 @@
     [includeIf "gitdir:~/workspace/"]
       path = ~/.config/git/workspace.gitconfig
   '';
-
-  home.file.".config/git/workspace.gitconfig".text = ''
-    [user]
-      name = Enrico Benini
-      email = workemail
-      signingkey = gpgKey
-
-    [commit]
-      gpgsign = true
-  '';
 }
