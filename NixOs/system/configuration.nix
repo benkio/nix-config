@@ -155,7 +155,6 @@
     floorp-bin                  # Web Browser firefox-like
     gcc                         # C compiler
     gimp                        # Image Editor
-    gitui                       # Git User interface
     glibcLocales                # Locale information for the GNU C Library
     gparted                     # Partition tool
     hexchat                     # IRC Client
@@ -163,7 +162,6 @@
     kmetronome                  # Metronome
     lilypond                    # Music Notation Language
     lshw                        # List hardware info
-    maestral                    # Dropbox alternative
     mako                        # Notification system developed by swaywm maintainer
     nethogs                     # Small 'net top' tool, grouping bandwidth by process
     nettools                    # 

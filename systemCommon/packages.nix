@@ -34,9 +34,11 @@
     imagemagick                  # Image converter
     k9s                          # Kubernetes CLI
     kubectl                      # Kubernetes official CLI
-    lame                         # Audio Encoder 
+    lame                         # Audio Encoder
+    lazygit                      # Git User interface
     litecli                      # SQLite CLI
     lsof                         # List open files
+    maestral                     # Dropbox alternative
     mcomix                       # Comix Reader
     magic-wormhole               # File transfer over network
     mediainfo                    # Information about a audio/video file

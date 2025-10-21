@@ -44,7 +44,6 @@
     gcc                          # C Compiler
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
-    gitui                        # Git User interface
     glibcLocales                 # Locale information for GNU
     gparted                      # HD Partition
     guvcview                     # Linux Software for managing camera
@@ -69,7 +68,6 @@
     lshw                         # Provide Hardware information
     lsof                         # List open files
     lychee                       # Link Checker
-    maestral                     # dropbox alternative
     magic-wormhole               # File transfer over network
     mediainfo                    # Information about a audio/video file
     megasync                     # Mega.com Sync
