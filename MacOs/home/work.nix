@@ -24,6 +24,7 @@
       # Generate it from the tap repository README
       # https://github.com/commercetools/homebrew-tap
       HOMEBREW_GITHUB_API_TOKEN = "";
+      VAULT_ADDR="url";
     };
     file.".config/git/workspace.gitconfig".text = ''
     [user]
