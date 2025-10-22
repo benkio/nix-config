@@ -12,6 +12,8 @@
       "pkg-config" # queries information about libraries
       "tfenv" # Terraform Version Manager
       "tgenv" # A tool to manage multiples Terragrunt versions
+      "docker" # Containers
+      "docker-compose" # Compose Containers
     ];
     casks = [
       "caffeine" # Keep mac awake

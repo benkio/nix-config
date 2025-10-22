@@ -11,8 +11,6 @@
     btop                         # Better htop
     coursier                     # Scala dependency fetcher
     curl                         # HTTP Requests command
-    docker                       # Containers
-    docker-compose               # Compose Containers
     dust                         # Better du command
     elmPackages.elm              # Elm programming language
     elmPackages.elm-format       # Elm formatter
