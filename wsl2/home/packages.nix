@@ -57,7 +57,6 @@
     id3v2                        # ID3v2 Audio tagger
     imagemagick                  # Image converter
     jack2                        # Jack Sound System
-    jdk                          # Java Development Kit
     k9s                          # Kubernetes CLI 
     kmetronome                   # Metronome
     kubectl                      # Kubernetes official CLI

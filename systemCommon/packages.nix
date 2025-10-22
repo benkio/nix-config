@@ -30,6 +30,7 @@
     hurl                         # HTTP Requests in markdown format
     id3v2                        # ID3v2 Audio tagger
     imagemagick                  # Image converter
+    jdk                          # Java Development Kit
     k9s                          # Kubernetes CLI
     kubectl                      # Kubernetes official CLI
     lame                         # Audio Encoder

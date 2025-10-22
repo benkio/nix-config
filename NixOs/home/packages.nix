@@ -21,7 +21,6 @@
     font-manager           # Font Manager for GTK
     rofi-screenshot        # Screenshot utility for Gnome
     guvcview               # Linux Software for managing camera
-    jdk                    # Java Development Kit
     kdePackages.kdenlive   # Video Editor
     lychee                 # Link Checker
     picard                 # Audio Tagger
