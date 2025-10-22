@@ -50,7 +50,6 @@
     nodejs                       # Event-driven I/O framework for JS
     ntfs3g                       # NTFS driver
     ormolu                       # Haskell formatter
-    postman                      # HTTP Client
     procs                        # better ps
     purescript                   # Purescript language
     ripgrep                      # Better grep

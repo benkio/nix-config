@@ -3,7 +3,8 @@
 {
   # Work Related Packages
   environment.systemPackages = with pkgs; [
-    google-cloud-sdk
+    google-cloud-sdk             # Google Cloud Platform CLI SDK
+    postman                      # HTTP Client
   ];
 
   homebrew = {
