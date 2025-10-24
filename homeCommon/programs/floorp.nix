@@ -333,10 +333,14 @@
               }
 
               {
-                name = "Album in Uscita";
-                url = "http://metalitalia.com/articolo/gli-album-in-uscita/";
+                name = "Every Noise at Once - Music Genres Organized",
+                url = "https://everynoise.com/engenremap.html"
               }
 
+              {
+                name = "Music Map - Discover Music Through Similar Artist",
+                url = "https://www.music-map.com/"
+              }
             ];
           }
 
