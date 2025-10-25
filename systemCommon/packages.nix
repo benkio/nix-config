@@ -38,10 +38,11 @@
     lsof                         # List open files
     maestral                     # Dropbox alternative
     magic-wormhole               # File transfer over network
-    mariadb # Ex-Mysql
+    mariadb                      # Ex-Mysql
     mcomix                       # Comix Reader
     mediainfo                    # Information about a audio/video file
-    mermaid-cli                  # Command Line tool for mermaid
+    mermaid-cli                  # Command line tool for mermaid
+    mycli                        # Command line tool for mysql
     mpv                          # Video Player
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt-rfc-style             # Nix Formatter
@@ -56,6 +57,7 @@
     scala                        # Scala compiler
     scala-cli                    # Scala command line tool
     scalafmt                     # Scala formatter
+    sd                           # Modern Sed
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
     termdown                     # Countdown CLI
