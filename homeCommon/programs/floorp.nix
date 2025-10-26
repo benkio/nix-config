@@ -333,13 +333,13 @@
               }
 
               {
-                name = "Every Noise at Once - Music Genres Organized",
-                url = "https://everynoise.com/engenremap.html"
+                name = "Every Noise at Once - Music Genres Organized";
+                url = "https://everynoise.com/engenremap.html";
               }
 
               {
-                name = "Music Map - Discover Music Through Similar Artist",
-                url = "https://www.music-map.com/"
+                name = "Music Map - Discover Music Through Similar Artist";
+                url = "https://www.music-map.com/";
               }
             ];
           }
