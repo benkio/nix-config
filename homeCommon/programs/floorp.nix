@@ -384,6 +384,10 @@
                 url = "https://fast.com/";
               }
 
+              {
+                name = "Nix Versioning - Super useful to install the specific version you need";
+                url = "https://lazamar.co.uk/nix-versions/";
+              }
             ];
           }
 
@@ -391,14 +395,6 @@
             name = "Downloads";
             toolbar = true;
             bookmarks = [
-            ];
-          }
-
-          {
-            name = "Torrent";
-            toolbar = true;
-            bookmarks = [
-
               {
                 name = "Rock Torrents";
                 url = "http://rocktorrents.ucoz.org/load/";
@@ -419,13 +415,6 @@
                 url = "https://unblocked.knaben.info/thepiratebay.php";
               }
 
-            ];
-          }
-
-          {
-            name = "Others";
-            toolbar = true;
-            bookmarks = [
               {
                 name = "xdcc.eu";
                 url = "https://www.xdcc.eu";
@@ -440,7 +429,6 @@
                 name = "Anna’s Archive";
                 url = "https://it.annas-archive.org/";
               }
-
             ];
           }
 
