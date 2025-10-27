@@ -3,8 +3,13 @@
 {
   # Work Related Packages
   environment.systemPackages = with pkgs; [
-    google-cloud-sdk             # Google Cloud Platform CLI SDK
-    postman                      # HTTP Client
+    (google-cloud-sdk.withExtraComponents (
+      with google-cloud-sdk.components;
+      [
+        gke-gcloud-auth-plugin
+      ]
+    )) # Google Cloud Platform CLI SDK
+    postman # HTTP Client
   ];
 
   homebrew = {

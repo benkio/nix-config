@@ -57,7 +57,8 @@ in
           ctrl-alt-shift-9 = "move-node-to-workspace 9";
           ctrl-alt-tab = "workspace-back-and-forth";
 
-          ctrl-alt-t = "layout tiling floating";
+          ctrl-alt-period = "layout tiles horizontal vertical";
+          ctrl-alt-comma = "layout accordion horizontal vertical";
 
           ctrl-alt-enter = "exec-and-forget ~/.nix-profile/bin/wezterm";
         };
