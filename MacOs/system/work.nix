@@ -10,6 +10,7 @@
       ]
     )) # Google Cloud Platform CLI SDK
     postman # HTTP Client
+    process-compose # docker-compose like
   ];
 
   homebrew = {
