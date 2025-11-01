@@ -18,7 +18,7 @@
     # BROKEN amule                        # P2P Sharing
     autoconf                     # Unix Configuration Scripts
     aws-vault                    # AWS secrets local storage
-    bitwarden                    # Password Manager
+    bitwarden-desktop            # Password Manager
     bleachbit                    # Linux Cleanup
     bloop                        # Scala build server and command-line tool
     bluez                        # Bluetooth manager

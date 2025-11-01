@@ -14,7 +14,7 @@
     # BROKEN haskellPackages.ghc-mod
     # BROKEN abcde                  # Audio CD estractor
     # BROKEN amule                  # P2P Sharing
-    bitwarden              # Password Manager
+    bitwarden-desktop      # Password Manager
     bleachbit              # Linux Cleanup
     calibre                # Book Management (Kindle)
     feh                    # Image Viewer
