@@ -26,6 +26,21 @@
       defaultCacheTtl = 1800;
       enableSshSupport = true;
     };
+    mako = {
+      enable = true;
+      settings = {
+        background-color = "#000000";
+        border-size = 4;
+        border-radius = 4;
+        default-timeout = 5000;
+        font = "monospace 12";
+        ignore-timeout = 1;
+        layer = "overlay";
+        max-visible = 10;
+        max-history = 20;
+        width = 500;
+      };
+    };
   };
 
   gtk = {

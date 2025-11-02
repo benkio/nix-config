@@ -27,6 +27,7 @@ in
     aspellDicts.it                          # Spelling checker Dictionary
     cabal-install                           # Haskell package manager
     discord                                 # Chat
+    flameshot                               # Screenshot utilityy
     losslesscut-bin                         # Gui for FFMPEG
     nodePackages.aws-cdk                    # AWS Cloud Development Kit
     nodePackages.js-beautify                # Javascript beautifier

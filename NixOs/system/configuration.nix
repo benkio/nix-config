@@ -103,6 +103,8 @@
     pulseaudio.enable = false; # Disable Pulseaudio
 
     logind.powerKey = "lock"; # Power button behaviour
+    logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
+
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
@@ -149,7 +151,6 @@
     aws-vault                   # AWS secret keeping
     bluez                       # Bluetooth manager
     brightnessctl               # Brightness control
-    byzanz                      # Screenshot tool
     copyq                       # Clipboard tool
     dmenu                       # Sway/I3 menu
     evince                      # PDF Viewer
