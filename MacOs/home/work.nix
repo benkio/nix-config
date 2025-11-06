@@ -13,6 +13,7 @@
       matchBlocks = {
         "workIdentity" = {
           addKeysToAgent = "no";
+          user = "git";
           identityFile = "~/.ssh/id_ed25519";
           hostname = "github.com";
         };

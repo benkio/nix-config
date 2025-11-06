@@ -170,6 +170,7 @@
       matchBlocks = {
         "benkioIdentity" = {
           addKeysToAgent = "no";
+          user = "git";
           identityFile = "~/.ssh/id_rsa";
           hostname = "github.com";
         };
