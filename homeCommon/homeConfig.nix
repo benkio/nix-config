@@ -46,7 +46,7 @@
           export _XPROFILE_SOURCED=1
 
           # Create known directory if doesn't exists
-          mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp
+          mkdir -p ${config.home.homeDirectory}/.local/share/applications ${config.home.homeDirectory}/workspace ${config.home.homeDirectory}/temp ${config.home.homeDirectory}/docs
 
         fi
       '';
