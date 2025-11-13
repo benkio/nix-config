@@ -31,7 +31,6 @@ in
     losslesscut-bin                         # Gui for FFMPEG
     nodePackages.aws-cdk                    # AWS Cloud Development Kit
     nodePackages.js-beautify                # Javascript beautifier
-    nodePackages.jsonlint                   # Json Linter
     nodePackages.npm                        # Node package manager
     nodePackages.prettier                   # Javascript Formatter
     nodePackages.typescript                 # Typescript compiler

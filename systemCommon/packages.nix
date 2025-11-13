@@ -49,8 +49,9 @@ in
     mcomix                       # Comix Reader
     mediainfo                    # Information about a audio/video file
     mermaid-cli                  # Command line tool for mermaid
-    mycli                        # Command line tool for mysql
+    moreutils                    # More command line tools
     mpv                          # Video Player
+    mycli                        # Command line tool for mysql
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt-rfc-style             # Nix Formatter
     nmap                         # Network discovery tool
@@ -77,6 +78,7 @@ in
     watchexec                    # Watch files changes command
     wget                         # File downloader from URL
     xclip                        # Clipboard tool
+    zed-editor                   # Alternative editor
     zip                          # Complession Tool
   ];
 }
