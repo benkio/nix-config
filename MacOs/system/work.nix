@@ -12,6 +12,7 @@
     postman # HTTP Client
     process-compose # docker-compose like
     pnpm
+    skaffold
   ];
 
   homebrew = {

@@ -26,6 +26,9 @@
       # https://github.com/commercetools/homebrew-tap
       HOMEBREW_GITHUB_API_TOKEN = "";
       VAULT_ADDR="url";
+      AWS_SECRET_ACCESS_KEY="bar";
+      AWS_ACCESS_KEY_ID="foo";
+      SKAFFOLD_DEFAULT_REPO="url";
     };
     file.".config/git/workspace.gitconfig".text = ''
     [user]
