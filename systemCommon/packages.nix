@@ -18,6 +18,7 @@ in
     btop                         # Better htop
     coursier                     # Scala dependency fetcher
     curl                         # HTTP Requests command
+    cpulimit                     # Tool to limit CPU usage from a program, PID, Command
     dust                         # Better du command
     elmPackages.elm              # Elm programming language
     elmPackages.elm-format       # Elm formatter

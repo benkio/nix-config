@@ -21,6 +21,8 @@ let
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
         update = "nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch && home-manager switch && nix-collect-garbage --delete-older-than 14d";
+        XCURSOR_SIZE=32;
+        XCURSOR_THEME=Adwaita;
       };
 in
 {
