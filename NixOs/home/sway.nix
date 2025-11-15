@@ -82,6 +82,7 @@ in
         "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
         "Print" = "exec flameshot gui";
+        "${mod}+Print" = "exec flameshot full";
         "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
         # Media volume controls
