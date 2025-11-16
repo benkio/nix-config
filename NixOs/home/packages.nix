@@ -19,7 +19,6 @@
     calibre                # Book Management (Kindle)
     feh                    # Image Viewer
     font-manager           # Font Manager for GTK
-    guvcview               # Linux Software for managing camera
     kdePackages.kdenlive   # Video Editor
     lychee                 # Link Checker
     picard                 # Audio Tagger

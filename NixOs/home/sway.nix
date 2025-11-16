@@ -162,7 +162,7 @@ in
       ];
     };
     extraConfig = ''
-      seat * xcursor_theme Vimix-White 32
+      seat seat0 xcursor_theme Adwaita 40
     '';
   };
   home.file."toggle-laptop-monitor.sh" = {

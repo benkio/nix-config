@@ -102,7 +102,6 @@
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
 
-    logind.powerKey = "lock"; # Power button behaviour
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
     postgresql = {
@@ -147,39 +146,41 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    aws-vault                   # AWS secret keeping
-    bluez                       # Bluetooth manager
-    brightnessctl               # Brightness control
-    copyq                       # Clipboard tool
-    dmenu                       # Sway/I3 menu
-    evince                      # PDF Viewer
-    exfatprogs                  # EXTFat tool
-    floorp-bin                  # Web Browser firefox-like
-    gcc                         # C compiler
-    gimp                        # Image Editor
-    glibcLocales                # Locale information for the GNU C Library
-    gparted                     # Partition tool
-    hexchat                     # IRC Client
-    jack2                       # JACK audio connection kit, version 2 with jackdbus
-    kmetronome                  # Metronome
-    lilypond                    # Music Notation Language
-    lshw                        # List hardware info
-    mako                        # Notification system developed by swaywm maintainer
-    nethogs                     # Small 'net top' tool, grouping bandwidth by process
-    nettools                    # 
-    nicotine-plus               # Soulseek client
-    parted                      # Partitioning tool
-    pavucontrol                 # Pulseaudio control
-    pciutils                    # Collection of programs for inspecting and manipulating configuration of PCI devices
-    playerctl                   # Command-line utility and library for controlling media players that implement MPRIS
-    protonvpn-gui               # Client for Proton VPN
-    psmisc                      #  
-    swww                        # Efficient animated wallpaper daemon for wayland, controlled at runtime
-    usbutils                    # Tools for working with USB devices, such as lsusb
-    vlc                         # Video palyer
-    xorg.xrandr                 # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
-  ];
+  environment = {
+    systemPackages = with pkgs; [
+      aws-vault # AWS secret keeping
+      bluez # Bluetooth manager
+      brightnessctl # Brightness control
+      copyq # Clipboard tool
+      dmenu # Sway/I3 menu
+      evince # PDF Viewer
+      exfatprogs # EXTFat tool
+      floorp-bin # Web Browser firefox-like
+      gcc # C compiler
+      gimp # Image Editor
+      glibcLocales # Locale information for the GNU C Library
+      gparted # Partition tool
+      hexchat # IRC Client
+      jack2 # JACK audio connection kit, version 2 with jackdbus
+      kmetronome # Metronome
+      lilypond # Music Notation Language
+      lshw # List hardware info
+      mako # Notification system developed by swaywm maintainer
+      nethogs # Small 'net top' tool, grouping bandwidth by process
+      nettools
+      nicotine-plus # Soulseek client
+      parted # Partitioning tool
+      pavucontrol # Pulseaudio control
+      pciutils # Collection of programs for inspecting and manipulating configuration of PCI devices
+      playerctl # Command-line utility and library for controlling media players that implement MPRIS
+      protonvpn-gui # Client for Proton VPN
+      psmisc
+      swww # Efficient animated wallpaper daemon for wayland, controlled at runtime
+      usbutils # Tools for working with USB devices, such as lsusb
+      vlc # Video palyer
+      xorg.xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
+    ];
+  };
 
   # Nix daemon config
   nix = {

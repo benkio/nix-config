@@ -47,7 +47,6 @@ in
     maestralOld                  # Dropbox alternative
     magic-wormhole               # File transfer over network
     mariadb                      # Ex-Mysql
-    mcomix                       # Comix Reader
     mediainfo                    # Information about a audio/video file
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
