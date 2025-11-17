@@ -11,8 +11,9 @@
     )) # Google Cloud Platform CLI SDK
     postman # HTTP Client
     process-compose # docker-compose like
-    pnpm
-    skaffold
+    pnpm # npm alternative
+    skaffold # python building, pushing and deploying
+    uv # pip alternative
   ];
 
   homebrew = {
