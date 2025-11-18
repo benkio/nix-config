@@ -18,7 +18,7 @@
         };
       };
     };
-    programs.git = {
+    git = {
       includes = [
         {
           contents = {
