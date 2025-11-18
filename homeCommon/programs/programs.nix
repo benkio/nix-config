@@ -134,6 +134,11 @@
           rebase = false;
         };
       };
+      extraConfig = {
+        core = {
+          sshCommand = "ssh -i ~/.ssh/id_rsa";
+        };
+      };
     };
     delta = {
       enable = true;
