@@ -12,12 +12,28 @@
       enableDefaultConfig = false;
       matchBlocks = {
         "workIdentity" = {
-          addKeysToAgent = "no";
           user = "git";
           identityFile = "~/.ssh/id_ed25519";
           hostname = "github.com";
         };
       };
+    };
+    programs.git = {
+      includes = [
+        {
+          contents = {
+            user = {
+              email = "work@example.com";
+            };
+
+            core = {
+              sshCommand = "ssh -i ~/.ssh/id_ed25519";
+            };
+          };
+
+          condition = "hasconfig:remote.*.url:git@github.com:WORK_ORGANIZATION/*";
+        }
+      ];
     };
   };
   home = {

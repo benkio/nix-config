@@ -169,14 +169,12 @@
       enableDefaultConfig = false;
       matchBlocks = {
         "benkioIdentity" = {
-          addKeysToAgent = "no";
           user = "git";
           identityFile = "~/.ssh/id_rsa";
           hostname = "github.com";
         };
         "*" = {
           forwardAgent = false;
-          addKeysToAgent = "no";
           compression = false;
           serverAliveInterval = 0;
           serverAliveCountMax = 3;
@@ -185,6 +183,11 @@
           controlMaster = "no";
           controlPath = "~/.ssh/master-%r@%n:%p";
           controlPersist = "no";
+          extraOptions = {
+            AddKeysToAgent = "yes";
+            UseKeychain = "yes";
+            IdentitiesOnly = "yes";
+          };
         };
       };
     };
