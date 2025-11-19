@@ -13,14 +13,14 @@ let
   systemSpecificAliases =
     if lib.strings.hasInfix "darwin" pkgs.system then
       {
-        update = "scala-cli UpdateAllGitMain.sc ; nix-channel --update && sudo nix-channel --update && sudo darwin-rebuild switch ; home-manager switch ; nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo nix-channel --update && sudo darwin-rebuild switch ; home-manager switch ; nix-collect-garbage --delete-older-than 14d";
       }
     else # Nixos / Linux
       {
         bluetooth = "blueman-manager &";      
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "scala-cli UpdateAllGitMain.sc ; nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch ; home-manager switch ; nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo nix-channel --update && sudo nixos-rebuild switch ; home-manager switch ; nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
