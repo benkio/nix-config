@@ -45,6 +45,7 @@
       AWS_SECRET_ACCESS_KEY="bar";
       AWS_ACCESS_KEY_ID="foo";
       SKAFFOLD_DEFAULT_REPO="url";
+      GOOGLE_APPLICATION_CREDENTIALS="path-to-json-credential";
     };
     file.".config/git/workspace.gitconfig".text = ''
     [user]
