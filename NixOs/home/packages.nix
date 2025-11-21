@@ -12,8 +12,8 @@
 {
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
-    # BROKEN abcde                  # Audio CD estractor
     # BROKEN amule                  # P2P Sharing
+    abcde                  # Audio CD estractor
     bitwarden-desktop      # Password Manager
     bleachbit              # Linux Cleanup
     calibre                # Book Management (Kindle)
