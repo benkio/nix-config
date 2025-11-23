@@ -58,6 +58,7 @@ in
     nodejs                       # Event-driven I/O framework for JS
     ntfs3g                       # NTFS driver
     ormolu                       # Haskell formatter
+    python313Packages.eyed3      # ID3 tagger - abcde hidden dependency
     procs                        # better ps
     purescript                   # Purescript language
     ripgrep                      # Better grep
