@@ -68,6 +68,7 @@ in
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";
         restart-ssh-agent = "eval \"$(ssh-agent -s)\"";
+        ripCDMp3 = "abcde -B -G -o mp3 -x";
         sbt = "sbt -Dsbt.supershell=false";
         wifi = "nmtui";
       }
