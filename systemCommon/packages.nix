@@ -51,7 +51,7 @@ in
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
     mpv                          # Video Player
-    mycli                        # Command line tool for mysql
+    # mycli                        # Command line tool for mysql
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt-rfc-style             # Nix Formatter
     nmap                         # Network discovery tool
@@ -70,6 +70,7 @@ in
     stack                        # Haskell Package Manager
     termdown                     # Countdown CLI
     tldr                         # Short Man
+    tree                         # Print the filesystem on terminal
     tunnelto                     # Expose local server to the internet
     unipicker                    # Unicode search and select command
     unrar                        # RAR Decompression Command
