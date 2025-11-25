@@ -89,5 +89,15 @@
           end try
         end run'';
     };
+
+    programs.ssh = {
+      matchBlocks = {
+        "*" = {
+          extraOptions = {
+            UseKeychain = "yes";
+          };
+        };
+      };
+    };
   };
 }

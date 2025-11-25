@@ -188,7 +188,6 @@
           controlPersist = "no";
           extraOptions = {
             AddKeysToAgent = "yes";
-            UseKeychain = "yes";
             IdentitiesOnly = "yes";
           };
         };
