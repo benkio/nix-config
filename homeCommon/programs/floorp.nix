@@ -193,99 +193,6 @@
       bookmarks = {
         force = true;
         settings = [
-          {
-            name = "JobSearchEngine";
-            toolbar = false;
-            bookmarks = [
-
-              {
-                name = "LinkedIn";
-                url = "https://www.linkedin.com/";
-              }
-
-              {
-                name = "AngelList - Where the world meets startups";
-                url = "https://angel.co/?ref=nav";
-              }
-
-              {
-                name = "IT jobs | Permanent & contract IT careers | The UK IT Jobs Board at CWJobs.co.uk";
-                url = "https://www.cwjobs.co.uk/";
-              }
-
-              {
-                name = "Jobs and Recruitment on reed.co.uk, the UK's #1 job site";
-                url = "https://www.reed.co.uk/";
-              }
-
-              {
-                name = "Remote Scala Jobs";
-                url = "https://remoteok.io/remote-scala-jobs";
-              }
-
-              {
-                name = "Remote Scala Jobs | Working Nomads";
-                url = "https://www.workingnomads.co/remote-scala-jobs";
-              }
-
-            ];
-          }
-
-          {
-            name = "Social";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Twitter";
-                url = "http://twitter.com/";
-              }
-
-              {
-                name = "Youtube";
-                url = "http://www.youtube.com/feed/subscriptions";
-              }
-
-              {
-                name = "Instagram";
-                url = "https://www.instagram.com/";
-              }
-
-              {
-                name = "Reddit";
-                url = "https://www.reddit.com/";
-              }
-
-              {
-                name = "Twitch";
-                url = "https://www.twitch.tv/";
-              }
-
-            ];
-          }
-
-          {
-            name = "E-Commerce";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Amazon";
-                url = "http://www.amazon.it/";
-              }
-
-              {
-                name = "EBay";
-                url = "http://www.ebay.it/";
-              }
-
-              {
-                name = "AliExpress.com";
-                url = "http://it.aliexpress.com/";
-              }
-
-            ];
-          }
 
           {
             name = "Music";
@@ -357,6 +264,11 @@
               {
                 name = "Free Online Tools For Developers";
                 url = "http://codebeautify.org/";
+              }
+
+              {
+                name = "DevDocs - Multi language documentation search engine";
+                url = "https://devdocs.io/";
               }
 
               {
@@ -438,13 +350,8 @@
             bookmarks = [
 
               {
-                name = "Stepik";
-                url = "https://stepik.org/lesson/186361/step/1?unit=160896";
-              }
-
-              {
                 name = "Developer-Y/cs-video-courses: List of Computer Science courses with video lectures.";
-                url = "https://github.com/Developer-Y/cs-video-courses#computational-finance";
+                url = "https://github.com/Developer-Y/cs-video-courses";
               }
 
               {
@@ -458,11 +365,6 @@
               }
 
               {
-                name = "OCaml Course";
-                url = "https://www.france-universite-numerique-mooc.fr/courses/parisdiderot/56002/session01/about";
-              }
-
-              {
                 name = "Udemy";
                 url = "https://www.udemy.com/jazz-guitar-tips-tricks-and-licks/";
               }
@@ -470,11 +372,6 @@
               {
                 name = "RandomWiki";
                 url = "https://en.wikipedia.org/wiki/Special:Random";
-              }
-
-              {
-                name = "WordReference.com";
-                url = "http://www.wordreference.com/it/";
               }
 
               {
@@ -491,11 +388,6 @@
             bookmarks = [
 
               {
-                name = "Mega";
-                url = "http://mega.nz/";
-              }
-
-              {
                 name = "flat.io - Online Music Location";
                 url = "https://flat.io/";
               }
@@ -506,33 +398,8 @@
               }
 
               {
-                name = "Dropbox";
-                url = "https://www.dropbox.com/home";
-              }
-
-              {
-                name = "Google Drive";
-                url = "https://drive.google.com/?tab=wo&authuser=0";
-              }
-
-              {
-                name = "Google Keep";
-                url = "https://drive.google.com/keep/";
-              }
-
-              {
-                name = "Overleaf: Real-time Collaborative Writing and Publishing Tools with Integrated PDF Preview";
-                url = "https://www.overleaf.com/";
-              }
-
-              {
                 name = "TgStorage";
                 url = "https://tgstorage.com/app";
-              }
-
-              {
-                name = "Gmaps";
-                url = "https://www.google.com/maps";
               }
 
               {
