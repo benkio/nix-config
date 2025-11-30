@@ -81,6 +81,7 @@ in
         "${mod}+b" = "exec floorp";
         "${mod}+Shift+b" = "exec blueman-manager";
         "${mod}+e" = "exec nautilus";
+        "${mod}+E" = "exec $VISUAL";
         "Print" = "exec flameshot gui";
         "${mod}+Print" = "exec flameshot full";
         "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";

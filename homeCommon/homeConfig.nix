@@ -17,8 +17,8 @@
     keyboard.variant = "dvorak";
     sessionVariables = {
       LANG = "en_US.utf-8";
-      EDITOR = "emacsclient -t"; # emacs client terminal
-      VISUAL = "emacsclient -c -a emacs"; # emacs client visual
+      EDITOR = "emacs -t"; # emacs terminal
+      VISUAL = "emacsclient -c -n"; # emacs client visual
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
       XDG_CURRENT_DESKTOP = "GNOME"; # To trick some app to work on i3 alone, eg gnome-control-center

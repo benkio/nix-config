@@ -61,7 +61,7 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      "application/pdf" = [ "evince.desktop" ];
+      "application/pdf" = [ "org.gnome.Evince.desktop" ];
       "application/x-extension-htm" = "floorp.desktop";
       "application/x-extension-html" = "floorp.desktop";
       "application/x-extension-shtml" = "floorp.desktop";

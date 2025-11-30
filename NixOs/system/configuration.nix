@@ -7,6 +7,9 @@
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
+      extraPackages = with pkgs; [
+        adwaita-icon-theme
+      ];
     };
     xwayland.enable = true;
   };
@@ -153,6 +156,7 @@
       brightnessctl # Brightness control
       copyq # Clipboard tool
       dmenu # Sway/I3 menu
+      dmidecode # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
       evince # PDF Viewer
       exfatprogs # EXTFat tool
       floorp-bin # Web Browser firefox-like
@@ -164,6 +168,7 @@
       jack2 # JACK audio connection kit, version 2 with jackdbus
       kmetronome # Metronome
       lilypond # Music Notation Language
+      libinput # Handles input devices in Wayland compositors and provides a generic X.Org input driver
       lshw # List hardware info
       mako # Notification system developed by swaywm maintainer
       nethogs # Small 'net top' tool, grouping bandwidth by process
