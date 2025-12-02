@@ -61,6 +61,8 @@ in
           ctrl-alt-comma = "layout accordion horizontal vertical";
 
           ctrl-alt-enter = "exec-and-forget ~/.nix-profile/bin/wezterm";
+          ctrl-alt-e = "exec-and-forget open ~/";
+          ctrl-alt-b = "exec-and-forget open \"https://www.google.com\"";
         };
       };
     };
