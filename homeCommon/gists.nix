@@ -7,8 +7,8 @@
 
 let
   updateAllGitMain = pkgs.fetchurl {
-    url = "https://gist.githubusercontent.com/benkio/dbb9523529c875b5472a89eb391df7b4/raw/1de7dfac1a283b7552b7146fda377ec51bc07deb/UpdateAllGitMain.sc";
-    hash = "sha256-2R62FubjIqjPERyq3m8whSkHiCLTU5nXB8gXsO2fnJU=";
+    url = "https://gist.githubusercontent.com/benkio/dbb9523529c875b5472a89eb391df7b4/raw/402d7513e83a1fee00c49c25bad5e9d317e0b2fe/UpdateAllGitMain.sc";
+    hash = "sha256-sHBtrGwrX6F8qPM627C3Egm5AFk39sCU3IjnnXTbbL0=";
   };
 in
 {
