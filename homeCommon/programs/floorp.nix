@@ -300,6 +300,11 @@
                 name = "Nix Versioning - Super useful to install the specific version you need";
                 url = "https://lazamar.co.uk/nix-versions/";
               }
+
+              { 
+                name = "haskell mooc course";
+                url = "https://haskell.mooc.fi/";
+              }
             ];
           }
 
