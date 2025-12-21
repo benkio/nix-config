@@ -29,6 +29,7 @@ in
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
     gnupg1                       # Used to sign commits
+    gradle                       # Build Tool
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
     hlint                        # Haskell Linter
@@ -41,7 +42,7 @@ in
     kubectl                      # Kubernetes official CLI
     lame                         # Audio Encoder
     lazygit                      # Git User interface
-    linkchecker # Link Checker for HTML pages and more
+    linkchecker                  # Link Checker for HTML pages and more
     litecli                      # SQLite CLI
     lsof                         # List open files
     maestralOld                  # Dropbox alternative
@@ -51,7 +52,7 @@ in
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
     mpv                          # Video Player
-    # mycli                        # Command line tool for mysql
+    mycli                        # Command line tool for mysql
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt-rfc-style             # Nix Formatter
     nmap                         # Network discovery tool
