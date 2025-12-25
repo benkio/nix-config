@@ -1,12 +1,5 @@
 { config, pkgs, ... }:
 
-let
-    mastralOldPkgs = import (builtins.fetchTarball {
-        url = "https://github.com/NixOS/nixpkgs/archive/05bbf675397d5366259409139039af8077d695ce.tar.gz";
-    }) {};
-
-    maestralOld = mastralOldPkgs.maestral;
-in
 {
 
   environment.systemPackages = with pkgs; [
@@ -46,7 +39,7 @@ in
     linkchecker                  # Link Checker for HTML pages and more
     litecli                      # SQLite CLI
     lsof                         # List open files
-    maestralOld                  # Dropbox alternative
+    maestral                     # Dropbox alternative
     magic-wormhole               # File transfer over network
     mariadb                      # Ex-Mysql
     mediainfo                    # Information about a audio/video file
