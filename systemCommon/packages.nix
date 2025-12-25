@@ -29,6 +29,7 @@ in
     ghc                          # Haskell Compiler
     ghcid                        # Haskell GHCID daemon
     gnupg1                       # Used to sign commits
+    google-java-format           # Google Java formatter
     gradle                       # Build Tool
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
