@@ -69,6 +69,9 @@
            $DRY_RUN_CMD chown -R benkio:staff "${config.home.homeDirectory}/postgresDataDir"
         fi
       '';
+      maestralAutostart = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        ${pkgs.maestral}/bin/maestral autostart -Y
+      '';
     };
 
     # Look at the nixos packages for missing programs. installing them using homebrew
