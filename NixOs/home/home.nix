@@ -7,16 +7,17 @@
 
 {
   imports = [
-    ./sway.nix
+    ../../homeCommon/bobPaintings.nix
+    ../../homeCommon/emacsConfig.nix
+    ../../homeCommon/gists.nix
+    ../../homeCommon/homeConfig.nix
+    ../../homeCommon/packages.nix
+    ../../homeCommon/programs/bash.nix
+    ../../homeCommon/programs/floorp.nix
+    ../../homeCommon/programs/programs.nix
     ./packages.nix
     ./programs/programs.nix
-    ../../homeCommon/emacsConfig.nix
-    ../../homeCommon/bobPaintings.nix
-    ../../homeCommon/gists.nix
-    ../../homeCommon/packages.nix
-    ../../homeCommon/homeConfig.nix
-    ../../homeCommon/programs/programs.nix
-    ../../homeCommon/programs/floorp.nix
+    ./sway.nix
   ];
 
   services = {

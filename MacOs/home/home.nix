@@ -7,15 +7,16 @@
 
 {
   imports = [
-    ../../homeCommon/bobPaintings.nix
     ../../homeCommon/emacsConfig.nix
     ../../homeCommon/gists.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/packages.nix
     ../../homeCommon/programs/bash.nix
+    ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
     ./packages.nix
     ./work.nix
+../../homeCommon/bobPaintings.nix
   ];
   nixpkgs.config.allowUnfree = true;
 
