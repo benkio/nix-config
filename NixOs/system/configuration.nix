@@ -107,6 +107,10 @@
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+    };
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));

@@ -41,7 +41,6 @@
     lsof                         # List open files
     maestral                     # Dropbox alternative
     magic-wormhole               # File transfer over network
-    mariadb                      # Ex-Mysql
     mediainfo                    # Information about a audio/video file
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
