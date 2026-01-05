@@ -25,6 +25,7 @@
         force_auto_update = true;
       }
       "hashicorp/tap"
+      "smithy-lang/tap"
     ];
     brews = [
       "commercetools/tap/kubegen"
