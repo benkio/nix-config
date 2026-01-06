@@ -346,6 +346,11 @@
                 name = "Anna’s Archive";
                 url = "https://it.annas-archive.org/";
               }
+
+              {
+                name = "FMHY - freemediaheckyeah The largest collection of free stuff on the internet!";
+                url = "https://fmhy.net/";
+              }
             ];
           }
 
