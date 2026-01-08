@@ -54,6 +54,7 @@
     ormolu                       # Haskell formatter
     python313Packages.eyed3      # ID3 tagger - abcde hidden dependency
     procs                        # better ps
+    progress                     # Tool that shows the progress of coreutils programs
     purescript                   # Purescript language
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
