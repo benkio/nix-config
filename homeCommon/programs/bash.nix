@@ -15,7 +15,8 @@ let
       {
         update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo -H nix-channel --update && sudo -H darwin-rebuild switch; home-manager switch ; nix-collect-garbage --delete-older-than 14d; sudo -H nix-collect-garbage --delete-older-than 14d";
       }
-    else # Nixos / Linux
+    # Nixos / Linux
+    else
       {
         bluetooth = "blueman-manager &";
         open = "xdg-open";
@@ -29,10 +30,11 @@ in
     shellAliases = lib.attrsets.mergeAttrsList [
       systemSpecificAliases
       {
+        #1 Consider moving this to programs.git.aliases
         battery = "upower -i /org/freedesktop/UPower/devices/battery_BAT0";
         cat = "bat";
+        cp = "cp -iv";
         du = "dust";
-        #1 Consider moving this to programs.git.aliases
         ga = "git add";
         gaa = "git add -A";
         gal = "git add .";
@@ -49,22 +51,23 @@ in
         gsh = "git stash";
         gst = "git status -sb";
         gw = "git diff --cached";
-
+        h = "history";
         h1 = "history 10";
         h2 = "history 20";
         h3 = "history 30";
-        h = "history";
         hgrep = "history | grep";
         htop = "btop";
-        kaj = "killall -9 java";
         kae = "killall -9 emacs";
+        kaj = "killall -9 java";
         ll = "eza -lh";
         ls = "eza";
+        mkdir = "mkdir -vp";
+        mv = "mv -iv";
         nah = "git clean -df && git checkout -- .";
         paux = "procs";
         pg = "ping google.com -c 5";
-        ps = "procs";
         portListen = "sudo lsof -i -P -n | grep LISTEN";
+        ps = "procs";
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";
         restart-ssh-agent = "eval \"$(ssh-agent -s)\"";
