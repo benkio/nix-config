@@ -13,9 +13,11 @@
     };
     xwayland.enable = true;
   };
-  system.autoUpgrade.enable = true;
-  system.autoUpgrade.allowReboot = false;
-  system.stateVersion = "24.05";
+  system = {
+    autoUpgrade.enable = true;
+    autoUpgrade.allowReboot = false;
+    stateVersion = "24.11";
+  };
 
   imports = [
     # Include the results of the hardware scan.
@@ -41,7 +43,7 @@
         description = "kanshi daemon";
         serviceConfig = {
           Type = "simple";
-          ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+          ExecStart = "${pkgs.kanshi}/bin/kanshi -c kanshi_config_file";
         };
       };
     };
