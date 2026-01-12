@@ -74,7 +74,7 @@
     nethogs                      # Show bandwith by process
     nettools                     # Network CLI tools
     nix-prefetch-scripts         # Nix scripts to obtain bash sources
-    nixfmt-rfc-style             # Nix Formatter
+    nixfmt                       # Nix Formatter
     nmap                         # Network discovery tool
     ormolu                       # Haskell formatter
     parted                       # Partition manager

@@ -47,7 +47,7 @@
     mpv                          # Video Player
     mycli                        # Command line tool for mysql
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
-    nixfmt-rfc-style             # Nix Formatter
+    nixfmt                       # Nix Formatter
     nmap                         # Network discovery tool
     nodejs                       # Event-driven I/O framework for JS
     ntfs3g                       # NTFS driver
