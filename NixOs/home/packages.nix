@@ -29,6 +29,7 @@
     telegram-desktop       # Chat
     unetbootin             # Linux/Windows Image Creator
     xorg.setxkbmap         # Command to set keybindings
+    ventoy                 # New Bootable USB Solution
     zoom-us                # Video Calls
   ];
 }

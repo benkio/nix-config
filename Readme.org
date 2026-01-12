@@ -1,3 +1,5 @@
+#+OPTIONS: toc:2
+
 * Installation
 
 ** Grafical (Reccommended)
@@ -9,6 +11,7 @@ Once in the terminal run
 #+begin_src
   sudo loadkeys -v dvorak # (Optional) Set dvorak for the session
   nmcli device wifi connect <ssid> password <password> # To connect to the internet - check with ping google.com
+  nix-shell -p git micro ripgrep # Create a nix shell with basic software to modify and change the repo
   git clone https://github.com/benkio/nix-config.git # Clone this repo
   sudo rm /etc/nixos/configuration.nix  # Remove the previous default configuration
   sudo ln -s /home/benkio/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix # Hard link this configuration
@@ -86,13 +89,6 @@ log off and in
   # Change it to NixOs home file if in NixOs
   ln -s ~/nix-config/MacOs/home/home.nix ~/.config/home-manager/home.nix
   home-manager switch
-#+end_src
-
-* Symbolic link for NixOs Configuration
-
-#+begin_src shell
-  sudo rm /etc/nixos/configuration.nix
-  sudo ln -s ~/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix
 #+end_src
 
 * MacOs - Darwin-nix

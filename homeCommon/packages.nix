@@ -41,5 +41,6 @@ in
     tex                                     # Typesetting Engine
     tsx                                     # Typescript Execute
     xorg.setxkbmap                          # Command to set keybindings
+    zed-editor                              # Alternative editor
   ];
 }

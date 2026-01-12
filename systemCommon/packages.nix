@@ -75,7 +75,6 @@
     watchexec                    # Watch files changes command
     wget                         # File downloader from URL
     xclip                        # Clipboard tool
-    zed-editor                   # Alternative editor
     zip                          # Complession Tool
   ];
 }
