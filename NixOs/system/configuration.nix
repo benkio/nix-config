@@ -186,6 +186,7 @@
       psmisc
       swww # Efficient animated wallpaper daemon for wayland, controlled at runtime
       usbutils # Tools for working with USB devices, such as lsusb
+      ventoy # New Bootable USB Solution
       vlc # Video palyer
       xorg.xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
     ];
