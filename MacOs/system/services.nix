@@ -62,7 +62,7 @@ in
 
           ctrl-alt-enter = "exec-and-forget ~/.nix-profile/bin/wezterm";
           ctrl-alt-e = "exec-and-forget open ~/";
-          ctrl-alt-w = "exec-and-forget open \"https://www.google.com\"";
+          ctrl-alt-x = "exec-and-forget open \"https://www.google.com\"";
         };
       };
     };
