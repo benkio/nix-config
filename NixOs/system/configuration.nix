@@ -54,7 +54,7 @@ in
         serviceConfig = {
           Type = "oneshot";
           User = user;
-          ExecStart = "${pkgs.ollama}/bin/ollama pull qwen3";
+          ExecStart = "${pkgs.ollama}/bin/ollama pull qwen3 &";
           Restart = "on-failure";
           RestartSec = 10;
         };
