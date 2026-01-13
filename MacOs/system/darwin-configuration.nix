@@ -10,6 +10,7 @@ in
     ./programs.nix
     ./services.nix
     ./work.nix
+    ./ollama-models.nix
   ];
 
   system.primaryUser = "benkio";
@@ -18,6 +19,19 @@ in
     postgresql.serviceConfig = {
       StandardErrorPath = "${home}/postgres.error.log";
       StandardOutPath = "${home}/postgres.log";
+    };
+
+    ollama = {
+      serviceConfig = {
+        ProgramArguments = [
+          "${pkgs.ollama}/bin/ollama"
+          "serve"
+        ];
+        RunAtLoad = true;
+        KeepAlive = true;
+        StandardErrorPath = "${home}/ollama.error.log";
+        StandardOutPath = "${home}/ollama.log";
+      };
     };
   };
 
