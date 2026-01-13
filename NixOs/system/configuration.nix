@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 
+let
+  user = "benkio";
+in
 {
   programs = {
     dconf.enable = true;
@@ -36,10 +39,32 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   systemd = {
+    network.wait-online.enable = true;
     enableEmergencyMode = false;
+    services = {
+      ollama-pull-qwen3 = {
+        enable = true;
+        description = "Pull default Ollama model (qwen3)";
+        after = [
+          "network-online.target"
+          "ollama.service"
+        ];
+        wantedBy = [ "multi-user.target" ];
+        wants = [ "network-online.target" ];
+        serviceConfig = {
+          Type = "oneshot";
+          User = user;
+          ExecStart = "${pkgs.ollama}/bin/ollama pull qwen3";
+          Restart = "on-failure";
+          RestartSec = 10;
+        };
+      };
+
+    };
     user.services = {
       kanshi = {
         # To Start Sway
+        enable = true;
         description = "kanshi daemon";
         serviceConfig = {
           Type = "simple";
@@ -94,7 +119,7 @@
       "wheel"
       "video"
     ]; # wheel for ‘sudo’.
-    initialHashedPassword = "benkio";
+    initialHashedPassword = user;
   };
 
   security.rtkit.enable = true; # Pipewire recommemded
@@ -106,6 +131,7 @@
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
+    ollama.enable = true; # Start the Ollama service
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
@@ -140,7 +166,7 @@
       gdm.enable = true;
       autoLogin = {
         enable = true;
-        user = "benkio";
+        user = user;
       };
     };
     picom = {
@@ -172,9 +198,10 @@
       gparted # Partition tool
       hexchat # IRC Client
       jack2 # JACK audio connection kit, version 2 with jackdbus
+      kanshi # Wailand equivalent for Autorandr
       kmetronome # Metronome
-      lilypond # Music Notation Language
       libinput # Handles input devices in Wayland compositors and provides a generic X.Org input driver
+      lilypond # Music Notation Language
       lshw # List hardware info
       mako # Notification system developed by swaywm maintainer
       nethogs # Small 'net top' tool, grouping bandwidth by process

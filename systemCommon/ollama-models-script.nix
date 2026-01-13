@@ -27,8 +27,8 @@ pkgs.writeShellScript "ollama-models" ''
   MODEL_COUNT=$($OLLAMA_BIN list 2>/dev/null | tail -n +2 | wc -l | tr -d ' ')
 
   if [ -z "$MODEL_COUNT" ] || [ "$MODEL_COUNT" -eq 0 ]; then
-    echo "No ollama models found. Pulling default model: llama3.2:3b"
-    $OLLAMA_BIN pull llama3.2:3b
+    echo "No ollama models found. Pulling default model: qwen3"
+    $OLLAMA_BIN pull qwen3
   else
     echo "Ollama models already installed ($MODEL_COUNT model(s))"
   fi
