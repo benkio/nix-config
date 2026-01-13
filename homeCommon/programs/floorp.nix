@@ -23,6 +23,7 @@
         grammarly
         ublock-origin
         vimium
+        proton-vpn
       ];
       search = {
         force = true;

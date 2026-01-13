@@ -21,7 +21,7 @@ let
         bluetooth = "blueman-manager &";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo -H nix-channel --update && nixos-rebuild switch --use-remote-sudo; home-manager switch ; nix-collect-garbage --delete-older-than 14d; sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo -H nix-channel --update && nixos-rebuild switch --sudo; home-manager switch ; nix-collect-garbage --delete-older-than 14d; sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
