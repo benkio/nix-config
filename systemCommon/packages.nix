@@ -15,6 +15,7 @@
     dust                         # Better du command
     elmPackages.elm              # Elm programming language
     elmPackages.elm-format       # Elm formatter
+    esbuild                      # Javascript Bundler
     eza                          # Better ls
     fd                           # Better find
     ffmpeg-full                  # CMD Converter audio/video
@@ -65,6 +66,7 @@
     sd                           # Modern Sed
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
+    spago                        # Purescript Package Manager
     termdown                     # Countdown CLI
     tldr                         # Short Man
     tree                         # Print the filesystem on terminal
