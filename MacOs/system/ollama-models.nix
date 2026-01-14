@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  home = config.users.users.benkio.home
+  home = "/Users/benkio";
   # Import the common script from systemCommon
   ollamaModelsScript = import ../../systemCommon/ollama-models-script.nix { inherit pkgs; };
 in
