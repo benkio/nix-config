@@ -73,6 +73,26 @@
       maestralAutostart = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         ${pkgs.maestral}/bin/maestral autostart -Y
       '';
+      setAppsDefault = config.lib.dag.entryAfter [ "writeBoundary" ] ''
+        echo "set App defaults with duti"
+        # Use the Nix-provided duti binary directly to avoid PATH issues
+        DUTI="${pkgs.duti}/bin/duti"
+        if [ -f "$DUTI" ]; then
+          # Try MPV first (preferred)
+          if $DUTI -s io.mpv public.mpeg-4 all >/dev/null 2>&1; 
+          then
+            echo "Set MPV for MP4"
+            $DUTI -s io.mpv public.movie all 2>/dev/null || true
+          # Fall back to VLC if MPV fails
+          else
+            echo "Set VLC for MP4"
+            $DUTI -s org.videolan.vlc public.mpeg-4 all 2>/dev/null || true
+            $DUTI -s org.videolan.vlc public.movie all 2>/dev/null || true
+          fi
+        else 
+          echo "duti not found at $DUTI"
+        fi
+      '';
     };
 
     # Look at the nixos packages for missing programs. installing them using homebrew

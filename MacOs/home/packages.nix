@@ -17,5 +17,6 @@
   home.packages = with pkgs; [
     maven
     ntfs3g
+    duti
   ];
 }
