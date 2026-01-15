@@ -55,12 +55,20 @@
             cd "$fromDir"
             for app in *.app; do
               /usr/bin/osacompile -o "$toDir/$app" -e "do shell script \"open '$fromDir/$app'\""
-              icon="$(/usr/bin/plutil -extract CFBundleIconFile raw "$fromDir/$app/Contents/Info.plist")"
-              if [[ $icon != *".icns" ]]; then
-                icon="$icon.icns"
+              # Copy Info.plist to preserve bundle identifier for Command+Tab
+              if [ -f "$fromDir/$app/Contents/Info.plist" ]; then
+                cp -f "$fromDir/$app/Contents/Info.plist" "$toDir/$app/Contents/Info.plist"
               fi
-              mkdir -p "$toDir/$app/Contents/Resources"
-              cp -f "$fromDir/$app/Contents/Resources/$icon" "$toDir/$app/Contents/Resources/applet.icns"
+              icon="$(/usr/bin/plutil -extract CFBundleIconFile raw "$fromDir/$app/Contents/Info.plist" 2>/dev/null || echo "")"
+              if [[ -n "$icon" ]]; then
+                if [[ $icon != *".icns" ]]; then
+                  icon="$icon.icns"
+                fi
+                mkdir -p "$toDir/$app/Contents/Resources"
+                if [ -f "$fromDir/$app/Contents/Resources/$icon" ]; then
+                  cp -f "$fromDir/$app/Contents/Resources/$icon" "$toDir/$app/Contents/Resources/applet.icns"
+                fi
+              fi
             done
           )
         '';
