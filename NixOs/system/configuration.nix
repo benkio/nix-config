@@ -138,6 +138,15 @@ in
     mysql = {
       enable = true;
       package = pkgs.mariadb;
+      ensureUsers = [
+        {
+          name = "benkio";
+          ensurePermissions = {
+            "nextcloud.*" = "ALL PRIVILEGES";
+          };
+        }
+      ];
+
     };
     postgresql = {
       enable = false; # broken <2024-03-04 Mon>
