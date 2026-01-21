@@ -64,6 +64,32 @@ in
           ctrl-alt-e = "exec-and-forget open ~/";
           ctrl-alt-x = "exec-and-forget open \"https://www.google.com\"";
         };
+        workspace-to-monitor-force-assignment = {
+          "1" = "main";
+          "2" = "main";
+          "3" = "main";
+          "4" = "main";
+          "5" = [
+            "secondary"
+            "main"
+          ];
+          "6" = [
+            "secondary"
+            "main"
+          ];
+          "7" = [
+            "secondary"
+            "main"
+          ];
+          "8" = [
+            "3"
+            "main"
+          ];
+          "9" = [
+            "3"
+            "main"
+          ];
+        };
       };
     };
   };
