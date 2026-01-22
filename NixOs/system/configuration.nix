@@ -214,7 +214,7 @@ in
       hexchat # IRC Client
       jack2 # JACK audio connection kit, version 2 with jackdbus
       kanshi # Wailand equivalent for Autorandr
-      kmetronome # Metronome
+      gmetronome # Metronome
       libinput # Handles input devices in Wayland compositors and provides a generic X.Org input driver
       lilypond # Music Notation Language
       lshw # List hardware info

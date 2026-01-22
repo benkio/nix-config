@@ -58,7 +58,7 @@
     imagemagick                  # Image converter
     jack2                        # Jack Sound System
     k9s                          # Kubernetes CLI 
-    kmetronome                   # Metronome
+    gmetronome                   # Metronome
     kubectl                      # Kubernetes official CLI
     lame                         # Audio Encoder
     kdePackages.kdenlive         # Video Editor
