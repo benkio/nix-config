@@ -37,41 +37,6 @@
     ];
 
     activation = {
-      # https://github.com/nix-community/home-manager/issues/1341#issuecomment-1716147796
-      trampolineApps =
-        let
-          apps = pkgs.buildEnv {
-            name = "home-manager-applications";
-            paths = config.home.packages;
-            pathsToLink = [ "/Applications" ];
-          };
-        in
-        lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          toDir="$HOME/Applications/HMApps"
-          fromDir="${apps}/Applications"
-          rm -rf "$toDir"
-          mkdir "$toDir"
-          (
-            cd "$fromDir"
-            for app in *.app; do
-              /usr/bin/osacompile -o "$toDir/$app" -e "do shell script \"open '$fromDir/$app'\""
-              # Copy Info.plist to preserve bundle identifier for Command+Tab
-              if [ -f "$fromDir/$app/Contents/Info.plist" ]; then
-                cp -f "$fromDir/$app/Contents/Info.plist" "$toDir/$app/Contents/Info.plist"
-              fi
-              icon="$(/usr/bin/plutil -extract CFBundleIconFile raw "$fromDir/$app/Contents/Info.plist" 2>/dev/null || echo "")"
-              if [[ -n "$icon" ]]; then
-                if [[ $icon != *".icns" ]]; then
-                  icon="$icon.icns"
-                fi
-                mkdir -p "$toDir/$app/Contents/Resources"
-                if [ -f "$fromDir/$app/Contents/Resources/$icon" ]; then
-                  cp -f "$fromDir/$app/Contents/Resources/$icon" "$toDir/$app/Contents/Resources/applet.icns"
-                fi
-              fi
-            done
-          )
-        '';
       postgresFolder = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         if [ ! -d "${config.home.homeDirectory}/postgresDataDir" ]; then
            $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/postgresDataDir"
@@ -87,7 +52,7 @@
         DUTI="${pkgs.duti}/bin/duti"
         if [ -f "$DUTI" ]; then
           # Try MPV first (preferred)
-          if $DUTI -s io.mpv public.mpeg-4 all >/dev/null 2>&1; 
+          if $DUTI -s io.mpv public.mpeg-4 all >/dev/null 2>&1;
           then
             echo "Set MPV for MP4"
             $DUTI -s io.mpv public.movie all 2>/dev/null || true
@@ -97,7 +62,7 @@
             $DUTI -s org.videolan.vlc public.mpeg-4 all 2>/dev/null || true
             $DUTI -s org.videolan.vlc public.movie all 2>/dev/null || true
           fi
-        else 
+        else
           echo "duti not found at $DUTI"
         fi
       '';
