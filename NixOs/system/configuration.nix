@@ -142,7 +142,13 @@ in
         {
           name = "benkio";
           ensurePermissions = {
-            "nextcloud.*" = "ALL PRIVILEGES";
+            "benkio.*" = "ALL PRIVILEGES";
+          };
+        }
+        {
+          name = "root";
+          ensurePermissions = {
+            "root.*" = "ALL PRIVILEGES";
           };
         }
       ];
