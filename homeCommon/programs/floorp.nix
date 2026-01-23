@@ -302,7 +302,7 @@
                 url = "https://lazamar.co.uk/nix-versions/";
               }
 
-              { 
+              {
                 name = "haskell mooc course";
                 url = "https://haskell.mooc.fi/";
               }
@@ -346,6 +346,11 @@
               {
                 name = "Anna’s Archive";
                 url = "https://it.annas-archive.org/";
+              }
+
+              {
+                name = "Shadow Libraries";
+                url = "https://shadowlibraries.github.io/";
               }
 
               {
