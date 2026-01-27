@@ -79,5 +79,6 @@
     wget                         # File downloader from URL
     xclip                        # Clipboard tool
     zip                          # Complession Tool
+    zoxide                       # Better cd command
   ];
 }
