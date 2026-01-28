@@ -39,7 +39,7 @@ in
     sqlfluff                                # SQL Linter
     symbola                                 # Font
     tex                                     # Typesetting Engine
-    tsx                                     # Typescript Execute
+    # tsx                                     # Typescript Execute
     xorg.setxkbmap                          # Command to set keybindings
     zed-editor                              # Alternative editor
   ];

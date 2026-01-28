@@ -41,26 +41,7 @@ in
   systemd = {
     network.wait-online.enable = true;
     enableEmergencyMode = false;
-    services = {
-      ollama-pull-qwen3 = {
-        enable = true;
-        description = "Pull default Ollama model (qwen3)";
-        after = [
-          "network-online.target"
-          "ollama.service"
-        ];
-        wantedBy = [ "multi-user.target" ];
-        wants = [ "network-online.target" ];
-        serviceConfig = {
-          Type = "oneshot";
-          User = user;
-          ExecStart = "${pkgs.ollama}/bin/ollama pull qwen3 &";
-          Restart = "on-failure";
-          RestartSec = 10;
-        };
-      };
-
-    };
+    services = {};
     user.services = {
       kanshi = {
         # To Start Sway
@@ -131,7 +112,6 @@ in
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
-    ollama.enable = true; # Start the Ollama service
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 

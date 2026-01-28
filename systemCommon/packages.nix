@@ -52,7 +52,6 @@
     nmap                         # Network discovery tool
     nodejs                       # Event-driven I/O framework for JS
     ntfs3g                       # NTFS driver
-    ollama                       # Opensource LLM service
     ormolu                       # Haskell formatter
     python313Packages.eyed3      # ID3 tagger - abcde hidden dependency
     procs                        # better ps
