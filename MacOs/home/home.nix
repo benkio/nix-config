@@ -45,6 +45,7 @@
       '';
       maestralAutostart = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         ${pkgs.maestral}/bin/maestral autostart -Y
+        ${pkgs.maestral}/bin/maestral start
       '';
       setAppsDefault = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         echo "set App defaults with duti"
