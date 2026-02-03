@@ -57,7 +57,7 @@
     python313Packages.eyed3      # ID3 tagger - abcde hidden dependency
     procs                        # better ps
     progress                     # Tool that shows the progress of coreutils programs
-    purescript                   # Purescript language
+    purs                         # PureScript compiler (from purescript-overlay)
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala compiler
@@ -66,7 +66,7 @@
     sd                           # Modern Sed
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
-    spago                        # Purescript Package Manager
+    spago                        # PureScript package manager (from purescript-overlay)
     termdown                     # Countdown CLI
     tldr                         # Short Man
     tree                         # Print the filesystem on terminal
