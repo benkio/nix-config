@@ -59,6 +59,7 @@
     procs                        # better ps
     progress                     # Tool that shows the progress of coreutils programs
     purs                         # PureScript compiler (from purescript-overlay)
+    purescript-language-server   # Purescript LSP (from purescript-overlay)
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala compiler

@@ -33,7 +33,6 @@ in
     nodePackages.js-beautify                # Javascript beautifier
     nodePackages.npm                        # Node package manager
     nodePackages.prettier                   # Javascript Formatter
-    nodePackages.purescript-language-server # Purescript LSP
     nodePackages.yarn                       # Package manager
     metals                                  # Scala LSP
     sqlfluff                                # SQL Linter
