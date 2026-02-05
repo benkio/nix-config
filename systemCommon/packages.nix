@@ -9,6 +9,7 @@
     autoconf                     # Unix Configuration Scripts
     bloop                        # Scala build server and command-line tool
     btop                         # Better htop
+    cdrtools                     # Highly portable CD/DVD/BluRay command line recording software
     coursier                     # Scala dependency fetcher
     curl                         # HTTP Requests command
     cpulimit                     # Tool to limit CPU usage from a program, PID, Command
