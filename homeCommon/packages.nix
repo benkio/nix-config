@@ -33,14 +33,15 @@ in
     nodePackages.js-beautify                # Javascript beautifier
     nodePackages.npm                        # Node package manager
     nodePackages.prettier                   # Javascript Formatter
-    typescript                              # Typescript compiler
-    typescript-language-server              # Typescript LSP
     nodePackages.purescript-language-server # Purescript LSP
     nodePackages.yarn                       # Package manager
+    metals                                  # Scala LSP
     sqlfluff                                # SQL Linter
     symbola                                 # Font
     tex                                     # Typesetting Engine
     tsx                                     # Typescript Execute
+    typescript                              # Typescript compiler
+    typescript-language-server              # Typescript LSP
     xorg.setxkbmap                          # Command to set keybindings
     zed-editor                              # Alternative editor
   ];
