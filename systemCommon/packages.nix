@@ -66,6 +66,7 @@
     scala-cli                    # Scala command line tool
     scalafmt                     # Scala formatter
     sd                           # Modern Sed
+    semgrep                      # Lightweight static analysis for many languages - cli
     sqlite                       # SQLite Database
     stack                        # Haskell Package Manager
     spago                        # PureScript package manager (from purescript-overlay)
