@@ -77,7 +77,10 @@ in
   };
 
   powerManagement.enable = true;
+  powerManagement.powertop.enable = true;
+
   hardware.graphics.enable32Bit = true;
+
   networking = {
     networkmanager = {
       # Enables wireless support and openvpn via network manager.
