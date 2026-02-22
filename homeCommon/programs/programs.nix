@@ -204,7 +204,7 @@
         -- This will hold the configuration.
         local config = wezterm.config_builder()
 
-        config.font = wezterm.font_with_fallback { 'UbuntuMono Nerd Font', 'JetBrains Mono', 'Noto Sans Mono', 'DejaVu Sans Mono', 'monospace' }
+        config.font = wezterm.font_with_fallback { 'Iosevka', 'UbuntuMono Nerd Font', 'JetBrains Mono', 'Noto Sans Mono', 'DejaVu Sans Mono', 'monospace' }
         config.font_size = 20.0
         config.color_scheme = 'Nocturnal Winter'
         config.hide_tab_bar_if_only_one_tab = true

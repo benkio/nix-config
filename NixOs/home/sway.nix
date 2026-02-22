@@ -103,6 +103,7 @@ in
       };
       fonts = {
         names = [
+          "Iosevka"
           "NotoSans Nerd Font"
           "DejaVu Sans Mono"
           "Symbola"

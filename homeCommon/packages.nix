@@ -36,7 +36,6 @@ in
     nodePackages.yarn                       # Package manager
     metals                                  # Scala LSP
     sqlfluff                                # SQL Linter
-    symbola                                 # Font
     tex                                     # Typesetting Engine
     tsx                                     # Typescript Execute
     typescript                              # Typescript compiler

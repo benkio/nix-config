@@ -32,6 +32,8 @@
     packages = with pkgs; [
       corefonts
       dejavu_fonts
+      symbola
+      iosevka
       nerd-fonts.dejavu-sans-mono
       nerd-fonts.jetbrains-mono
       nerd-fonts.proggy-clean-tt
