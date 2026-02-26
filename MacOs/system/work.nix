@@ -9,7 +9,7 @@
         gke-gcloud-auth-plugin
       ]
     )) # Google Cloud Platform CLI SDK
-    postman # HTTP Client
+    cursor-cli      # AI on the terminal
     process-compose # docker-compose like
     pnpm # npm alternative
     skaffold # python building, pushing and deploying

@@ -9,6 +9,8 @@
     autoconf                     # Unix Configuration Scripts
     bloop                        # Scala build server and command-line tool
     btop                         # Better htop
+    bruno                        # Bruno HTTP Client - Postman Alternative
+    bruno-cli                    # Bruno CLI
     cdrtools                     # Highly portable CD/DVD/BluRay command line recording software
     coursier                     # Scala dependency fetcher
     curl                         # HTTP Requests command
