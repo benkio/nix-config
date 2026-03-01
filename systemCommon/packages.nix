@@ -15,6 +15,9 @@
     coursier                     # Scala dependency fetcher
     curl                         # HTTP Requests command
     cpulimit                     # Tool to limit CPU usage from a program, PID, Command
+    coreutils                    # GNU Core Utilities
+    docker                       # Docker CLI
+    docker-compose               # Compose Containers
     dust                         # Better du command
     elmPackages.elm              # Elm programming language
     elmPackages.elm-format       # Elm formatter
@@ -28,6 +31,7 @@
     gnupg1                       # Used to sign commits
     google-java-format           # Google Java formatter
     gradle                       # Build Tool
+    gnused                       # GNU SED Command
     haskellPackages.fourmolu     # Haskell Linter
     haskellPackages.hoogle       # Hoogle search engine
     hlint                        # Haskell Linter
@@ -43,13 +47,15 @@
     linkchecker                  # Link Checker for HTML pages and more
     litecli                      # SQLite CLI
     lsof                         # List open files
+    lychee                       # Link Checker
+    mariadb                      # Ex-MySQL
     maestral                     # Dropbox alternative
     magic-wormhole               # File transfer over network
     mediainfo                    # Information about a audio/video file
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
-    mpv                          # Video Player
     mycli                        # Command line tool for mysql
+    pkg-config                   # Queries information about libraries
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt                       # Nix Formatter
     nmap                         # Network discovery tool

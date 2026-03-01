@@ -19,13 +19,14 @@
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
     emacs.enable = true;
+    fzf.enable = true;
     home-manager.enable = true;
     htop.enable = true;
+    jq.enable = true;
+    mpv.enable = true;
     nix-index.enable = true;
     pandoc.enable = true;
     yt-dlp.enable = true;
-    fzf.enable = true;
-    jq.enable = true;
 
     aria2 = {
       enable = true;

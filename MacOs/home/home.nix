@@ -24,6 +24,8 @@
     "@$M" = "performZoom:";
   };
 
+  targets.darwin.copyApps.enable = true;
+
   home = {
     sessionVariables = {
       LC_ALL = "en_US.UTF-8";
