@@ -14,6 +14,8 @@
     pnpm # npm alternative
     skaffold # python building, pushing and deploying
     uv # pip alternative
+    mongosh # mongodb CLI tool
+    compass # mongodb free tool
   ];
 
   homebrew = {
