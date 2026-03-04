@@ -36,6 +36,8 @@
     sessionPath = [
       "/run/current-system/sw/bin"
       "/usr/local/bin"
+      "/opt/homebrew/bin"
+      "/opt/homebrew/sbin"
     ];
 
     activation = {
