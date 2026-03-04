@@ -15,6 +15,7 @@
     skaffold # python building, pushing and deploying
     uv # pip alternative
     mongosh # mongodb CLI tool
+    mongodb-tools # mongodb tools for monitoring
     compass # mongodb free tool
   ];
 
@@ -32,6 +33,9 @@
     brews = [
       "commercetools/tap/kubegen"
       "hashicorp/tap/vault"
+    ];
+    casks = [
+      "claude-code"
     ];
   };
 }
