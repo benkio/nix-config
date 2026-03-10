@@ -8,7 +8,6 @@ in
 {
   programs = {
     dconf.enable = true;
-    light.enable = true;
     sway = {
       enable = true;
       wrapperFeatures.gtk = true;
