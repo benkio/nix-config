@@ -42,6 +42,7 @@
     jdk                          # Java Development Kit
     k9s                          # Kubernetes CLI
     kubectl                      # Kubernetes official CLI
+    kubectx                      # Fast way to switch between clusters and namespaces in kubectl
     lame                         # Audio Encoder
     lazygit                      # Git User interface
     linkchecker                  # Link Checker for HTML pages and more

@@ -57,9 +57,10 @@
     id3v2                        # ID3v2 Audio tagger
     imagemagick                  # Image converter
     jack2                        # Jack Sound System
-    k9s                          # Kubernetes CLI 
+    k9s                          # Kubernetes CLI
     gmetronome                   # Metronome
     kubectl                      # Kubernetes official CLI
+    kubectx                      # Fast way to switch between clusters and namespaces in kubectl
     lame                         # Audio Encoder
     kdePackages.kdenlive         # Video Editor
     lilypond                     # Music Notation Language
@@ -90,7 +91,7 @@
     ripgrep                      # Better grep
     rustup                       # Rust setup utility
     scala                        # Scala Programming Language
-    scala-cli                    # Scala scripting 
+    scala-cli                    # Scala scripting
     slack                        # Chat
     sqlite                       # SQLite
     stack                        # Haskell Package Manager
