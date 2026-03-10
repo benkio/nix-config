@@ -46,7 +46,6 @@
     lame                         # Audio Encoder
     lazygit                      # Git User interface
     linkchecker                  # Link Checker for HTML pages and more
-    litecli                      # SQLite CLI
     lsof                         # List open files
     lychee                       # Link Checker
     mariadb                      # Ex-MySQL
@@ -55,7 +54,6 @@
     mediainfo                    # Information about a audio/video file
     mermaid-cli                  # Command line tool for mermaid
     moreutils                    # More command line tools
-    mycli                        # Command line tool for mysql
     pkg-config                   # Queries information about libraries
     nix-prefetch-scripts         # Collection of all the nix-prefetch-* scripts
     nixfmt                       # Nix Formatter
@@ -84,6 +82,7 @@
     tunnelto                     # Expose local server to the internet
     unipicker                    # Unicode search and select command
     unrar                        # RAR Decompression Command
+    usql                         # SQL CLI client
     unzip                        # ZIP Decompression Command
     uutils-coreutils             # Tools for working with USB
     watchexec                    # Watch files changes command

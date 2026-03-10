@@ -235,7 +235,7 @@ in
       swww # Efficient animated wallpaper daemon for wayland, controlled at runtime
       usbutils # Tools for working with USB devices, such as lsusb
       vlc # Video palyer
-      xorg.xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
+      xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
     ];
   };
 
