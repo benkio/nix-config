@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  home = "/Users/benkio";
+  home = config.users.users.${config.system.primaryUser}.home;
 in
 {
   imports = [
@@ -31,6 +31,18 @@ in
         KeepAlive = true;
         StandardErrorPath = "${home}/ollama.error.log";
         StandardOutPath = "${home}/ollama.log";
+      };
+    };
+    bobPaintings = {
+      serviceConfig = {
+        ProgramArguments = [
+          "${pkgs.bash}/bin/bash"
+          "-lc"
+          "${pkgs.desktoppr}/bin/desktoppr ${home}/wallpapers"
+        ];
+        RunAtLoad = true;
+        StandardErrorPath = "${home}/bob-wallpaper.error.log";
+        StandardOutPath = "${home}/bob-wallpaper.log";
       };
     };
   };
