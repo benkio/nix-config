@@ -12,7 +12,7 @@
 
   home = {
     homeDirectory =
-      if lib.hasInfix "darwin" builtins.currentSystem then "/Users/benkio" else "/home/benkio";
+      if pkgs.stdenv.hostPlatform.isDarwin then "/Users/benkio" else "/home/benkio";
     keyboard.layout = "us";
     keyboard.variant = "dvorak";
     sessionVariables = {

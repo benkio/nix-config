@@ -5,15 +5,19 @@
   ...
 }:
 
+let
+  nur = import (builtins.fetchGit {
+    url = "https://github.com/nix-community/NUR";
+    rev = "fb993e86121b76faf5dde868a2b8e2390e4035ca";
+  }) {
+    nurpkgs = pkgs;
+    pkgs = pkgs;
+  };
+in
 {
 
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchGit {
-      url = "https://github.com/nix-community/NUR";
-    }) {
-      nurpkgs = pkgs;
-      pkgs = pkgs;
-    };
+    inherit nur;
   };
 
   programs.floorp = {
