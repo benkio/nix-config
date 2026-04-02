@@ -10,7 +10,6 @@
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
-      currentSystem = builtins.currentSystem;
       darwinSystems = import ./flake/hosts/darwin/default.nix {
         inherit inputs;
         system = "x86_64-darwin";
@@ -23,15 +22,10 @@
         inherit inputs;
         system = "x86_64-darwin";
       };
-      linuxHomeConfigurations = import ./flake/home/linux.nix {
+      nixosHomeConfigurations = import ./flake/home/nixos.nix {
         inherit inputs;
         system = "x86_64-linux";
       };
-      selectedHomeConfigurations =
-        if builtins.hasSuffix "-darwin" currentSystem then
-          darwinHomeConfigurations
-        else
-          linuxHomeConfigurations;
     in
     {
       nixConfig = {
@@ -41,6 +35,8 @@
       darwinConfigurations = darwinSystems;
       nixosConfigurations = nixosSystems;
 
-      homeConfigurations = selectedHomeConfigurations;
+      homeConfigurations =
+        darwinHomeConfigurations
+        // nixosHomeConfigurations;
     };
 }

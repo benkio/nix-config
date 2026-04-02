@@ -21,7 +21,7 @@ let
         bluetooth = "blueman-manager &";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "cd ~/nix-config && scala-cli ~/UpdateAllGitMain.sc && nix flake update && wslHint=${WSL_DISTRO_NAME:-$(uname -r | tr '[:upper:]' '[:lower:]')}; if [[ \"$wslHint\" == *microsoft* || \"$wslHint\" == *wsl* ]]; then nixosHost=wsl2; homeHost=benkio@wsl2; else nixosHost=nixos; homeHost=benkio@nixos; fi; sudo -H nixos-rebuild switch --flake .#$nixosHost; home-manager switch --flake .#$homeHost && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "cd ~/nix-config && scala-cli ~/UpdateAllGitMain.sc && nix flake update && sudo -H nixos-rebuild switch --flake .#nixos; home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
@@ -94,11 +94,6 @@ in
         . ${config.home.homeDirectory}/.bashrcextra
       fi
 
-      if [[ $(uname -r) =~ WSL ]]; then
-        # WSL detected
-        setxkbmap -layout us -variant dvorak
-        export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
-      fi
     '';
   };
 }

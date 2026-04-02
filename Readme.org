@@ -82,7 +82,6 @@ log off and in
   # Change it to the right host config with --flake
   cd ~/nix-config
   home-manager switch --flake .#benkio@nixos
-  home-manager switch --flake .#benkio@wsl2
 #+end_src
 
 * MacOs - Darwin-nix
