@@ -7,6 +7,7 @@ let
       ref = "main";
     }
   );
+  pureScriptOverlay = purescript-overlay.overlays.default;
 in
 {
 
@@ -22,11 +23,9 @@ in
     };
   };
 
-  # PureScript overlay: up-to-date purs, spago, purs-tidy, etc.
   nixpkgs.overlays = [
-    purescript-overlay
+    pureScriptOverlay
   ];
-
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";
 

@@ -7,17 +7,15 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
+  nixConfig = {
+    experimental-features = "nix-command flakes";
+  };
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
-      # Set TARGET_SYSTEM in your environment to force non-darwin outputs (e.g. x86_64-linux).
-      detectionSystem = builtins.getEnv "TARGET_SYSTEM";
-      targetSystem =
-        if detectionSystem == "" then
-          "x86_64-darwin"
-        else
-          detectionSystem;
-      isDarwin = builtins.match ".*-darwin$" targetSystem != null;
+      # Select host family for which this flake should materialize outputs.
+      # Set NIXCFG_HOST=linux (with --impure) for Linux/NixOS outputs.
+      isDarwin = builtins.getEnv "NIXCFG_HOST" != "linux";
 
       darwinSystems =
         if isDarwin then
@@ -52,11 +50,7 @@
             system = "x86_64-linux";
           };
 
-      selectedNixosOutputs =
-        if isDarwin then
-          {}
-        else
-          nixosSystems;
+      selectedNixosOutputs = nixosSystems;
       selectedDarwinOutputs =
         if isDarwin then
           darwinSystems
@@ -69,10 +63,6 @@
           nixosHomeConfigurations;
     in
     {
-      nixConfig = {
-        experimental-features = "nix-command flakes";
-      };
-
       darwinConfigurations = selectedDarwinOutputs;
       nixosConfigurations = selectedNixosOutputs;
 
