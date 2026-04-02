@@ -11,28 +11,31 @@
     experimental-features = "nix-command flakes";
   };
 
-  outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      darwin,
+      home-manager,
+      ...
+    }@inputs:
     let
-      darwinSystems =
-        import ./flake/hosts/darwin/default.nix {
-          inherit inputs;
-          system = "aarch64-darwin";
-        };
-      nixosSystems =
-        import ./flake/hosts/nixos/default.nix {
-          inherit inputs;
-          system = "x86_64-linux";
-        };
-      darwinHomeConfigurations =
-        import ./flake/home/darwin.nix {
-          inherit inputs;
-          system = "aarch64-darwin";
-        };
-      nixosHomeConfigurations =
-        import ./flake/home/nixos.nix {
-          inherit inputs;
-          system = "x86_64-linux";
-        };
+      darwinSystems = import ./flake/hosts/darwin/default.nix {
+        inherit inputs;
+        system = "aarch64-darwin";
+      };
+      nixosSystems = import ./flake/hosts/nixos/default.nix {
+        inherit inputs;
+        system = "x86_64-linux";
+      };
+      darwinHomeConfigurations = import ./flake/home/darwin.nix {
+        inherit inputs;
+        system = "aarch64-darwin";
+      };
+      nixosHomeConfigurations = import ./flake/home/nixos.nix {
+        inherit inputs;
+        system = "x86_64-linux";
+      };
     in
     {
       darwinConfigurations = darwinSystems;

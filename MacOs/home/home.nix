@@ -16,7 +16,7 @@
     ../../homeCommon/programs/programs.nix
     ./packages.nix
     ./work.nix
-../../homeCommon/bobPaintings.nix
+    ../../homeCommon/bobPaintings.nix
   ];
   nixpkgs.config.allowUnfree = true;
 

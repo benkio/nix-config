@@ -18,12 +18,15 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchGit {
-      url = "https://github.com/nix-community/NUR.git";
-      rev = "fb993e86121b76faf5dde868a2b8e2390e4035ca";
-    }) {
-      inherit pkgs;
-    };
+    nur =
+      import
+        (builtins.fetchGit {
+          url = "https://github.com/nix-community/NUR.git";
+          rev = "fb993e86121b76faf5dde868a2b8e2390e4035ca";
+        })
+        {
+          inherit pkgs;
+        };
   };
 
   nixpkgs.overlays = [

@@ -20,7 +20,7 @@ jobs:
 
       - name: Install nixfmt
         run: |
-          nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#nixfmt-rfc-style
+          nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#nixfmt
 
       - name: Formatting and checks
         run: |

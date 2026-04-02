@@ -1,4 +1,7 @@
-{ inputs, system ? "aarch64-darwin" }:
+{
+  inputs,
+  system ? "aarch64-darwin",
+}:
 
 {
   macos = inputs.darwin.lib.darwinSystem {

@@ -33,9 +33,8 @@ in
   imports = [
     # Include the results of the hardware scan.
     ../../systemCommon/systemConfig.nix
-  ] ++ (
-    if hardwareConfiguration != null then [ hardwareConfiguration ] else [ ]
-  );
+  ]
+  ++ (if hardwareConfiguration != null then [ hardwareConfiguration ] else [ ]);
 
   boot.loader = {
     systemd-boot.enable = true;

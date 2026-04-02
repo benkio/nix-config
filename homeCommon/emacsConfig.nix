@@ -13,12 +13,12 @@ let
       pkgs.curl
     ];
     text = ''
-      if [ ! -d "${config.home.homeDirectory}/.emacs.d" ]; then
-	export PRELUDE_URL="https://github.com/benkio/prelude.git"
-	curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
-      else
-	echo "emacs folder exists"
-      fi
+            if [ ! -d "${config.home.homeDirectory}/.emacs.d" ]; then
+      	export PRELUDE_URL="https://github.com/benkio/prelude.git"
+      	curl -L https://github.com/bbatsov/prelude/raw/master/utils/installer.sh | sh
+            else
+      	echo "emacs folder exists"
+            fi
     '';
   };
 in
