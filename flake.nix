@@ -21,7 +21,7 @@
         if isDarwin then
           import ./flake/hosts/darwin/default.nix {
             inherit inputs;
-            system = "x86_64-darwin";
+            system = "aarch64-darwin";
           }
         else
           {};
@@ -37,7 +37,7 @@
         if isDarwin then
           import ./flake/home/darwin.nix {
             inherit inputs;
-            system = "x86_64-darwin";
+            system = "aarch64-darwin";
           }
         else
           {};

@@ -18,7 +18,10 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+    nur = import (builtins.fetchGit {
+      url = "https://github.com/nix-community/NUR.git";
+      ref = "main";
+    }) {
       inherit pkgs;
     };
   };
