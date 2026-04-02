@@ -40,7 +40,6 @@
     {
       darwinConfigurations = darwinSystems;
       nixosConfigurations = nixosSystems;
-
       homeConfigurations = darwinHomeConfigurations // nixosHomeConfigurations;
     };
 }
