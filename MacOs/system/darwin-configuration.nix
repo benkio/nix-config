@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 let
-  home = "/Users/benkio";
+  home = "/Users/${config.system.primaryUser}";
 in
 {
   imports = [
@@ -31,6 +31,37 @@ in
         KeepAlive = true;
         StandardErrorPath = "${home}/ollama.error.log";
         StandardOutPath = "${home}/ollama.log";
+      };
+    };
+    bobPaintings = {
+      serviceConfig = {
+        ProgramArguments = [
+          "${pkgs.bash}/bin/bash"
+          "-lc"
+          ''
+            WALLPAPER_DIR="${home}/wallpapers"
+            if [ ! -d "$WALLPAPER_DIR" ]; then
+              echo "Wallpaper folder does not exist: $WALLPAPER_DIR"
+              exit 1
+            fi
+
+            WALLPAPER_COUNT=$(${pkgs.findutils}/bin/find -L "$WALLPAPER_DIR" -type f | ${pkgs.coreutils}/bin/wc -l)
+            echo "Wallpaper folder: $WALLPAPER_DIR"
+            echo "Wallpaper file count: $WALLPAPER_COUNT"
+            CLEAN=$(${pkgs.findutils}/bin/find -L "$WALLPAPER_DIR" -type f | ${pkgs.coreutils}/bin/shuf -n 1)
+            if [ -n "$CLEAN" ]; then
+              echo "Selected wallpaper: $CLEAN"
+              /usr/bin/osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$CLEAN\""
+            else
+              echo "No wallpapers found in $WALLPAPER_DIR"
+              exit 1
+            fi
+          ''
+        ];
+        RunAtLoad = true;
+        StartInterval = 300;
+        StandardErrorPath = "${home}/bob-wallpaper.error.log";
+        StandardOutPath = "${home}/bob-wallpaper.log";
       };
     };
   };
