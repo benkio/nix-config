@@ -22,7 +22,7 @@
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
       XDG_CURRENT_DESKTOP = "GNOME"; # To trick some app to work on i3 alone, eg gnome-control-center
     };
-    stateVersion = "25.11";
+    stateVersion = "26.05";
     username = "benkio";
     file = {
       ".ghci".text = ''
