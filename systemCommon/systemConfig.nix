@@ -4,9 +4,10 @@ let
   purescript-overlay = import (
     builtins.fetchGit {
       url = "https://github.com/thomashoneyman/purescript-overlay.git";
-      ref = "main";
+      rev = "8efaeddf5b43d87756c9f1c86fae753b2f3bc30d";
     }
   );
+  pureScriptOverlay = purescript-overlay.overlays.default;
 in
 {
 
@@ -17,16 +18,20 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
+    nur =
+      import
+        (builtins.fetchGit {
+          url = "https://github.com/nix-community/NUR.git";
+          rev = "fb993e86121b76faf5dde868a2b8e2390e4035ca";
+        })
+        {
+          inherit pkgs;
+        };
   };
 
-  # PureScript overlay: up-to-date purs, spago, purs-tidy, etc.
   nixpkgs.overlays = [
-    purescript-overlay
+    pureScriptOverlay
   ];
-
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";
 

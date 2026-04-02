@@ -11,8 +11,7 @@
   fonts.fontconfig.enable = true;
 
   home = {
-    homeDirectory =
-      if lib.hasInfix "darwin" builtins.currentSystem then "/Users/benkio" else "/home/benkio";
+    homeDirectory = if pkgs.stdenv.hostPlatform.isDarwin then "/Users/benkio" else "/home/benkio";
     keyboard.layout = "us";
     keyboard.variant = "dvorak";
     sessionVariables = {

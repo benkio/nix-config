@@ -1,4 +1,8 @@
-{ pkgs, defaultModel ? "qwen3", ... }:
+{
+  pkgs,
+  defaultModel ? "qwen3",
+  ...
+}:
 
 # Common script to ensure ollama has at least one model installed
 pkgs.writeShellScript "ollama-models" ''

@@ -1,0 +1,18 @@
+name: NixOS CI
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  test-nixos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - name: Install omnix
+        run: nix profile install nixpkgs#omnix
+      - name: Home-manager CI
+        run: om ci run ./flake/home

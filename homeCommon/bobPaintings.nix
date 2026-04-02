@@ -6,12 +6,11 @@
 }:
 
 let
-  bobPaitings = pkgs.fetchgit {
-    url = "https://github.com/jwilber/Bob_Ross_Paintings.git";
-    rev = "90dcb68c20502b0151497c0dad7d08a3ceedaf85";
-    sha256 = "sha256-TMt+hr1pewzFg6pFfgaAuC6Pop6wPZNAvn/lc8PH8tk=";
+  bobPaintings = builtins.fetchGit {
+    url = "https://github.com/jwilber/Bob_Ross_Paintings";
+    rev = "f8741b2ba36d7b7a6e3fc87cb757ea73c9da6e1f";
   };
 in
 {
-  home.file."wallpapers".source = "${bobPaitings}/data/paintings";
+  home.file."wallpapers".source = "${bobPaintings}/data/paintings";
 }

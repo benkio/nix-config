@@ -4,6 +4,13 @@ let
   user = "benkio";
   # Import shared Ollama configuration
   ollamaConfig = import ../../systemCommon/ollama-config.nix;
+  hardwareConfiguration =
+    if builtins.pathExists "/etc/nixos/hardware-configuration.nix" then
+      /etc/nixos/hardware-configuration.nix
+    else if builtins.pathExists "/private/etc/nixos/hardware-configuration.nix" then
+      /private/etc/nixos/hardware-configuration.nix
+    else
+      null;
 in
 {
   programs = {
@@ -25,9 +32,9 @@ in
 
   imports = [
     # Include the results of the hardware scan.
-    /etc/nixos/hardware-configuration.nix
     ../../systemCommon/systemConfig.nix
-  ];
+  ]
+  ++ (if hardwareConfiguration != null then [ hardwareConfiguration ] else [ ]);
 
   boot.loader = {
     systemd-boot.enable = true;

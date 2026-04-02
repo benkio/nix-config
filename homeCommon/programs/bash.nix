@@ -13,7 +13,7 @@ let
   systemSpecificAliases =
     if lib.strings.hasInfix "darwin" pkgs.stdenv.hostPlatform.system then
       {
-        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo -H nix-channel --update && sudo -H darwin-rebuild switch; home-manager switch ; nix-collect-garbage --delete-older-than 14d; sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.sc && cd ~/nix-config && nix flake update && sudo -H darwin-rebuild switch --flake .#macos && home-manager switch --flake .#benkio@macos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       }
     # Nixos / Linux
     else
@@ -21,7 +21,7 @@ let
         bluetooth = "blueman-manager &";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "scala-cli ~/UpdateAllGitMain.sc ; nix-channel --update && sudo -H nix-channel --update && nixos-rebuild switch --sudo; home-manager switch ; nix-collect-garbage --delete-older-than 14d; sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.sc && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --flake .#nixos; home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
@@ -94,11 +94,6 @@ in
         . ${config.home.homeDirectory}/.bashrcextra
       fi
 
-      if [[ $(uname -r) =~ WSL ]]; then
-        # WSL detected
-        setxkbmap -layout us -variant dvorak
-        export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
-      fi
     '';
   };
 }
