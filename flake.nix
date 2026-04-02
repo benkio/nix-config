@@ -10,33 +10,54 @@
 
   outputs = { self, nixpkgs, darwin, home-manager, ... }@inputs:
     let
-      darwinSystems = import ./flake/hosts/darwin/default.nix {
-        inherit inputs;
-        system = "x86_64-darwin";
-      };
-      nixosSystems = import ./flake/hosts/nixos/default.nix {
-        inherit inputs;
-        system = "x86_64-linux";
-      };
-      darwinHomeConfigurations = import ./flake/home/darwin.nix {
-        inherit inputs;
-        system = "x86_64-darwin";
-      };
-      nixosHomeConfigurations = import ./flake/home/nixos.nix {
-        inherit inputs;
-        system = "x86_64-linux";
-      };
+      # Detect host family in flake eval without importing Linux-specific modules on macOS.
+      isDarwin = builtins.pathExists "/System/Library/CoreServices/SystemVersion.plist";
+
+      darwinSystems =
+          import ./flake/hosts/darwin/default.nix {
+            inherit inputs;
+            system = "x86_64-darwin";
+          };
+      nixosSystems =
+          import ./flake/hosts/nixos/default.nix {
+            inherit inputs;
+            system = "x86_64-linux";
+          };
+      darwinHomeConfigurations =
+          import ./flake/home/darwin.nix {
+            inherit inputs;
+            system = "x86_64-darwin";
+          };
+      nixosHomeConfigurations =
+          import ./flake/home/nixos.nix {
+            inherit inputs;
+            system = "x86_64-linux";
+          };
+
+      selectedNixosOutputs =
+        if isDarwin then
+          {}
+        else
+          nixosSystems;
+      selectedDarwinOutputs =
+        if isDarwin then
+          darwinSystems
+        else
+          {};
+      selectedHomeConfigurations =
+        if isDarwin then
+          darwinHomeConfigurations
+        else
+          nixosHomeConfigurations;
     in
     {
       nixConfig = {
         experimental-features = "nix-command flakes";
       };
 
-      darwinConfigurations = darwinSystems;
-      nixosConfigurations = nixosSystems;
+      darwinConfigurations = selectedDarwinOutputs;
+      nixosConfigurations = selectedNixosOutputs;
 
-      homeConfigurations =
-        darwinHomeConfigurations
-        // nixosHomeConfigurations;
+      homeConfigurations = selectedHomeConfigurations;
     };
 }
