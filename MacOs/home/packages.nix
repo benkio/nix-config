@@ -17,7 +17,6 @@
   home.packages = with pkgs; [
     alt-tab-macos
     defaultbrowser
-    desktoppr
     google-chrome
     slack
     telegram-desktop
