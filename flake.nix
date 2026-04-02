@@ -16,9 +16,9 @@
       ...
     }@inputs:
     let
-      nixosFlake = (import ./flake/nixos/flake.nix).outputs { inherit inputs; };
-      darwinFlake = (import ./flake/darwin/flake.nix).outputs { inherit inputs; };
-      homeFlake = (import ./flake/home/flake.nix).outputs { inherit inputs; };
+      nixosFlake = (import ./flake/nixos/flake.nix).outputs inputs;
+      darwinFlake = (import ./flake/darwin/flake.nix).outputs inputs;
+      homeFlake = (import ./flake/home/flake.nix).outputs inputs;
     in
     {
       nixosConfigurations = nixosFlake.nixosConfigurations;

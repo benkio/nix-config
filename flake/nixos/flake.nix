@@ -6,7 +6,7 @@
   };
 
   outputs =
-    { inputs, ... }:
+    inputs:
     let
       system = "x86_64-linux";
       nixosConfigurations = import ../hosts/nixos/default.nix {

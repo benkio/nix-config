@@ -8,7 +8,7 @@
   };
 
   outputs =
-    { inputs, ... }:
+    inputs:
     let
       homeNixosConfigurations = import ./nixos.nix {
         inherit inputs;

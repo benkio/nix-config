@@ -7,7 +7,7 @@
   };
 
   outputs =
-    { inputs, ... }:
+    inputs:
     let
       system = "aarch64-darwin";
       darwinConfigurations = import ../hosts/darwin/default.nix {
