@@ -14,4 +14,5 @@ jobs:
       - uses: DeterminateSystems/nix-installer-action@main
       - name: Install omnix
         run: nix profile install nixpkgs#omnix
-      - run: om ci run ./flake/home/nixos.nix
+      - name: Home-manager CI
+        run: om ci run ./flake/home

@@ -13,33 +13,16 @@
 
   outputs =
     {
-      self,
-      nixpkgs,
-      darwin,
-      home-manager,
       ...
     }@inputs:
     let
-      darwinSystems = import ./flake/hosts/darwin/default.nix {
-        inherit inputs;
-        system = "aarch64-darwin";
-      };
-      nixosSystems = import ./flake/hosts/nixos/default.nix {
-        inherit inputs;
-        system = "x86_64-linux";
-      };
-      darwinHomeConfigurations = import ./flake/home/darwin.nix {
-        inherit inputs;
-        system = "aarch64-darwin";
-      };
-      nixosHomeConfigurations = import ./flake/home/nixos.nix {
-        inherit inputs;
-        system = "x86_64-linux";
-      };
+      nixosFlake = (import ./flake/nixos/flake.nix).outputs { inherit inputs; };
+      darwinFlake = (import ./flake/darwin/flake.nix).outputs { inherit inputs; };
+      homeFlake = (import ./flake/home/flake.nix).outputs { inherit inputs; };
     in
     {
-      darwinConfigurations = darwinSystems;
-      nixosConfigurations = nixosSystems;
-      homeConfigurations = darwinHomeConfigurations // nixosHomeConfigurations;
+      nixosConfigurations = nixosFlake.nixosConfigurations;
+      darwinConfigurations = darwinFlake.darwinConfigurations;
+      homeConfigurations = homeFlake.homeConfigurations;
     };
 }
