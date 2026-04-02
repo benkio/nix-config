@@ -13,10 +13,9 @@ Once in the terminal run
   nmcli device wifi connect <ssid> password <password> # To connect to the internet - check with ping google.com
   nix-shell -p git micro ripgrep # Create a nix shell with basic software to modify and change the repo
   git clone https://github.com/benkio/nix-config.git # Clone this repo
-  sudo rm /etc/nixos/configuration.nix  # Remove the previous default configuration
-  sudo ln -s /home/benkio/nix-config/NixOs/system/configuration.nix /etc/nixos/configuration.nix # Hard link this configuration
-  nixos-rebuild build # Build it
-  nixos-rebuild switch # If previous command succeded, apply the new configuration
+  cd nix-config
+  sudo nixos-rebuild build --flake .#nixos # Build it
+  sudo nixos-rebuild switch --flake .#nixos # If previous command succeded, apply the new configuration
 #+end_src
 
 ** Minimal NixOs Commands
@@ -64,43 +63,35 @@ remove the nixos image from the drive
 If you want the unstable channel (latest changes) you need to remove the sudo channel for nixos and put the unstable
 
 #+begin_src
-  sudo nix-channel --remove nixos
-  sudo nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixos
-  sudo nix-channel --update
-  nixos-rebuild build # Build it
-  nixos-rebuild switch # If previous command succeded, apply the new configuration
+  # flakes are already pinned in flake.lock
+  nix flake update
+  sudo nixos-rebuild switch --flake .#nixos # If needed, rebuild with the latest lock file
 #+end_src
 
 * Home Manager Installation
 
 #+begin_src shell
-# passwd benkio from root in case, default password in config
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
+# Build and switch from flake-based home configuration
+cd ~/nix-config
+home-manager switch --flake .#benkio@macos
 #+end_src
 
 log off and in
 
 #+begin_src shell
-  nix-shell '<home-manager>' -A install
-  # mkdir ~/.config/nixpkgs
-  git clone https://github.com/benkio/nix-config.git
-  cd nix-config/
-  # Change it to NixOs home file if in NixOs
-  ln -s ~/nix-config/MacOs/home/home.nix ~/.config/home-manager/home.nix
-  home-manager switch
+  # Change it to the right host config with --flake
+  cd ~/nix-config
+  home-manager switch --flake .#benkio@nixos
+  home-manager switch --flake .#benkio@wsl2
 #+end_src
 
 * MacOs - Darwin-nix
 
-  For installation of ~darwin-nix~ you can follow the instructions in this gist: [[https://gist.github.com/mandrean/65108e0898629e20afe1002d8bf4f223][darwin-nix setup]] and install [[https://brew.sh][Homebrew]]
-
-  Just add the symlink for the darwin configuration as follow
+  For installation of nix-darwin you can switch directly from this flake:
 
   #+begin_src shell
-sudo rm /etc/nix-darwin/configuration.nix
-sudo ln -s ~/nix-config/MacOs/system/darwin-configuration.nix /etc/nix-darwin/configuration.nix
-sudo darwin-rebuild switch
+cd ~/nix-config
+sudo darwin-rebuild switch --flake .#macos
   #+end_src
 
 * Post Installation Work

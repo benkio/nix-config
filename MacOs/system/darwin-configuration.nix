@@ -52,8 +52,8 @@ in
     };
   };
 
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+  # For flake-based activation from repo root:
+  # $ darwin-rebuild switch --flake <repo>#macos
   environment.darwinConfig = "${home}/nix-config/MacOs/system/darwin-configuration.nix";
 
   nix.package = pkgs.nix;

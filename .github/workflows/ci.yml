@@ -12,7 +12,8 @@ jobs:
       - name: Install nix
         uses: cachix/install-nix-action@v27
         with:
-          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
 
       - name: Cache Nix store
         uses: actions/cache@v4
@@ -26,14 +27,9 @@ jobs:
         run: |
           nix copy --from file://$RUNNER_TEMP/nix-store . || echo "No previous cache available"
 
-      - name: Install nixpkgs, home-manager & nixfmt
+      - name: Install nixfmt
         run: |
-          nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-          nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-          nix-channel --update
           nix-env -iA nixfmt-rfc-style -f '<nixpkgs>'
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-          nix-shell '<home-manager>' -A install
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,26 +38,24 @@ jobs:
         run: |
           echo this workflow was triggered by ${{github.actor}}
           find . -name '*.nix' | xargs nixfmt -c
+          nix flake check
 
       - name: Darwin Install & build
         run: |
-          nix-channel --add https://github.com/LnL7/nix-darwin/archive/master.tar.gz darwin
-          nix-channel --update
-
           # UID not correct: reference: https://torgeir.dev/2024/10/nix-darwin-sequoia-nixbld-users-migration/
           curl --proto '=https' --tlsv1.2 -sSf -L https://github.com/NixOS/nix/raw/master/scripts/sequoia-nixbld-user-migration.sh | bash -
-
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH:darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
-          nix-build '<darwin>' -A darwin-rebuild
-          ./result/bin/darwin-rebuild build -I darwin-config=$GITHUB_WORKSPACE/MacOs/system/darwin-configuration.nix
-
-      - name: Export Nix store paths from Darwin build
-        run: |
-          nix copy --to file://$RUNNER_TEMP/nix-store ./result
+          nix build .#darwinConfigurations.macos.config.system.build.toplevel
 
       - name: Home-manager build
         run: |
-          export NIX_PATH=$HOME/.nix-defexpr/channels${NIX_PATH:+:}$NIX_PATH
-          home-manager build -I $GITHUB_WORKSPACE/MacOs/home/home.nix
-          nix copy --to file://$RUNNER_TEMP/nix-store ./result
+          nix build .#homeConfigurations.benkio@macos.activationPackage
+
+      - name: NixOS eval check
+        run: |
+          nix eval .#nixosConfigurations.nixos
+          nix build --dry-run .#nixosConfigurations.nixos.config.system.build.toplevel
+
+      - name: Export Nix store paths from Darwin build
+        run: |
+          nix copy --to file://$RUNNER_TEMP/nix-store .#darwinConfigurations.macos.config.system.build.toplevel
 
