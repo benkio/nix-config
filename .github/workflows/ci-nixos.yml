@@ -1,0 +1,37 @@
+name: NixOS CI
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  test-nixos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Install nixfmt
+        run: |
+          nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#nixfmt-rfc-style
+
+      - name: Formatting and checks
+        run: |
+          find . -name '*.nix' -print0 | xargs -0 nixfmt -c
+          nix flake check
+
+      - name: NixOS eval check
+        run: |
+          nix eval .#nixosConfigurations.nixos
+          nix build .#nixosConfigurations.nixos.config.system.build.toplevel
+
+      - name: Home-manager build
+        run: |
+          nix build .#homeConfigurations.benkio@nixos.activationPackage

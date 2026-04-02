@@ -1,0 +1,38 @@
+name: macOS CI
+
+on:
+  push:
+    branches:
+      - "**"
+
+jobs:
+  test-macos:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v27
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+
+      - name: Install nixfmt
+        run: |
+          nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#nixfmt-rfc-style
+
+      - name: Formatting and checks
+        run: |
+          find . -name '*.nix' -print0 | xargs -0 nixfmt -c
+          nix flake check
+
+      - name: Darwin install & build
+        run: |
+          # UID not correct: reference: https://torgeir.dev/2024/10/nix-darwin-sequoia-nixbld-users-migration/
+          curl --proto '=https' --tlsv1.2 -sSf -L https://github.com/NixOS/nix/raw/master/scripts/sequoia-nixbld-user-migration.sh | bash -
+          nix build .#darwinConfigurations.macos.config.system.build.toplevel
+
+      - name: Home-manager build
+        run: |
+          nix build .#homeConfigurations.benkio@macos.activationPackage
