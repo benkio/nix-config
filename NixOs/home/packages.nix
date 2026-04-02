@@ -28,7 +28,7 @@
     teamviewer             # Desktop sharing application
     telegram-desktop       # Chat
     unetbootin             # Linux/Windows Image Creator
-    xorg.setxkbmap         # Command to set keybindings
+    setxkbmap              # Command to set keybindings
     zoom-us                # Video Calls
   ];
 }

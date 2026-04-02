@@ -37,7 +37,7 @@ in
     tsx                                     # Typescript Execute
     typescript                              # Typescript compiler
     typescript-language-server              # Typescript LSP
-    xorg.setxkbmap                          # Command to set keybindings
+    setxkbmap                               # Command to set keybindings
     zed-editor                              # Alternative editor
   ];
 }
