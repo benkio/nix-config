@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
 
+let
+  purescript-overlay = import (
+    builtins.fetchGit {
+      url = "https://github.com/thomashoneyman/purescript-overlay.git";
+      ref = "main";
+    }
+  );
+in
 {
 
   imports = [
@@ -16,13 +24,7 @@
 
   # PureScript overlay: up-to-date purs, spago, purs-tidy, etc.
   nixpkgs.overlays = [
-    (final: prev:
-      let
-        purescript-overlay-src = builtins.fetchTarball
-          "https://github.com/thomashoneyman/purescript-overlay/archive/refs/heads/main.tar.gz";
-        purescript-overlay = import (purescript-overlay-src + "/overlay.nix");
-      in
-        purescript-overlay final prev)
+    purescript-overlay
   ];
 
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw

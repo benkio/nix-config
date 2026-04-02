@@ -29,11 +29,8 @@ in
     discord                                 # Chat
     flameshot                               # Screenshot utilityy
     losslesscut-bin                         # Gui for FFMPEG
-    nodePackages.aws-cdk                    # AWS Cloud Development Kit
-    nodePackages.js-beautify                # Javascript beautifier
-    nodePackages.npm                        # Node package manager
-    nodePackages.prettier                   # Javascript Formatter
-    nodePackages.yarn                       # Package manager
+    aws-cdk-cli                             # AWS Cloud Development Kit
+    prettier                                # Javascript Formatter
     metals                                  # Scala LSP
     sqlfluff                                # SQL Linter
     tex                                     # Typesetting Engine
