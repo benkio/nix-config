@@ -8,9 +8,28 @@ on:
 jobs:
   test-nixos:
     runs-on: ubuntu-latest
+    container:
+      image: nixos/nix:latest
+      options: --user root
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Provision temporary hardware configuration
+        run: |
+          mkdir -p /etc/nixos
+          cat > /etc/nixos/hardware-configuration.nix <<'EOF'
+          { config, lib, modulesPath, ... }:
+          {
+            imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
+            boot.loader.grub.enable = false;
+            fileSystems."/" = {
+              device = "tmpfs";
+              fsType = "tmpfs";
+              options = [ "rw" "mode=755" ];
+            };
+          }
+          EOF
 
       - name: Install nix
         uses: cachix/install-nix-action@v27
@@ -27,11 +46,11 @@ jobs:
           find . -name '*.nix' -print0 | xargs -0 nixfmt -c
           nix flake check
 
-      - name: NixOS eval check
-        run: |
-          nix eval .#nixosConfigurations.nixos
-          nix build .#nixosConfigurations.nixos.config.system.build.toplevel
-
       - name: Home-manager build
         run: |
           nix build .#homeConfigurations.benkio@nixos.activationPackage
+
+      - name: NixOS eval and build
+        run: |
+          nix eval .#nixosConfigurations.nixos
+          nix build .#nixosConfigurations.nixos.config.system.build.toplevel
