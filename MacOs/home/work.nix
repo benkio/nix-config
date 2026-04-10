@@ -9,20 +9,7 @@
   programs = {
     ssh = {
       enable = true;
-      enableDefaultConfig = false;
       matchBlocks = {
-        "workIdentity" = {
-          user = "git";
-          identityFile = [
-            "~/.ssh/id_ed25519"
-            "~/.ssh/id_rsa"
-          ];
-          hostname = "github.com";
-          extraOptions = {
-            IdentitiesOnly = "yes";
-            IdentityAgent = "none";
-          };
-        };
         "github.com" = {
           user = "git";
           hostname = "github.com";
