@@ -13,8 +13,27 @@
       matchBlocks = {
         "workIdentity" = {
           user = "git";
-          identityFile = "~/.ssh/id_ed25519";
+          identityFile = [
+            "~/.ssh/id_ed25519"
+            "~/.ssh/id_rsa"
+          ];
           hostname = "github.com";
+          extraOptions = {
+            IdentitiesOnly = "yes";
+            IdentityAgent = "none";
+          };
+        };
+        "github.com" = {
+          user = "git";
+          hostname = "github.com";
+          identityFile = [
+            "~/.ssh/id_ed25519"
+            "~/.ssh/id_rsa"
+          ];
+          extraOptions = {
+            IdentitiesOnly = "yes";
+            IdentityAgent = "none";
+          };
         };
       };
     };
