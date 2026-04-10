@@ -126,9 +126,6 @@
         pull = {
           rebase = false;
         };
-        core = {
-          sshCommand = "ssh -i ~/.ssh/id_rsa";
-        };
       };
     };
     delta = {
