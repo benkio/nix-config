@@ -127,7 +127,7 @@
           rebase = false;
         };
         core = {
-          sshCommand = "ssh -i ~/.ssh/id_ed25519 -i ~/.ssh/id_rsa";
+          sshCommand = "ssh -i ~/.ssh/id_rsa";
         };
       };
     };
@@ -162,25 +162,11 @@
     };
     ssh = {
       enable = true;
-      enableDefaultConfig = false;
       matchBlocks = {
-        "benkioIdentity" = {
-          user = "git";
-          identityFile = "~/.ssh/id_rsa";
-          hostname = "github.com";
-        };
         "*" = {
-          forwardAgent = false;
-          compression = false;
-          serverAliveInterval = 0;
-          serverAliveCountMax = 3;
-          hashKnownHosts = false;
-          userKnownHostsFile = "~/.ssh/known_hosts";
-          controlMaster = "no";
-          controlPath = "~/.ssh/master-%r@%n:%p";
-          controlPersist = "no";
           extraOptions = {
             AddKeysToAgent = "yes";
+            UseKeychain = "yes";
             IdentitiesOnly = "yes";
           };
         };
