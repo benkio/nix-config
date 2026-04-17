@@ -405,6 +405,10 @@ in
                 url = "https://ukpersonal.finance/flowchart/";
               }
 
+              {
+                name = "Wiki Gatcha - Wikipedia Pokemon Cards";
+                url = "https://wikigacha.com";
+              }
             ];
           }
 
@@ -438,6 +442,23 @@ in
                 url = "https://organice.200ok.ch/files";
               }
             ];
+          }
+        ];
+      };
+      settings = {
+        "browser.startup.homepage" = "https://wikigacha.com";
+        "browser.newtabpage.pinned" = [
+          {
+            title = "Google Calendar";
+            url = "https://calendar.google.com/calendar/u/0/r/month";
+          }
+          {
+            title = "Gmail";
+            url = "https://mail.google.com/mail/u/0/#inbox";
+          }
+          {
+            title = "Fresh RSS";
+            url = "https://reader.websitemachine.nl/i/?a=normal&get=f_89";
           }
         ];
       };
