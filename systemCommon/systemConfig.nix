@@ -4,7 +4,7 @@ let
   purescript-overlay = import (
     builtins.fetchGit {
       url = "https://github.com/thomashoneyman/purescript-overlay.git";
-      rev = "8efaeddf5b43d87756c9f1c86fae753b2f3bc30d";
+      rev = "0aaa4c2124622bd7d2f58c5758037f97c580ee73";
     }
   );
   pureScriptOverlay = purescript-overlay.overlays.default;
