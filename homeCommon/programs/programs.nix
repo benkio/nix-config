@@ -167,7 +167,6 @@
         "*" = {
           extraOptions = {
             AddKeysToAgent = "yes";
-            UseKeychain = "yes";
             IdentitiesOnly = "yes";
             UserKnownHostsFile  = "~/.ssh/known_hosts";
           };
