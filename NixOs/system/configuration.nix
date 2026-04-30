@@ -2,8 +2,6 @@
 
 let
   user = "benkio";
-  # Import shared Ollama configuration
-  ollamaConfig = import ../../systemCommon/ollama-config.nix;
 in
 {
   programs = {
@@ -42,26 +40,6 @@ in
   systemd = {
     network.wait-online.enable = true;
     enableEmergencyMode = false;
-    services = {
-      ollama-pull-default-model = {
-        enable = true;
-        description = "Pull default Ollama model (${ollamaConfig.defaultModel})";
-        after = [
-          "network-online.target"
-          "ollama.service"
-        ];
-        wantedBy = [ "multi-user.target" ];
-        wants = [ "network-online.target" ];
-        serviceConfig = {
-          Type = "oneshot";
-          User = user;
-          ExecStart = "${pkgs.ollama}/bin/ollama pull ${ollamaConfig.defaultModel} &";
-          Restart = "on-failure";
-          RestartSec = 10;
-        };
-      };
-
-    };
     user.services = {
       kanshi = {
         # To Start Sway
@@ -135,7 +113,6 @@ in
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
-    ollama.enable = true; # Start the Ollama service
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 

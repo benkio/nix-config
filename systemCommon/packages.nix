@@ -59,7 +59,6 @@
     nmap # Network discovery tool
     nodejs # Event-driven I/O framework for JS
     ntfs3g # NTFS driver
-    ollama # Opensource LLM service
     ormolu # Haskell formatter
     pkg-config # Queries information about libraries
     procs # better ps
