@@ -8,11 +8,6 @@
       options = "--delete-older-than 7d";
     };
 
-    # Avoid unwanted garbage collection when using nix-direnv
-    extraOptions = ''
-      keep-outputs     = true
-      keep-derivations = true
-    '';
     settings = {
       max-jobs = 2;
       cores = 2;
