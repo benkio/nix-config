@@ -230,9 +230,9 @@ in
       pavucontrol # Pulseaudio control
       pciutils # Collection of programs for inspecting and manipulating configuration of PCI devices
       playerctl # Command-line utility and library for controlling media players that implement MPRIS
-      protonvpn-gui # Client for Proton VPN
+      proton-vpn # Client for Proton VPN
       psmisc
-      swww # Efficient animated wallpaper daemon for wayland, controlled at runtime
+      awww # Efficient animated wallpaper daemon for wayland, controlled at runtime
       usbutils # Tools for working with USB devices, such as lsusb
       vlc # Video palyer
       xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
