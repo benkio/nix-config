@@ -39,7 +39,6 @@ in
     discord # Chat
     flameshot # Screenshot utilityy
     losslesscut-bin # Gui for FFMPEG
-    aws-cdk-cli # AWS Cloud Development Kit
     prettier # Javascript Formatter
     metals # Scala LSP
     sqlfluff # SQL Linter
