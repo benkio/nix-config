@@ -16,7 +16,7 @@
     keyboard.variant = "dvorak";
     sessionVariables = {
       LANG = "en_US.utf-8";
-      EDITOR = "emacs -t"; # emacs terminal
+      EDITOR = "emacs -nw"; # emacs terminal
       VISUAL = "emacsclient -c -n"; # emacs client visual
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
