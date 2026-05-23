@@ -163,13 +163,11 @@
     ssh = {
       enable = true;
       enableDefaultConfig = false;
-      matchBlocks = {
+      settings = {
         "*" = {
-          extraOptions = {
-            AddKeysToAgent = "yes";
-            IdentitiesOnly = "yes";
-            UserKnownHostsFile  = "~/.ssh/known_hosts";
-          };
+          AddKeysToAgent = "yes";
+          IdentitiesOnly = true;
+          UserKnownHostsFile = "~/.ssh/known_hosts";
         };
       };
     };

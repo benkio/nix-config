@@ -93,13 +93,7 @@
     };
   };
 
-  programs.ssh = {
-    matchBlocks = {
-      "*" = {
-        extraOptions = {
-          UseKeychain = "yes";
-        };
-      };
-    };
+  programs.ssh.settings."*" = {
+    UseKeychain = "yes";
   };
 }
