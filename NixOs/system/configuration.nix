@@ -112,7 +112,6 @@ in
     blueman.enable = true; # bluetooth service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
-    copyq.enable = true; # Clipboard management
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
