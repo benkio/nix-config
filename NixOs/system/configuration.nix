@@ -113,6 +113,7 @@ in
     teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
+    copyq.enable = true; # Clipboard management
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
@@ -182,7 +183,6 @@ in
       aws-vault # AWS secret keeping
       bluez # Bluetooth manager
       brightnessctl # Brightness control
-      copyq # Clipboard tool
       dmenu # Sway/I3 menu
       dmidecode # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
       evince # PDF Viewer
