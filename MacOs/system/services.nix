@@ -5,7 +5,6 @@ let
 in
 {
   services = {
-    redis.enable = true;
 
     postgresql = {
       enable = true;

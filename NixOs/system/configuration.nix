@@ -110,7 +110,6 @@ in
     openssh.enable = true; # Enable the OpenSSH daemon.
     printing.enable = true; # Enable CUPS to print documents.
     blueman.enable = true; # bluetooth service
-    teamviewer.enable = true; # teamviewer service
     gnome.gnome-keyring.enable = true; # Store Wifi passwords
     pulseaudio.enable = false; # Disable Pulseaudio
     copyq.enable = true; # Clipboard management
@@ -137,7 +136,7 @@ in
 
     };
     postgresql = {
-      enable = false; # broken <2024-03-04 Mon>
+      enable = true;
       package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
       authentication = pkgs.lib.mkForce ''
         # Generated file; do not edit!

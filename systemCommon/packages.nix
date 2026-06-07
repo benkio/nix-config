@@ -11,7 +11,6 @@
     bruno # Bruno HTTP Client - Postman Alternative
     bruno-cli # Bruno CLI
     btop # Better htop
-    cdrtools # Highly portable CD/DVD/BluRay command line recording software
     coreutils # GNU Core Utilities
     coursier # Scala dependency fetcher
     cpulimit # Tool to limit CPU usage from a program, PID, Command
@@ -88,6 +87,5 @@
     wget # File downloader from URL
     xclip # Clipboard tool
     zip # Complession Tool
-    zoxide # Better cd command
   ];
 }
