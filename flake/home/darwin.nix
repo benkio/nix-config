@@ -6,7 +6,7 @@
 let
   mkHome = username: homeModule: {
     "${username}" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      pkgs = inputs.nixpkgs-darwin.legacyPackages.${system};
       extraSpecialArgs = {
         inherit inputs;
       };
