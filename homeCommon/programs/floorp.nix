@@ -211,6 +211,11 @@ in
             bookmarks = [
 
               {
+                name = "Hacklily - Lilipond Editor";
+                url = "https://www.hacklily.org/";
+              }
+
+              {
                 name = "Pitch and Speed (Tempo) converter";
                 url = "http://www.conversion-tool.com/pitch";
               }
@@ -233,11 +238,6 @@ in
               {
                 name = "LALAL.AI";
                 url = "https://www.lalal.ai/";
-              }
-
-              {
-                name = "Spirit of Metal";
-                url = "http://www.spirit-of-metal.com/";
               }
 
               {
@@ -273,33 +273,13 @@ in
               }
 
               {
-                name = "Free Online Tools For Developers";
-                url = "http://codebeautify.org/";
-              }
-
-              {
                 name = "DevDocs - Multi language documentation search engine";
                 url = "https://devdocs.io/";
               }
 
               {
-                name = "HackerRank";
-                url = "https://www.hackerrank.com/";
-              }
-
-              {
-                name = "exercism.io";
-                url = "http://exercism.io/";
-              }
-
-              {
                 name = "Excuses For Lazy Coders";
                 url = "http://programmerexcuses.com/";
-              }
-
-              {
-                name = "free-programming-books";
-                url = "https://github.com/vhf/free-programming-books/blob/master/free-programming-books.md";
               }
 
               {
@@ -311,11 +291,6 @@ in
                 name = "Nix Versioning - Super useful to install the specific version you need";
                 url = "https://lazamar.co.uk/nix-versions/";
               }
-
-              {
-                name = "haskell mooc course";
-                url = "https://haskell.mooc.fi/";
-              }
             ];
           }
 
@@ -323,20 +298,6 @@ in
             name = "Downloads";
             toolbar = true;
             bookmarks = [
-              {
-                name = "Rock Torrents";
-                url = "http://rocktorrents.ucoz.org/load/";
-              }
-
-              {
-                name = "RockBox - Index";
-                url = "https://rawkbawx.rocks/";
-              }
-
-              {
-                name = "Metal Torrent Tracker";
-                url = "http://en.metal-tracker.com/";
-              }
 
               {
                 name = "Pirate Bay";
@@ -346,16 +307,6 @@ in
               {
                 name = "xdcc.eu";
                 url = "https://www.xdcc.eu";
-              }
-
-              {
-                name = "StreamingCommunity";
-                url = "https://streamingcommunity.cz/";
-              }
-
-              {
-                name = "Anna’s Archive";
-                url = "https://it.annas-archive.org/";
               }
 
               {
@@ -376,36 +327,6 @@ in
             bookmarks = [
 
               {
-                name = "Developer-Y/cs-video-courses: List of Computer Science courses with video lectures.";
-                url = "https://github.com/Developer-Y/cs-video-courses";
-              }
-
-              {
-                name = "edX | Free online courses from the world's best universities";
-                url = "https://www.edx.org/";
-              }
-
-              {
-                name = "Coursera";
-                url = "https://www.coursera.org/";
-              }
-
-              {
-                name = "Udemy";
-                url = "https://www.udemy.com/jazz-guitar-tips-tricks-and-licks/";
-              }
-
-              {
-                name = "RandomWiki";
-                url = "https://en.wikipedia.org/wiki/Special:Random";
-              }
-
-              {
-                name = "The Flowchart - UKPersonalFinance Wiki";
-                url = "https://ukpersonal.finance/flowchart/";
-              }
-
-              {
                 name = "Wiki Gatcha - Wikipedia Pokemon Cards";
                 url = "https://wikigacha.com";
               }
@@ -413,19 +334,9 @@ in
           }
 
           {
-            name = "Cloud Storage & Collab. Tools";
+            name = "Cloud Storage";
             toolbar = true;
             bookmarks = [
-
-              {
-                name = "flat.io - Online Music Location";
-                url = "https://flat.io/";
-              }
-
-              {
-                name = "Hacklily - Lilipond Editor";
-                url = "https://www.hacklily.org/";
-              }
 
               {
                 name = "TgStorage";
@@ -440,6 +351,28 @@ in
               {
                 name = "Organice";
                 url = "https://organice.200ok.ch/files";
+              }
+            ];
+          }
+
+          {
+            name = "Japanese";
+            toolbar = true;
+            bookmarks = [
+
+              {
+                name = "Jisho - Japanese Dictionary";
+                url = "https://flat.io/";
+              }
+
+              {
+                name = "TTSHub - Text to Speech";
+                url = "https://ttshub.net/";
+              }
+
+              {
+                name = "Anki Web - Space Repetition Deck Cards";
+                url = "https://ankiweb.net";
               }
             ];
           }
