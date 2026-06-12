@@ -9,18 +9,16 @@
   programs = {
     ssh = {
       enable = true;
-      matchBlocks = {
+      settings = {
         "github.com" = {
-          user = "git";
-          hostname = "github.com";
-          identityFile = [
+          User = "git";
+          HostName = "github.com";
+          IdentityFile = [
             "~/.ssh/id_ed25519"
             "~/.ssh/id_rsa"
           ];
-          extraOptions = {
-            IdentitiesOnly = "yes";
-            IdentityAgent = "none";
-          };
+          IdentitiesOnly = true;
+          IdentityAgent = "none";
         };
       };
     };
@@ -47,6 +45,7 @@
       # Generate it from the tap repository README
       # https://github.com/commercetools/homebrew-tap
       HOMEBREW_GITHUB_API_TOKEN = "";
+      HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "";
       VAULT_ADDR = "url";
       AWS_SECRET_ACCESS_KEY = "bar";
       AWS_ACCESS_KEY_ID = "foo";
@@ -54,6 +53,9 @@
       GOOGLE_APPLICATION_CREDENTIALS = "path-to-json-credential";
     };
     file.".config/git/workspace.gitconfig".text = ''
+      [core]
+      sshCommand = "ssh -o IdentitiesOnly=yes -o IdentityAgent=none -i ~/.ssh/id_ed25519 -i ~/.ssh/id_rsa"
+
       [user]
         name = Enrico Benini
         email = workmail
