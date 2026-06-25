@@ -34,10 +34,11 @@ in
         ublock-origin
         vimium
         proton-vpn
+        libredirect
       ];
       search = {
         force = true;
-        default = "google";
+        default = "searx";
         order = [
           "google"
           "searx"
