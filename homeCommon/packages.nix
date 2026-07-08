@@ -40,12 +40,12 @@
     flameshot # Screenshot utilityy
     prettier # Javascript Formatter
     metals # Scala LSP
+    micro # Micro terminal editor
     sqlfluff # SQL Linter
     # tex # Typesetting Engine
     tsx # Typescript Execute
     typescript # Typescript compiler
     typescript-language-server # Typescript LSP
     setxkbmap # Command to set keybindings
-    zed-editor # Alternative editor
   ];
 }

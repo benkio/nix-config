@@ -43,6 +43,7 @@
     kubectl # Kubernetes official CLI
     kubectx # Fast way to switch between clusters and namespaces in kubectl
     lame # Audio Encoder
+    lazydocker # Docker User interface
     lazygit # Git User interface
     linkchecker # Link Checker for HTML pages and more
     lsof # List open files

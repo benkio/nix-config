@@ -1,27 +1,186 @@
 #+OPTIONS: toc:2
+#+TITLE: nix-config
 
-* Installation
+Personal Nix flake for macOS (nix-darwin + Home Manager) and NixOS.
 
-** Grafical (Reccommended)
+| Host   | System flake | Home Manager flake   |
+|--------+--------------+----------------------|
+| macOS  | ~.macos~     | ~.benkio@macos~      |
+| NixOS  | ~.nixos~     | ~.benkio@nixos~      |
 
-Install through a USB flashed drive and then choose the minimal.
-You should skip all the nonesense for the partitioning below.
-Once in the terminal run
+* macOS installation
 
-#+begin_src
-  sudo loadkeys -v dvorak # (Optional) Set dvorak for the session
-  nmcli device wifi connect <ssid> password <password> # To connect to the internet - check with ping google.com
-  nix-shell -p git micro ripgrep # Create a nix shell with basic software to modify and change the repo
-  git clone https://github.com/benkio/nix-config.git # Clone this repo
-  cd nix-config
-  sudo nixos-rebuild build --flake .#nixos # Build it
-  sudo nixos-rebuild switch --flake .#nixos # If previous command succeded, apply the new configuration
+Install in this order: Nix → nix-darwin → Home Manager.
+
+** 1. Install Nix
+
+Use the official multi-user installer from the Nix project:
+
+- [[https://nix.dev/install-nix.html][nix.dev — Install Nix]]
+- [[https://nixos.org/manual/nix/stable/installation/installing-binary][Nix manual — Installing a binary distribution]]
+
+#+begin_src shell
+curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install | sh
 #+end_src
 
-** Minimal NixOs Commands
+Open a new terminal and verify:
 
-  Edit: this was done long ago, it might be outdated/unecessary now
-  Commands to run on startup to install nixos and add the configuration
+#+begin_src shell
+nix --version
+#+end_src
+
+*** macOS troubleshooting
+
+If the installer complains about existing ~*.backup-before-nix~ shell profile backups,
+remove the stale backups (after copying them somewhere safe) and run the installer again.
+
+If you see ~the build users group 'nixbld' has no members~, the ~nixbld~ group in Open
+Directory is missing ~GroupMembership~ entries. See
+[[https://github.com/NixOS/nix/issues/6078][NixOS/nix#6078]].
+
+After a macOS upgrade, if ~_nixbld1~ users are missing, see
+[[https://github.com/NixOS/nix/issues/10892][NixOS/nix#10892]].
+
+If Nix downloads fail with an SSL error about ~ca-certificates.crt~, it may point at a
+removed Nix store path from a previous install. A temporary workaround is:
+
+#+begin_src shell
+sudo ln -sf /etc/ssl/cert.pem /etc/ssl/certs/ca-certificates.crt
+#+end_src
+
+Before the first ~darwin-rebuild~, nix-darwin may refuse to activate if ~/etc~ files
+were modified manually or by a partial install. Rename the conflicting files as
+instructed, e.g.:
+
+#+begin_src shell
+sudo mv /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt.before-nix-darwin
+sudo mv /etc/bashrc /etc/bashrc.before-nix-darwin
+#+end_src
+
+Then retry the ~darwin-rebuild~ / ~nix run nix-darwin -- switch~ command.
+
+** 2. Clone this repository
+
+#+begin_src shell
+git clone https://github.com/benkio/nix-config.git ~/nix-config
+cd ~/nix-config
+#+end_src
+
+** 3. Install nix-darwin
+
+Official project and installation guide:
+
+- [[https://github.com/nix-darwin/nix-darwin][nix-darwin on GitHub]]
+
+On a fresh Nix install, flakes may not be enabled in ~/etc/nix/nix.conf~ yet. Use
+~nix run~ for the first switch. You must pass ~--flake~ with this repository's
+configuration — ~darwin-rebuild~ alone is not enough:
+
+#+begin_src shell
+cd ~/nix-config
+sudo -H nix --extra-experimental-features nix-command \
+  --extra-experimental-features flakes \
+  run github:nix-darwin/nix-darwin -- switch --flake .#macos
+#+end_src
+
+Do /not/ run ~nix run nix-darwin#darwin-rebuild -- switch~ without ~--flake .#macos~;
+that produces ~file 'darwin' was not found in the Nix search path~.
+
+After the first successful switch, ~darwin-rebuild~ is on your PATH and experimental
+features are configured by this flake. Later updates can use:
+
+#+begin_src shell
+cd ~/nix-config
+sudo -H darwin-rebuild switch --flake .#macos
+#+end_src
+
+If ~darwin-rebuild~ is not on PATH yet (before Home Manager sets up your shell), use:
+
+#+begin_src shell
+sudo -H /run/current-system/sw/bin/darwin-rebuild switch --flake .#macos
+#+end_src
+
+** 4. Install Home Manager
+
+Official documentation:
+
+- [[https://nix-community.github.io/home-manager/][Home Manager manual]]
+- [[https://github.com/nix-community/home-manager][Home Manager on GitHub]]
+
+#+begin_src shell
+cd ~/nix-config
+home-manager switch --flake .#benkio@macos
+#+end_src
+
+If ~home-manager~ is not available yet, bootstrap it with:
+
+#+begin_src shell
+nix --extra-experimental-features nix-command \
+  --extra-experimental-features flakes \
+  run github:nix-community/home-manager -- switch --flake .#benkio@macos
+#+end_src
+
+Log out and back in (or open a new terminal) so shell and PATH changes take effect.
+
+** Updating macOS configuration
+
+Once everything is installed, rebuild system and user configuration:
+
+#+begin_src shell
+cd ~/nix-config
+nix flake update
+sudo -H darwin-rebuild switch --flake .#macos
+home-manager switch --flake .#benkio@macos
+#+end_src
+
+On macOS, the ~update~ shell alias (defined in Home Manager) runs the above flow and
+garbage collection.
+
+* NixOS installation
+
+** Graphical install (recommended)
+
+Install from a USB drive and choose the minimal image. Skip the manual partitioning
+steps below unless you need them.
+
+Once in the installer environment:
+
+#+begin_src shell
+sudo loadkeys -v dvorak                    # optional: dvorak for the session
+nmcli device wifi connect <ssid> password <password>
+nix-shell -p git micro ripgrep
+git clone https://github.com/benkio/nix-config.git
+cd nix-config
+sudo nixos-rebuild build --flake .#nixos
+sudo nixos-rebuild switch --flake .#nixos
+#+end_src
+
+** Home Manager on NixOS
+
+- [[https://nix-community.github.io/home-manager/][Home Manager manual]]
+
+#+begin_src shell
+cd ~/nix-config
+home-manager switch --flake .#benkio@nixos
+#+end_src
+
+** Updating NixOS configuration
+
+Channels are not used; versions are pinned in ~flake.lock~.
+
+#+begin_src shell
+cd ~/nix-config
+nix flake update
+sudo nixos-rebuild switch --flake .#nixos
+home-manager switch --flake .#benkio@nixos
+#+end_src
+
+On NixOS, the ~update~ shell alias runs the above flow and garbage collection.
+
+** Manual partitioning (historical)
+
+The commands below were used for a manual install long ago. They may be outdated;
+prefer the graphical installer when possible.
 
 #+begin_src
 nix-env -i git
@@ -45,94 +204,51 @@ parted /dev/sda -- set 3 esp on
 mkfs.ext4 -L nixos /dev/sda1
 mkswap -L swap /dev/sda2
 swapon /dev/sda2
-mkfs.fat -F 32 -n boot /dev/sda3        # (for UEFI systems only)
+mkfs.fat -F 32 -n boot /dev/sda3        # UEFI only
 mount /dev/disk/by-label/nixos /mnt
-mkdir -p /mnt/boot                      # (for UEFI systems only)
-mount /dev/disk/by-label/boot /mnt/boot # (for UEFI systems only)
+mkdir -p /mnt/boot                      # UEFI only
+mount /dev/disk/by-label/boot /mnt/boot # UEFI only
 nixos-generate-config --root /mnt
 cp configuration.nix /mnt/etc/nixos/
 nixos-install
 reboot
 #+end_src
 
-remember the root password
-remove the nixos image from the drive
+Remember the root password and remove the installer image from the drive.
 
-* Set Unstable Channel
+* Post installation
 
-If you want the unstable channel (latest changes) you need to remove the sudo channel for nixos and put the unstable
+Some setup still has to be done manually.
 
-#+begin_src
-  # flakes are already pinned in flake.lock
-  nix flake update
-  sudo nixos-rebuild switch --flake .#nixos # If needed, rebuild with the latest lock file
-#+end_src
+** Setup GitHub SSH and GPG keys
 
-* Home Manager Installation
+Go into Bitwarden for the note about GitHub SSH/GPG keys. Repeat for every
+account/key.
 
 #+begin_src shell
-# Build and switch from flake-based home configuration
-cd ~/nix-config
-home-manager switch --flake .#benkio@macos
+mkdir ~/.ssh
+cd ~/.ssh
+touch id_rsa id_rsa.pub
+# Copy keys from Bitwarden into id_rsa and id_rsa.pub
+chmod 600 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+# Copy GPG key into private.key, then:
+gpg --import private.key
 #+end_src
 
-log off and in
+** Finish / check Emacs configuration
+
+If ~.emacs.d~ was provisioned from the emacs-config repo on a ~fetchgit~ branch, set up
+SSH keys first, then:
 
 #+begin_src shell
-  # Change it to the right host config with --flake
-  cd ~/nix-config
-  home-manager switch --flake .#benkio@nixos
+git pull origin main
+git checkout -f main
+git clean -fx
+git branch -D fetchgit
+# Run generation of treesitter grammars
 #+end_src
 
-* MacOs - Darwin-nix
+** Work setup
 
-  For installation of nix-darwin you can switch directly from this flake:
-
-  #+begin_src shell
-cd ~/nix-config
-sudo darwin-rebuild switch --flake .#macos
-  #+end_src
-
-* Post Installation Work
-
-Despite the effort to reduce this there are things you need to do manually
-
-** Setup Github SSH and GPG keys
-
-  Go into Bitwarden, you should see a note about github ssh/gpg
-  keys. There you can find the content of the 2 files you need to
-  setup. These are the commands you should run. Repeat for every account/key
-
-#+begin_src shell
-  mkdir ~/.ssh
-  cd ~/.ssh
-  touch id_rsa
-  touch id_rsa.pub
-  # Go to Bitwarden, copy and paste the SSH Private and Public keys. eg with vi
-  chmod 600 ~/.ssh/id_rsa
-  chmod 600 ~/.ssh/id_rsa.pub
-  # Go to Bitwarden, copy and paste the GPG key into private.key file
-  gpg --import private.key
-#+end_src
-
-** Finish/check Emacs Configuration
-
- If no ~.emacs.d~ folder is not found in your home, then the
- emacs-config repo is downloaded and put in place, but with a
- different branch (~fetchgit~). After setting up the SSH keys from
- Github, be sure to run the following commands
-
-#+begin_src shell
-  # Execute after setting the ssh key from bitwarden
-  git pull origin main
-  git checkout -f main
-  git clean -fx
-  git branch -D fetchgit
-  # Run generation of treesitter grammars
-#+end_src
-
-** Work Setup
-
-There are 2 work files named ~work.nix~ that are specific for your workplace.
-There might be some GPG key to be specified there, email, extra ++homebrew+ packages etc
-Go there and review.
+Review the two ~work.nix~ files (macOS and NixOS) for workplace-specific settings:
+GPG keys, email, extra Homebrew packages, and so on.
