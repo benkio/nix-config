@@ -15,7 +15,6 @@ in
     aerospace = {
       enable = true;
       settings = {
-        start-at-login = true;
         key-mapping.preset = "dvorak";
         default-root-container-layout = "accordion";
         gaps = {
