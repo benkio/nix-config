@@ -186,8 +186,7 @@
         config.font_size = 20.0
         config.color_scheme = 'Nocturnal Winter'
         config.hide_tab_bar_if_only_one_tab = true
-        -- change this to use ESHELL env variable
-        config.default_prog = { '/run/current-system/sw/bin/bash', '-l' }
+        config.default_prog = { '${pkgs.bash}/bin/bash', '-l' }
         config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
 
         -- Print all color schemes to the log
