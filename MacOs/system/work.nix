@@ -25,6 +25,7 @@
     onActivation.extraEnv = {
       # Generate it from the tap repository README
       # https://github.com/commercetools/homebrew-tap
+      HOMEBREW_GITHUB_API_TOKEN = "";
       HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "";
     };
     taps = [
