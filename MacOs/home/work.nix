@@ -29,7 +29,6 @@
             user = {
               email = "work@example.com";
             };
-
             core = {
               sshCommand = "ssh -i ~/.ssh/id_ed25519";
             };
@@ -42,10 +41,6 @@
   };
   home = {
     sessionVariables = {
-      # Generate it from the tap repository README
-      # https://github.com/commercetools/homebrew-tap
-      HOMEBREW_GITHUB_API_TOKEN = "";
-      HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "";
       VAULT_ADDR = "url";
       AWS_SECRET_ACCESS_KEY = "bar";
       AWS_ACCESS_KEY_ID = "foo";

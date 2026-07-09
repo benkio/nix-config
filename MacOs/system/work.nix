@@ -9,6 +9,8 @@
         gke-gcloud-auth-plugin
       ]
     )) # Google Cloud Platform CLI SDK
+    awscli2 # AWS CLI
+    aws-vault # AWS Vault
     cursor-cli # AI on the terminal
     process-compose # docker-compose like
     pnpm # npm alternative
@@ -20,6 +22,11 @@
   ];
 
   homebrew = {
+    onActivation.extraEnv = {
+      # Generate it from the tap repository README
+      # https://github.com/commercetools/homebrew-tap
+      HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "";
+    };
     taps = [
       # commercetools tap doesn't seems to work really well from here. Fallback to manual installation
       {
@@ -32,6 +39,7 @@
     ];
     brews = [
       "commercetools/tap/kubegen"
+      "commercetools/tap/awsgen"
       "hashicorp/tap/vault"
     ];
     casks = [
