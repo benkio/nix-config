@@ -377,6 +377,19 @@ in
               }
             ];
           }
+
+          {
+            name = "Other";
+            toolbar = true;
+            bookmarks = [
+
+              {
+                name = "Flight list Search Engine";
+                url = "https://www.flightlist.io/";
+              }
+
+            ];
+          }
         ];
       };
       settings = {
