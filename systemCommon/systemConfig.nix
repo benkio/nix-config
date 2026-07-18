@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 let
   purescript-overlay = import (
@@ -8,6 +13,7 @@ let
     }
   );
   pureScriptOverlay = purescript-overlay.overlays.default;
+  stablePackagesOverlay = import ./stable-packages-overlay.nix inputs;
 in
 {
 
@@ -31,6 +37,7 @@ in
 
   nixpkgs.overlays = [
     pureScriptOverlay
+    stablePackagesOverlay
   ];
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";

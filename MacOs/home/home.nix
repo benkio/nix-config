@@ -48,8 +48,17 @@
         fi
       '';
       maestralAutostart = config.lib.dag.entryAfter [ "writeBoundary" ] ''
-        ${pkgs.maestral}/bin/maestral autostart -Y
-        ${pkgs.maestral}/bin/maestral start
+        # maestral autostart hardcodes a /nix/store path; rewrite to
+        # /run/current-system so GC of old generations does not break the agent.
+        $DRY_RUN_CMD ${pkgs.maestral}/bin/maestral autostart -Y
+        if [ -f "${config.home.homeDirectory}/Library/LaunchAgents/com.samschott.maestral-daemon.maestral.plist" ]; then
+          # macOS sed -i requires a backup suffix; use empty var (Nix string quoting).
+          empty=
+          $DRY_RUN_CMD /usr/bin/sed -i "$empty" \
+            's|/nix/store/[^"]*/bin/maestral|/run/current-system/sw/bin/maestral|g' \
+            "${config.home.homeDirectory}/Library/LaunchAgents/com.samschott.maestral-daemon.maestral.plist"
+        fi
+        $DRY_RUN_CMD ${pkgs.maestral}/bin/maestral start || true
       '';
       setAppsDefault = config.lib.dag.entryAfter [ "writeBoundary" ] ''
         echo "set App defaults with duti"

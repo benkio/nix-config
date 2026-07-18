@@ -4,9 +4,11 @@
 }:
 
 let
+  stablePackagesOverlay = import ../../systemCommon/stable-packages-overlay.nix inputs;
+  pkgs = (inputs.nixpkgs-darwin.legacyPackages.${system}).extend stablePackagesOverlay;
   mkHome = username: homeModule: {
     "${username}" = inputs.home-manager.lib.homeManagerConfiguration {
-      pkgs = inputs.nixpkgs-darwin.legacyPackages.${system};
+      inherit pkgs;
       extraSpecialArgs = {
         inherit inputs;
       };
