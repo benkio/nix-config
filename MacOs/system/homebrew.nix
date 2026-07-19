@@ -8,6 +8,7 @@
       "smithy-cli" # CLI for smithy language
       "tfenv" # Terraform Version Manager
       "tgenv" # A tool to manage multiples Terragrunt versions
+      "nicotine-plus" # Music P2P
     ];
     casks = [
       "caffeine" # Keep mac awake
