@@ -15,6 +15,7 @@
       "calibre" # Book management
       "dropbox" # Dropbox
       "kdenlive" # Video Editor
+      "macfuse" # NTFS Support
       "musicbrainz-picard" # Audio Tagger
       "obs" # Video/screen recorder
       "vlc" # Video Player

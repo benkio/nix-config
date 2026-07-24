@@ -25,6 +25,10 @@ in
 
   programs.floorp = {
     enable = true;
+    # Wrapped floorp-bin breaks macOS code signing and hangs at startup
+    # (NSConnection / AuthorizationCopyRights). Use unwrapped on Darwin:
+    # https://github.com/NixOS/nixpkgs/issues/443380
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.floorp-bin-unwrapped else pkgs.floorp-bin;
     profiles.benkio = {
       id = 0;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
