@@ -37,7 +37,6 @@ in
         grammarly
         ublock-origin
         vimium
-        proton-vpn
         libredirect
       ];
       search = {
