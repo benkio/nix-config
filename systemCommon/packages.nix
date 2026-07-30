@@ -60,6 +60,8 @@
     nodejs # Event-driven I/O framework for JS
     ntfs3g # NTFS driver
     ormolu # Haskell formatter
+    opencode # AI coding agent built for the terminal
+    opencode-desktop # AI coding agent desktop client
     pkg-config # Queries information about libraries
     procs # better ps
     progress # Tool that shows the progress of coreutils programs
