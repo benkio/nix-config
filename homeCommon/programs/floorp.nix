@@ -203,6 +203,15 @@ in
             ];
             definedAliases = [ "@wiki" ];
           };
+          jisho = {
+            name = "Jisho";
+            urls = [
+              {
+                template = "https://jisho.org/search/{searchTerms}";
+              }
+            ];
+            definedAliases = [ "@ji" ];
+          };
         };
       };
       bookmarks = {
