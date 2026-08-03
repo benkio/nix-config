@@ -30,6 +30,7 @@
 {
   home.packages = with pkgs; [
     # BROKEN handbrake
+    ariang # Web UI for aria2 downloads
     aspell # Spelling checker
     aspellDicts.en # Spelling checker Dictionary
     aspellDicts.en-computers # Spelling checker Dictionary

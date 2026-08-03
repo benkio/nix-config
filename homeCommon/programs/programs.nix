@@ -9,9 +9,43 @@
 #               General Programs Without Specific Configuration                #
 ###############################################################################
 
+let
+  # Daemon-only flags (must NOT live in aria2.conf: Emacs download-urls-or-region
+  # spawns a one-shot aria2c that auto-loads that conf, and enable-rpc/session would
+  # conflict with the background daemon).
+  aria2Session = "${config.home.homeDirectory}/.aria2/session";
+  aria2DaemonArgs = [
+    "--enable-rpc"
+    "--rpc-listen-port=6800"
+    "--rpc-listen-all=false"
+    "--rpc-allow-origin-all=true"
+    "--input-file=${aria2Session}"
+    "--save-session=${aria2Session}"
+    "--save-session-interval=60"
+    "--conf-path=${config.xdg.configHome}/aria2/aria2.conf"
+  ];
+  aria2c = lib.getExe config.programs.aria2.package;
+in
 {
 
   imports = [ ./bash.nix ];
+
+  # aria2 daemon: systemd on Linux (NixOS), launchd on macOS
+  launchd.agents.aria2 = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+    enable = true;
+    config = {
+      ProgramArguments = [ aria2c ] ++ aria2DaemonArgs;
+      KeepAlive = true;
+      RunAtLoad = true;
+      StandardOutPath = "${config.home.homeDirectory}/Library/Logs/aria2.log";
+      StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/aria2.error.log";
+    };
+  };
+
+  # HM's programs.aria2.systemd only passes --enable-rpc; extend with RPC/session args.
+  systemd.user.services.aria2 = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
+    Service.ExecStart = lib.mkForce (lib.concatStringsSep " " ([ aria2c ] ++ aria2DaemonArgs));
+  };
 
   programs = {
     awscli.enable = false;
@@ -30,7 +64,11 @@
 
     aria2 = {
       enable = true;
+      # User systemd service (NixOS / Linux only). macOS uses launchd.agents.aria2 above.
+      systemd.enable = pkgs.stdenv.hostPlatform.isLinux;
       # From here: https://gist.github.com/qzm/a54559726896d5e6bf21adf2363ad334
+      # Keep this conf free of enable-rpc / input-file / save-session so one-shot
+      # CLI use (e.g. Emacs download-urls-or-region) still works alongside the daemon.
       settings = {
         # Basic
         # The directory to store the downloaded file.
@@ -60,7 +98,8 @@
         # Enable disk cache. If SIZE is 0, the disk cache is disabled. This feature caches the downloaded data in memory, which grows to at most SIZE bytes. SIZE can include K or M. Default: 16M
         "disk-cache" = "64M";
         # Specify file allocation method. none doesn't pre-allocate file space. prealloc pre-allocates file space before download begins. This may take some time depending on the size of the file. If you are using newer file systems such as ext4 (with extents support), btrfs, xfs or NTFS(MinGW build only), falloc is your best choice. It allocates large(few GiB) files almost instantly. Don't use falloc with legacy file systems such as ext3 and FAT32 because it takes almost same time as prealloc and it blocks aria2 entirely until allocation finishes. falloc may not be available if your system doesn't have posix_fallocate(3) function. trunc uses ftruncate(2) system call or platform-specific counterpart to truncate a file to a specified length. Possible Values: none, prealloc, trunc, falloc. Default: prealloc
-        "file-allocation" = "falloc";
+        # macOS lacks posix_fallocate(3); use trunc there.
+        "file-allocation" = if pkgs.stdenv.hostPlatform.isDarwin then "trunc" else "falloc";
         # No file allocation is made for files whose size is smaller than SIZE. Default: 5M
         "no-file-allocation-limit" = "8M";
 
@@ -204,12 +243,22 @@
     };
   };
 
-  # Override ~/.gitconfig to redirect Git's global config loading
-  home.file.".gitconfig".text = ''
-    [include]
-      path = ~/.config/git/config
+  home = {
+    # aria2 requires input-file to exist when set; keep an empty session file.
+    activation.createAria2Session = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/.aria2"
+      if [ ! -f "${config.home.homeDirectory}/.aria2/session" ]; then
+        $DRY_RUN_CMD touch "${config.home.homeDirectory}/.aria2/session"
+      fi
+    '';
 
-    [includeIf "gitdir:~/workspace/"]
-      path = ~/.config/git/workspace.gitconfig
-  '';
+    # Override ~/.gitconfig to redirect Git's global config loading
+    file.".gitconfig".text = ''
+      [include]
+        path = ~/.config/git/config
+
+      [includeIf "gitdir:~/workspace/"]
+        path = ~/.config/git/workspace.gitconfig
+    '';
+  };
 }
