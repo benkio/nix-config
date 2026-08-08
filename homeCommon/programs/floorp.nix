@@ -143,15 +143,7 @@ in
           invidious = {
             name = "Invidious";
             urls = [
-              {
-                template = "https://yewtu.be/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
+
               {
                 template = "https://inv.nadeko.net/search";
                 params = [
@@ -162,7 +154,25 @@ in
                 ];
               }
               {
-                template = "https://id.420129.xyz/search";
+                template = "https://invidious.nerdvpn.de/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://invidious.f5.si/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://yewtu.be/search";
                 params = [
                   {
                     name = "q";
