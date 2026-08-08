@@ -16,7 +16,6 @@
       "dropbox" # Dropbox
       "kdenlive" # Video Editor
       "macfuse" # NTFS Support
-      "musicbrainz-picard" # Audio Tagger
       "obs" # Video/screen recorder
       "protonvpn" # Free VPN client
       "vlc" # Video Player

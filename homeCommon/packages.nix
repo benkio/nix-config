@@ -39,14 +39,17 @@
     cabal-install # Haskell package manager
     discord # Chat
     flameshot # Screenshot utilityy
+    picard # Audio Tagger
     prettier # Javascript Formatter
     metals # Scala LSP
     micro # Micro terminal editor
     sqlfluff # SQL Linter
+    telegram-desktop # Chat
     # tex # Typesetting Engine
     tsx # Typescript Execute
     typescript # Typescript compiler
     typescript-language-server # Typescript LSP
+    zoom-us # Video Calls
     setxkbmap # Command to set keybindings
   ];
 }

@@ -18,11 +18,8 @@
     raycast
     google-chrome
     slack
-    telegram-desktop
-    zoom-us
     maccy
     maven
-    ntfs3g
     duti
   ];
 }

@@ -19,11 +19,8 @@
     font-manager # Font Manager for GTK
     kdePackages.kdenlive # Video Editor
     lychee # Link Checker
-    picard # Audio Tagger
     qjackctl # QT Jack Audio Control
     reaper # Audio Editor
-    telegram-desktop # Chat
     unetbootin # Linux/Windows Image Creator
-    zoom-us # Video Calls
   ];
 }
