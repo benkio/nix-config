@@ -226,7 +226,38 @@ in
         config.color_scheme = 'Nocturnal Winter'
         config.hide_tab_bar_if_only_one_tab = true
         config.default_prog = { '${pkgs.bash}/bin/bash', '-l' }
-        config.keys = { { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport'} }
+        config.keys = {
+          { key = 'k', mods = 'SUPER', action = act.ClearScrollback 'ScrollbackAndViewport' },
+
+          -- Emacs-like prefix: C-x then ...
+          { key = 'x', mods = 'CTRL', action = act.ActivateKeyTable { name = 'emacs_ctrl_x', one_shot = false, timeout_milliseconds = 1500 } },
+
+          -- Scroll like Emacs: C-v (down) / M-v (up)
+          { key = 'v', mods = 'CTRL', action = act.ScrollByPage(1) },
+          { key = 'v', mods = 'ALT', action = act.ScrollByPage(-1) },
+
+          -- Text selection/copy/paste inspired by Emacs
+          { key = 'Space', mods = 'CTRL', action = act.ActivateCopyMode },
+          { key = 'w', mods = 'ALT', action = act.CopyTo 'ClipboardAndPrimarySelection' },
+          { key = 'w', mods = 'CTRL|SHIFT', action = act.CopyTo 'ClipboardAndPrimarySelection' },
+          { key = 'y', mods = 'CTRL', action = act.PasteFrom 'Clipboard' },
+          { key = 'y', mods = 'CTRL|SHIFT', action = act.PasteFrom 'PrimarySelection' },
+        }
+        config.key_tables = {
+          emacs_ctrl_x = {
+            -- C-x 2: split below (horizontal split)
+            { key = '2', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
+            -- C-x 3: split right (vertical split)
+            { key = '3', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
+            -- C-x o: switch to next pane
+            { key = 'o', action = act.ActivatePaneDirection 'Next' },
+            -- C-x 0: close current pane
+            { key = '0', action = act.CloseCurrentPane { confirm = true } },
+            -- C-g / Escape: cancel prefix
+            { key = 'g', mods = 'CTRL', action = 'PopKeyTable' },
+            { key = 'Escape', action = 'PopKeyTable' },
+          },
+        }
 
         -- Print all color schemes to the log
         -- for name, _ in pairs(wezterm.color.get_builtin_schemes()) do

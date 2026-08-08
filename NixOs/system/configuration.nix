@@ -181,7 +181,7 @@ in
       aws-vault # AWS secret keeping
       bluez # Bluetooth manager
       brightnessctl # Brightness control
-      dmenu # Sway/I3 menu
+      rofi # Sway launcher
       dmidecode # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
       evince # PDF Viewer
       exfatprogs # EXTFat tool

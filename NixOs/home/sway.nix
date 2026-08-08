@@ -34,7 +34,7 @@ in
         };
       };
       keybindings = lib.mkOptionDefault {
-        "${mod}+space" = "exec ${pkgs.dmenu}/bin/dmenu_run";
+        "${mod}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
 
         # Focus
         "${mod}+Left" = "focus left";

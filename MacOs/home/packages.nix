@@ -15,11 +15,12 @@
     zsh.enable = false;
   };
   home.packages = with pkgs; [
-    alt-tab-macos
+    raycast
     google-chrome
     slack
     telegram-desktop
     zoom-us
+    maccy
     maven
     ntfs3g
     duti
