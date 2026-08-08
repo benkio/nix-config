@@ -24,3 +24,5 @@ jobs:
         run: nix profile install github:NixOS/nixpkgs/nixpkgs-unstable#omnix
       - name: Home-manager CI
         run: om ci run ./flake/home
+      - name: Darwin configuration build
+        run: nix build .#darwinConfigurations.macos.system --no-write-lock-file
