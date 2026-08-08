@@ -6,12 +6,7 @@
 }:
 
 let
-  purescript-overlay = import (
-    builtins.fetchGit {
-      url = "https://github.com/thomashoneyman/purescript-overlay.git";
-      rev = "0aaa4c2124622bd7d2f58c5758037f97c580ee73";
-    }
-  );
+  purescript-overlay = import inputs.purescript-overlay;
   pureScriptOverlay = purescript-overlay.overlays.default;
   stablePackagesOverlay = import ./stable-packages-overlay.nix inputs;
 in
@@ -24,15 +19,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.packageOverrides = pkgs: {
-    nur =
-      import
-        (builtins.fetchGit {
-          url = "https://github.com/nix-community/NUR.git";
-          rev = "fb993e86121b76faf5dde868a2b8e2390e4035ca";
-        })
-        {
-          inherit pkgs;
-        };
+    nur = import inputs.nur { inherit pkgs; };
   };
 
   nixpkgs.overlays = [
