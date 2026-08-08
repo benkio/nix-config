@@ -6,8 +6,7 @@
 }:
 
 let
-  purescript-overlay = import inputs.purescript-overlay;
-  pureScriptOverlay = purescript-overlay.overlays.default;
+  pureScriptOverlay = inputs.purescript-overlay.overlays.default;
   stablePackagesOverlay = import ./stable-packages-overlay.nix inputs;
 in
 {
