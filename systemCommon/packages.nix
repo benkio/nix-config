@@ -67,7 +67,6 @@
     progress # Tool that shows the progress of coreutils programs
     purs # PureScript compiler (from purescript-overlay)
     purs-tidy # Purescript Formatter
-    python313Packages.eyed3 # ID3 tagger - abcde hidden dependency
     ripgrep # Better grep
     rustup # Rust setup utility
     scala # Scala compiler

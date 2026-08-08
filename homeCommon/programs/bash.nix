@@ -13,6 +13,7 @@ let
   systemSpecificAliases =
     if lib.strings.hasInfix "darwin" pkgs.stdenv.hostPlatform.system then
       {
+        ripCDMp3 = "/Applications/freac.app/Contents/MacOS/freaccmd -e mp3 --track=all --cddb -d \"$HOME/Music/rips\"";
         update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H darwin-rebuild switch --flake .#macos && home-manager switch --flake .#benkio@macos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       }
     # Nixos / Linux
@@ -21,6 +22,7 @@ let
         bluetooth = "blueman-manager &";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
+        ripCDMp3 = "freaccmd -e mp3 --track=all --cddb -d \"$HOME/Music/rips\"";
         update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos; home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
@@ -71,7 +73,6 @@ in
         pscpu = "procs --sortd cpu";
         psmem = "procs --sortd mem";
         restart-ssh-agent = "eval \"$(ssh-agent -s)\"";
-        ripCDMp3 = "abcde -B -G -o mp3 -x";
         sbt = "sbt -Dsbt.supershell=false";
         wifi = "nmtui";
       }

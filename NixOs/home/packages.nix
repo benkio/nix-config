@@ -13,7 +13,7 @@
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
     # BROKEN amule                  # P2P Sharing
-    abcde # Audio CD estractor
+    freac # Audio CD extractor
     calibre # Book Management (Kindle)
     feh # Image Viewer
     font-manager # Font Manager for GTK
