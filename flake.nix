@@ -9,10 +9,7 @@
       url = "github:thomashoneyman/purescript-overlay?rev=0aaa4c2124622bd7d2f58c5758037f97c580ee73";
       flake = false;
     };
-    nur = {
-      url = "github:nix-community/NUR?rev=fb993e86121b76faf5dde868a2b8e2390e4035ca";
-      flake = false;
-    };
+    nur.url = "github:nix-community/NUR?rev=fb993e86121b76faf5dde868a2b8e2390e4035ca";
     darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
     home-manager.url = "github:nix-community/home-manager";

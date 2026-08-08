@@ -18,11 +18,9 @@ in
   ];
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import inputs.nur { inherit pkgs; };
-  };
 
   nixpkgs.overlays = [
+    inputs.nur.overlays.default
     pureScriptOverlay
     stablePackagesOverlay
   ];
