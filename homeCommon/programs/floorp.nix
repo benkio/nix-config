@@ -102,7 +102,7 @@ in
             name = "Searx";
             urls = [
               {
-                template = "https://priv.au/search";
+                template = "https://searx.linxx.net/search";
                 params = [
                   {
                     name = "q";
@@ -111,7 +111,7 @@ in
                 ];
               }
               {
-                template = "https://search.inetol.net/search";
+                template = "https://search.yuri.llc/search";
                 params = [
                   {
                     name = "q";
@@ -120,7 +120,7 @@ in
                 ];
               }
               {
-                template = "https://search.hbubli.cc/search";
+                template = "https://searx.ononoki.org/search";
                 params = [
                   {
                     name = "q";
@@ -129,7 +129,16 @@ in
                 ];
               }
               {
-                template = "https://search.rhscz.eu/search";
+                template = "https://searxng.fishfvch.com/search";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+              {
+                template = "https://xka.cz/search";
                 params = [
                   {
                     name = "q";
