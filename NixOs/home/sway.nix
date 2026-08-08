@@ -182,6 +182,11 @@ in
       assign [class="Floorp"] workspace number 2
       for_window [app_id="floorp"] fullscreen enable
       for_window [class="Floorp"] fullscreen enable
+      for_window [app_id="floorp" title="Picture-in-Picture"] floating enable, fullscreen disable
+      for_window [class="Floorp" title="Picture-in-Picture"] floating enable, fullscreen disable
+      for_window [app_id="firefox" title="Picture-in-Picture"] floating enable
+      for_window [class="firefox" title="Picture-in-Picture"] floating enable
+      for_window [class="Firefox" title="Picture-in-Picture"] floating enable
 
       assign [app_id="org.wezfurlong.wezterm"] workspace number 3
       assign [class="org.wezfurlong.wezterm"] workspace number 3

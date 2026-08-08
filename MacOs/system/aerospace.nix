@@ -81,6 +81,20 @@
       on-window-detected = [
         {
           "if" = {
+            app-id = "org.mozilla.floorp";
+            window-title-regex-substring = "Picture-in-Picture";
+          };
+          run = "layout floating";
+        }
+        {
+          "if" = {
+            app-id = "org.mozilla.firefox";
+            window-title-regex-substring = "Picture-in-Picture";
+          };
+          run = "layout floating";
+        }
+        {
+          "if" = {
             app-id = "org.gnu.Emacs";
           };
           run = [
@@ -105,13 +119,6 @@
             "move-node-to-workspace 3"
             "fullscreen"
           ];
-        }
-        {
-          "if" = {
-            app-id = "org.mozilla.firefox";
-            window-title-regex-substring = "Picture-in-Picture";
-          };
-          run = "layout floating";
         }
       ];
     };
