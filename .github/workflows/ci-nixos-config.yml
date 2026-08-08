@@ -1,0 +1,38 @@
+name: NixOS Config CI
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  test-nixos-config:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Provide CI hardware configuration
+        run: |
+          sudo mkdir -p /etc/nixos
+          sudo tee /etc/nixos/hardware-configuration.nix >/dev/null <<'EOF'
+          { ... }:
+          {
+            fileSystems."/" = {
+              device = "none";
+              fsType = "tmpfs";
+            };
+            fileSystems."/boot" = {
+              device = "none";
+              fsType = "vfat";
+            };
+            swapDevices = [ ];
+          }
+          EOF
+
+      - name: Validate NixOS system configuration
+        run: nix build --dry-run --impure .#nixosConfigurations.nixos.config.system.build.toplevel
