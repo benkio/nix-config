@@ -6,6 +6,7 @@ in
 {
   imports = [
     ../../systemCommon/systemConfig.nix
+    ./aerospace.nix
     ./homebrew.nix
     ./programs.nix
     ./services.nix

@@ -112,6 +112,10 @@ in
       };
       startup = [
         {
+          command = "swaymsg workspace number 4";
+          always = false;
+        }
+        {
           command = "nm-applet --sm-disable";
           always = false;
         }
@@ -169,6 +173,23 @@ in
       ];
     };
     extraConfig = ''
+      assign [app_id="emacs"] workspace number 1
+      assign [class="Emacs"] workspace number 1
+      for_window [app_id="emacs"] fullscreen enable
+      for_window [class="Emacs"] fullscreen enable
+
+      assign [app_id="floorp"] workspace number 2
+      assign [class="Floorp"] workspace number 2
+      for_window [app_id="floorp"] fullscreen enable
+      for_window [class="Floorp"] fullscreen enable
+
+      assign [app_id="org.wezfurlong.wezterm"] workspace number 3
+      assign [class="org.wezfurlong.wezterm"] workspace number 3
+      assign [class="WezTerm"] workspace number 3
+      for_window [app_id="org.wezfurlong.wezterm"] fullscreen enable
+      for_window [class="org.wezfurlong.wezterm"] fullscreen enable
+      for_window [class="WezTerm"] fullscreen enable
+
       seat seat0 xcursor_theme Adwaita 40
     '';
   };
