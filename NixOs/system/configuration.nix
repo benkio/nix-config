@@ -190,7 +190,7 @@ in
       gimp # Image Editor
       glibcLocales # Locale information for the GNU C Library
       gparted # Partition tool
-      hexchat # IRC Client
+      halloy # IRC Client
       jack2 # JACK audio connection kit, version 2 with jackdbus
       kanshi # Wailand equivalent for Autorandr
       gmetronome # Metronome
