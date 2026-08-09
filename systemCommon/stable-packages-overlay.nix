@@ -7,6 +7,8 @@ in
 {
   # unstable: python3.14-rubicon-objc check phase
   maestral = stable.maestral;
+  # unstable: MEGAcmd runtime sync crash on macOS (SIGTRAP)
+  megacmd = stable.megacmd;
   # unstable: whisper-cpp (ffmpeg-full dependency) link phase
   ffmpeg-full = stable.ffmpeg-full;
   # unstable: rust link phase (same cctools ld crash)
