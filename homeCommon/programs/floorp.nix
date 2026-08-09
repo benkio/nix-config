@@ -37,14 +37,12 @@ in
         grammarly
         ublock-origin
         vimium
-        libredirect
       ];
       search = {
         force = true;
-        default = "searx";
+        default = "google";
         order = [
           "google"
-          "searx"
         ];
         engines = {
           google.metaData.alias = "@g";
@@ -97,57 +95,6 @@ in
               }
             ];
             definedAliases = [ "@hg" ];
-          };
-          searx = {
-            name = "Searx";
-            urls = [
-              {
-                template = "https://searx.linxx.net/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-              {
-                template = "https://search.yuri.llc/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-              {
-                template = "https://searx.ononoki.org/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-              {
-                template = "https://searxng.fishfvch.com/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-              {
-                template = "https://xka.cz/search";
-                params = [
-                  {
-                    name = "q";
-                    value = "{searchTerms}";
-                  }
-                ];
-              }
-            ];
-            definedAliases = [ "@sx" ];
           };
           invidious = {
             name = "Invidious";
