@@ -301,7 +301,7 @@ in
     activation.ensureMegaSync = lib.hm.dag.entryAfter [ "createMegaSyncDir" ] ''
       # Requires a prior `mega-login`; if not logged in this step is skipped.
       if ${megaWhoami} >/dev/null 2>&1; then
-        $DRY_RUN_CMD ${megaSync} "${config.home.homeDirectory}/Mega" /Root/Mega >/dev/null 2>&1 || true
+        $DRY_RUN_CMD ${megaSync} "${config.home.homeDirectory}/Mega" / >/dev/null 2>&1 || true
       fi
     '';
 
