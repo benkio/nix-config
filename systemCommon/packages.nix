@@ -52,6 +52,7 @@
     magic-wormhole # File transfer over network
     mariadb # Ex-MySQL
     mediainfo # Information about a audio/video file
+    megacmd # Mega command line tools and sync support
     megatools # Tools to interact with mega.nz
     mermaid-cli # Command line tool for mermaid
     moreutils # More command line tools

@@ -43,6 +43,8 @@
     prettier # Javascript Formatter
     metals # Scala LSP
     micro # Micro terminal editor
+    megacmd # Mega command line tools and sync support
+    megatools # Tools to interact with mega.nz
     sqlfluff # SQL Linter
     telegram-desktop # Chat
     # tex # Typesetting Engine

@@ -25,6 +25,9 @@ let
     "--conf-path=${config.xdg.configHome}/aria2/aria2.conf"
   ];
   aria2c = lib.getExe config.programs.aria2.package;
+  megaCmdServer = lib.getExe' pkgs.megacmd "mega-cmd-server";
+  megaSync = lib.getExe' pkgs.megacmd "mega-sync";
+  megaWhoami = lib.getExe' pkgs.megacmd "mega-whoami";
 in
 {
 
@@ -39,6 +42,16 @@ in
       RunAtLoad = true;
       StandardOutPath = "${config.home.homeDirectory}/Library/Logs/aria2.log";
       StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/aria2.error.log";
+    };
+  };
+  launchd.agents.megacmd = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin {
+    enable = true;
+    config = {
+      ProgramArguments = [ megaCmdServer ];
+      KeepAlive = true;
+      RunAtLoad = true;
+      StandardOutPath = "${config.home.homeDirectory}/Library/Logs/megacmd.log";
+      StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/megacmd.error.log";
     };
   };
 
@@ -280,6 +293,15 @@ in
       $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/.aria2"
       if [ ! -f "${config.home.homeDirectory}/.aria2/session" ]; then
         $DRY_RUN_CMD touch "${config.home.homeDirectory}/.aria2/session"
+      fi
+    '';
+    activation.createMegaSyncDir = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      $DRY_RUN_CMD mkdir -p "${config.home.homeDirectory}/Mega"
+    '';
+    activation.ensureMegaSync = lib.hm.dag.entryAfter [ "createMegaSyncDir" ] ''
+      # Requires a prior `mega-login`; if not logged in this step is skipped.
+      if ${megaWhoami} >/dev/null 2>&1; then
+        $DRY_RUN_CMD ${megaSync} "${config.home.homeDirectory}/Mega" /Root/Mega >/dev/null 2>&1 || true
       fi
     '';
 
