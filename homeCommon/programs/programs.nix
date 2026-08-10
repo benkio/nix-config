@@ -25,7 +25,13 @@ let
     "--conf-path=${config.xdg.configHome}/aria2/aria2.conf"
   ];
   aria2c = lib.getExe config.programs.aria2.package;
-  megaCmdServer = lib.getExe' pkgs.megacmd "mega-cmd-server";
+  # Keep launchd agent command stable across generations to avoid
+  # unnecessary unload/bootstrap cycles on darwin updates.
+  megaCmdServer =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      "/run/current-system/sw/bin/mega-cmd-server"
+    else
+      lib.getExe' pkgs.megacmd "mega-cmd-server";
   megaSync = lib.getExe' pkgs.megacmd "mega-sync";
   megaWhoami = lib.getExe' pkgs.megacmd "mega-whoami";
 in
@@ -304,6 +310,21 @@ in
         $DRY_RUN_CMD ${megaSync} "${config.home.homeDirectory}/Mega" / >/dev/null 2>&1 || true
       fi
     '';
+    activation.enableHomeLaunchAgents = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin (
+      lib.hm.dag.entryBefore [ "setupLaunchAgents" ] ''
+        # launchctl can persist disabled overrides per-label; this makes bootstrap fail
+        # with code 5 even when the plist is valid. Re-enable HM labels before reload.
+        if [[ "$(/bin/launchctl managername 2>/dev/null)" == "Aqua" ]]; then
+          uid="$(id -u)"
+          for plist in "${config.home.homeDirectory}/Library/LaunchAgents"/org.nix-community.home.*.plist; do
+            [ -e "$plist" ] || continue
+            label="$(basename "$plist" .plist)"
+            $DRY_RUN_CMD /bin/launchctl enable "gui/$uid/$label" >/dev/null 2>&1 || true
+            $DRY_RUN_CMD /bin/launchctl enable "user/$uid/$label" >/dev/null 2>&1 || true
+          done
+        fi
+      ''
+    );
 
     # Override ~/.gitconfig to redirect Git's global config loading
     file.".gitconfig".text = ''
