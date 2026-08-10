@@ -21,6 +21,13 @@ in
       StandardOutPath = "${home}/postgres.log";
     };
 
+    maccy = {
+      serviceConfig = {
+        ProgramArguments = [ "${pkgs.maccy}/Applications/Maccy.app/Contents/MacOS/Maccy" ];
+        RunAtLoad = true;
+      };
+    };
+
     bobPaintings = {
       serviceConfig = {
         ProgramArguments = [
