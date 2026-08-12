@@ -46,6 +46,25 @@ in
         ];
         engines = {
           google.metaData.alias = "@g";
+          google-maps = {
+            name = "Google Maps";
+            urls = [
+              {
+                template = "https://www.google.com/maps/search/";
+                params = [
+                  {
+                    name = "api";
+                    value = "1";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@map" ];
+          };
           youtube = {
             name = "Youtube";
             urls = [
