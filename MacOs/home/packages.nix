@@ -15,7 +15,6 @@
     zsh.enable = false;
   };
   home.packages = with pkgs; [
-    raycast
     google-chrome
     slack
     maccy
