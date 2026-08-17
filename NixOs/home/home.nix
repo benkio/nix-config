@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ../../homeCommon/aiSkills.nix
     ../../homeCommon/bobPaintings.nix
     ../../homeCommon/emacsConfig.nix
     ../../homeCommon/gists.nix
