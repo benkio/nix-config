@@ -27,10 +27,26 @@
 #     }
 #   );
 # in
+let
+  ariangLauncher =
+    if pkgs.stdenv.hostPlatform.isDarwin then
+      (pkgs.writeShellScriptBin "ariang" ''
+        set -euo pipefail
+        src_dir="${pkgs.ariang}/share/ariang"
+        cache_dir="$HOME/.cache/ariang"
+
+        mkdir -p "$cache_dir"
+        cp -R "$src_dir"/. "$cache_dir"/
+
+        exec open "$cache_dir/index.html"
+      '')
+    else
+      pkgs.ariang;
+in
 {
   home.packages = with pkgs; [
     # BROKEN handbrake
-    ariang # Web UI for aria2 downloads
+    ariangLauncher # Web UI for aria2 downloads
     aspell # Spelling checker
     aspellDicts.en # Spelling checker Dictionary
     aspellDicts.en-computers # Spelling checker Dictionary
