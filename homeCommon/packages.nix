@@ -8,25 +8,6 @@
 ###############################################################################
 #                   Packages without specific configuration                   #
 ###############################################################################
-# let
-#   tex = (
-#     pkgs.texlive.combine {
-#       # from https://nixos.wiki/wiki/TexLive#Combine_Sets
-#       inherit (pkgs.texlive)
-#         scheme-full
-#         dvisvgm
-#         dvipng # for preview and export as html
-#         wrapfig
-#         amsmath
-#         ulem
-#         hyperref
-#         capt-of
-#         ;
-#       #(setq org-latex-compiler "lualatex")
-#       #(setq org-preview-latex-default-process 'dvisvgm)
-#     }
-#   );
-# in
 let
   ariangLauncher =
     if pkgs.stdenv.hostPlatform.isDarwin then
@@ -45,7 +26,6 @@ let
 in
 {
   home.packages = with pkgs; [
-    # BROKEN handbrake
     ariangLauncher # Web UI for aria2 downloads
     aspell # Spelling checker
     aspellDicts.en # Spelling checker Dictionary

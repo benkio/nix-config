@@ -9,6 +9,7 @@
       "tfenv" # Terraform Version Manager
       "tgenv" # A tool to manage multiples Terragrunt versions
       "nicotine-plus" # Music P2P
+      "abcde" # Audio CD ripper (mp3)
     ];
     casks = [
       "caffeine" # Keep mac awake
@@ -19,7 +20,6 @@
       "obs" # Video/screen recorder
       "protonvpn" # Free VPN client
       "vlc" # Video Player
-      "freac" # CD Ripper
     ];
   };
 }

@@ -12,11 +12,11 @@
 {
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
-    # BROKEN amule                  # P2P Sharing
-    freac # Audio CD extractor
+    # BROKEN font-manager # Font Manager for GTK
+    amule                  # P2P Sharing
+    abcde # Audio CD ripper (mp3)
     calibre # Book Management (Kindle)
     feh # Image Viewer
-    font-manager # Font Manager for GTK
     kdePackages.kdenlive # Video Editor
     lychee # Link Checker
     qjackctl # QT Jack Audio Control

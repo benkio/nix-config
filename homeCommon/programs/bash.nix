@@ -13,7 +13,6 @@ let
   systemSpecificAliases =
     if lib.strings.hasInfix "darwin" pkgs.stdenv.hostPlatform.system then
       {
-        ripCDMp3 = "/Applications/freac.app/Contents/MacOS/freaccmd -e mp3 --track=all --cddb -d \"$HOME/Music/rips\"";
         update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H darwin-rebuild switch --flake .#macos && home-manager switch --flake .#benkio@macos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       }
     # Nixos / Linux
@@ -22,7 +21,6 @@ let
         bluetooth = "blueman-manager &";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        ripCDMp3 = "freaccmd -e mp3 --track=all --cddb -d \"$HOME/Music/rips\"";
         update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos; home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
@@ -66,6 +64,7 @@ in
         mkdir = "mkdir -vp";
         mv = "mv -iv";
         nah = "git clean -df && git checkout -- .";
+        ripcd = "OUTPUTDIR=\"$HOME/Music/rips\" abcde -o mp3 -N";
         paux = "procs";
         pg = "ping google.com -c 5";
         portListen = "sudo lsof -i -P -n | grep LISTEN";
