@@ -26,7 +26,8 @@
       # Generate it from the tap repository README
       # https://github.com/commercetools/homebrew-tap
       HOMEBREW_GITHUB_API_TOKEN = "";
-      HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "";
+      # Run this if you are going to install a new package
+      # HOMEBREW_ARTIFACT_REGISTRY_TOKEN="$(gcloud auth print-access-token --project commercetools-platform --lifetime 20m --verbosity none --impersonate-service-account homebrew-artifact-reader@commercetools-platform.iam.gserviceaccount.com)";
     };
     taps = [
       # commercetools tap doesn't seems to work really well from here. Fallback to manual installation
@@ -42,6 +43,10 @@
       "commercetools/tap/kubegen"
       "commercetools/tap/awsgen"
       "hashicorp/tap/vault"
+      {
+        name = "commercetools/tap/oktapus";
+        start_service = true;
+      }
     ];
     casks = [
       "claude-code"
