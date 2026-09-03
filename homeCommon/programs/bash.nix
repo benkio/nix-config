@@ -10,6 +10,31 @@
 ###############################################################################
 
 let
+  kubectlAliasesRepo = pkgs.fetchFromGitHub {
+    owner = "ahmetb";
+    repo = "kubectl-aliases";
+    rev = "7549fa45bbde7499b927c74cae13bfb9169c9497";
+    hash = "sha256-NkprSk55aRVHiq9JXduQl6AGZv5pBLHznRToOdm9OUw=";
+  };
+
+  kubectlAliases = builtins.listToAttrs (
+    map
+      (line:
+        let
+          match = builtins.match "alias ([^=]+)='(.*)'" line;
+        in
+        {
+          name = builtins.elemAt match 0;
+          value = builtins.elemAt match 1;
+        }
+      )
+      (
+        builtins.filter
+          (line: builtins.match "alias [^=]+='.*'" line != null)
+          (lib.strings.splitString "\n" (builtins.readFile "${kubectlAliasesRepo}/.kubectl_aliases"))
+      )
+  );
+
   systemSpecificAliases =
     if lib.strings.hasInfix "darwin" pkgs.stdenv.hostPlatform.system then
       {
@@ -28,6 +53,7 @@ in
   programs.bash = {
     enable = true;
     shellAliases = lib.attrsets.mergeAttrsList [
+      kubectlAliases
       systemSpecificAliases
       {
         #1 Consider moving this to programs.git.aliases
