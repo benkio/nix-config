@@ -343,7 +343,7 @@ in
 
               {
                 name = "FreshRSS";
-                url = "https://reader.websitemachine.nl/i/#close";
+                url = "https://feed.rssreader.eu/";
               }
 
               {
