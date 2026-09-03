@@ -63,10 +63,11 @@
     nmap # Network discovery tool
     nodejs # Event-driven I/O framework for JS
     ntfs3g # NTFS driver
-    ormolu # Haskell formatter
     opencode # AI coding agent built for the terminal
     opencode-desktop # AI coding agent desktop client
+    ormolu # Haskell formatter
     pkg-config # Queries information about libraries
+    process-compose # Simple and flexible scheduler and orchestrator to manage non-containerized applications
     procs # better ps
     progress # Tool that shows the progress of coreutils programs
     purs # PureScript compiler (from purescript-overlay)
