@@ -13,4 +13,6 @@ in
   ffmpeg-full = stable.ffmpeg-full;
   # unstable: rust link phase (same cctools ld crash)
   watchexec = stable.watchexec;
+  # unstable: Backend subprocess exited when trying to invoke build_wheel
+  picard = stable.picard;
 }
