@@ -42,6 +42,7 @@
     k9s # Kubernetes CLI
     kubectl # Kubernetes official CLI
     kubectx # Fast way to switch between clusters and namespaces in kubectl
+    kubernetes-helm # Package manager for kubernetes
     lame # Audio Encoder
     lazydocker # Docker User interface
     lazygit # Git User interface
