@@ -82,5 +82,11 @@
         "niloccemoadcdkdjlinkgdfekeahmflj" # Pocket
       ];
     };
+    bash = {
+      shellAliases = {
+        say = "spd-say";
+      };
+
+    };
   };
 }
