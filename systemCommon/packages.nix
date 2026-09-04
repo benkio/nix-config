@@ -53,10 +53,9 @@
     magic-wormhole # File transfer over network
     mariadb # Ex-MySQL
     mediainfo # Information about a audio/video file
-    megacmd # Mega command line tools and sync support
-    megatools # Tools to interact with mega.nz
     mermaid-cli # Command line tool for mermaid
     mkdocs # Documentation framework based on Markdown
+    mongodb-compass # GUI for MongoDB
     moreutils # More command line tools
     nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts
     nixfmt # Nix Formatter
