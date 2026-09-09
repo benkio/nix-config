@@ -15,6 +15,7 @@
       "caffeine" # Keep mac awake
       "calibre" # Book management
       "dropbox" # Dropbox
+      "jdk-mission-control" # JDK Mission Control
       "kdenlive" # Video Editor
       "macfuse" # NTFS Support
       "obs" # Video/screen recorder
