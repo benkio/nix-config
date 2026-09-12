@@ -14,7 +14,6 @@
     # BROKEN haskellPackages.ghc-mod
     # BROKEN font-manager # Font Manager for GTK
     amule                  # P2P Sharing
-    abcde # Audio CD ripper (mp3)
     calibre # Book Management (Kindle)
     feh # Image Viewer
     kdePackages.kdenlive # Video Editor
