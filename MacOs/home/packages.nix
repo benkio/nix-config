@@ -17,7 +17,6 @@
   home.packages = with pkgs; [
     google-chrome
     slack
-    maccy
     maven
     duti
   ];

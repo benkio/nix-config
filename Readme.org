@@ -248,7 +248,13 @@ git branch -D fetchgit
 # Run generation of treesitter grammars
 #+end_src
 
-** Work setup
+** [Mac Only] Work setup
 
 Review the two ~work.nix~ files (macOS and NixOS) for workplace-specific settings:
 GPG keys, email, extra Homebrew packages, and so on.
+** [Mac Only] Check Homebrew Installed Applications
+
+Some applications are installed via ~homebrew~
+Those applications doesn't have their configuration setup up
+automatically by this repo. Therefore it's advisable to go and check
+them. Eg. autostart some of them: caffeine, maccy etc.

@@ -16,6 +16,7 @@
       "dropbox" # Dropbox
       "jdk-mission-control" # JDK Mission Control
       "kdenlive" # Video Editor
+      "maccy" # Clipboard Manager
       "macfuse" # NTFS Support
       "obs" # Video/screen recorder
       "protonvpn" # Free VPN client
