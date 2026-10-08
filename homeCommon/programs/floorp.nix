@@ -29,6 +29,8 @@ in
     # (NSConnection / AuthorizationCopyRights). Use unwrapped on Darwin:
     # https://github.com/NixOS/nixpkgs/issues/443380
     package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.floorp-bin-unwrapped else pkgs.floorp-bin;
+    # Allow HM to apply Floorp policies via macOS defaults with unwrapped package.
+    darwinDefaultsId = if pkgs.stdenv.hostPlatform.isDarwin then "app.floorp.Floorp" else null;
     profiles.benkio = {
       id = 0;
       extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [

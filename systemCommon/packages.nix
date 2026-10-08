@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 let
   abcdeFromSource = pkgs.callPackage ./abcde.nix { };
@@ -73,15 +78,14 @@ in
     process-compose # Simple and flexible scheduler and orchestrator to manage non-containerized applications
     procs # better ps
     progress # Tool that shows the progress of coreutils programs
-    purs # PureScript compiler (from purescript-overlay)
-    purs-tidy # Purescript Formatter
+    purescript # PureScript compiler
     ripgrep # Better grep
     rustup # Rust setup utility
     scala # Scala compiler
     scala-cli # Scala command line tool
     scalafmt # Scala formatter
     sd # Modern Sed
-    spago # PureScript package manager (from purescript-overlay)
+    spago # PureScript package manager
     sqlite # SQLite Database
     stack # Haskell Package Manager
     termdown # Countdown CLI
@@ -97,5 +101,7 @@ in
     wget # File downloader from URL
     xclip # Clipboard tool
     zip # Complession Tool
+  ] ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
+    purs-tidy # Purescript formatter (overlay-provided on Linux)
   ];
 }

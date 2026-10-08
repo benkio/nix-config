@@ -29,8 +29,6 @@ in
     ariangLauncher # Web UI for aria2 downloads
     aspell # Spelling checker
     aspellDicts.en # Spelling checker Dictionary
-    aspellDicts.en-computers # Spelling checker Dictionary
-    aspellDicts.en-science # Spelling checker Dictionary
     aspellDicts.it # Spelling checker Dictionary
     cabal-install # Haskell package manager
     discord # Chat

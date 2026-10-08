@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   inputs,
   ...
 }:
@@ -20,8 +21,9 @@ in
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
-    pureScriptOverlay
     stablePackagesOverlay
+  ] ++ lib.optionals (!(lib.hasSuffix "darwin" config.nixpkgs.system)) [
+    pureScriptOverlay
   ];
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";
