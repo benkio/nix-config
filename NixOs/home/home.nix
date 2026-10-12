@@ -16,6 +16,7 @@
     ../../homeCommon/programs/bash.nix
     ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
+    ./emacs.nix
     ./packages.nix
     ./programs/programs.nix
     ./sway.nix

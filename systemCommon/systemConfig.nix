@@ -22,7 +22,6 @@ in
   nixpkgs.overlays = [
     inputs.nur.overlays.default
     stablePackagesOverlay
-  ] ++ lib.optionals (!(lib.hasSuffix "darwin" config.nixpkgs.system)) [
     pureScriptOverlay
   ];
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw

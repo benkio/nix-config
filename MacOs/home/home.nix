@@ -15,6 +15,7 @@
     ../../homeCommon/programs/bash.nix
     ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
+    ./emacs.nix
     ./packages.nix
     ./work.nix
     ../../homeCommon/bobPaintings.nix

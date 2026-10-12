@@ -71,7 +71,6 @@ in
     bat.enable = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
-    emacs.enable = true;
     fzf.enable = true;
     home-manager.enable = true;
     htop.enable = true;

@@ -16,8 +16,6 @@
     keyboard.variant = "dvorak";
     sessionVariables = {
       LANG = "en_US.utf-8";
-      EDITOR = "emacs -nw"; # emacs terminal
-      VISUAL = "emacsclient -c -n"; # emacs client visual
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
       XDG_CURRENT_DESKTOP = "GNOME"; # To trick some app to work on i3 alone, eg gnome-control-center
@@ -38,7 +36,7 @@
         xrandr --output "virtual1" --mode 1920x1200 #Virual Machine resolution
 
         # Services
-        systemctl --user start udiskie.service emacs.service
+        systemctl --user start udiskie.service
 
         # Workaround from here: https://github.com/NixOS/nixpkgs/issues/119513#issuecomment-873506384
         if [ -z $_XPROFILE_SOURCED ]; then
