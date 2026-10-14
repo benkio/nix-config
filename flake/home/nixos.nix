@@ -3,9 +3,13 @@
   system ? "x86_64-linux",
 }:
 
+let
+  stablePackagesOverlay = import ../../systemCommon/stable-packages-overlay.nix inputs;
+  pkgsWithOverlays = (inputs.nixpkgs.legacyPackages.${system}).extend stablePackagesOverlay;
+in
 {
   "benkio@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-    pkgs = inputs.nixpkgs.legacyPackages.${system};
+    pkgs = pkgsWithOverlays;
     extraSpecialArgs = {
       inherit inputs;
     };

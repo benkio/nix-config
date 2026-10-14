@@ -13,4 +13,6 @@ in
   watchexec = stable.watchexec;
   # unstable: Backend subprocess exited when trying to invoke build_wheel
   picard = stable.picard;
+  # hash mismatch for typescript-language-server 6.0.2 pnpm deps in unstable
+  typescript-language-server = stable.typescript-language-server;
 }
