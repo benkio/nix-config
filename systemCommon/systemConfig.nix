@@ -9,6 +9,7 @@
 let
   pureScriptOverlay = inputs.purescript-overlay.overlays.default;
   stablePackagesOverlay = import ./stable-packages-overlay.nix inputs;
+  lemOverlay = inputs.lem.overlays.default;
 in
 {
 
@@ -23,6 +24,7 @@ in
     inputs.nur.overlays.default
     stablePackagesOverlay
     pureScriptOverlay
+    lemOverlay
   ];
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";

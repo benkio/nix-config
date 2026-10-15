@@ -55,6 +55,7 @@ in
     lame # Audio Encoder
     lazydocker # Docker User interface
     lazygit # Git User interface
+    lem-ncurses # Emacs-like Editor (overlay-provided)
     linkchecker # Link Checker for HTML pages and more
     lsof # List open files
     lychee # Link Checker
