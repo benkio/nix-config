@@ -67,7 +67,6 @@ in
   };
 
   programs = {
-    awscli.enable = false;
     bat.enable = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;

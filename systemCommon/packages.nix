@@ -13,13 +13,13 @@ in
   environment.systemPackages = with pkgs; [
     # haskellPackages.fix-imports
     # haskellPackages.apply-refact # Automatic application of hlint suggestions
-    act # Github Action Tester
     abcdeFromSource # Better CD Encoder (poddmo source fork)
     autoconf # Unix Configuration Scripts
     bloop # Scala build server and command-line tool
     bruno # Bruno HTTP Client - Postman Alternative
     bruno-cli # Bruno CLI
     btop # Better htop
+    clipboard-jh # Cut, copy, and paste anything, anywhere, all from the terminal
     coreutils # GNU Core Utilities
     coursier # Scala dependency fetcher
     cpulimit # Tool to limit CPU usage from a program, PID, Command
@@ -38,7 +38,6 @@ in
     ghcid # Haskell GHCID daemon
     gnupg1 # Used to sign commits
     gnused # GNU SED Command
-    google-java-format # Google Java formatter
     gradle # Build Tool
     haskellPackages.fourmolu # Haskell Linter
     haskellPackages.hoogle # Hoogle search engine
@@ -56,7 +55,6 @@ in
     lazydocker # Docker User interface
     lazygit # Git User interface
     less # Pager used by tools like usql
-    lem-ncurses # Emacs-like Editor (overlay-provided)
     linkchecker # Link Checker for HTML pages and more
     lsof # List open files
     lychee # Link Checker
@@ -74,7 +72,6 @@ in
     nodejs # Event-driven I/O framework for JS
     ntfs3g # NTFS driver
     opencode # AI coding agent built for the terminal
-    opencode-desktop # AI coding agent desktop client
     ormolu # Haskell formatter
     pkg-config # Queries information about libraries
     process-compose # Simple and flexible scheduler and orchestrator to manage non-containerized applications
@@ -101,7 +98,7 @@ in
     uutils-coreutils # Tools for working with USB
     watchexec # Watch files changes command
     wget # File downloader from URL
-    xclip # Clipboard tool
+    wl-clipboard # Clipboard tool
     zip # Complession Tool
   ] ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
     purs-tidy # Purescript formatter (overlay-provided on Linux)
