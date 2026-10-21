@@ -12,7 +12,6 @@
     ../../homeCommon/gists.nix
     ../../homeCommon/homeConfig.nix
     ../../homeCommon/packages.nix
-    ../../homeCommon/programs/bash.nix
     ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
     ./emacs.nix

@@ -49,18 +49,20 @@ stdenvNoCC.mkDerivation rec {
     install -Dm644 COPYING $out/share/doc/${pname}/COPYING
 
     # Ensure abcde can find required tooling without global PATH assumptions.
-    runtime_path='${lib.makeBinPath [
-      cddiscid
-      cdparanoia
-      ffmpeg-full
-      flac
-      glyr
-      id3v2
-      imagemagick
-      lame
-      vorbis-tools
-      wget
-    ]}'
+    runtime_path='${
+      lib.makeBinPath [
+        cddiscid
+        cdparanoia
+        ffmpeg-full
+        flac
+        glyr
+        id3v2
+        imagemagick
+        lame
+        vorbis-tools
+        wget
+      ]
+    }'
 
     wrapProgram $out/bin/abcde --prefix PATH : "$runtime_path"
     wrapProgram $out/bin/cddb-tool --prefix PATH : "$runtime_path"

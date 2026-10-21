@@ -13,7 +13,7 @@
   home.packages = with pkgs; [
     # BROKEN haskellPackages.ghc-mod
     # BROKEN font-manager # Font Manager for GTK
-    amule                  # P2P Sharing
+    amule # P2P Sharing
     calibre # Book Management (Kindle)
     feh # Image Viewer
     kdePackages.kdenlive # Video Editor

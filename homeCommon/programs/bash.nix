@@ -19,7 +19,8 @@ let
 
   kubectlAliases = builtins.listToAttrs (
     map
-      (line:
+      (
+        line:
         let
           match = builtins.match "alias ([^=]+)='(.*)'" line;
         in
@@ -29,9 +30,9 @@ let
         }
       )
       (
-        builtins.filter
-          (line: builtins.match "alias [^=]+='.*'" line != null)
-          (lib.strings.splitString "\n" (builtins.readFile "${kubectlAliasesRepo}/.kubectl_aliases"))
+        builtins.filter (line: builtins.match "alias [^=]+='.*'" line != null) (
+          lib.strings.splitString "\n" (builtins.readFile "${kubectlAliasesRepo}/.kubectl_aliases")
+        )
       )
   );
 
@@ -48,7 +49,7 @@ let
         kae = "killall -9 emacs; rm -f \${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server*";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos; home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos && home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
