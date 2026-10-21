@@ -21,7 +21,6 @@ in
       bruno # Bruno HTTP Client - Postman Alternative
       bruno-cli # Bruno CLI
       btop # Better htop
-      clipboard-jh # Cut, copy, and paste anything, anywhere, all from the terminal
       coreutils # GNU Core Utilities
       coursier # Scala dependency fetcher
       cpulimit # Tool to limit CPU usage from a program, PID, Command
@@ -100,10 +99,10 @@ in
       uutils-coreutils # Tools for working with USB
       watchexec # Watch files changes command
       wget # File downloader from URL
+      xclip # Clipboard Manager
       zip # Complession Tool
     ]
     ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
-      wl-clipboard # Clipboard tool
       purs-tidy # Purescript formatter (overlay-provided on Linux)
     ];
 }

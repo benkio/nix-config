@@ -68,6 +68,7 @@ in
 
   programs = {
     bat.enable = true;
+    copyq.enable = true; # Clipboard management
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
     fzf.enable = true;

@@ -40,7 +40,7 @@ let
     if lib.strings.hasInfix "darwin" pkgs.stdenv.hostPlatform.system then
       {
         kae = "killall -9 emacs";
-        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H darwin-rebuild switch --flake .#macos && home-manager switch --flake .#benkio@macos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H darwin-rebuild switch --flake .#macos && home-manager switch --flake .#benkio@macos && sudo -H nix-collect-garbage --delete-older-than 14d";
       }
     # Nixos / Linux
     else
@@ -49,7 +49,7 @@ let
         kae = "killall -9 emacs; rm -f \${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/emacs/server*";
         open = "xdg-open";
         restart-wifi = "sudo systemctl restart NetworkManager";
-        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos && home-manager switch --flake .#benkio@nixos && nix-collect-garbage --delete-older-than 14d && sudo -H nix-collect-garbage --delete-older-than 14d";
+        update = "scala-cli ~/UpdateAllGitMain.scala && cd ~/nix-config && nix flake update && sudo -H nixos-rebuild switch --impure --flake .#nixos && home-manager switch --flake .#benkio@nixos && sudo -H nix-collect-garbage --delete-older-than 14d";
       };
 in
 {
