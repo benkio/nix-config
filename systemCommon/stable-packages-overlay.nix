@@ -13,6 +13,8 @@ in
   watchexec = stable.watchexec;
   # unstable: Backend subprocess exited when trying to invoke build_wheel
   picard = stable.picard;
+  # unstable: sqlfluff's diff-cover dependency currently fails its test suite
+  sqlfluff = stable.sqlfluff;
   # hash mismatch for typescript-language-server 6.0.2 pnpm deps in unstable
   typescript-language-server = stable.typescript-language-server;
 }

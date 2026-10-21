@@ -43,19 +43,18 @@ let
   ];
 in
 {
-  home.file =
-    builtins.listToAttrs (
-      builtins.concatMap (
-        root:
-        builtins.attrValues (
-          builtins.mapAttrs (skillName: sourcePath: {
-            name = "${root}/${skillName}";
-            value = {
-              source = sourcePath;
-              recursive = true;
-            };
-          }) skills
-        )
-      ) installRoots
-    );
+  home.file = builtins.listToAttrs (
+    builtins.concatMap (
+      root:
+      builtins.attrValues (
+        builtins.mapAttrs (skillName: sourcePath: {
+          name = "${root}/${skillName}";
+          value = {
+            source = sourcePath;
+            recursive = true;
+          };
+        }) skills
+      )
+    ) installRoots
+  );
 }

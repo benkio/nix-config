@@ -41,7 +41,6 @@ in
     megatools # Tools to interact with mega.nz
     sqlfluff # SQL Linter
     telegram-desktop # Chat
-    # tex # Typesetting Engine
     tsx # Typescript Execute
     typescript # Typescript compiler
     typescript-language-server # Typescript LSP

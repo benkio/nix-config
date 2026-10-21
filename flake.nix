@@ -7,7 +7,6 @@
     nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-26.05";
     purescript-overlay.url = "github:thomashoneyman/purescript-overlay?rev=0aaa4c2124622bd7d2f58c5758037f97c580ee73";
     nur.url = "github:nix-community/NUR?rev=fb993e86121b76faf5dde868a2b8e2390e4035ca";
-    lem.url = "github:lem-project/lem";
     darwin.url = "github:nix-darwin/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs-darwin";
     home-manager.url = "github:nix-community/home-manager";
