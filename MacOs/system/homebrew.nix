@@ -13,6 +13,7 @@
     casks = [
       "caffeine" # Keep mac awake
       "calibre" # Book management
+      "cleanclip" # Clipboard management
       "dropbox" # Dropbox
       "jdk-mission-control" # JDK Mission Control
       "kdenlive" # Video Editor

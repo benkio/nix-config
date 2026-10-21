@@ -23,6 +23,7 @@
 
   services = {
     udiskie.enable = true; # Mount external disks automatically
+    copyq.enable = true; # Clipboard management
     gpg-agent = {
       enable = true;
       defaultCacheTtl = 1800;
