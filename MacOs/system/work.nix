@@ -47,6 +47,7 @@
         name = "commercetools/tap/oktapus";
         start_service = true;
       }
+      "commercetools/tap/voltage"
     ];
     casks = [
       "claude-code"
