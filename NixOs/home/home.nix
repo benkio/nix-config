@@ -33,6 +33,7 @@
     mako = {
       enable = true;
       settings = {
+        anchor = "top-right";
         background-color = "#000000";
         border-size = 4;
         border-radius = 4;
@@ -40,10 +41,20 @@
         font = "monospace 12";
         ignore-timeout = 1;
         layer = "overlay";
+        markup = true;
+        max-history = 50;
         max-visible = 10;
-        max-history = 20;
+        "on-button-left" = "invoke-default-action";
+        "on-button-right" = "dismiss";
+        "on-touch" = "dismiss";
+        sort = "-time";
         width = 500;
       };
+      extraConfig = ''
+        [urgency=high]
+        border-color=#ff5f5f
+        default-timeout=0
+      '';
     };
   };
 

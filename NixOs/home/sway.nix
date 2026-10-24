@@ -11,6 +11,8 @@
 
 let
   mod = "Mod4";
+  rofiCmd = "${pkgs.rofi}/bin/rofi";
+  lockCmd = "${pkgs.swaylock}/bin/swaylock -fF";
 in
 {
   wayland.windowManager.sway = {
@@ -34,7 +36,8 @@ in
         };
       };
       keybindings = lib.mkOptionDefault {
-        "${mod}+space" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${mod}+space" = "exec ${rofiCmd} -show drun";
+        "${mod}+Shift+space" = "exec ${rofiCmd} -show run";
 
         # Focus
         "${mod}+Left" = "focus left";
@@ -86,6 +89,10 @@ in
         "${mod}+Print" = "exec flameshot full";
         "${mod}+Return" = "exec ${config.wayland.windowManager.sway.config.terminal}";
         "${mod}+w" = "exec gnome-control-center wifi";
+        "${mod}+Escape" = "exec ${lockCmd}";
+        "${mod}+Shift+p" = "exec ${pkgs.wlogout}/bin/wlogout";
+        "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl restore";
+        "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl dismiss --all";
         # Media volume controls
         "XF86AudioMute" = "exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioRaiseVolume" = "exec --no-startup-id wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"; # to increase 5%
@@ -198,6 +205,38 @@ in
       seat seat0 xcursor_theme Adwaita 40
     '';
   };
+
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      color = "1f1f28";
+      indicator = true;
+      clock = true;
+      timestr = "%H:%M";
+      datestr = "%A, %d %B";
+      "show-failed-attempts" = true;
+    };
+  };
+
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 300;
+        command = lockCmd;
+      }
+      {
+        timeout = 600;
+        command = "${pkgs.sway}/bin/swaymsg \"output * dpms off\"";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * dpms on\"";
+      }
+    ];
+    events = {
+      before-sleep = lockCmd;
+      lock = lockCmd;
+    };
+  };
+
   home.file."toggle-laptop-monitor.sh" = {
     executable = true;
     text = ''

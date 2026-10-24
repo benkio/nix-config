@@ -32,7 +32,7 @@ in
     aspellDicts.it # Spelling checker Dictionary
     cabal-install # Haskell package manager
     discord # Chat
-    flameshot # Screenshot utilityy
+    flameshot # Screenshot utility
     picard # Audio Tagger
     prettier # Javascript Formatter
     metals # Scala LSP
