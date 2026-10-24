@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  lib,
   ...
 }:
 
@@ -16,7 +15,6 @@ in
       # haskellPackages.fix-imports
       # haskellPackages.apply-refact # Automatic application of hlint suggestions
       abcdeFromSource # Better CD Encoder (poddmo source fork)
-      anki # Space Repetition System App
       autoconf # Unix Configuration Scripts
       bloop # Scala build server and command-line tool
       bruno # Bruno HTTP Client - Postman Alternative
@@ -102,8 +100,5 @@ in
       wget # File downloader from URL
       xclip # Clipboard Manager
       zip # Complession Tool
-    ]
-    ++ lib.optionals (!pkgs.stdenv.hostPlatform.isDarwin) [
-      purs-tidy # Purescript formatter (overlay-provided on Linux)
     ];
 }

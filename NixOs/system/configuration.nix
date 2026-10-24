@@ -183,6 +183,7 @@ in
 
   environment = {
     systemPackages = with pkgs; [
+      anki # Space Repetition System App (NixOS-managed)
       aws-vault # AWS secret keeping
       bluez # Bluetooth manager
       brightnessctl # Brightness control
@@ -211,6 +212,7 @@ in
       pciutils # Collection of programs for inspecting and manipulating configuration of PCI devices
       playerctl # Command-line utility and library for controlling media players that implement MPRIS
       proton-vpn # Client for Proton VPN
+      purs-tidy # Purescript formatter
       psmisc
       awww # Efficient animated wallpaper daemon for wayland, controlled at runtime
       usbutils # Tools for working with USB devices, such as lsusb

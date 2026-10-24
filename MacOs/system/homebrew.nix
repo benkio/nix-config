@@ -11,6 +11,7 @@
       "nicotine-plus" # Music P2P
     ];
     casks = [
+      "anki" # Space Repetition System App
       "caffeine" # Keep mac awake
       "calibre" # Book management
       "cleanclip" # Clipboard management
