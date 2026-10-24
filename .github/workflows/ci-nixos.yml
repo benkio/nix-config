@@ -22,6 +22,24 @@ jobs:
       - name: Secrets scan
         run: nix run nixpkgs#gitleaks -- dir . --no-banner --redact --config .gitleaks.toml
 
+      - name: Provide CI hardware configuration
+        run: |
+          sudo mkdir -p /etc/nixos
+          sudo tee /etc/nixos/hardware-configuration.nix >/dev/null <<'EOF'
+          { ... }:
+          {
+            fileSystems."/" = {
+              device = "none";
+              fsType = "tmpfs";
+            };
+            fileSystems."/boot" = {
+              device = "none";
+              fsType = "vfat";
+            };
+            swapDevices = [ ];
+          }
+          EOF
+
       - name: Home-manager NixOS build
         run: nix build .#homeConfigurations.benkio@nixos.activationPackage
 
