@@ -19,6 +19,7 @@
     ./packages.nix
     ./programs/programs.nix
     ./sway.nix
+    ./xprofile.nix
   ];
 
   services = {

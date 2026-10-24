@@ -9,6 +9,8 @@ let
   user = "benkio";
 in
 {
+  benkio.profile = "personal";
+
   programs = {
     dconf.enable = true;
     sway = {
@@ -29,6 +31,7 @@ in
   imports = [
     # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
+    ./packages.nix
     ../../systemCommon/systemConfig.nix
   ];
 
@@ -106,6 +109,8 @@ in
       "wheel"
       "video"
     ]; # wheel for ‘sudo’.
+  }
+  // lib.optionalAttrs config.benkio.features.enableInsecureBootstrapPassword {
     initialHashedPassword = user;
   };
 
@@ -120,7 +125,7 @@ in
 
     logind.settings.Login.HandlePowerKey = "lock"; # Power button behaviour
 
-    mysql = {
+    mysql = lib.mkIf config.benkio.features.enableLocalDatabases {
       enable = true;
       package = pkgs.mariadb;
       ensureUsers = [
@@ -139,17 +144,21 @@ in
       ];
 
     };
-    postgresql = {
-      enable = true;
-      package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
-      authentication = pkgs.lib.mkForce ''
-        # Generated file; do not edit!
-        # TYPE  DATABASE        USER            ADDRESS                 METHOD
-        local   all             all                                     trust
-        host    all             all             127.0.0.1/32            trust
-        host    all             all             ::1/128                 trust
-      '';
-    };
+    postgresql = lib.mkIf config.benkio.features.enableLocalDatabases (
+      {
+        enable = true;
+        package = (pkgs.postgresql.withPackages (p: [ p.postgis ]));
+      }
+      // lib.optionalAttrs config.benkio.features.enableTrustAuthForLocalPostgres {
+        authentication = pkgs.lib.mkForce ''
+          # Generated file; do not edit!
+          # TYPE  DATABASE        USER            ADDRESS                 METHOD
+          local   all             all                                     trust
+          host    all             all             127.0.0.1/32            trust
+          host    all             all             ::1/128                 trust
+        '';
+      }
+    );
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -165,7 +174,7 @@ in
       defaultSession = "sway";
       gdm.enable = true;
       autoLogin = {
-        enable = true;
+        enable = config.benkio.features.enableAutoLogin;
         user = user;
       };
     };
@@ -179,46 +188,6 @@ in
       shadowOpacity = 0.95;
       fade = true;
     };
-  };
-
-  environment = {
-    systemPackages = with pkgs; [
-      anki # Space Repetition System App (NixOS-managed)
-      aws-vault # AWS secret keeping
-      bluez # Bluetooth manager
-      brightnessctl # Brightness control
-      rofi # Sway launcher
-      dmidecode # Tool that reads information about your system's hardware from the BIOS according to the SMBIOS/DMI standard
-      evince # PDF Viewer
-      exfatprogs # EXTFat tool
-      floorp-bin # Web Browser firefox-like
-      gcc # C compiler
-      gimp # Image Editor
-      glibcLocales # Locale information for the GNU C Library
-      gparted # Partition tool
-      halloy # IRC Client
-      jack2 # JACK audio connection kit, version 2 with jackdbus
-      kanshi # Wailand equivalent for Autorandr
-      gmetronome # Metronome
-      libinput # Handles input devices in Wayland compositors and provides a generic X.Org input driver
-      lilypond # Music Notation Language
-      lshw # List hardware info
-      mako # Notification system developed by swaywm maintainer
-      nethogs # Small 'net top' tool, grouping bandwidth by process
-      nettools
-      nicotine-plus # Soulseek client
-      parted # Partitioning tool
-      pavucontrol # Pulseaudio control
-      pciutils # Collection of programs for inspecting and manipulating configuration of PCI devices
-      playerctl # Command-line utility and library for controlling media players that implement MPRIS
-      proton-vpn # Client for Proton VPN
-      purs-tidy # Purescript formatter
-      psmisc
-      awww # Efficient animated wallpaper daemon for wayland, controlled at runtime
-      usbutils # Tools for working with USB devices, such as lsusb
-      vlc # Video palyer
-      xrandr # Command line interface to X11 Resize, Rotate, and Reflect (RandR) extension
-    ];
   };
 
   # Nix daemon config

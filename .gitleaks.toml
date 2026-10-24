@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Ignore local agent transcripts"
+paths = [
+  '''^\.agent-shell/transcripts/.*\.md$'''
+]

@@ -15,6 +15,7 @@ in
   imports = [
     ./packages.nix
     ./nixConfig.nix
+    ./profile.nix
   ];
 
   nixpkgs.config.allowUnfree = true;
