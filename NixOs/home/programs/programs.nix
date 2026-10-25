@@ -65,7 +65,7 @@
             {
               block = "sound";
               format = " $icon {$volume.eng(w:2)|} ";
-              format_muted = " $icon muted ";
+              format_alt = " $icon muted ";
             }
             {
               block = "time";
