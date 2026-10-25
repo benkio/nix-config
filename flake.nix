@@ -20,14 +20,23 @@
     {
       ...
     }@inputs:
-    let
-      nixosFlake = (import ./flake/nixos/flake.nix).outputs inputs;
-      darwinFlake = (import ./flake/darwin/flake.nix).outputs inputs;
-      homeFlake = (import ./flake/home/flake.nix).outputs inputs;
-    in
     {
-      nixosConfigurations = nixosFlake.nixosConfigurations;
-      darwinConfigurations = darwinFlake.darwinConfigurations;
-      homeConfigurations = homeFlake.homeConfigurations;
+      nixosConfigurations = import ./flake/hosts/nixos/default.nix {
+        inherit inputs;
+        system = "x86_64-linux";
+      };
+      darwinConfigurations = import ./flake/hosts/darwin/default.nix {
+        inherit inputs;
+        system = "aarch64-darwin";
+      };
+      homeConfigurations =
+        (import ./flake/home/nixos.nix {
+          inherit inputs;
+          system = "x86_64-linux";
+        })
+        // (import ./flake/home/darwin.nix {
+          inherit inputs;
+          system = "aarch64-darwin";
+        });
     };
 }

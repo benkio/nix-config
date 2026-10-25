@@ -21,5 +21,6 @@
     qjackctl # QT Jack Audio Control
     reaper # Audio Editor
     unetbootin # Linux/Windows Image Creator
+    wlogout # Wayland power menu
   ];
 }

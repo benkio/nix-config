@@ -252,6 +252,49 @@ git branch -D fetchgit
 
 Review the two ~work.nix~ files (macOS and NixOS) for workplace-specific settings:
 GPG keys, email, extra Homebrew packages, and so on.
+
+Work features are now opt-in via profile:
+
+- set ~benkio.profile = "work";~ in your host module to enable work-only packages/taps
+- keep ~benkio.profile = "personal";~ for personal machines
+
+Keep all work-related secrets in a single file:
+~/.config/nix-darwin/work-secrets.nix~. It is used by both
+~MacOs/system/work.nix~ and ~MacOs/home/work.nix~.
+
+#+begin_src nix
+{
+  homebrewExtraEnv = {
+    HOMEBREW_GITHUB_API_TOKEN = "ghp_...";
+    HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "...";
+  };
+
+  gitEmail = "enrico.benini@commercetools.com";
+  gitRemoteCondition = "hasconfig:remote.*.url:git@github.com:commercetools/*";
+
+  sessionVariables = {
+    VAULT_ADDR = "https://vault.services.europe-west1.gcp.commercetools.com";
+    AWS_SECRET_ACCESS_KEY = "...";
+    AWS_ACCESS_KEY_ID = "...";
+    SKAFFOLD_DEFAULT_REPO = "...";
+    GOOGLE_APPLICATION_CREDENTIALS = "/Users/benkio/path/to/credentials.json";
+    XDG_DATA_DIRS = "/opt/homebrew/share\${XDG_DATA_DIRS:+:\$XDG_DATA_DIRS}";
+  };
+
+  workspaceGitConfigText = ''
+    [core]
+    sshCommand = "ssh -o IdentitiesOnly=yes -o IdentityAgent=none -i ~/.ssh/id_ed25519 -i ~/.ssh/id_rsa"
+
+    [user]
+      name = Enrico Benini
+      email = enrico.benini@commercetools.com
+      signingkey = YOUR_SIGNING_KEY
+
+    [commit]
+      gpgsign = true
+  '';
+}
+#+end_src
 ** [Mac Only] Check Homebrew Installed Applications
 
 Some applications are installed via ~homebrew~

@@ -4,6 +4,8 @@ let
   home = "/Users/${config.system.primaryUser}";
 in
 {
+  benkio.profile = "work";
+
   imports = [
     ../../systemCommon/systemConfig.nix
     ./aerospace.nix

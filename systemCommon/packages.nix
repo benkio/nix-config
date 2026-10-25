@@ -9,96 +9,94 @@ let
 in
 {
 
-  environment.systemPackages =
-    with pkgs;
-    [
-      # haskellPackages.fix-imports
-      # haskellPackages.apply-refact # Automatic application of hlint suggestions
-      abcdeFromSource # Better CD Encoder (poddmo source fork)
-      autoconf # Unix Configuration Scripts
-      bloop # Scala build server and command-line tool
-      bruno # Bruno HTTP Client - Postman Alternative
-      bruno-cli # Bruno CLI
-      btop # Better htop
-      coreutils # GNU Core Utilities
-      coursier # Scala dependency fetcher
-      cpulimit # Tool to limit CPU usage from a program, PID, Command
-      curl # HTTP Requests command
-      docker # Docker CLI
-      docker-compose # Compose Containers
-      dust # Better du command
-      elmPackages.elm # Elm programming language
-      elmPackages.elm-format # Elm formatter
-      esbuild # Javascript Bundler
-      eza # Better ls
-      fd # Better find
-      ffmpeg-full # CMD Converter audio/video
-      fontconfig # Utilities for dealing with fonts
-      ghc # Haskell Compiler
-      ghcid # Haskell GHCID daemon
-      gnupg1 # Used to sign commits
-      gnused # GNU SED Command
-      gradle # Build Tool
-      haskellPackages.fourmolu # Haskell Linter
-      haskellPackages.hoogle # Hoogle search engine
-      hlint # Haskell Linter
-      html-tidy # HTML formatter
-      hurl # HTTP Requests in markdown format
-      id3v2 # ID3v2 Audio tagger
-      imagemagick # Image converter
-      jdk # Java Development Kit
-      k9s # Kubernetes CLI
-      kubectl # Kubernetes official CLI
-      kubectx # Fast way to switch between clusters and namespaces in kubectl
-      kubernetes-helm # Package manager for kubernetes
-      lame # Audio Encoder
-      lazydocker # Docker User interface
-      lazygit # Git User interface
-      less # Pager used by tools like usql
-      linkchecker # Link Checker for HTML pages and more
-      lsof # List open files
-      lychee # Link Checker
-      maestral # Dropbox alternative
-      magic-wormhole # File transfer over network
-      mariadb # Ex-MySQL
-      mediainfo # Information about a audio/video file
-      mermaid-cli # Command line tool for mermaid
-      mkdocs # Documentation framework based on Markdown
-      mongodb-compass # GUI for MongoDB
-      moreutils # More command line tools
-      nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts
-      nixfmt # Nix Formatter
-      nmap # Network discovery tool
-      nodejs # Event-driven I/O framework for JS
-      ntfs3g # NTFS driver
-      opencode # AI coding agent built for the terminal
-      ormolu # Haskell formatter
-      pkg-config # Queries information about libraries
-      process-compose # Simple and flexible scheduler and orchestrator to manage non-containerized applications
-      procs # better ps
-      progress # Tool that shows the progress of coreutils programs
-      purescript # PureScript compiler
-      ripgrep # Better grep
-      rustup # Rust setup utility
-      scala # Scala compiler
-      scala-cli # Scala command line tool
-      scalafmt # Scala formatter
-      sd # Modern Sed
-      spago # PureScript package manager
-      sqlite # SQLite Database
-      stack # Haskell Package Manager
-      termdown # Countdown CLI
-      tldr # Short Man
-      tree # Print the filesystem on terminal
-      tunnelto # Expose local server to the internet
-      unipicker # Unicode search and select command
-      unrar # RAR Decompression Command
-      unzip # ZIP Decompression Command
-      usql # SQL CLI client
-      uutils-coreutils # Tools for working with USB
-      watchexec # Watch files changes command
-      wget # File downloader from URL
-      xclip # Clipboard Manager
-      zip # Complession Tool
-    ];
+  environment.systemPackages = with pkgs; [
+    # haskellPackages.fix-imports
+    # haskellPackages.apply-refact # Automatic application of hlint suggestions
+    abcdeFromSource # Better CD Encoder (poddmo source fork)
+    autoconf # Unix Configuration Scripts
+    bloop # Scala build server and command-line tool
+    bruno # Bruno HTTP Client - Postman Alternative
+    bruno-cli # Bruno CLI
+    btop # Better htop
+    coreutils # GNU Core Utilities
+    coursier # Scala dependency fetcher
+    cpulimit # Tool to limit CPU usage from a program, PID, Command
+    curl # HTTP Requests command
+    docker # Docker CLI
+    docker-compose # Compose Containers
+    dust # Better du command
+    elmPackages.elm # Elm programming language
+    elmPackages.elm-format # Elm formatter
+    esbuild # Javascript Bundler
+    eza # Better ls
+    fd # Better find
+    ffmpeg-full # CMD Converter audio/video
+    fontconfig # Utilities for dealing with fonts
+    ghc # Haskell Compiler
+    ghcid # Haskell GHCID daemon
+    gnupg1 # Used to sign commits
+    gnused # GNU SED Command
+    gradle # Build Tool
+    haskellPackages.fourmolu # Haskell Linter
+    haskellPackages.hoogle # Hoogle search engine
+    hlint # Haskell Linter
+    html-tidy # HTML formatter
+    hurl # HTTP Requests in markdown format
+    id3v2 # ID3v2 Audio tagger
+    imagemagick # Image converter
+    jdk # Java Development Kit
+    k9s # Kubernetes CLI
+    kubectl # Kubernetes official CLI
+    kubectx # Fast way to switch between clusters and namespaces in kubectl
+    kubernetes-helm # Package manager for kubernetes
+    lame # Audio Encoder
+    lazydocker # Docker User interface
+    lazygit # Git User interface
+    less # Pager used by tools like usql
+    linkchecker # Link Checker for HTML pages and more
+    lsof # List open files
+    lychee # Link Checker
+    maestral # Dropbox alternative
+    magic-wormhole # File transfer over network
+    mariadb # Ex-MySQL
+    mediainfo # Information about a audio/video file
+    mermaid-cli # Command line tool for mermaid
+    mkdocs # Documentation framework based on Markdown
+    mongodb-compass # GUI for MongoDB
+    moreutils # More command line tools
+    nix-prefetch-scripts # Collection of all the nix-prefetch-* scripts
+    nixfmt # Nix Formatter
+    nmap # Network discovery tool
+    nodejs # Event-driven I/O framework for JS
+    ntfs3g # NTFS driver
+    opencode # AI coding agent built for the terminal
+    ormolu # Haskell formatter
+    pkg-config # Queries information about libraries
+    process-compose # Simple and flexible scheduler and orchestrator to manage non-containerized applications
+    procs # better ps
+    progress # Tool that shows the progress of coreutils programs
+    purescript # PureScript compiler
+    ripgrep # Better grep
+    rustup # Rust setup utility
+    scala # Scala compiler
+    scala-cli # Scala command line tool
+    scalafmt # Scala formatter
+    sd # Modern Sed
+    spago # PureScript package manager
+    sqlite # SQLite Database
+    stack # Haskell Package Manager
+    termdown # Countdown CLI
+    tldr # Short Man
+    tree # Print the filesystem on terminal
+    tunnelto # Expose local server to the internet
+    unipicker # Unicode search and select command
+    unrar # RAR Decompression Command
+    unzip # ZIP Decompression Command
+    usql # SQL CLI client
+    uutils-coreutils # Tools for working with USB
+    watchexec # Watch files changes command
+    wget # File downloader from URL
+    xclip # Clipboard Manager
+    zip # Complession Tool
+  ];
 }

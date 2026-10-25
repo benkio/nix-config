@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - "**"
+  pull_request:
 
 jobs:
   test-nixos:
@@ -11,8 +12,36 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/nix-installer-action@v19
       - name: Install omnix
         run: nix profile install nixpkgs#omnix
-      - name: Home-manager CI
-        run: om ci run ./flake/home
+
+      - name: Nix formatting check
+        run: nix run nixpkgs#nixfmt -- --check $(git ls-files '*.nix')
+
+      - name: Secrets scan
+        run: nix run nixpkgs#gitleaks -- dir . --no-banner --redact --config .gitleaks.toml
+
+      - name: Provide CI hardware configuration
+        run: |
+          sudo mkdir -p /etc/nixos
+          sudo tee /etc/nixos/hardware-configuration.nix >/dev/null <<'EOF'
+          { ... }:
+          {
+            fileSystems."/" = {
+              device = "none";
+              fsType = "tmpfs";
+            };
+            fileSystems."/boot" = {
+              device = "none";
+              fsType = "vfat";
+            };
+            swapDevices = [ ];
+          }
+          EOF
+
+      - name: Home-manager NixOS build
+        run: nix build .#homeConfigurations.benkio@nixos.activationPackage
+
+      - name: NixOS system build
+        run: nix build --dry-run --impure .#nixosConfigurations.nixos.config.system.build.toplevel
