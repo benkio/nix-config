@@ -54,6 +54,17 @@ in
         StandardOutPath = "${home}/bob-wallpaper.log";
       };
     };
+
+    cleanClip = {
+      serviceConfig = {
+        ProgramArguments = [
+          "/usr/bin/open"
+          "-a"
+          "CleanClip"
+        ];
+        RunAtLoad = true;
+      };
+    };
   };
 
   system = {
