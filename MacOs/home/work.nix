@@ -15,24 +15,6 @@ let
     [commit]
       gpgsign = false
   '';
-  workGitInclude =
-    if hasWorkSecrets then
-      [
-        {
-          contents = {
-            user = {
-              email = "${config.sops.placeholder.work_email}";
-            };
-            core = {
-              sshCommand = "ssh -i ~/.ssh/id_ed25519";
-            };
-          };
-
-          condition = "hasconfig:remote.*.url:git@github.com:${config.sops.placeholder.work_organization}/*";
-        }
-      ]
-    else
-      [ ];
 in
 {
   sops = lib.mkIf hasWorkSecrets {
@@ -50,6 +32,12 @@ in
     templates."workspace.gitconfig".content = ''
       [core]
       sshCommand = "ssh -o IdentitiesOnly=yes -o IdentityAgent=none -i ~/.ssh/id_ed25519 -i ~/.ssh/id_rsa"
+      [includeIf "hasconfig:remote.*.url:git@github.com:${config.sops.placeholder.work_organization}/*"]
+        path = ~/.config/git/workspace-work.gitconfig
+    '';
+    templates."workspace-work.gitconfig".content = ''
+      [core]
+      sshCommand = "ssh -i ~/.ssh/id_ed25519"
 
       [user]
         name = Enrico Benini
@@ -77,9 +65,6 @@ in
         };
       };
     };
-    git = {
-      includes = workGitInclude;
-    };
   };
   home = {
     sessionVariables =
@@ -92,14 +77,21 @@ in
         SKAFFOLD_DEFAULT_REPO = config.sops.placeholder.skaffold_default_repo;
         VAULT_ADDR = config.sops.placeholder.vault_addr;
       } else { });
-    file.".config/git/workspace.gitconfig" =
-      if hasWorkSecrets then
-        {
-          source = config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace.gitconfig".path;
-        }
-      else
-        {
-          text = workspaceGitConfigDefault;
-        };
+    file =
+      {
+        ".config/git/workspace.gitconfig" =
+          if hasWorkSecrets then
+            {
+              source = config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace.gitconfig".path;
+            }
+          else
+            {
+              text = workspaceGitConfigDefault;
+            };
+      }
+      // lib.optionalAttrs hasWorkSecrets {
+        ".config/git/workspace-work.gitconfig".source =
+          config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace-work.gitconfig".path;
+      };
   };
 }
