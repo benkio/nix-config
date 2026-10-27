@@ -1,6 +1,3 @@
 .DS_Store
 .bsp/
-
-# Add this to avoid pushing secrets after setup them
-./MacOs/home/work.nix
 /flake.lock

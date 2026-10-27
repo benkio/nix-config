@@ -12,7 +12,10 @@ let
       extraSpecialArgs = {
         inherit inputs;
       };
-      modules = [ homeModule ];
+      modules = [
+        inputs.sops-nix.homeManagerModules.sops
+        homeModule
+      ];
     };
   };
 in

@@ -1,0 +1,11 @@
+keys:
+  # Add one anchor per machine age public key, then include those anchors below.
+  # Example:
+  # - &macbook_work age1xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+  - &replace_me age1replace_this_with_a_real_public_key
+
+creation_rules:
+  - path_regex: secrets/work\.yaml$
+    key_groups:
+      - age:
+          - *replace_me
