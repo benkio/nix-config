@@ -67,31 +67,35 @@ in
     };
   };
   home = {
-    sessionVariables =
-      {
-        XDG_DATA_DIRS = "/opt/homebrew/share\${XDG_DATA_DIRS:+:\$XDG_DATA_DIRS}";
-      }
-      // (if hasWorkSecrets then {
-        GOOGLE_APPLICATION_CREDENTIALS = config.sops.placeholder.google_application_credentials;
-        HOMEBREW_GITHUB_API_TOKEN = config.sops.placeholder.homebrew_github_api_token;
-        SKAFFOLD_DEFAULT_REPO = config.sops.placeholder.skaffold_default_repo;
-        VAULT_ADDR = config.sops.placeholder.vault_addr;
-      } else { });
-    file =
-      {
-        ".config/git/workspace.gitconfig" =
-          if hasWorkSecrets then
-            {
-              source = config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace.gitconfig".path;
-            }
-          else
-            {
-              text = workspaceGitConfigDefault;
-            };
-      }
-      // lib.optionalAttrs hasWorkSecrets {
-        ".config/git/workspace-work.gitconfig".source =
-          config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace-work.gitconfig".path;
-      };
+    sessionVariables = {
+      XDG_DATA_DIRS = "/opt/homebrew/share\${XDG_DATA_DIRS:+:\$XDG_DATA_DIRS}";
+    }
+    // (
+      if hasWorkSecrets then
+        {
+          GOOGLE_APPLICATION_CREDENTIALS = config.sops.placeholder.google_application_credentials;
+          HOMEBREW_GITHUB_API_TOKEN = config.sops.placeholder.homebrew_github_api_token;
+          SKAFFOLD_DEFAULT_REPO = config.sops.placeholder.skaffold_default_repo;
+          VAULT_ADDR = config.sops.placeholder.vault_addr;
+        }
+      else
+        { }
+    );
+    file = {
+      ".config/git/workspace.gitconfig" =
+        if hasWorkSecrets then
+          {
+            source = config.lib.file.mkOutOfStoreSymlink config.sops.templates."workspace.gitconfig".path;
+          }
+        else
+          {
+            text = workspaceGitConfigDefault;
+          };
+    }
+    // lib.optionalAttrs hasWorkSecrets {
+      ".config/git/workspace-work.gitconfig".source =
+        config.lib.file.mkOutOfStoreSymlink
+          config.sops.templates."workspace-work.gitconfig".path;
+    };
   };
 }
