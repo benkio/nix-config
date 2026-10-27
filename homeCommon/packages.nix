@@ -39,6 +39,8 @@ in
     micro # Micro terminal editor
     megacmd # Mega command line tools and sync support
     megatools # Tools to interact with mega.nz
+    sops # Encrypted secrets editing
+    age # Encryption tool used by sops-nix
     sqlfluff # SQL Linter
     telegram-desktop # Chat
     tsx # Typescript Execute

@@ -258,43 +258,85 @@ Work features are now opt-in via profile:
 - set ~benkio.profile = "work";~ in your host module to enable work-only packages/taps
 - keep ~benkio.profile = "personal";~ for personal machines
 
-Keep all work-related secrets in a single file:
-~/.config/nix-darwin/work-secrets.nix~. It is used by both
-~MacOs/system/work.nix~ and ~MacOs/home/work.nix~.
+Work secrets are managed with ~sops-nix~ from encrypted files in the repo.
+This keeps flake evaluation pure (no ~--impure~ needed).
 
-#+begin_src nix
-{
-  homebrewExtraEnv = {
-    HOMEBREW_GITHUB_API_TOKEN = "ghp_...";
-    HOMEBREW_ARTIFACT_REGISTRY_TOKEN = "...";
-  };
+*** Bootstrap on the first machine
 
-  gitEmail = "enrico.benini@commercetools.com";
-  gitRemoteCondition = "hasconfig:remote.*.url:git@github.com:commercetools/*";
+1) Install prerequisites:
+   ~sops~ and ~age~ must be available in your shell.
 
-  sessionVariables = {
-    VAULT_ADDR = "https://vault.services.europe-west1.gcp.commercetools.com";
-    AWS_SECRET_ACCESS_KEY = "...";
-    AWS_ACCESS_KEY_ID = "...";
-    SKAFFOLD_DEFAULT_REPO = "...";
-    GOOGLE_APPLICATION_CREDENTIALS = "/Users/benkio/path/to/credentials.json";
-    XDG_DATA_DIRS = "/opt/homebrew/share\${XDG_DATA_DIRS:+:\$XDG_DATA_DIRS}";
-  };
+2) Generate your local AGE key:
 
-  workspaceGitConfigText = ''
-    [core]
-    sshCommand = "ssh -o IdentitiesOnly=yes -o IdentityAgent=none -i ~/.ssh/id_ed25519 -i ~/.ssh/id_rsa"
-
-    [user]
-      name = Enrico Benini
-      email = enrico.benini@commercetools.com
-      signingkey = YOUR_SIGNING_KEY
-
-    [commit]
-      gpgsign = true
-  '';
-}
+#+begin_src shell
+mkdir -p ~/.config/sops/age
+age-keygen -o ~/.config/sops/age/keys.txt
+chmod 600 ~/.config/sops/age/keys.txt
+age-keygen -y ~/.config/sops/age/keys.txt
 #+end_src
+
+The last command prints your public key (~age1...~).
+
+3) Add your public key in ~.sops.yaml~:
+
+#+begin_src yaml
+keys:
+  - &macbook_work age1yourpublickey...
+
+creation_rules:
+  - path_regex: secrets/work\.yaml$
+    key_groups:
+      - age:
+          - *macbook_work
+#+end_src
+
+4) Create the work secrets file from the example and encrypt it:
+
+#+begin_src shell
+cp secrets/work.yaml.example secrets/work.yaml
+sops --encrypt --in-place secrets/work.yaml
+#+end_src
+
+5) Rebuild:
+
+#+begin_src shell
+cd ~/nix-config
+sudo -H darwin-rebuild switch --flake .#macos
+home-manager switch --flake .#benkio@macos
+#+end_src
+
+*** Work secrets schema
+
+~secrets/work.yaml~ must contain:
+
+#+begin_src yaml
+git_signing_key: "YOUR_FULL_GPG_FINGERPRINT"
+vault_addr: "..."
+aws_secret_access_key: "..."
+aws_access_key_id: "..."
+skaffold_default_repo: "..."
+google_application_credentials: "/Users/benkio/path/to/credentials.json"
+homebrew_github_api_token: "ghp_..."
+#+end_src
+
+*** New machine onboarding
+
+On a replacement/new work Mac:
+
+1) Generate a new AGE key on that machine.
+2) Add the new public key as another recipient in ~.sops.yaml~.
+3) Run:
+
+#+begin_src shell
+sops updatekeys secrets/work.yaml
+#+end_src
+
+4) Commit the updated encrypted file and ~.sops.yaml~.
+5) Run your normal ~darwin-rebuild~ and ~home-manager switch~.
+
+Notes:
+- ~secrets/work.yaml~ is committed (encrypted).
+- ~~/.config/sops/age/keys.txt~ must never be committed.
 ** [Mac Only] Check Homebrew Installed Applications
 
 Some applications are installed via ~homebrew~

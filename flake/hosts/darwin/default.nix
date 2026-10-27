@@ -10,6 +10,7 @@
       inherit inputs;
     };
     modules = [
+      inputs.sops-nix.darwinModules.sops
       ../../../MacOs/system/darwin-configuration.nix
     ];
   };
