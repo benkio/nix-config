@@ -17,4 +17,6 @@ in
   sqlfluff = stable.sqlfluff;
   # hash mismatch for typescript-language-server 6.0.2 pnpm deps in unstable
   typescript-language-server = stable.typescript-language-server;
+  # unstable: purescript 0.15.15 prebuilt binary segfaults against glibc 2.44-57
+  purescript = stable.purescript;
 }

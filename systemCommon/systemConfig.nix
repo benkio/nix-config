@@ -22,8 +22,8 @@ in
 
   nixpkgs.overlays = [
     inputs.nur.overlays.default
-    stablePackagesOverlay
     pureScriptOverlay
+    stablePackagesOverlay
   ];
   environment.pathsToLink = [ "/libexec" ]; # links /libexec from derivations to /run/current-system/sw
   time.timeZone = "Europe/London";
