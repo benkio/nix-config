@@ -328,6 +328,7 @@ in
     file.".gitconfig".text = ''
       [include]
         path = ~/.config/git/config
+        path = ~/.config/git/work-url.gitconfig
 
       [includeIf "gitdir:~/workspace/"]
         path = ~/.config/git/workspace.gitconfig

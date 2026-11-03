@@ -35,6 +35,12 @@ in
       [includeIf "hasconfig:remote.*.url:git@github.com:${config.sops.placeholder.work_organization}/*"]
         path = ~/.config/git/workspace-work.gitconfig
     '';
+    # Work org always goes through the work key, even for fresh clones
+    templates."work-url.gitconfig".content = ''
+      [url "git@github-work:${config.sops.placeholder.work_organization}/"]
+        insteadOf = git@github.com:${config.sops.placeholder.work_organization}/
+        insteadOf = https://github.com/${config.sops.placeholder.work_organization}/
+    '';
     templates."workspace-work.gitconfig".content = ''
       [core]
       sshCommand = "ssh -i ~/.ssh/id_ed25519"
@@ -50,6 +56,16 @@ in
   };
 
   programs = {
+    # Auth is over SSH only: no gh credential helper (`gh auth setup-git`)
+    gh = {
+      enable = true;
+      gitCredentialHelper.enable = false;
+      settings.git_protocol = "ssh";
+    };
+    # Plain ssh globally (overrides the personal `-i id_rsa` of homeCommon):
+    # the key is picked per host by the ssh config below, because during
+    # `git clone` no remote exists yet, so the includeIf hasconfig can't apply
+    git.settings.core.sshCommand = lib.mkForce "ssh";
     ssh = {
       enable = true;
       settings = {
@@ -57,9 +73,16 @@ in
           User = "git";
           HostName = "github.com";
           IdentityFile = [
-            "~/.ssh/id_ed25519"
             "~/.ssh/id_rsa"
+            "~/.ssh/id_ed25519"
           ];
+          IdentitiesOnly = true;
+          IdentityAgent = "none";
+        };
+        "github-work" = {
+          User = "git";
+          HostName = "github.com";
+          IdentityFile = "~/.ssh/id_ed25519";
           IdentitiesOnly = true;
           IdentityAgent = "none";
         };
@@ -93,6 +116,8 @@ in
           };
     }
     // lib.optionalAttrs hasWorkSecrets {
+      ".config/git/work-url.gitconfig".source =
+        config.lib.file.mkOutOfStoreSymlink config.sops.templates."work-url.gitconfig".path;
       ".config/git/workspace-work.gitconfig".source =
         config.lib.file.mkOutOfStoreSymlink
           config.sops.templates."workspace-work.gitconfig".path;
