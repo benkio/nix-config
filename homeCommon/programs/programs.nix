@@ -331,6 +331,9 @@ in
 
       [includeIf "gitdir:~/workspace/"]
         path = ~/.config/git/workspace.gitconfig
+
+      [url "git@github.com:"]
+        insteadOf = https://github.com/
     '';
   };
 }
