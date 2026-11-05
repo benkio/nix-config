@@ -17,6 +17,13 @@ let
     hash = "sha256-NkprSk55aRVHiq9JXduQl6AGZv5pBLHznRToOdm9OUw=";
   };
 
+  gitAliasesRepo = pkgs.fetchFromGitHub {
+    owner = "ngandrass";
+    repo = "git-aliases";
+    rev = "e783daa00653c51e5e1aa48b83505386d7ee7c56";
+    hash = "sha256-OGcq0SSDZSRrHYX99AvPzws3yyNIf8LBsLYtDJJbwGk=";
+  };
+
   kubectlAliases = builtins.listToAttrs (
     map
       (
@@ -64,21 +71,7 @@ in
         cat = "bat";
         cp = "cp -iv";
         du = "dust";
-        ga = "git add";
-        gaa = "git add -A";
-        gal = "git add .";
-        gall = "git add .";
-        gc = "git commit -m";
-        gca = "git commit -a -m";
-        gcko = "git checkout";
-        gco = "git checkout";
-        gitlg = "git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
-        gl = "git log --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset\" --abbrev-commit";
         gph = "git push -u origin";
-        gpl = "git pull";
-        gs = "git status";
-        gsh = "git stash";
-        gst = "git status -sb";
         gw = "git diff --cached";
         h = "history";
         h1 = "history 10";
@@ -116,6 +109,9 @@ in
     initExtra = ''
       shopt -s autocd #Automatically put `cd` before a path
       . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh
+      . ${gitAliasesRepo}/git-aliases.bash
+      # upstream typo: `gir rebase --abort`
+      alias grba='git rebase --abort'
       eval "$(direnv hook bash)"
       if [[ -f ${config.home.homeDirectory}/.bashrcextra ]]
       then
