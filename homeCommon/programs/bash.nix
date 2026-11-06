@@ -109,6 +109,14 @@ in
     initExtra = ''
       shopt -s autocd #Automatically put `cd` before a path
       . ${config.home.homeDirectory}/.nix-profile/etc/profile.d/hm-session-vars.sh
+      # `git-aliases.bash` relies on `__git_complete` from git/bash-completion.
+      if [[ -f ${pkgs.git}/share/bash-completion/completions/git ]]
+      then
+        . ${pkgs.git}/share/bash-completion/completions/git
+      elif [[ -f ${pkgs.git}/share/git/contrib/completion/git-completion.bash ]]
+      then
+        . ${pkgs.git}/share/git/contrib/completion/git-completion.bash
+      fi
       . ${gitAliasesRepo}/git-aliases.bash
       # upstream typo: `gir rebase --abort`
       alias grba='git rebase --abort'
