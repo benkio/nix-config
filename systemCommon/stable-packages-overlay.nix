@@ -19,6 +19,4 @@ in
   typescript-language-server = stable.typescript-language-server;
   # unstable: purescript 0.15.15 prebuilt binary segfaults against glibc 2.44-57
   purescript = stable.purescript;
-  # failing to build opencode-node-modules-2.2.5
-  opencode = stable.opencode;
 }
