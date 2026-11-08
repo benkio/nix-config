@@ -1,30 +1,31 @@
 {
-  lib,
-  stdenvNoCC,
-  fetchFromGitHub,
-  makeWrapper,
-  installShellFiles,
   cddiscid,
   cdparanoia,
+  eyed3,
+  fetchFromGitHub,
   ffmpeg-full,
   flac,
   glyr,
   id3v2,
   imagemagick,
+  installShellFiles,
   lame,
+  lib,
+  makeWrapper,
+  stdenvNoCC,
   vorbis-tools,
   wget,
 }:
 
 stdenvNoCC.mkDerivation rec {
   pname = "abcde";
-  version = "2.12.2";
+  version = "2.13.2";
 
   src = fetchFromGitHub {
     owner = "poddmo";
     repo = "abcde";
     rev = version;
-    hash = "sha256-25aGdb9Fmc5G9rzgaIQsnh3vgFe2oFs4NGGYpqrhME0=";
+    hash = "sha256-5l9eAIGFCt0mhKvltOOWVeCCf7Xk/A0eHoTPr0/ZS7Y=";
   };
 
   nativeBuildInputs = [
@@ -53,6 +54,7 @@ stdenvNoCC.mkDerivation rec {
       lib.makeBinPath [
         cddiscid
         cdparanoia
+        eyed3
         ffmpeg-full
         flac
         glyr
