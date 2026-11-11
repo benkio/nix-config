@@ -32,6 +32,7 @@ in
     # Include the results of the hardware scan.
     /etc/nixos/hardware-configuration.nix
     ./packages.nix
+    ./abcde.nix
     ../../systemCommon/systemConfig.nix
   ];
 

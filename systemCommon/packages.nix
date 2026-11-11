@@ -4,15 +4,11 @@
   ...
 }:
 
-let
-  abcdeFromSource = pkgs.callPackage ./abcde.nix { };
-in
 {
 
   environment.systemPackages = with pkgs; [
     # haskellPackages.fix-imports
     # haskellPackages.apply-refact # Automatic application of hlint suggestions
-    abcdeFromSource # Better CD Encoder (poddmo source fork)
     autoconf # Unix Configuration Scripts
     bloop # Scala build server and command-line tool
     bruno # Bruno HTTP Client - Postman Alternative

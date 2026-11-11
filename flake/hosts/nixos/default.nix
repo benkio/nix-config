@@ -10,6 +10,7 @@
       inherit inputs;
     };
     modules = [
+      inputs.abcde.nixosModules.default
       ../../../NixOs/system/configuration.nix
     ];
   };

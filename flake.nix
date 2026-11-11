@@ -13,6 +13,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+    abcde.url = "github:poddmo/abcde";
+    abcde.inputs.nixpkgs.follows = "nixpkgs";
   };
   nixConfig = {
     experimental-features = "nix-command flakes";
