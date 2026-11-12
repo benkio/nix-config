@@ -49,7 +49,7 @@
     lazydocker # Docker User interface
     lazygit # Git User interface
     less # Pager used by tools like usql
-    # linkchecker # Link Checker for HTML pages and more
+    linkchecker # Link Checker for HTML pages and more
     lsof # List open files
     lychee # Link Checker
     maestral # Dropbox alternative
