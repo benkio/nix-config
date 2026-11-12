@@ -21,6 +21,7 @@ in
     defaultSopsFile = workSopsFile;
     age.keyFile = "${config.home.homeDirectory}/.config/sops/age/keys.txt";
     secrets = {
+      circle_ci_token = { };
       git_signing_key = { };
       google_application_credentials = { };
       homebrew_github_api_token = { };
