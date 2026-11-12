@@ -98,6 +98,7 @@ in
         {
           GOOGLE_APPLICATION_CREDENTIALS = config.sops.placeholder.google_application_credentials;
           HOMEBREW_GITHUB_API_TOKEN = config.sops.placeholder.homebrew_github_api_token;
+          CIRCLE_CI_TOKEN = config.sops.placeholder.circle_ci_token;
           SKAFFOLD_DEFAULT_REPO = config.sops.placeholder.skaffold_default_repo;
           VAULT_ADDR = config.sops.placeholder.vault_addr;
         }
