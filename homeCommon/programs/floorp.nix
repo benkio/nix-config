@@ -204,189 +204,194 @@ in
       bookmarks = {
         force = true;
         settings = [
-
           {
-            name = "Music";
+            name = "Bookmarks Toolbar";
             toolbar = true;
             bookmarks = [
 
               {
-                name = "Hacklily - Lilipond Editor";
-                url = "https://www.hacklily.org/";
+                name = "Music";
+                bookmarks = [
+
+                  {
+                    name = "Hacklily - Lilipond Editor";
+                    url = "https://www.hacklily.org/";
+                  }
+
+                  {
+                    name = "Pitch and Speed (Tempo) converter";
+                    url = "http://www.conversion-tool.com/pitch";
+                  }
+
+                  {
+                    name = "Transposr.com";
+                    url = "https://transposr.com/songs/new";
+                  }
+
+                  {
+                    name = "Metronome";
+                    url = "https://www.virtualsheetmusic.com/metronome/";
+                  }
+
+                  {
+                    name = "Guitar Tuner";
+                    url = "https://yousician.com/guitartuna";
+                  }
+
+                  {
+                    name = "LALAL.AI";
+                    url = "https://www.lalal.ai/";
+                  }
+
+                  {
+                    name = "FastStrings";
+                    url = "http://faststrings.com/";
+                  }
+
+                  {
+                    name = "Guitar Interactive - The Worlds' No.1 Free Digital Guitar Magazine";
+                    url = "https://www.guitarinteractivemagazine.com/";
+                  }
+
+                  {
+                    name = "Every Noise at Once - Music Genres Organized";
+                    url = "https://everynoise.com/engenremap.html";
+                  }
+
+                  {
+                    name = "Music Map - Discover Music Through Similar Artist";
+                    url = "https://www.music-map.com/";
+                  }
+                ];
               }
 
               {
-                name = "Pitch and Speed (Tempo) converter";
-                url = "http://www.conversion-tool.com/pitch";
+                name = "Dev Tools";
+                bookmarks = [
+
+                  {
+                    name = "Hyperpolyglot";
+                    url = "http://hyperpolyglot.org/";
+                  }
+
+                  {
+                    name = "DevDocs - Multi language documentation search engine";
+                    url = "https://devdocs.io/";
+                  }
+
+                  {
+                    name = "Excuses For Lazy Coders";
+                    url = "http://programmerexcuses.com/";
+                  }
+
+                  {
+                    name = "Internet Speed Test | Fast.com";
+                    url = "https://fast.com/";
+                  }
+
+                  {
+                    name = "Nix Versioning - Super useful to install the specific version you need";
+                    url = "https://lazamar.co.uk/nix-versions/";
+                  }
+                ];
               }
 
               {
-                name = "Transposr.com";
-                url = "https://transposr.com/songs/new";
+                name = "Downloads";
+                bookmarks = [
+
+                  {
+                    name = "Pirate Bay";
+                    url = "https://unblocked.knaben.info/thepiratebay.php";
+                  }
+
+                  {
+                    name = "xdcc.eu";
+                    url = "https://www.xdcc.eu";
+                  }
+
+                  {
+                    name = "Shadow Libraries";
+                    url = "https://shadowlibraries.github.io/";
+                  }
+
+                  {
+                    name = "FMHY - freemediaheckyeah The largest collection of free stuff on the internet!";
+                    url = "https://fmhy.net/";
+                  }
+                ];
               }
 
               {
-                name = "Metronome";
-                url = "https://www.virtualsheetmusic.com/metronome/";
+                name = "Educational";
+                bookmarks = [
+
+                  {
+                    name = "Wiki Gatcha - Wikipedia Pokemon Cards";
+                    url = "https://wikigacha.com";
+                  }
+                ];
               }
 
               {
-                name = "Guitar Tuner";
-                url = "https://yousician.com/guitartuna";
+                name = "Cloud Storage";
+                bookmarks = [
+
+                  {
+                    name = "TgStorage";
+                    url = "https://tgstorage.com/app";
+                  }
+
+                ];
               }
 
               {
-                name = "LALAL.AI";
-                url = "https://www.lalal.ai/";
+                name = "Japanese";
+                bookmarks = [
+
+                  {
+                    name = "Jisho - Japanese Dictionary";
+                    url = "https://flat.io/";
+                  }
+
+                  {
+                    name = "TTSHub - Text to Speech";
+                    url = "https://ttshub.net/";
+                  }
+
+                  {
+                    name = "Anki Web - Space Repetition Deck Cards";
+                    url = "https://ankiweb.net";
+                  }
+                ];
               }
 
               {
-                name = "FastStrings";
-                url = "http://faststrings.com/";
-              }
+                name = "Travel";
+                bookmarks = [
 
+                  {
+                    name = "Flight list Search Engine";
+                    url = "https://www.flightlist.io/";
+                  }
+
+                ];
+              }
               {
-                name = "Guitar Interactive - The Worlds' No.1 Free Digital Guitar Magazine";
-                url = "https://www.guitarinteractivemagazine.com/";
+                name = "Feed & Organization";
+                bookmarks = [
+
+                  {
+                    name = "FreshRSS";
+                    url = "https://feed.rssreader.eu/";
+                  }
+
+                  {
+                    name = "Organice";
+                    url = "https://organice.200ok.ch/files";
+                  }
+                ];
               }
-
-              {
-                name = "Every Noise at Once - Music Genres Organized";
-                url = "https://everynoise.com/engenremap.html";
-              }
-
-              {
-                name = "Music Map - Discover Music Through Similar Artist";
-                url = "https://www.music-map.com/";
-              }
-            ];
-          }
-
-          {
-            name = "Dev Tools";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Hyperpolyglot";
-                url = "http://hyperpolyglot.org/";
-              }
-
-              {
-                name = "DevDocs - Multi language documentation search engine";
-                url = "https://devdocs.io/";
-              }
-
-              {
-                name = "Excuses For Lazy Coders";
-                url = "http://programmerexcuses.com/";
-              }
-
-              {
-                name = "Internet Speed Test | Fast.com";
-                url = "https://fast.com/";
-              }
-
-              {
-                name = "Nix Versioning - Super useful to install the specific version you need";
-                url = "https://lazamar.co.uk/nix-versions/";
-              }
-            ];
-          }
-
-          {
-            name = "Downloads";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Pirate Bay";
-                url = "https://unblocked.knaben.info/thepiratebay.php";
-              }
-
-              {
-                name = "xdcc.eu";
-                url = "https://www.xdcc.eu";
-              }
-
-              {
-                name = "Shadow Libraries";
-                url = "https://shadowlibraries.github.io/";
-              }
-
-              {
-                name = "FMHY - freemediaheckyeah The largest collection of free stuff on the internet!";
-                url = "https://fmhy.net/";
-              }
-            ];
-          }
-
-          {
-            name = "Educational";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Wiki Gatcha - Wikipedia Pokemon Cards";
-                url = "https://wikigacha.com";
-              }
-            ];
-          }
-
-          {
-            name = "Cloud Storage";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "TgStorage";
-                url = "https://tgstorage.com/app";
-              }
-
-              {
-                name = "FreshRSS";
-                url = "https://feed.rssreader.eu/";
-              }
-
-              {
-                name = "Organice";
-                url = "https://organice.200ok.ch/files";
-              }
-            ];
-          }
-
-          {
-            name = "Japanese";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Jisho - Japanese Dictionary";
-                url = "https://flat.io/";
-              }
-
-              {
-                name = "TTSHub - Text to Speech";
-                url = "https://ttshub.net/";
-              }
-
-              {
-                name = "Anki Web - Space Repetition Deck Cards";
-                url = "https://ankiweb.net";
-              }
-            ];
-          }
-
-          {
-            name = "Other";
-            toolbar = true;
-            bookmarks = [
-
-              {
-                name = "Flight list Search Engine";
-                url = "https://www.flightlist.io/";
-              }
-
             ];
           }
         ];
