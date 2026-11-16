@@ -19,7 +19,7 @@
       SBT_NATIVE_CLIENT = "true";
       PGDATA = "${config.home.homeDirectory}/postgresDataDir";
       XDG_CURRENT_DESKTOP = "GNOME"; # To trick some app to work on i3 alone, eg gnome-control-center
-      SOPS_AGE_KEY_FILE="${config.home.homeDirectory}/.config/sops/age/keys.txt" # Tell `sops` where the keys are
+      SOPS_AGE_KEY_FILE="${config.home.homeDirectory}/.config/sops/age/keys.txt"; # Tell `sops` where the keys are
     };
     stateVersion = "26.05";
     username = "benkio";
