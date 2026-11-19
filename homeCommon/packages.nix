@@ -23,9 +23,20 @@ let
       '')
     else
       pkgs.ariang;
+  allium-cli = pkgs.rustPlatform.buildRustPackage rec {
+    pname = "allium-cli";
+    version = "3.7.2";
+    src = pkgs.fetchCrate {
+      inherit pname version;
+      hash = "sha256-XUinwaie0WR2Ab9zAB6R0gCVR+1Tn6sehrQpMISczIY=";
+    };
+    cargoHash = "sha256-kokCayE7BhMmdd+sFVUpK7aKjBZpR4IOQp6oQvyHY0g=";
+    doCheck = false; # crate tarball lacks the test fixtures
+  };
 in
 {
   home.packages = with pkgs; [
+    allium-cli # Allium spec language CLI
     ariangLauncher # Web UI for aria2 downloads
     aspell # Spelling checker
     aspellDicts.en # Spelling checker Dictionary
