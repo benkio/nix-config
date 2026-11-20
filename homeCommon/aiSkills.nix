@@ -3,6 +3,12 @@
 let
   # Shared Agent Skills source pins (Cursor + OpenCode via SKILL.md format).
   sources = {
+    alliumSkill = pkgs.fetchFromGitHub {
+      owner = "juxt";
+      repo = "allium";
+      rev = "7f615cef94a189bc4153b3f510517a71220d5fe2";
+      sha256 = "sha256-Du3WQ9UnOc0lzvFIfjvxzzxucSFz0d9c2EpxVzBuYa8=";
+    };
     scalaSkill = pkgs.fetchFromGitHub {
       owner = "VirtusLab";
       repo = "scala-skill";
@@ -30,6 +36,7 @@ let
   };
 
   skills = {
+    allium = "${sources.alliumSkill}/skills/allium";
     direct-style-scala = "${sources.scalaSkill}/direct-style-scala/skills/direct-style-scala";
     effect-ts = "${sources.effectTsSkill}/skills/effect-ts";
     fp-pragmatic = "${sources.fpTsSkill}/skills/fp-pragmatic";
