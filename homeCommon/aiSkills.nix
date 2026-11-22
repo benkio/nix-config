@@ -48,20 +48,82 @@ let
     ".cursor/skills"
     ".config/opencode/skills"
   ];
+
+  # Allium ships Anthropic-style skills. OpenCode exposes those through its
+  # `skill` tool, but not as slash commands. These thin wrappers make the
+  # documented /allium, /elicit, /distill, ... names appear in the command palette.
+  alliumCommands = {
+    allium = {
+      description = "Drive the Allium loop to convergence";
+      skill = "allium";
+      instruction = "Drive the Allium loop to convergence for this goal:";
+    };
+    elicit = {
+      description = "Build an Allium spec through structured elicitation";
+      skill = "elicit";
+      instruction = "Use structured elicitation to build or refine an Allium spec from this request:";
+    };
+    distill = {
+      description = "Extract an Allium spec from existing code";
+      skill = "distill";
+      instruction = "Extract an Allium spec from this codebase area:";
+    };
+    propagate = {
+      description = "Generate tests from an Allium spec";
+      skill = "propagate";
+      instruction = "Generate tests from the current Allium specification. Constraints:";
+    };
+    tend = {
+      description = "Make targeted edits to Allium specs";
+      skill = "tend";
+      instruction = "Make targeted changes to the Allium specs for this request:";
+    };
+    weed = {
+      description = "Find and fix spec/code drift";
+      skill = "weed";
+      instruction = "Find and reconcile divergences between Allium specs and the implementation. Focus:";
+    };
+    witness = {
+      description = "Independently verify a convergence claim";
+      skill = "witness";
+      instruction = "Independently witness the convergence claim for this work:";
+    };
+  };
+
+  alliumCommandFiles = builtins.listToAttrs (
+    builtins.attrValues (
+      builtins.mapAttrs (name: command: {
+        name = ".config/opencode/commands/${name}.md";
+        value = {
+          text = ''
+            ---
+            description: ${command.description}
+            ---
+
+            Load the `${command.skill}` skill with the `skill` tool before responding. ${command.instruction}
+
+            $ARGUMENTS
+          '';
+        };
+      }) alliumCommands
+    )
+  );
 in
 {
-  home.file = builtins.listToAttrs (
-    builtins.concatMap (
-      root:
-      builtins.attrValues (
-        builtins.mapAttrs (skillName: sourcePath: {
-          name = "${root}/${skillName}";
-          value = {
-            source = sourcePath;
-            recursive = true;
-          };
-        }) skills
-      )
-    ) installRoots
-  );
+  home.file =
+    (builtins.listToAttrs (
+      builtins.concatMap (
+        root:
+        builtins.attrValues (
+          builtins.mapAttrs (skillName: sourcePath: {
+            name = "${root}/${skillName}";
+            value = {
+              source = sourcePath;
+              recursive = true;
+            };
+          }) skills
+        )
+      ) installRoots
+    ))
+    // alliumCommandFiles;
 }
