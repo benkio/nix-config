@@ -15,6 +15,7 @@
     ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
     ./emacs.nix
+    ./japanese.nix
     ./packages.nix
     ./work.nix
     ../../homeCommon/bobPaintings.nix

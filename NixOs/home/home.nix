@@ -16,6 +16,7 @@
     ../../homeCommon/programs/floorp.nix
     ../../homeCommon/programs/programs.nix
     ./emacs.nix
+    ./japanese.nix
     ./packages.nix
     ./programs/programs.nix
     ./sway.nix

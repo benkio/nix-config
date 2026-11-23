@@ -248,6 +248,25 @@ git branch -D fetchgit
 # Run generation of treesitter grammars
 #+end_src
 
+** Japanese input
+
+Japanese input is configured on both platforms while keeping Dvorak for
+romaji/hiragana:
+
+- NixOS: fcitx5 + Mozc, with ~us-dvorak~ as both the XKB layout and the Mozc
+  romaji layout. fcitx5 starts inactive, so normal typing stays Dvorak English.
+- macOS: the built-in ~Japanese – Romaji~ input source, with its romaji layout
+  pinned to Dvorak.
+
+Toggle Japanese input with ~Ctrl+Shift+Space~ on both platforms. ~Ctrl+Space~
+and ~Mod4+Space~ are deliberately not used.
+
+On macOS, run ~home-manager switch~; the activation enables the input source,
+sets the romaji layout and installs the hotkey. Log out and back in before the
+hotkey and input source appear in the input menu. If the source is still
+missing, add ~Japanese – Romaji~ once in System Settings → Keyboard → Input
+Sources.
+
 ** [Mac Only] Work setup
 
 Review the two ~work.nix~ files (macOS and NixOS) for workplace-specific settings:
