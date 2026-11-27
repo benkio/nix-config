@@ -38,6 +38,7 @@ in
         darkreader
         grammarly
         ublock-origin
+        sponsorblock
         vimium
       ];
       search = {
